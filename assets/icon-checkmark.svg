@@ -1,0 +1,9 @@
+<svg width="14px" height="10px" viewBox="0 0 14 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.745651972">
+        <g id="collection1" transform="translate(-549.000000, -3304.000000)" stroke="#FFFFFF" stroke-width="1.5">
+            <g id="newsletter" transform="translate(1.000000, 3064.000000)">
+                <polyline id="icon-checkmark" transform="translate(555.000000, 245.000000) rotate(-360.000000) translate(-555.000000, -245.000000) " points="549 245.003938 552.997374 249 561 241"></polyline>
+            </g>
+        </g>
+    </g>
+</svg>

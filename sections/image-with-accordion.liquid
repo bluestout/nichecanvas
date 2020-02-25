@@ -1,0 +1,212 @@
+  <div class="main-collection">
+    <div class="back-bg" style="background-image:url({{section.settings.image | img_url: 'original'}});"></div>
+    <div class="litle">
+      <h3>{{section.settings.title}}</h3>
+      <p>{{section.settings.content}}</p>	
+    </div>
+    <img class="mobImg" alt="Image" title="image" src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/bg.png">
+
+    <div class="page-width">
+      <div class="right-section">
+        <div class="title-forst">
+          <h2>{{section.settings.title_2}}</h2>
+          <p>{{section.settings.content_2}}</p>	
+        </div>
+
+        {% include "section-accordion" %}
+
+      </div>
+      <div class="mCbutton"><a href="{{section.settings.button_link}}">{{section.settings.btn_text}}</a></div>
+    </div>
+  </div>
+
+
+{% schema %}
+{
+"name": "Image With Content",
+"class": "ImageAccordion",
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": {
+"da": "Background Image",
+"de": "Background Image",
+"en": "Background Image"
+}
+},
+{
+"type": "text",
+"id": "title",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Heading"
+},
+"default": {
+"da": "Billede med tekst",
+"de": "Foto mit Text",
+"en": "Image with text"
+}
+},
+{
+"type": "textarea",
+"id": "content",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Content"
+},
+"default": {
+"da": "Billede med tekst",
+"de": "Foto mit Text",
+"en": "Image with text"
+}
+},
+{
+"type": "text",
+"id": "title_2",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Heading 2"
+},
+"default": {
+"da": "Billede med tekst",
+"de": "Foto mit Text",
+"en": "Image with text"
+}
+},
+{
+"type": "textarea",
+"id": "content_2",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Content"
+},
+"default": {
+"da": "Billede med tekst",
+"de": "Foto mit Text",
+"en": "Image with text"
+}
+},
+{
+"type": "text",
+"id": "Accheading_1",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Title"
+},
+"default": {
+"da": "Billede med tekst",
+"de": "Foto mit Text",
+"en": "Image with text"
+}
+},
+{
+"type": "textarea",
+"id": "Acccontent_1",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Description"
+},
+"default": {
+"da": "Billede med tekst",
+"de": "Foto mit Text",
+"en": "Image with text"
+}
+},
+{
+"type": "text",
+"id": "Accheading_2",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Title"
+},
+"default": {
+"da": "Billede med tekst",
+"de": "Foto mit Text",
+"en": "Image with text"
+}
+},
+{
+"type": "textarea",
+"id": "Acccontent_2",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Description"
+},
+"default": {
+"da": "Billede med tekst",
+"de": "Foto mit Text",
+"en": "Image with text"
+}
+},
+{
+"type": "text",
+"id": "btn_text",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Button Text"
+},
+"default": {
+"da": "Billede med tekst",
+"de": "Foto mit Text",
+"en": "explore collection"
+}
+},
+{
+"type": "url",
+"id": "button_link",
+"label": {
+"da": "Knaplink",
+"de": "Button-Link",
+"en": "Button link",
+"es": "Enlace de la diapositiva",
+"fi": "Painikkeen linkki",
+"fr": "Lien du bouton",
+"hi": "बटन लिंक",
+"it": "Link slide",
+"ja": "スライドリンク",
+"ko": "버튼 링크",
+"ms": "Pautan butang",
+"nb": "Kobling for knapp",
+"nl": "Knoplink",
+"pt-BR": "Link do slide",
+"pt-PT": "Ligação do botão",
+"sv": "Knapplänk",
+"th": "ลิงก์ของปุ่ม",
+"zh-CN": "按钮链接",
+"zh-TW": "按鈕連結"
+}
+}
+
+],
+"presets": [
+{
+"name": {
+"da": "Image With Content",
+"de": "Image With Content",
+"en": "Image With Content"
+},
+"category": {
+"da": "Text",
+"de": "Text",
+"en": "Text"
+}
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

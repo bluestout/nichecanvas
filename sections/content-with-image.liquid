@@ -1,0 +1,90 @@
+<div class="PortClcn">
+  <div class="pcLft">
+      <h2>{{section.settings.title}}</h2>
+      <p>{{section.settings.subtitle}}</p>
+      <a href="#" class="cstPcln">Explore collection</a>
+  </div>
+  <div class="pcRight">
+    <span class="hndmade"><img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-us-flag.svg"> {{section.settings.content}}</span>
+    <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/promo-collection-new1.png" alt="Img" title="Img">
+  </div>
+</div>
+{% schema %}
+{
+"name": "Section name",
+"class":  "CotentImage",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Heading"
+},
+"default": {
+"da": "Tilpasset indhold",
+"de": "Personalisierter Content",
+"en": "Custom content"
+}
+},
+{
+"type": "text",
+"id": "subtitle",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Sub Heading"
+},
+"default": {
+"da": "Tilpasset indhold",
+"de": "Personalisierter Content",
+"en": "Custom content"
+}
+},
+{
+"type": "textarea",
+"id": "content",
+"label": {
+"da": "Overskrift",
+"de": "content",
+"en": "Content"
+},
+"default": {
+"da": "Tilpasset indhold",
+"de": "Personalisierter Content",
+"en": "Custom content"
+}
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": {
+"da": "Billede",
+"de": "Foto",
+"en": "Image"
+}
+}
+],
+"presets": [
+{
+"name": {
+"da": "Content WIth Image",
+"de": "Content WIth Image",
+"en": "Content WIth Image"
+},
+"category": {
+"da": "Billede",
+"de": "Foto",
+"en": "Image"
+}
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

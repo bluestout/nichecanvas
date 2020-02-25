@@ -1,0 +1,38 @@
+
+<div class="MobFtrLogoCnt">
+  <img src="//cdn.shopify.com/s/files/1/2012/8501/files/logo-nichecanvas-bk_250x.png?v=1581923360" alt="image" title="image">
+</div> 
+<div id="accordionFooter">
+  {%- for block in section.blocks -%}
+  {% unless forloop.index == 2 or forloop.index == 3 %}
+  {%- if block.settings.title -%}
+  <h3>{{block.settings.title}}</h3>
+  {%endif%}
+  {%- case block.type -%}
+  {%- when 'text' -%}
+  <div>
+    {{ block.settings.text }}
+  </div>
+
+  {%- when 'link_list' -%}
+  <div>
+    {%- when 'link_list' -%}
+    {%- assign footer_linklist = block.settings.menu -%}
+    <ul class="site-footer__linklist
+               {% if inline_list %}list--inline{% endif %}">
+      {%- for link in linklists[footer_linklist].links -%}
+      <li class="site-footer__linklist-item">
+        <a href="{{ link.url }}"
+           {% if link.current %} aria-current="page"{% endif %}
+           >
+          {{ link.title | escape }}
+        </a>
+      </li>
+      {%- endfor -%}
+    </ul>
+    
+  </div>
+  {%- endcase -%}
+  {%endunless%}
+  {%endfor%}
+</div>

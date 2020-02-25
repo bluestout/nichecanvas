@@ -1,0 +1,278 @@
+<section id="unique">
+  <div class="main-unique-sec">
+    <div class="page-width">
+      <div class="unique-title">
+        <h3>{{section.settings.section_title}}</h3>
+        <p>{{section.settings.section_subtitle}}</p>
+        <a href="{{section.settings.collection_link}}">All collection<svg width="36px" height="9px" viewBox="0 0 36 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="home-v1" transform="translate(-1525.000000, -1303.000000)">
+              <g id="arrow-copy-4" transform="translate(1525.000000, 1303.000000)">
+                <polygon id="arrow" fill="#000000" points="31 9 36 4.50625 31.0046468 0"></polygon>
+                <line x1="31.5" y1="4.5" x2="0.5" y2="4.5" id="Line-2" stroke="#000000" stroke-linecap="square"></line>
+              </g>
+            </g>
+          </g>
+          </svg></a>
+      </div>
+      <div class="unique-contact">
+        <div class="unique-left-sec">
+          {% for block in section.blocks %}
+          {%if forloop.first %}
+          <div class="unique-left-sec-first-left">
+            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Cars">
+            <div class="uChvrBtn" >
+              <p>{{ block.settings.Title}}</p>
+              <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
+            </div>
+            <p class="muCtxT">{{ block.settings.Title}}</p>
+          </div>
+          {%endif%}
+          {%if forloop.index == 2 %}
+          <div class="unique-left-sec-first-right">
+            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Flowers">
+            <div class="uChvrBtn" >
+              <p>{{ block.settings.Title}}</p>
+              <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
+            </div>
+            <p class="muCtxT">{{ block.settings.Title}}</p>
+          </div>
+          {%endif%}
+          {%if forloop.index == 3 %}
+          <div class="unique-left-sec-over-main">
+            <img src="{{ block.settings.image | img_url: "large"}}" alt="Image" title="Landscape">
+            <div class="uChvrBtn" >
+              <p>{{ block.settings.Title}}</p>
+              <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
+            </div>
+            <p class="muCtxT">{{ block.settings.Title}}</p>
+          </div>
+          {%endif%}
+          {%endfor%}
+        </div>
+        <div class="unique-center-sec">
+          {% for block in section.blocks %}
+          {%if forloop.index == 4 or forloop.index == 5 or forloop.index == 6  %}
+          <div class="unique-left-sec-first">
+            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Love">
+            <div class="uChvrBtn" >
+              <p>{{ block.settings.Title}}</p>
+              <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
+            </div>
+            <p class="muCtxT">{{ block.settings.Title}}</p>
+          </div>
+          {%endif%}
+          {%endfor%}
+        </div>
+        <div class="unique-right-sec">
+          {% for block in section.blocks %}
+          {%if forloop.index == 7 %}
+          <div class="unique-left-sec-over-main">
+            <img src="{{ block.settings.image | img_url: "large"}}" alt="Image" title="Space">
+            <div class="uChvrBtn" >
+              <p>{{ block.settings.Title}}</p>
+              <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
+            </div>
+            <p class="muCtxT">{{ block.settings.Title}}</p>
+          </div>
+          {%endif%}
+          {%if forloop.index == 8 %}
+          <div class="unique-left-sec-first-left">
+            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Animal">
+            <div class="uChvrBtn" >
+              <p>{{ block.settings.Title}}</p>
+              <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
+            </div>
+            <p class="muCtxT">{{ block.settings.Title}}</p>
+          </div>
+          {%endif%}
+          {%if forloop.index == 9 %}
+          <div class="unique-left-sec-first-right">
+            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Hindu Gods">
+            <div class="uChvrBtn" >
+              <p>{{ block.settings.Title}}</p>
+              <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
+            </div>
+            <p class="muCtxT">{{ block.settings.Title}}</p>
+          </div>
+          {%endif%}
+          {%endfor%}
+        </div>
+
+        <div class="unique-bottom-sec">
+          {% for block in section.blocks %}
+          {% unless forloop.index == 1 or forloop.index == 2 or forloop.index == 3 or forloop.index == 4 or forloop.index == 5 or forloop.index == 6 or forloop.index == 7 or forloop.index == 8 or forloop.index == 9%}
+          {% if forloop.last%} 
+
+          <div class="unique-btm-main LastViewGrid">
+            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Space">
+            <div class="uChvrAll" >
+              <a href="#">Explore 30+ collections <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/arrow_copy_4.svg"> </a>
+            </div>
+          </div>
+
+          {%else%}
+          <div class="unique-btm-main">
+            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Space">
+            <div class="uChvrBtn" >
+              <p>{{ block.settings.Title}}</p>
+              <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
+            </div>
+            <p class="muCtxT">{{ block.settings.Title}}</p>
+          </div>
+          {%endif%}
+          {%endunless%}
+          {%endfor%}
+        </div>
+
+      </div>
+      <div class="MobileMasnoryLink">
+        <a href="{{section.settings.collection_link}}">All Collections</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+"name": "Masonry Grid",
+"class":"Custmasonry",
+"max_blocks": 30,
+"settings": [
+{
+"type": "text",
+"id": "section_title",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Heading"
+},
+"default": {
+"da": "Fortæl om dit brand",
+"de": "Reden Sie über Ihre Marke",
+"en": "Talk about your brand"
+}
+},
+{
+"type": "text",
+"id": "section_subtitle",
+"label": {
+"da": "Overskrift",
+"de": "Sub Titel",
+"en": "Sub Heading"
+},
+"default": {
+"da": "Fortæl om dit brand",
+"de": "Reden Sie über Ihre Marke",
+"en": "Talk about your brand"
+}
+},
+{
+"type": "url",
+"id": "collection_link",
+"label": {
+"da": "Collection link",
+"de": "Collection link",
+"en": "Collection link"
+}
+}
+],
+"blocks": [
+{
+"type": "Image",
+"name": {
+"da": "Image",
+"de": "Image",
+"en": "Image"
+},
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": {
+"da": "Billede",
+"de": "Foto",
+"en": "Image"
+}
+},
+{
+"type": "text",
+"id": "Title",
+"label": {
+"da": "Title",
+"de": "Title",
+"en": "Title"
+},
+"default": {
+"da": "Title",
+"de": "Title",
+"en": "Title"
+}
+},
+{
+"type": "text",
+"id": "btntext",
+"label": {
+"da": "Button Text",
+"de": "Button Text",
+"en": "Button Text"
+},
+"default": {
+"da": "Button Text",
+"de": "Button Text",
+"en": "Button Text"
+}
+},
+{
+"type": "url",
+"id": "link",
+"label": {
+"da": "Link",
+"de": "Link",
+"en": "Link"
+},
+"info": {
+"da": "Valgfri",
+"de": "Optional",
+"en": "Optional"
+}
+}
+]
+}
+],
+"presets": [
+{
+"name": {
+"da": "Masonry Grid",
+"de": "Masonry Grid",
+"en": "Masonry Grid"
+},
+"category": {
+"da": "Tekst",
+"de": "Text",
+"en": "Text"
+},
+"blocks": [
+{
+"type": "Image"
+},
+{
+"type": "Image"
+},
+{
+"type": "Image"
+},
+{
+"type": "Image"
+}
+]
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
