@@ -794,6 +794,29 @@
     ]
   },
   {
+    "name": "Contact Detail",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Contact Number"
+      },
+      {
+        "type": "text",
+        "id": "number",
+        "label": {
+          "da": "Number",
+          "de": "Number",
+          "en": "Number"
+        },
+        "info": {
+          "da": "1-833-2CANVAS",
+          "de": "1-833-2CANVAS",
+          "en": "1-833-2CANVAS"
+        }
+      }
+    ]
+  },
+  {
     "name": {
       "da": "Sociale medier",
       "de": "Social Media",

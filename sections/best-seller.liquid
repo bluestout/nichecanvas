@@ -1,0 +1,209 @@
+{%- assign collection = collections[section.settings.collection] -%}
+<div class="bestSeller">
+ {% if section.settings.title != blank %}
+  <div class="section-header text-center">
+    <h2>{{ section.settings.title | escape }}</h2>
+    <div class="subcontent">
+      <p class="subheading">{{section.settings.subtitle}}</p>
+    
+      <a href="{{collection.url}}">See All <svg width="36px" height="9px" viewBox="0 0 36 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="home-v1" transform="translate(-1525.000000, -1303.000000)">
+            <g id="arrow-copy-4" transform="translate(1525.000000, 1303.000000)">
+              <polygon id="arrow" fill="#000000" points="31 9 36 4.50625 31.0046468 0"></polygon>
+              <line x1="31.5" y1="4.5" x2="0.5" y2="4.5" id="Line-2" stroke="#000000" stroke-linecap="square"></line>
+            </g>
+          </g>
+        </g>
+        </svg>
+      </a>
+    
+    </div>
+  </div>
+  {% endif %}
+
+
+
+  {% case section.settings.grid %}
+  {% when 2 %}
+  {%- assign max_height = 530 -%}
+  {%- assign grid_item_width = 'medium-up--one-half' -%}
+  {% when 3 %}
+  {%- assign max_height = 345 -%}
+  {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
+  {% when 4 %}
+  {%- assign max_height = 250 -%}
+  {%- assign grid_item_width = 'small--one-half medium-up--one-quarter' -%}
+  {% when 5 %}
+  {%- assign max_height = 195 -%}
+  {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
+  {% endcase %}
+
+  {%- assign product_limit = section.settings.grid | times: section.settings.rows -%}
+
+  <ul class="grid grid--uniform grid--view-items">
+    {% for product in collection.products limit: product_limit %}
+    <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+      {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+    </li>
+    {% else %}
+
+    {% for i in (1..product_limit) %}
+    <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+      <div class="grid-view-item product-card">
+        <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="#">
+          <span class="visually-hidden">{{ 'homepage.onboarding.product_title' | t }}</span>
+        </a>
+        <div class="grid-view-item__image-wrapper">
+          {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+          {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+        </div>
+        <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
+        {% include 'product-price' %}
+      </div>
+    </li>
+    {% endfor %}
+    {% endfor %}
+  </ul>
+  
+  <div class="cstVall">
+    <a href="/collections/best-sellers-1" aria-label="View all products in the Best Sellers collection">
+      View all <svg width="36px" height="9px" viewBox="0 0 36 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="home-v1" transform="translate(-1525.000000, -1303.000000)">
+            <g id="arrow-copy-4" transform="translate(1525.000000, 1303.000000)">
+              <polygon id="arrow" fill="#000000" points="31 9 36 4.50625 31.0046468 0"></polygon>
+              <line x1="31.5" y1="4.5" x2="0.5" y2="4.5" id="Line-2" stroke="#000000" stroke-linecap="square"></line>
+            </g>
+          </g>
+        </g>
+        </svg>
+    </a>
+  </div>
+  
+</div>
+{% schema %}
+  {
+    "name": "Best Seller",
+"class": "pageBestsel",
+    "settings": [
+{
+"type": "text",
+"id": "title",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Heading"
+},
+"default": {
+"da": "Udvalgt kollektion",
+"de": "Featured Kategorie",
+"en": "Featured collection"
+}
+},
+{
+"type": "text",
+"id": "subtitle",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Sub Heading"
+},
+"default": {
+"da": "Udvalgt kollektion",
+"de": "Featured Kategorie",
+"en": "Featured collection"
+}
+},
+{
+"id": "collection",
+"type": "collection",
+"label": {
+"da": "Kollektion",
+"de": "Kategorie",
+"en": "Collection",
+"es": "Colección",
+"fi": "Kokoelma",
+"fr": "Collection",
+"hi": "कलेक्शन",
+"it": "Collezione",
+"ja": "コレクション",
+"ko": "컬렉션",
+"ms": "Koleksi",
+"nb": "Samling",
+"nl": "Collectie",
+"pt-BR": "Coleção",
+"pt-PT": "Coleção",
+"sv": "Produktserie",
+"th": "คอลเลกชัน",
+"zh-CN": "收藏",
+"zh-TW": "商品系列"
+}
+},{
+"type": "range",
+"id": "grid",
+"label": {
+"da": "Produkter pr. række",
+"de": "Produkte per Reihe",
+"en": "Products per row",
+"es": "Productos por fila",
+"fi": "Tuotteita per rivi",
+"fr": "Produits par rangée",
+"hi": "प्रति पंक्ति उत्पाद",
+"it": "Prodotti per riga",
+"ja": "行あたりの商品数",
+"ko": "열 별 제품",
+"ms": "Produk setiap baris",
+"nb": "Produkter per rad",
+"nl": "Producten per rij",
+"pt-BR": "Produtos por linha",
+"pt-PT": "Produtos por linha",
+"sv": "Produkter per rad",
+"th": "สินค้าต่อแถว",
+"zh-CN": "每行产品数",
+"zh-TW": "每列產品數"
+},
+"min": 2,
+"max": 5,
+"step": 1,
+"default": 3
+},
+{
+"type": "range",
+"id": "rows",
+"label": {
+"da": "Rækker",
+"de": "Reihen",
+"en": "Rows",
+"es": "Filas",
+"fi": "Rivit",
+"fr": "Rangées",
+"hi": "पंक्ति",
+"it": "Righe",
+"ja": "行",
+"ko": "열",
+"ms": "Baris",
+"nb": "Rader",
+"nl": "Rijen",
+"pt-BR": "Linhas",
+"pt-PT": "Linhas",
+"sv": "Rader",
+"th": "แถว",
+"zh-CN": "行数",
+"zh-TW": "列"
+},
+"min": 1,
+"max": 5,
+"step": 1,
+"default": 2
+}
+
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

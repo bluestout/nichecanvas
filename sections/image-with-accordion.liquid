@@ -1,10 +1,10 @@
   <div class="main-collection">
-    <div class="back-bg" style="background-image:url({{section.settings.image | img_url: 'original'}});"></div>
+    <div class="back-bg" style="background-image:url({{section.settings.image | img_url: '650x600'}});"></div>
     <div class="litle">
       <h3>{{section.settings.title}}</h3>
       <p>{{section.settings.content}}</p>	
     </div>
-    <img class="mobImg" alt="Image" title="image" src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/bg.png">
+    <img class="mobImg" alt="Image" title="image" src="{{section.settings.image_mob | img_url: '650x600'}}">
 
     <div class="page-width">
       <div class="right-section">
@@ -30,10 +30,29 @@
 "type": "image_picker",
 "id": "image",
 "label": {
-"da": "Background Image",
-"de": "Background Image",
-"en": "Background Image"
-}
+"da": "Image For Desktop",
+"de": "Image For Desktop",
+"en": "Image For Desktop"
+},
+ "info": {
+          "da": "650 x 600px .png recommended",
+          "de": "650 x 600px .png recommended",
+          "en": "650 x 600px .png recommended"
+        }
+},
+{
+"type": "image_picker",
+"id": "image_mob",
+"label": {
+"da": "Image For Mobile",
+"de": "Image For Mobile",
+"en": "Image For Mobile"
+},
+ "info": {
+          "da": "650 x 600px .png recommended",
+          "de": "650 x 600px .png recommended",
+          "en": "650 x 600px .png recommended"
+        }
 },
 {
 "type": "text",

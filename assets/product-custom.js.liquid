@@ -1,0 +1,96 @@
+$(document).ready(function(){
+   console.log("testingnewone"); 
+  /***********************SHIPPING CHANGE ON BASES OF IP ************************/
+  $.getJSON('https://ipapi.co/json/', function(data) {
+  var codeget = (JSON.stringify(data.country_code));
+
+    if(codeget == '"US"'){
+    $(".Unitedworld").show();
+    }
+    else if(codeget == '"GB"'){
+    $(".Unitedworld").show();
+    }
+    else if(codeget == '"CA"'){
+    $(".Unitedworld").show();
+    }
+    else if(codeget == '"AU"'){
+    $(".Unitedworld").show();
+    }
+    else if(codeget == '"EU"'){
+    $(".Europeworld").show();
+    }
+    else{
+    $(".Restworld").show();
+    }
+});
+  
+  
+  
+var height =  $(".cstAddCartBuy").offset();
+  var HdHeight = ($("#shopify-section-header").height());
+  var CartHeight = ((height).top-HdHeight);
+  if ($(window).width() < 749) {
+ $(window).scroll(function() {
+ if ($(this).scrollTop() >= CartHeight) { // this refers to window
+      $("body").addClass("FixedCart");
+    }
+   else{
+   $("body").removeClass("FixedCart");
+   }
+ })
+  }
+  $(".FixedBox").change(function(){
+  var selectedVal = $(this).val();
+    $('.CustomSize .swatch-element').each(function(){
+     var Valueget =  $(this).attr("data-value");
+     if(Valueget == selectedVal)
+     {
+      $(this).children("input").trigger("click");
+       var PriceHtml = $(".product-single__meta .product__price").html();
+       $(".product__price.ScrollPrice").html(PriceHtml);
+     }
+   })
+  })
+    $(".CustomIndexing_1  .swatch-element label").mouseenter(function(){
+  var GetContent = $(this).next(".HoverWrapper").children(".GetHover").html();
+    $(".hoverWrapper").addClass("FirstPosition");
+    $(".hoverWrapper").html(GetContent);
+    $(".hoverWrapper").show();
+    
+  })
+  $(".CustomIndexing_1  .swatch-element label").mouseleave(function(){
+   $(".hoverWrapper").hide();
+    $(".hoverWrapper").removeClass("FirstPosition");
+   $(".hoverWrapper").html("");
+  })
+   $(".CustomIndexing_2  .swatch-element label").mouseenter(function(){
+  var GetContent = $(this).next(".HoverWrapper").children(".GetHover").html();
+     $(".hoverWrapper").addClass("SecondPosition");
+    $(".hoverWrapper").html(GetContent);
+    $(".hoverWrapper").show();
+  })
+  $(".CustomIndexing_2  .swatch-element label").mouseleave(function(){
+   $(".hoverWrapper").hide();
+    $(".hoverWrapper").removeClass("SecondPosition");
+   $(".hoverWrapper").html("");
+  })
+  if ($(window).width() > 750) {
+  $('.product-single__thumbnails').slick({
+  infinite: true,
+  slidesToShow: 7,
+  slidesToScroll: 1
+});
+  }
+  jQuery(function() {
+  jQuery('.swatch :radio').change(function() {
+    var optionIndex = jQuery(this).closest('.swatch').attr('data-option-index');
+    var optionValue = jQuery(this).val();
+    jQuery(this)
+      .closest('form')
+      .find('.single-option-selector')
+      .eq(optionIndex)
+      .val(optionValue)
+      .trigger('change');
+  });
+});
+})

@@ -2,11 +2,11 @@
   <div class="pcLft">
       <h2>{{section.settings.title}}</h2>
       <p>{{section.settings.subtitle}}</p>
-      <a href="#" class="cstPcln">Explore collection</a>
+      <a href="{{section.settings.button_link}}" class="cstPcln">{{section.settings.btn_text}}</a>
   </div>
   <div class="pcRight">
     <span class="hndmade"><img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-us-flag.svg"> {{section.settings.content}}</span>
-    <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/promo-collection-new1.png" alt="Img" title="Img">
+    <img src="{{section.settings.image | img_url: "900x400"}}" alt="Img" title="Img">
   </div>
 </div>
 {% schema %}
@@ -57,13 +57,57 @@
 }
 },
 {
+"type": "text",
+"id": "btn_text",
+"label": {
+"da": "Button Text",
+"de": "Button Text",
+"en": "Button Text"
+},
+"default": {
+"da": "Explore collection",
+"de": "Explore collection",
+"en": "Explore collection"
+}
+},
+{
+"type": "url",
+"id": "button_link",
+"label": {
+"da": "Knaplink",
+"de": "Button-Link",
+"en": "Button link",
+"es": "Enlace de la diapositiva",
+"fi": "Painikkeen linkki",
+"fr": "Lien du bouton",
+"hi": "बटन लिंक",
+"it": "Link slide",
+"ja": "スライドリンク",
+"ko": "버튼 링크",
+"ms": "Pautan butang",
+"nb": "Kobling for knapp",
+"nl": "Knoplink",
+"pt-BR": "Link do slide",
+"pt-PT": "Ligação do botão",
+"sv": "Knapplänk",
+"th": "ลิงก์ของปุ่ม",
+"zh-CN": "按钮链接",
+"zh-TW": "按鈕連結"
+}
+},
+{
 "type": "image_picker",
 "id": "image",
 "label": {
 "da": "Billede",
 "de": "Foto",
 "en": "Image"
-}
+},
+ "info": {
+          "da": "900 x 400px .png recommended",
+          "de": "900 x 400px .png recommended",
+          "en": "900 x 400px .png recommended"
+        }
 }
 ],
 "presets": [

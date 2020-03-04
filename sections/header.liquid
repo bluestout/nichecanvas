@@ -64,7 +64,6 @@
       {% unless linklists[section.settings.main_linklist] == blank %}
       <button type="button" class="btn--link site-header__icon site-header__menu CustomMMenu" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
         {% include 'icon-hamburger' %}
-
       </button>
       {% endunless %}
       {% if section.settings.align_logo == 'center' %}
@@ -145,8 +144,20 @@
         <div class="site-header__icons-wrapper">
 
           <span class="site-header__cnvs">1-833-CANVAS</span>
+          
+                  <div class="cstSrchMob">
+          <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top">
+            {% include 'icon-search' %}
+            <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
+                    </button></div>
 
 
+          <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top">
+            {% include 'icon-search' %}
+            <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
+          </button>
+          
+          
           {% if shop.customer_accounts_enabled %}
           {% if customer %}
           <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
@@ -160,6 +171,7 @@
           </a>
           {% endif %}
           {% endif %}
+          
 
           <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
             {% include 'icon-cart' %}
@@ -470,6 +482,46 @@
 "zh-TW": "選單"
 },
 "default": "main-menu"
+},
+{
+"type": "image_picker",
+"id": "mega_img_1",
+"label": {
+"da": "Mega Menu Image 1",
+"de": "Mega Menu Image 1",
+"en": "Mega Menu Image 1",
+"es": "Logotipo"
+}
+},
+{
+"type": "image_picker",
+"id": "mega_img_2",
+"label": {
+"da": "Mega Menu Image 2",
+"de": "Mega Menu Image 2",
+"en": "Mega Menu Image 2",
+"es": "Logotipo"
+}
+},
+{
+"type": "image_picker",
+"id": "mega_img_3",
+"label": {
+"da": "Mega Menu Image 3",
+"de": "Mega Menu Image 3",
+"en": "Mega Menu Image 3",
+"es": "Logotipo"
+}
+},
+{
+"type": "image_picker",
+"id": "mega_img_4",
+"label": {
+"da": "Mega Menu Image 4",
+"de": "Mega Menu Image 4",
+"en": "Mega Menu Image 4",
+"es": "Logotipo"
+}
 },
 {
 "type": "header",

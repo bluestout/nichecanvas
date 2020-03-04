@@ -41,11 +41,13 @@
   <p><strong>This is case-sensitive!</strong> Do not put in <code>'color'</code> if your product option name is <code>'Color'</code>.</p>
 </div>
 {% else %}
-<div class="swatch clearfix" data-option-index="{{ option_index }}">
+<div class="swatch clearfix CustomIndexing_{{forloop.index}} {% if swatch == "Size" %}CustomSize{%endif%}" data-option-index="{{ option_index }}">
   <div class="header"> 
     <span>{{ swatch }}</span> 
+    {% if swatch == "Size" %}
     <span><a href="#">
     <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-helper.svg" alt="img" img="img"> Size guide</a></span>  
+  {%endif%}
   </div>
   {% assign values = '' %}
   {% for variant in product.variants %}
@@ -68,26 +70,41 @@
         </label>
         {% else %}
         <label for="swatch-{{ option_index }}-{{ value | handle }}">
-          <span>{{ value }} <b>24 x 18 inches</b></span>
+          <span>{{ value }}</span>
           <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
         </label>
         {% endif %}
          <div class="HoverWrapper">
          {% if value == "canvas" %}
           <div class="GetHover" data-get="{{value | escape}}">
-           <img src="{{'popup-floating-frame.jpg' | asset_url}}" />
-            <p class="ImgCont">Testing Floating Frame is an additional space between print and frame edges.</p>
+           <img src="{{section.settings.image_canvas | img_url: "original"}}" />
+            <p class="ImgCont">{{section.settings.content_canvas}}</p>
            </div>
           {% elsif value == "floating frame" %}
-          <div class="GetHover" data-get="{{value | escape}}">Floating Frame is an additional space between print and frame edges. floating</div>
+           <div class="GetHover" data-get="{{value | escape}}">
+           <img src="{{section.settings.image_floating | img_url: "original"}}" />
+            <p class="ImgCont">{{section.settings.content_floating}}</p>
+           </div>
           {% elsif value == "small" %}
-          <div class="GetHover" data-get="{{value | escape}}">Floating Frame is an additional space between print and frame edges. small</div>
+          <div class="GetHover" data-get="{{value | escape}}">
+           <img src="{{section.settings.image_small | img_url: "original"}}" />
+            <p class="ImgCont">{{section.settings.content_small}}</p>
+           </div>
           {% elsif value == "medium" %}
-          <div class="GetHover" data-get="{{value | escape}}">Floating Frame is an additional space between print and frame edges. medium</div>
+           <div class="GetHover" data-get="{{value | escape}}">
+           <img src="{{section.settings.image_medium | img_url: "original"}}" />
+            <p class="ImgCont">{{section.settings.content_medium}}</p>
+           </div>
           {% elsif value == "large" %}
-          <div class="GetHover" data-get="{{value | escape}}">Floating Frame is an additional space between print and frame edges. large</div>
+          <div class="GetHover" data-get="{{value | escape}}">
+           <img src="{{section.settings.image_large | img_url: "original"}}" />
+            <p class="ImgCont">{{section.settings.content_large}}</p>
+           </div>
           {% elsif value == "huge" %}
-          <div class="GetHover" data-get="{{value | escape}}">Floating Frame is an additional space between print and frame edges. huge</div>
+           <div class="GetHover" data-get="{{value | escape}}">
+           <img src="{{section.settings.image_huge | img_url: "original"}}" />
+            <p class="ImgCont">{{section.settings.content_huge}}</p>
+           </div>
           {%else%}
           {% endif %}
         </div>

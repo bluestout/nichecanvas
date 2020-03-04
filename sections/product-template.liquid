@@ -1,4 +1,4 @@
-<div class="product-template__container page-width"
+<div class="product-template__container page-width cstProtemplate"
      id="ProductSection-{{ section.id }}"
      data-section-id="{{ section.id }}"
      data-section-type="product"
@@ -35,14 +35,75 @@
   {%- assign enable_image_zoom = false -%}
   {% endcase %}
 
-  <div class="grid product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
-    <div class="grid__item product-single__media-group {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
+  <div class="product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
+    <div class="grid__item product-single__media-group CstProImg {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
+      {% if product.media.size > 1 %}
+      {% if product.media.size > 4 %}
+      {%- assign enable_thumbnail_slides = true -%}
+      {% endif %}
+      <div class="thumImgConter">
+        
 
-      {%- for media in product.media -%}
-      {% include 'media', media: media, featured_media: featured_media, height: height, enable_image_zoom: enable_image_zoom, image_zoom_size: product_image_zoom_size, image_scale: product_image_scale %}
-      {%- endfor -%}
+        {% endif %}
+        <div class="mainImageContainer">
+          {%- for media in product.media -%}
+          {% include 'media', media: media, featured_media: featured_media, height: height, enable_image_zoom: enable_image_zoom, image_zoom_size: product_image_zoom_size, image_scale: product_image_scale %}
+          {%- endfor -%}
+        </div>
+        
+        <div class="thumnailCont">
+        <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
+          {% if enable_thumbnail_slides == true %}
+          <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
+            {% include 'icon-chevron-left' %}
+            <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
+          </button>
+          {% endif %}
+          <ul class="product-single__thumbnails">
+            {% for media in product.media %}
+            <li class="">
+              <a href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
+                 class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
+                 data-thumbnail-id="{{ section.id }}-{{ media.id }}"
+                 {% if enable_image_zoom %}data-zoom="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
 
+                {%- capture thumbnailAlt -%}
+                {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+                {%- elsif media.media_type == 'model' -%}
+                {{ 'sections.featured_product.model_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+                {%- else -%}
+                {{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
+                {%- endif -%}
+                {%- endcapture -%}
+
+                <img class="product-single__thumbnail-image" src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
+                {%- if media.media_type == 'video' or media.media_type =='external_video' -%}
+                <div class="product-single__thumbnail-badge">
+                  {% include 'icon-video-badge-full-color' %}
+                </div>
+                {%- endif -%}
+                {%- if media.media_type == 'model' -%}
+                <div class="product-single__thumbnail-badge">
+                  {% include 'icon-3d-badge-full-color' %}
+                </div>
+                {%- endif -%}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% if enable_thumbnail_slides == true %}
+          <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
+            {% include 'icon-chevron-right' %}
+            <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
+          </button>
+          {% endif %}
+        </div>
+        </div>
+        
+      </div>
+      
       <noscript>
         {% capture product_image_size %}{{ height }}x{% endcapture %}
         <img src="{{ featured_media | img_url: product_image_size, scale: product_image_scale }}" alt="{{ featured_media.alt }}" id="FeaturedMedia-{{ section.id }}" class="product-featured-media" style="max-width: {{ height }}px;">
@@ -64,59 +125,7 @@
       {%- endif -%}
 
 
-      {% if product.media.size > 1 %}
-      {% if product.media.size > 4 %}
-      {%- assign enable_thumbnail_slides = true -%}
-      {% endif %}
 
-      <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
-        {% if enable_thumbnail_slides == true %}
-        <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
-          {% include 'icon-chevron-left' %}
-          <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
-        </button>
-        {% endif %}
-        <ul class="product-single__thumbnails product-single__thumbnails-{{ section.id }}">
-          {% for media in product.media %}
-          <li class="product-single__thumbnails-item product-single__thumbnails-item--{{ section.settings.media_size }} js">
-            <a href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
-               class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
-               data-thumbnail-id="{{ section.id }}-{{ media.id }}"
-               {% if enable_image_zoom %}data-zoom="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"{% endif %}>
-
-              {%- capture thumbnailAlt -%}
-              {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
-              {{ 'sections.featured_product.video_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-              {%- elsif media.media_type == 'model' -%}
-              {{ 'sections.featured_product.model_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-              {%- else -%}
-              {{ 'sections.featured_product.gallery_thumbnail_alt' | t: imageAlt: media.alt | escape }}
-              {%- endif -%}
-              {%- endcapture -%}
-
-              <img class="product-single__thumbnail-image" src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
-              {%- if media.media_type == 'video' or media.media_type =='external_video' -%}
-              <div class="product-single__thumbnail-badge">
-                {% include 'icon-video-badge-full-color' %}
-              </div>
-              {%- endif -%}
-              {%- if media.media_type == 'model' -%}
-              <div class="product-single__thumbnail-badge">
-                {% include 'icon-3d-badge-full-color' %}
-              </div>
-              {%- endif -%}
-            </a>
-          </li>
-          {% endfor %}
-        </ul>
-        {% if enable_thumbnail_slides == true %}
-        <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
-          {% include 'icon-chevron-right' %}
-          <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
-        </button>
-        {% endif %}
-      </div>
-      {% endif %}
     </div>
 
     <div class="grid__item {{ product_description_width }} cstProDec">
@@ -129,6 +138,8 @@
         </a>
         <div class="product__price">
           {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
+          <p>or 4 interest-free payments of 39.80 with  <img alt="Sezzel Logo" title="“Sezzel" logo”="" src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/logo-sezzle.png"></p>
+
         </div>
 
         {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -457,6 +468,152 @@
 "zh-TW": "顯示社群分享按鈕"
 },
 "default": true
+},
+{
+"type": "header",
+"content": {
+"da": "Popup on variants hover",
+"de": "Popup on variants hover",
+"en": "Popup on variants hover"
+}
+},
+{
+"type": "textarea",
+"id": "content_canvas",
+"label": {
+"da": "Canvas Content",
+"de": "Canvas Content",
+"en": "Canvas Content"
+},
+"default": {
+"da": "Canvas",
+"de": "Canvas",
+"en": "Canvas"
+}
+},
+{
+"type": "image_picker",
+"id": "image_canvas",
+"label": {
+"da": "Canvas Image",
+"de": "Canvas Image",
+"en": "Canvas Image"
+}
+},
+{
+"type": "textarea",
+"id": "content_floating",
+"label": {
+"da": "Frame Content",
+"de": "Frame Content",
+"en": "Frame Content"
+},
+"default": {
+"da": "Floating Frame",
+"de": "Floating Frame",
+"en": "Floating Frame"
+}
+},
+{
+"type": "image_picker",
+"id": "image_floating",
+"label": {
+"da": "Frame Image",
+"de": "Frame Image",
+"en": "Frame Image"
+}
+},
+{
+"type": "textarea",
+"id": "content_small",
+"label": {
+"da": "Small Content",
+"de": "Small Content",
+"en": "Small Content"
+},
+"default": {
+"da": "Small",
+"de": "Small",
+"en": "Small"
+}
+},
+{
+"type": "image_picker",
+"id": "image_small",
+"label": {
+"da": "Small Image",
+"de": "Small Image",
+"en": "Small Image"
+}
+},
+{
+"type": "textarea",
+"id": "content_medium",
+"label": {
+"da": "Medium Content",
+"de": "Medium Content",
+"en": "Medium Content"
+},
+"default": {
+"da": "Medium",
+"de": "Medium",
+"en": "Medium"
+}
+},
+{
+"type": "image_picker",
+"id": "image_medium",
+"label": {
+"da": "Medium Image",
+"de": "Medium Image",
+"en": "Medium Image"
+}
+},
+{
+"type": "textarea",
+"id": "content_large",
+"label": {
+"da": "Large Content",
+"de": "Large Content",
+"en": "Large Content"
+},
+"default": {
+"da": "Large",
+"de": "Large",
+"en": "Large"
+}
+},
+{
+"type": "image_picker",
+"id": "image_large",
+"label": {
+"da": "Large Image",
+"de": "Large Image",
+"en": "Large Image"
+}
+},
+{
+"type": "textarea",
+"id": "content_huge",
+"label": {
+"da": "Huge Content",
+"de": "Huge Content",
+"en": "Huge Content"
+},
+"default": {
+"da": "Huge",
+"de": "Huge",
+"en": "Huge"
+}
+},
+{
+"type": "image_picker",
+"id": "image_huge",
+"label": {
+"da": "Huge Image",
+"de": "Huge Image",
+"en": "Huge Image"
+}
 },
 {
 "type": "header",

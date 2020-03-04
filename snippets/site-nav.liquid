@@ -8,6 +8,7 @@
     {% include 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
 {% endcomment %}
 <ul class="site-nav list--inline{% if wrapper_class != blank %} {{ wrapper_class }}{% endif %}" id="SiteNav">
+  <span class="ShopText">Shop by:</span>
   {% for link in linklists[linklist].links %}
     {%- assign child_list_handle = link.title | handleize -%}
 
@@ -20,7 +21,7 @@
         {%- assign three_level_nav = true -%}
       {% endif %}
     {% endif %}
-
+  
     {% if link.links != blank %}
       <li class="site-nav--has-dropdown{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" data-has-dropdowns>
         <button class="site-nav__link site-nav__link--main site-nav__link--button{% if link.child_active %} site-nav__link--active{% endif %}" type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
@@ -32,17 +33,18 @@
           <div class="mLeftMenu">
           {% if three_level_nav %}
             <div class="site-nav__childlist">
-              <ul class="site-nav__childlist-grid">
+              <ul class="site-nav__childlist-grid {%capture numberget%}{{forloop.index}}{%endcapture%}">
                 {% if link.links != blank %}
                   {% for childlink in link.links %}
-                    <li class="site-nav__childlist-item">
+                    <li class="site-nav__childlist-item ">
+                      {%unless numberget == "1"%}
                       <a href="{{ childlink.url }}"
                         class="site-nav__link site-nav__child-link site-nav__child-link--parent"
                         {% if childlink.current %} aria-current="page"{% endif %}
                       >
                         <span class="site-nav__label">{{ childlink.title | escape }}</span>
                       </a>
-
+                       {%endunless%}
                       {% if childlink.links != blank %}
                         <ul>
                         {% for grandchildlink in childlink.links %}
@@ -81,7 +83,15 @@
           </div>
           <div class="mRightImg">
             <div class="InnerImage">
+              {% if numberget == "1" %}
 		<img src="https://cdn.shopify.com/s/files/1/2012/8501/files/inspiration-space_1024x1024_2c3999ec-0571-4bcf-9328-62e47f357053_large.jpg?v=1582119187" alt="image" title="image">
+          {% elsif numberget == "2" %}
+              <img src="{{section.settings.image_2| img_url: ""}}"/>
+              {% elsif numberget == "3" %}
+              <img src="{{section.settings.image_3| img_url: ""}}"/>
+              {% elsif numberget == "4" %}
+              <img src="{{section.settings.image_4| img_url: ""}}"/>
+              {%endif%}
             </div>
             </div>
           </div>

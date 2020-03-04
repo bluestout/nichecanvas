@@ -1,3 +1,5 @@
+<div class="page-width">
+  <h2>{{section.settings.title}}</h2>
 <div 
 	id="looxReviews" 
 	data-loox-aggregate 
@@ -7,11 +9,58 @@
 	{% if section.settings.hide_thumbnails %}data-product-thumbnails="false"{% endif %}
 	style="margin:0 auto;max-width:{{section.settings.maxwidth}}px;"
 ></div>
+</div>
 {% schema %}
 {
 	"name": "All reviews - Grid",
-	"class": "index-section",
+	"class": "index-section CustomReviewsLoox",
 	"settings": [
+{
+"type": "text",
+"id": "title",
+"label": {
+"da": "Overskrift",
+"de": "Titel",
+"en": "Heading",
+"es": "Título",
+"fi": "Otsake",
+"fr": "En-tête",
+"hi": "शीर्षक",
+"it": "Heading",
+"ja": "見出し",
+"ko": "제목",
+"ms": "Tajuk",
+"nb": "Overskrift",
+"nl": "Kop",
+"pt-BR": "Título",
+"pt-PT": "Título",
+"sv": "Rubrik",
+"th": "ส่วนหัว",
+"zh-CN": "标题",
+"zh-TW": "標題"
+},
+"default": {
+"da": "Billeddias",
+"de": "Foto-Slide",
+"en": "Image slide",
+"es": "Diapositiva de imagen",
+"fi": "Kuvadia",
+"fr": "Diapositive (image)",
+"hi": "इमेज स्लाइड",
+"it": "Slide immagine",
+"ja": "画像スライド",
+"ko": "이미지 슬라이드",
+"ms": "Slaid imej",
+"nb": "Lysbilde",
+"nl": "Afbeelding dia",
+"pt-BR": "Slide de imagem",
+"pt-PT": "Diapositivo de imagem",
+"sv": "Bild i bildspel",
+"th": "สไลด์รูปภาพ",
+"zh-CN": "图片幻灯片",
+"zh-TW": "圖片投影片"
+}
+},
 		{
 			"id": "only_photos",
 			"type": "checkbox",
