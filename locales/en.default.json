@@ -199,7 +199,7 @@
   },
   "collections": {
     "general": {
-      "view_all": "View all",
+      "view_all": "See All",
       "view_all_label": "View all products in the {{ collection_name }} collection",
       "no_matches": "Sorry, there are no products in this collection",
       "items_with_count": {
@@ -269,11 +269,11 @@
       "delete_confirm": "Are you sure you wish to delete this address?"
     },
     "login": {
-      "title": "Login",
+      "title": "Welcome Back!",
       "email": "Email",
       "password": "Password",
-      "forgot_password": "Forgot your password?",
-      "sign_in": "Sign In",
+      "forgot_password": "Forgot?",
+      "sign_in": "Log in",
       "guest_title": "Continue as a guest",
       "guest_continue": "Continue"
     },
@@ -324,12 +324,12 @@
       "submit": "Reset Password"
     },
     "register": {
-      "title": "Create Account",
+      "title": "Create an account",
       "first_name": "First Name",
       "last_name": "Last Name",
       "email": "Email",
       "password": "Password",
-      "submit": "Create"
+      "submit": "Create account"
     }
   },
   "homepage": {
@@ -364,7 +364,7 @@
       "account": "Account",
       "log_out": "Log out",
       "log_in": "Log in",
-      "create_account": "Create account"
+      "create_account": "Sign Up"
     },
     "footer": {
       "social_platform": "{{ name }} on {{ platform }}"

@@ -1,20 +1,36 @@
 <div class="page-width">
-  <h2>{{section.settings.title}}</h2>
-<div 
-	id="looxReviews" 
-	data-loox-aggregate 
-	data-limit="{{section.settings.data-limit}}" 
-	{% if section.settings.only_photos %}data-mode="img"{% endif %} 
-	{% if section.settings.product_handle %}data-product-id="{{ all_products[section.settings.product_handle].id }}"{% endif %}
-	{% if section.settings.hide_thumbnails %}data-product-thumbnails="false"{% endif %}
-	style="margin:0 auto;max-width:{{section.settings.maxwidth}}px;"
-></div>
+  <div class="loxhdr"> 
+    <h2>{{section.settings.title}}  </h2>
+    <a href="https://nichecanvas.com/pages/happy-customers" target="_blank">All  reviews <svg width="36px" height="9px" viewBox="0 0 36 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home-v1" transform="translate(-1525.000000, -1303.000000)">
+          <g id="arrow-copy-4" transform="translate(1525.000000, 1303.000000)">
+            <polygon id="arrow" fill="#000000" points="31 9 36 4.50625 31.0046468 0"></polygon>
+            <line x1="31.5" y1="4.5" x2="0.5" y2="4.5" id="Line-2" stroke="#000000" stroke-linecap="square"></line>
+          </g>
+        </g>
+      </g>
+      </svg>
+    </a>
+  </div>
+  
+  <div id="looxReviews" 
+       data-loox-aggregate 
+       data-limit="{{section.settings.data-limit}}" 
+       {% if section.settings.only_photos %}data-mode="img"{% endif %} 
+       {% if section.settings.product_handle %}data-product-id="{{ all_products[section.settings.product_handle].id }}"{% endif %}
+       {% if section.settings.hide_thumbnails %}data-product-thumbnails="false"{% endif %}
+       style="margin:0 auto;max-width:{{section.settings.maxwidth}}px;">
+  </div>
+  <div class="MobileMasnoryLink">
+    <a href="https://nichecanvas.com/pages/happy-customers" target="_blank">All Reviews</a>
+  </div>  
 </div>
 {% schema %}
 {
-	"name": "All reviews - Grid",
-	"class": "index-section CustomReviewsLoox",
-	"settings": [
+"name": "All reviews - Grid",
+"class": "index-section CustomReviewsLoox",
+"settings": [
 {
 "type": "text",
 "id": "title",
@@ -61,46 +77,46 @@
 "zh-TW": "圖片投影片"
 }
 },
-		{
-			"id": "only_photos",
-			"type": "checkbox",
-			"label": "Display only reviews with photos",
-			"default": false
-		},
-		{
-			"id": "hide_thumbnails",
-			"type": "checkbox",
-			"label": "Hide product thumbnails",
-			"default": false
-		},
-		{
-			"type": "product",
-			"id": "product_handle",
-			"label": "Add \"Write a review\" button linked to:"
-		},
-		{
-			"type": "range",
-			"id": "data-limit",
-			"min": 1,
-			"max": 40,
-			"step": 1,
-			"label": "Number of reviews to display",
-			"default": 20
-		},
-		{
-			"type": "range",
-			"id": "maxwidth",
-			"min": 480,
-			"max": 1920,
-			"step": 40,
-			"unit": "px",
-			"label": "Maximum width",
-			"default": 1080
-		}
-	],
-	"presets": [{
-		"name": "All reviews - Grid",
-		"category": "Loox"
-	}]
+{
+"id": "only_photos",
+"type": "checkbox",
+"label": "Display only reviews with photos",
+"default": false
+},
+{
+"id": "hide_thumbnails",
+"type": "checkbox",
+"label": "Hide product thumbnails",
+"default": false
+},
+{
+"type": "product",
+"id": "product_handle",
+"label": "Add \"Write a review\" button linked to:"
+},
+{
+"type": "range",
+"id": "data-limit",
+"min": 1,
+"max": 40,
+"step": 1,
+"label": "Number of reviews to display",
+"default": 20
+},
+{
+"type": "range",
+"id": "maxwidth",
+"min": 480,
+"max": 1920,
+"step": 40,
+"unit": "px",
+"label": "Maximum width",
+"default": 1080
+}
+],
+"presets": [{
+"name": "All reviews - Grid",
+"category": "Loox"
+}]
 }
 {% endschema %}

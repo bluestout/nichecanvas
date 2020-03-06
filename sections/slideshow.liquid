@@ -33,6 +33,7 @@ unless it is blank, in that case a ratio of 2:1 will be used.
 
       {%- for block in section.blocks -%}
       {%- assign block_image = block.settings.image -%}
+      {%- assign block_image_mob = block.settings.Mob_image -%}
       <div class="slideshow__slide slideshow__slide--{{ block.id }}" {{ block.shopify_attributes }}>
         {% if block_image == blank %}
         <div class="slideshow__image js">
@@ -52,13 +53,28 @@ unless it is blank, in that case a ratio of 2:1 will be used.
              aria-label="{{ block_image.alt | escape }}"
              data-alt="{{ block_image.alt | escape }}"
              {% endunless %}
-             class="slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %} js"
+             class="DesktopSlide slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %} js"
              data-bg="{{ block_image | img_url: '300x300' }}"
              data-bgset="{% include 'bgset', image: block_image %}"
              data-sizes="auto"
              data-parent-fit="contain"
              style="background-position: {{ block.settings.alignment }};
                     background-image: url('{{ block_image | img_url: '300x300' }}');">
+          {% if section.settings.show_overlay %}<div class="slideshow__overlay"></div>{% endif %}
+        </div>
+        <div
+             {% unless block_image_mob.alt == blank %}
+             role="img"
+             aria-label="{{ block_image_mob.alt | escape }}"
+             data-alt="{{ block_image_mob.alt | escape }}"
+             {% endunless %}
+             class="MobileSlide slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %} js"
+             data-bg="{{ block_image_mob | img_url: '300x300' }}"
+             data-bgset="{% include 'bgset', image: block_image %}"
+             data-sizes="auto"
+             data-parent-fit="contain"
+             style="background-position: {{ block.settings.alignment }};
+                    background-image: url('{{ block_image_mob | img_url: '300x300' }}');">
           {% if section.settings.show_overlay %}<div class="slideshow__overlay"></div>{% endif %}
         </div>
         {% endif %}
@@ -811,7 +827,21 @@ unless it is blank, in that case a ratio of 2:1 will be used.
 "label": {
 "da": "Billede",
 "de": "Foto",
-"en": "Image"
+"en": "Desktop Image"
+},
+ "info": {
+          "da": "1980 x 950px .png recommended",
+          "de": "1980 x 950px .png recommended",
+          "en": "1980 x 950px .png recommended"
+        }
+},
+{
+"type": "image_picker",
+"id": "Mob_image",
+"label": {
+"da": "Billede",
+"de": "Foto",
+"en": "Mobile Image"
 },
  "info": {
           "da": "1980 x 950px .png recommended",

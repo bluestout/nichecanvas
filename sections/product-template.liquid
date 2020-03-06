@@ -198,7 +198,9 @@
           {% render 'swatch' for product.options as swatch %}
         </div>
         {% endif %}
-
+ {% for variant in product.variants %}
+        <div class="GetSizechart" data-img="{{variant.metafields.theme.orientation}}" data-variant="{{variant.title}}" style="display:none;"></div>
+        {%endfor%}
         {% if section.settings.show_quantity_selector %}
         <div class="product-form__controls-group">
           <div class="product-form__item">
@@ -281,7 +283,7 @@
 </div>
 
 {% include "static-content" %}
-
+{% include "loox-reviews" %}
 
 {% unless product == empty %}
 <script type="application/json" id="ProductJson-{{ section.id }}">
@@ -472,9 +474,9 @@
 {
 "type": "header",
 "content": {
-"da": "Popup on variants hover",
-"de": "Popup on variants hover",
-"en": "Popup on variants hover"
+"da": "Popup hover on variant",
+"de": "Popup hover on variant",
+"en": "Popup hover on variant"
 }
 },
 {

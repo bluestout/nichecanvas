@@ -40,6 +40,7 @@
     {{ 'jquery-ui.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
     {{ 'swatch.css' | asset_url | stylesheet_tag }}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.css">
     <script>
       var theme = {
         breakpoints: {
@@ -106,6 +107,7 @@
     <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'jquery-ui.js' | asset_url }}" defer="defer"></script>
+    <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
     {%if template contains "product" %}
     <script src="{{ 'product-custom.js' | asset_url }}" defer="defer"></script>
@@ -113,7 +115,13 @@
     {{ content_for_header }}
 
     {{ shop.metafields.loox["global_html_head"] }}
-  </head>
+  
+<!--begin-bc-sf-filter-css-->
+  {% include 'bc-sf-filter-style' %}
+<!--end-bc-sf-filter-css-->
+
+
+</head>
 
   <body class="template-{{ request.page_type | handle }}">
 
@@ -183,5 +191,21 @@
     </script>
     <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=213ac61d-b1fa-47ca-a9e1-46af05429aae"> </script>
     <!-- End of nichecanvas Zendesk Widget script -->
-  </body>
+  
+<!--begin-bc-sf-filter-js-->
+  {% include 'bc-sf-filter' %}
+<!--end-bc-sf-filter-js-->
+{% comment %} Init BC Action List {% endcomment %}
+<!--start-bc-al-init-->
+  {% include 'bc-al-init' %}
+<!--end-bc-al-init-->
+{% comment %} Init Recently Viewed Products {% endcomment %}
+<!-- start-bc-recently-viewed-product-init -->
+  {% include 'bc-recently-viewed-product-init' %}
+<!-- end-bc-recently-viewed-product-init -->
+{% comment %} Init Most Popular Widgets {% endcomment %}
+<!--start-bc-most-popular-product-init-->
+  {% include 'bc-most-popular-product-init' %}
+<!--end-bc-most-popular-product-init-->
+</body>
 </html>

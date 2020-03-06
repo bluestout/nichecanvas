@@ -1,4 +1,11 @@
 $(document).ready(function(){
+  /*********************** Page Scroll On click (Help Center)***************/
+  $(".cstFaqMob li").click(function(){
+  var GetClass = $(this).attr("class");
+    $('html, body').animate({
+    scrollTop: $("#"+GetClass).offset().top-50
+}, 1000);
+  })
   /************************* 	Chat Option Trigger *******************/
   $(".ConstctNow").click(function(){
   
@@ -121,6 +128,7 @@ $('body').on('click', '.qtyplus', function() {
   $('.Customsingle').slick(
     {dots: true}
   );
+   if ($(window).width() > 749) {
   var getValue = $( "#AccessibleNav" ).offset();
 getValue = (getValue.top-50);
   $(window).scroll(function() {
@@ -131,6 +139,7 @@ getValue = (getValue.top-50);
     $("#shopify-section-header").removeClass("FixedHeader");
     }
 });
+   }
   $(".GridCartBtn").click(function(){
   var GetId = $(this).attr("data-id");
     $.ajax({

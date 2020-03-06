@@ -672,6 +672,34 @@ slate.Variants = (function() {
       'change',
       this._onSelectChange.bind(this)
     );
+    //console.log("testing"+this.currentVariant.title);
+    var GetVariant = this.currentVariant.title;
+    var newvalue = GetVariant.split("/");
+    var firsthalf = newvalue[0];
+    firsthalf = $.trim(firsthalf);
+    $(".CustomIndexing_1 .swatch-element").each(function(){
+    var actualAtt = $(this).attr("data-value");
+      if(actualAtt == firsthalf){
+      $(this).children("input").trigger("click");
+      }
+    })
+    var secondhalf = newvalue[1];
+    secondhalf = $.trim(secondhalf);
+    $(".CustomIndexing_2 .swatch-element").each(function(){
+    var actualAtt = $(this).attr("data-value");
+      if(actualAtt == secondhalf){
+      $(this).children("input").trigger("click");
+      }
+    })
+    $(".GetSizechart").each(function(){
+    var getVariantName = $(this).attr("data-variant");
+      if(getVariantName == GetVariant){
+      var ImageGet = $(this).attr("data-img");
+        $("#size_chart").attr("href",ImageGet);   
+       var get =  $("#size_chart").attr("href");
+      
+      }
+    })
   }
 
   Variants.prototype = _.assignIn({}, Variants.prototype, {
@@ -711,6 +739,7 @@ slate.Variants = (function() {
       currentOptions = _.compact(currentOptions);
 
       return currentOptions;
+      
     },
 
     /**
@@ -737,7 +766,17 @@ slate.Variants = (function() {
      */
     _onSelectChange: function() {
       var variant = this._getVariantFromOptions();
-
+//console.log("testirrrng"+variant.title);
+      var GetVariant = variant.title;
+       $(".GetSizechart").each(function(){
+    var getVariantName = $(this).attr("data-variant");
+      if(getVariantName == GetVariant){
+      var ImageGet = $(this).attr("data-img");
+        $("#size_chart").attr("href",ImageGet);   
+       var get =  $("#size_chart").attr("href");
+     
+      }
+    })
       this.$container.trigger({
         type: 'variantChange',
         variant: variant

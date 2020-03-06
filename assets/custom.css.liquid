@@ -32,20 +32,11 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .page-width {
   max-width: 1600px;
 }
-.CustHeader {
-  margin: 38px 0 0;
-}
 .announcement-bar {
   position: fixed;
   z-index: 99;
   top: 0;
   width: 100%;
-}
-.CustHeader p.announcement-bar__message {
-  font-size: 13px;
-  font-weight: normal;
-  padding: 11px 20px;
-  line-height: 16px;
 }
 .HeaderIcon {
   display: none;
@@ -59,6 +50,15 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 .HeaderIcon ul li .site-header__search-toggle  {
   display: block;
+}
+.CustHeader {
+  margin: 38px 0 0;
+}
+.CustHeader p.announcement-bar__message {
+  font-size: 13px;
+  font-weight: normal;
+  padding: 11px 20px;
+  line-height: 16px;
 }
 .CustHeader #AccessibleNav .site-nav {
   margin: 5px 0 10px;
@@ -92,8 +92,22 @@ span.ShopText {
   font-weight: bold;
   padding: 0 0 15px;
 }
+
+.CustHeader #AccessibleNav .site-nav--active-dropdown .site-nav__link .icon-chevron-down,
+.CustHeader #AccessibleNav .site-nav li.site-nav--has-dropdown:hover .site-nav__link .icon-chevron-down {
+  transform: rotate(180deg);
+}
+
+
 .CustHeader .site-header__logo {
   margin: 25px 5px 0 0;
+}
+.CustHeader .site-header__cart-count {
+  border-radius: 0;
+}
+.CustHeader .site-header__cart-count span {
+  font-family: 'Neutrif Pro';
+  font-size: 10px;
 }
 .CustomSearch {
   padding: 20px 0 0;
@@ -320,7 +334,7 @@ span.site-header__cnvs {
   padding: 0 0 0 10px;
 }
 .unique-title a svg {
-  margin: 0 0 0 10px;
+  margin: 0 0 0 6px;
 }
 .unique-contact {
   width: 100%;
@@ -353,7 +367,7 @@ span.site-header__cnvs {
   vertical-align: middle;
   filter: brightness(80%);
 }
-.unique-contact .unique-left-sec div:hover img {
+.unique-contact div:hover img {
   filter: brightness(60%);
 }
 .unique-contact p, .uChvrBtn {
@@ -442,9 +456,6 @@ span.site-header__cnvs {
 .unique-btm-main.LastViewGrid img {
   filter: unset;
 }
-a.MobileMasnoryLink {
-  display: none;
-}
 
 /******************slider*********************/
 
@@ -482,9 +493,11 @@ a.MobileMasnoryLink {
   width: 100%;
   line-height: 17px;
   min-height: auto;
+  padding: 11.5px;
 }
 .cst_sldrText a.btn.slideshow__btn:hover {
-  background: #000;
+  background: #fff;
+  color: #000;
 }
 /*************/
 .main-collection {
@@ -560,7 +573,7 @@ a.MobileMasnoryLink {
   max-width: 250px;
   width: 100%;
   line-height: 17px;
-  padding: 14px 10px;
+  padding: 12px 10px;
   font-weight: bold;
 }
 .mCbutton a:hover {
@@ -654,8 +667,10 @@ img.mobImg {
   padding: 14px 70px;
 }
 .cstSinglBtn a:hover {
-  color: #fbfbfb;
+  background: #fff;
+  color: #000;
 }
+
 .Customsingle .slick-dots {
   position: absolute;
   bottom: 15%;
@@ -878,6 +893,10 @@ span.CstmTag {
 .MainGridProducts .price__regular, .MainGridProducts .price__sale {
   margin-right: 0;
 }
+.MainGridProducts .loox-rating span {
+  display: none;
+}
+
 
 .MainGridProducts:hover .GridBadge {
   display: block;
@@ -886,20 +905,9 @@ span.CstmTag {
   left: -6px;
   width: 80px;
 }
-.MainGridProducts .loox-rating span {
-  display: none;
-}
 .GridBadge {
   display: none;
 }
-
-.GridBadge li {
-  display: none;
-}
-.GridBadge li.gbSale {
-  display: block !important;
-}
-
 .GridBadge li {
   background: #151515;
   color: #fff;
@@ -934,7 +942,7 @@ span.CstmTag {
   background: #fff;
   color: #000;
 }
-.MobileMasnoryLink {
+.CustomReviewsLoox .MobileMasnoryLink, .MobileMasnoryLink {
   display: none;
 }
 .cstVall {
@@ -948,6 +956,9 @@ span.CstmTag {
   top: 4px;
   right: 0;
   font-size: 12px;
+}
+.subcontent a svg {
+  margin: 0 0 0 6px;
 }
 /*******************************/
 .MobileFoot .ui-accordion-header {
@@ -1039,10 +1050,9 @@ span.CstmTag {
   display:none;
 }
 
-
 .CotentImage {
   background: #000;
-  margin: 80px 0 0;
+  margin: 40px 0 60px;
 }
 .PortClcn {
   max-width: 1600px;
@@ -1097,7 +1107,7 @@ span.CstmTag {
   line-height: 17px;
   min-height: auto;
   color: #fff;
-  padding: 12px;
+  padding: 11.5px;
   display: inline-block;
 }
 .cstPcln:focus {
@@ -1116,7 +1126,7 @@ body.MenuOppned .mobileOverlay {
   top: 0;
   height: 100%;
   width: 100%;
-  background: #00000020;
+  background: #00000090;
   bottom: 0;
   left: 0;
   z-index: 9991;
@@ -1146,20 +1156,23 @@ svg.icon.icon-hamburger {
   vertical-align: top;
 }
 
+body.MenuOppned {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+}
 #mobile_menu::-webkit-scrollbar {
   width: 4px;
 }
-
 #mobile_menu::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.15); 
 }
-
 #mobile_menu::-webkit-scrollbar-thumb {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.15); 
 }
-
 #mobile_menu {
-  height: 560px;
+  height: 580px;
   overflow-y: auto;
   padding: 0 0 55px;
 }
@@ -1203,21 +1216,18 @@ svg.icon.icon-hamburger {
 }
 #mobile_menu li ul.mobile-submenuChild li {
   font-weight: normal;
-  padding: 8px 0;
+  padding: 12px 0;
 }
+/*
 .mobile-submenuChild li:hover {
-  background: #eff1f3;
-}
+background: #eff1f3;
+}*/
 #mobile_menu li ul.mobile-menuChild li a.mblHding {
   font-weight: bold;
   margin: 10px 0 5px;
   display: block;
   padding: 0;
 }
-#mobile_menu li ul li ul.mobile-submenuChild li {
-  padding: 5px 0;
-}
-
 .mobile-menu-parent span.icndwn {
   background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/downArrow.svg);
   display: block;
@@ -1287,12 +1297,15 @@ svg.icon.icon-hamburger {
   width: 100%;
   left: 0;
   background: #fff;
-  padding: 15px 0;
-  box-shadow: #d2d2d2 0 0 8px;
+  padding: 25px 50px 25px 40px;
+  box-shadow: #d2d2d2 0 0 8px;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .menuLogin a {
   display: inline-block;
-  padding: 0 16px;
+  padding: ;
   font-size: 15px;
 }
 .menuLogin a svg.icon {
@@ -1305,7 +1318,7 @@ svg.icon.icon-hamburger {
 .ChildOpen .mobile-menuChild {
   display: block;
   font-size: 14px;
-  margin: 5px 0 0;
+  margin: 14px 0 0;
 }
 
 
@@ -1323,7 +1336,9 @@ svg.icon.icon-hamburger {
   padding: 0 20px;
   top: 0;
 }
-
+.thumnailCont .thumbnails-wrapper {
+  margin: 0;
+}
 .thumnailContainer .product-single__thumbnails {
   margin: 0;
 }
@@ -1349,8 +1364,8 @@ svg.icon.icon-hamburger {
 .cstProDec .product-form .swatch_options {
   position: relative;
 }
-.cstProtemplate  .grid__item.cstProDec {
-  padding-left: 110px;
+.cstProtemplate .grid__item.cstProDec {
+  padding-left: 12%;
 }
 .hoverWrapper {
   position: absolute;
@@ -1741,7 +1756,7 @@ ul.csUsdays {
   box-shadow: #ccc 0 0 10px;
   padding: 10px;
   display: none;
-  z-index: 9;
+  z-index: 999999;
 }
 .cstSellPrz, .cstSzCrt {
   display: flex;
@@ -1927,7 +1942,7 @@ a#HideRecoverPasswordLink {
 
 .CstSignUp, .CstLogin {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -1977,7 +1992,7 @@ a#HideRecoverPasswordLink {
   font-weight: normal;
   text-transform: unset;
   border: 1px solid #F0F0F0;
-  padding: 8px 0;
+  padding: 12px 0;
   display: block;
   margin: 50px 0 80px;
   float: left;
@@ -1994,6 +2009,7 @@ a#HideRecoverPasswordLink {
   top: 10px;
   font-size: 14px;
   color: #828990;
+  text-decoration: underline;
 }
 .pswFld {
   position: relative;
@@ -2004,6 +2020,9 @@ a#HideRecoverPasswordLink {
   padding: 13px;
   color: #000000;
   margin: 0 0 6px;
+}
+#customer_login input::placeholder, #RegisterForm input::placeholder {
+  color: #b3b3b3;
 }
 #RegisterForm input#RegisterForm-LastName {
   margin: 0 0 20px;
@@ -2237,6 +2256,39 @@ ul.cstFaqMob {
   padding-left: 0;
 }
 
+/*******05-03-2020 stj st*******/
+.proPageRew #looxReviews {
+  max-width: 100%;
+}
+.proPageRew {
+  background: #F2F3F4;
+  margin: 28px 0 60px;
+  padding: 100px 0 !important;
+}
+.proPageRew h2 {
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: normal;
+  text-transform: unset;
+}
+.loxhdr {
+  position: relative;
+}
+.loxhdr a {
+  position: absolute;
+  top: 80px;
+  right: 6px;
+  font-size: 12px;
+}
+.loxhdr a svg {
+  margin: 0 0 0 6px;
+}
+
+.MobileSlide.slideshow__image {
+  display: none;
+}
+
+
 /**************************************/
 /****************@media****************/
 /**************************************/
@@ -2283,7 +2335,7 @@ ul.cstFaqMob {
     max-width: 250px;
     width: 100%;
     line-height: 17px;
-    padding: 9px 10px;
+    padding: 11.5px;
     font-weight: 600;
   }
   .MobileMasnoryLink a:hover {
@@ -2387,6 +2439,15 @@ ul.cstFaqMob {
 
 
 @media (max-width: 749px) {
+
+
+  .MobileSlide.slideshow__image {
+    display: block;
+  }
+  .DesktopSlide.slideshow__image {
+    display: none;
+  }
+
   .page-width {
     padding: 0 15px;
   }
@@ -2478,15 +2539,19 @@ ul.cstFaqMob {
   .site-header__icon.site-header__account {
     display: none;
   }
-  .FixedHeader.CustHeader {
-    margin: 38px 0 0;
+  .site-header__icons {
+    padding: 0 10px 0 0;
+  }
+
+  body {
+    padding: 92px 0 0;
+  }
+  .CustHeader {
+    margin: 37px 0 0;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 9;
-  }
-  .site-header__icons {
-    padding: 0 10px 0 0;
   }
   .CustHeader .site-header__logo  {
     margin: unset;
@@ -2526,9 +2591,12 @@ ul.cstFaqMob {
     display: none; 
   }  
   .GridBadge li {
-    font-size: 12px;
+    font-size: 11px;
     padding: 3px;
 
+  }
+  .GridBadge li img {
+    max-width: 10px;
   }
   .pcLft p {
     font-size: 15px;
@@ -2560,12 +2628,30 @@ ul.cstFaqMob {
 
 
 @media (max-width: 749px) {
-
+  .CustHeader .site-header__cart-count {
+    display: none;
+  }
+  .proPageRew {
+    margin: 24px 0 10px;
+    padding: 60px 0 30px !important;
+  }
+  .proPageRew h2 {
+    font-size: 22px;
+    margin: 0;
+  }
+  .CustomReviewsLoox .MobileMasnoryLink {
+    display: block;
+    margin: 0 0 30px;
+  }
+  .loxhdr a {
+    display: none;
+  }
   .thumnailCont {
     position: unset;
   }
-
-
+  .template-product .main-content {
+    padding-top: 0;
+  }
   .SlideIcons {
     margin: -2px 0 0;
   }
@@ -2578,8 +2664,13 @@ ul.cstFaqMob {
   .cstRcmnd.page-width {
     padding: 0 10px;
   }
+  #shopify-section-1582010967107 .CustomProductsListing {
+    margin: 0;
+    padding: 30px 10px 10px;
+  }
   .CustomProductsListing {
     padding: 30px 10px 0;
+    margin: 0 0 -25px;
   }
   .CustomProductsListing .grid, .cstRcmnd .grid {
     margin-left: -10px;
@@ -2751,7 +2842,7 @@ ul.cstFaqMob {
   .slideshow__text-wrap--mobile {
     background-color: #000;
     margin: 0;
-    padding: 0 10px 40px;
+    padding: 0 25px 40px;
     color: #fff;
     top: 0;
     width: 100%;
@@ -2762,11 +2853,11 @@ ul.cstFaqMob {
     text-transform: unset;
     min-height: auto;
     line-height: normal;
-    padding: 10px 18px;
+    padding: 11.5px 10px;
     font-size: 13px;
     letter-spacing: normal;
     font-family: 'Neutrif Pro';
-    max-width: 240px;
+    max-width: 250px;
     width: 100%;
   }
   .slideshow__subtitle--mobile br {
@@ -2913,7 +3004,6 @@ ul.cstFaqMob {
   .ui-state-active .ui-icon, .ui-button:active .ui-icon{
     top: 30px;    
   }
-
   .cstProDec .product__price {
     margin: 12px 0 0;
   }
@@ -2932,7 +3022,6 @@ ul.cstFaqMob {
     padding: 10px 0 0;
     display: block;
   }
-
   .title-forst {
     padding: 26px;
   }
@@ -2985,7 +3074,7 @@ ul.cstFaqMob {
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 414px) {
   #mobile_menu {
     height: 380px;
   }
