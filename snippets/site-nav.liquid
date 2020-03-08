@@ -84,13 +84,13 @@
           <div class="mRightImg">
             <div class="InnerImage">
               {% if numberget == "1" %}
-		<img src="https://cdn.shopify.com/s/files/1/2012/8501/files/inspiration-space_1024x1024_2c3999ec-0571-4bcf-9328-62e47f357053_large.jpg?v=1582119187" alt="image" title="image">
+		<img src="{{section.settings.mega_img_1| img_url: "480x480"}}"/>
           {% elsif numberget == "2" %}
-              <img src="{{section.settings.image_2| img_url: ""}}"/>
+              <img src="{{section.settings.mega_img_2| img_url: "480x480"}}"/>
               {% elsif numberget == "3" %}
-              <img src="{{section.settings.image_3| img_url: ""}}"/>
+              <img src="{{section.settings.mega_img_3| img_url: "480x480"}}"/>
               {% elsif numberget == "4" %}
-              <img src="{{section.settings.image_4| img_url: ""}}"/>
+              <img src="{{section.settings.mega_img_4| img_url: "480x480"}}"/>
               {%endif%}
             </div>
             </div>

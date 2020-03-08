@@ -1,4 +1,18 @@
 $(document).ready(function(){
+  /**************************** Register Button Click ******************/
+
+  $("#RegisterForm .text-center input.btn").click(function(e){
+    var password =  $(".PasswordFiled").val();
+    var confirmPassword =  $(".RepeatwordFiled").val();
+    if (password != confirmPassword) {
+  e.preventDefault();
+   $("#RegisterForm-password-error-custom").show();
+    }
+    else{
+     $("#RegisterForm-password-error-custom").hide();
+    }
+  })
+ 
   /*********************** Page Scroll On click (Help Center)***************/
   $(".cstFaqMob li").click(function(){
   var GetClass = $(this).attr("class");

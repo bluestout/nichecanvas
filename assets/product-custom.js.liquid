@@ -28,7 +28,7 @@ $(document).ready(function(){
   
 var height =  $(".cstAddCartBuy").offset();
   var HdHeight = ($("#shopify-section-header").height());
-  var CartHeight = ((height).top-HdHeight);
+  var CartHeight = ((height).top+HdHeight);
   if ($(window).width() < 749) {
  $(window).scroll(function() {
  if ($(this).scrollTop() >= CartHeight) { // this refers to window
@@ -76,6 +76,13 @@ var height =  $(".cstAddCartBuy").offset();
   })
   if ($(window).width() > 750) {
   $('.product-single__thumbnails').slick({
+  infinite: true,
+  slidesToShow: 9,
+  slidesToScroll: 1
+});
+  }
+  else{
+   $('.product-single__thumbnails').slick({
   infinite: true,
   slidesToShow: 7,
   slidesToScroll: 1

@@ -37,15 +37,15 @@
 
   <div class="product-single{% if section.settings.enable_payment_button %} product-single--{{ section.settings.media_size }}-media{% endif %}">
     <div class="grid__item product-single__media-group CstProImg {{ product_media_width }}{% if section.settings.media_size == 'full' %} product-single__media-group--full{% endif %}" data-product-single-media-group>
+   <!-- include 'wishlist-button-product' with '{{ product.id }}' -->
       {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
       {% if product.media.size > 1 %}
       {% if product.media.size > 4 %}
       {%- assign enable_thumbnail_slides = true -%}
       {% endif %}
-      <div class="thumImgConter">
+     {% endif %}
+        <div class="thumImgConter">
         
-
-        {% endif %}
         <div class="mainImageContainer">
           {%- for media in product.media -%}
           {% include 'media', media: media, featured_media: featured_media, height: height, enable_image_zoom: enable_image_zoom, image_zoom_size: product_image_zoom_size, image_scale: product_image_scale %}
@@ -78,7 +78,7 @@
                 {%- endif -%}
                 {%- endcapture -%}
 
-                <img class="product-single__thumbnail-image" src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
+                <img class="" src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
                 {%- if media.media_type == 'video' or media.media_type =='external_video' -%}
                 <div class="product-single__thumbnail-badge">
                   {% include 'icon-video-badge-full-color' %}
@@ -199,7 +199,7 @@
         </div>
         {% endif %}
  {% for variant in product.variants %}
-        <div class="GetSizechart" data-img="{{variant.metafields.theme.orientation}}" data-variant="{{variant.title}}" style="display:none;"></div>
+        <div class="GetSizechart" data-img="{{variant.metafields.theme.size_chart_url}}" data-variant="{{variant.title}}" style="display:none;"></div>
         {%endfor%}
         {% if section.settings.show_quantity_selector %}
         <div class="product-form__controls-group">
@@ -500,7 +500,12 @@
 "da": "Canvas Image",
 "de": "Canvas Image",
 "en": "Canvas Image"
-}
+},
+ "info": {
+          "da": "150 x 100px .png recommended",
+          "de": "150 x 100px .png recommended",
+          "en": "150 x 100px .png recommended"
+        }
 },
 {
 "type": "textarea",
@@ -523,7 +528,12 @@
 "da": "Frame Image",
 "de": "Frame Image",
 "en": "Frame Image"
-}
+},
+ "info": {
+          "da": "150 x 100px .png recommended",
+          "de": "150 x 100px .png recommended",
+          "en": "150 x 100px .png recommended"
+        }
 },
 {
 "type": "textarea",
@@ -546,7 +556,12 @@
 "da": "Small Image",
 "de": "Small Image",
 "en": "Small Image"
-}
+},
+ "info": {
+          "da": "150 x 100px .png recommended",
+          "de": "150 x 100px .png recommended",
+          "en": "150 x 100px .png recommended"
+        }
 },
 {
 "type": "textarea",
@@ -569,7 +584,12 @@
 "da": "Medium Image",
 "de": "Medium Image",
 "en": "Medium Image"
-}
+},
+ "info": {
+          "da": "150 x 100px .png recommended",
+          "de": "150 x 100px .png recommended",
+          "en": "150 x 100px .png recommended"
+        }
 },
 {
 "type": "textarea",
@@ -592,7 +612,12 @@
 "da": "Large Image",
 "de": "Large Image",
 "en": "Large Image"
-}
+},
+ "info": {
+          "da": "150 x 100px .png recommended",
+          "de": "150 x 100px .png recommended",
+          "en": "150 x 100px .png recommended"
+        }
 },
 {
 "type": "textarea",
@@ -615,6 +640,198 @@
 "da": "Huge Image",
 "de": "Huge Image",
 "en": "Huge Image"
+},
+ "info": {
+          "da": "150 x 100px .png recommended",
+          "de": "150 x 100px .png recommended",
+          "en": "150 x 100px .png recommended"
+        }
+},
+{
+"type": "header",
+"content": {
+"da": "Static Content",
+"de": "Static Content",
+"en": "Static Content"
+}
+},
+{
+"type": "text",
+"id": "static_main_head",
+"label": {
+"da": "Main Heading",
+"de": "Main Heading",
+"en": "Main Heading"
+},
+"default": {
+"da": "Main Heading",
+"de": "Main Heading",
+"en": "Main Heading"
+}
+},
+{
+"type": "textarea",
+"id": "static_main_content",
+"label": {
+"da": "Main Content",
+"de": "Main Content",
+"en": "Main Content"
+},
+
+"default": {
+"da": "Main Content",
+"de": "Main Content",
+"en": "Main Content"
+}
+},
+{
+"type": "header",
+"content": {
+"da": "Section 1",
+"de": "Section 1",
+"en": "Section 1"
+}
+},
+{
+"type": "image_picker",
+"id": "image_1",
+"label": {
+"da": "Image",
+"de": "Image",
+"en": "Image"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "text",
+"id": "heading_1",
+"label": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+},
+"default": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+}
+},
+{
+"type": "textarea",
+"id": "content_1",
+"label": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+},
+"default": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+}
+},
+{
+"type": "header",
+"content": {
+"da": "Section 2",
+"de": "Section 2",
+"en": "Section 2"
+}
+},
+{
+"type": "image_picker",
+"id": "image_2",
+"label": {
+"da": "Image",
+"de": "Image",
+"en": "Image"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "text",
+"id": "heading_2",
+"label": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+},
+"default": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+}
+},
+{
+"type": "textarea",
+"id": "content_2",
+"label": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+},
+"default": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+}
+},
+{
+"type": "header",
+"content": {
+"da": "Section 3",
+"de": "Section 3",
+"en": "Section 3"
+}
+},
+{
+"type": "image_picker",
+"id": "image_3",
+"label": {
+"da": "Image",
+"de": "Image",
+"en": "Image"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "text",
+"id": "heading_3",
+"label": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+},
+"default": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+}
+},
+{
+"type": "textarea",
+"id": "content_3",
+"label": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+},
+"default": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
 }
 },
 {

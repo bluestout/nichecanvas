@@ -62,6 +62,7 @@ unless it is blank, in that case a ratio of 2:1 will be used.
                     background-image: url('{{ block_image | img_url: '300x300' }}');">
           {% if section.settings.show_overlay %}<div class="slideshow__overlay"></div>{% endif %}
         </div>
+       
         <div
              {% unless block_image_mob.alt == blank %}
              role="img"
@@ -70,13 +71,14 @@ unless it is blank, in that case a ratio of 2:1 will be used.
              {% endunless %}
              class="MobileSlide slideshow__image box ratio-container lazyload{% unless forloop.first %} lazypreload{% endunless %} js"
              data-bg="{{ block_image_mob | img_url: '300x300' }}"
-             data-bgset="{% include 'bgset', image: block_image %}"
+             data-bgset="{% include 'bgset', image: block_image_mob %}"
              data-sizes="auto"
              data-parent-fit="contain"
              style="background-position: {{ block.settings.alignment }};
                     background-image: url('{{ block_image_mob | img_url: '300x300' }}');">
           {% if section.settings.show_overlay %}<div class="slideshow__overlay"></div>{% endif %}
         </div>
+      
         {% endif %}
 
         <noscript>
@@ -844,9 +846,9 @@ unless it is blank, in that case a ratio of 2:1 will be used.
 "en": "Mobile Image"
 },
  "info": {
-          "da": "1980 x 950px .png recommended",
-          "de": "1980 x 950px .png recommended",
-          "en": "1980 x 950px .png recommended"
+          "da": "749 x 599px .png recommended",
+          "de": "749 x 599px .png recommended",
+          "en": "749 x 599px .png recommended"
         }
 },
 {
