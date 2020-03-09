@@ -145,7 +145,7 @@ button.wk-button-collection {
   display: inline-block;
 
   position: absolute;
-  z-index: 1;
+  z-index: 10;
 
   {% if settings.app_wk_col_bg_shape == "square" %}
     top: 0;
@@ -506,6 +506,11 @@ p.wk-login-note {
 
   .wk-product-options {
     border-bottom: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 25px 10px;
 
     .selector-wrapper {
       //display: block !important;
@@ -514,6 +519,7 @@ p.wk-login-note {
     label {
       display: block;
       text-align: center;
+      color: white;
     }
 
     select {
@@ -522,6 +528,10 @@ p.wk-login-note {
       width: 100% !important;
       border-radius: 0;
       margin-bottom: 10px;
+      
+      background: transparent;
+      border: 1px solid white;
+      color: white;
     }
   }
 
@@ -536,8 +546,9 @@ p.wk-login-note {
   margin: 0 auto;
   left: 0;
   right: 0;
+  top: 0;
 
-  background: $wk-variant-form-background;
+  // background: $wk-variant-form-background;
   padding: 10px;
   opacity: 0;
 
@@ -546,30 +557,40 @@ p.wk-login-note {
 
   input.wk-add-to-cart {
     box-sizing: content-box;
-    border: none;
     margin: 0;
-    padding: 14px 24px;
-    color: $wk-add-to-cart-color;
-    background: $wk-add-to-cart-background;
-    color: $wk-add-to-cart-color;
-    width: auto;
+    
+    color: #fff;
+    text-align: center;
+    display: block;
+    border: 1px solid #fff;
+    padding: 10px 0;
+    line-height: 17px;
+    background: transparent;
+    
     min-width: 0;
     height: auto;
+    width: 100%;
     min-height: 0;
-    line-height: 1;
     border-radius: 0;
     text-transform: initial;
     -webkit-appearance: none;
     appearance: none;
 
     &:hover {
-      background: $wk-add-to-cart-background-hover;
-      color: $wk-add-to-cart-color-hover;
+      // background: $wk-add-to-cart-background-hover;
+      // color: $wk-add-to-cart-color-hover;
     }
   }
 }
 
+.wk-image {
+  position: relative;
+}
+
 .wk-item:hover {
+  img {
+  	filter: brightness(60%);
+  }
   .wk-add-item-form {
     opacity: 1;
   }

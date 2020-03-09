@@ -79,7 +79,8 @@ BCSfFilter.prototype.buildProductGridItem = function(data) {
 
   // Add Images
   var aspect_ratio = '';
-  var itemImagesHtml = '<div id="' + wrapperId + '" class="grid-view-item__image-wrapper js">';
+  var itemImagesHtml = '';
+  itemImagesHtml += '<div id="' + wrapperId + '" class="grid-view-item__image-wrapper js">';
   itemImagesHtml += '<div style="padding-top:';
   if (images.length > 0) {
     aspect_ratio = images[0]['width'] / images[0]['height'];
@@ -88,7 +89,7 @@ BCSfFilter.prototype.buildProductGridItem = function(data) {
     itemImagesHtml += 100;
   }
   itemImagesHtml += '%;">';
-  itemImagesHtml += '<img id="' + imgId + '" ' +
+  itemImagesHtml += '<img ' +
     'class="grid-view-item__image lazyload" ' +
     'src="' + this.getFeaturedImage(images, '300x300') + '" ' +
     'data-src="' + this.getFeaturedImage(images, '{width}x') + '" ' +
@@ -114,9 +115,13 @@ BCSfFilter.prototype.buildProductGridItem = function(data) {
 
   // Add data json
   itemHtml = itemHtml.replace(/{{itemJson}}/g, JSON.stringify(data.json));
+  
+  var itemWishlistHtml = "<!-- include 'wishlist-button-collection' with '" + data.id + "' -->";
+  itemHtml = itemHtml.replace(/{{itemWishlist}}/g, itemWishlistHtml);
 
   // Add main attribute
   itemHtml = itemHtml.replace(/{{itemId}}/g, data.id);
+  itemHtml = itemHtml.replace(/{{itemFirstVariantId}}/g, firstVariant.id);
   itemHtml = itemHtml.replace(/{{itemTitle}}/g, data.title);
   itemHtml = itemHtml.replace(/{{itemVendorLabel}}/g, data.vendor);
   itemHtml = itemHtml.replace(/{{itemUrl}}/g, this.buildProductItemUrl(data));
