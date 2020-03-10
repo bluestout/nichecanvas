@@ -80,15 +80,15 @@ BCSfFilter.prototype.buildProductGridItem = function(data) {
   // Add Images
   var aspect_ratio = '';
   var itemImagesHtml = '';
-  itemImagesHtml += '<div id="' + wrapperId + '" class="grid-view-item__image-wrapper js">';
-  itemImagesHtml += '<div style="padding-top:';
-  if (images.length > 0) {
-    aspect_ratio = images[0]['width'] / images[0]['height'];
-    itemImagesHtml += 1 / aspect_ratio * 100;
-  } else {
-    itemImagesHtml += 100;
-  }
-  itemImagesHtml += '%;">';
+//   itemImagesHtml += '<div id="' + wrapperId + '" class="grid-view-item__image-wrapper js">';
+//   itemImagesHtml += '<div style="padding-top:';
+//   if (images.length > 0) {
+//     aspect_ratio = images[0]['width'] / images[0]['height'];
+//     itemImagesHtml += 1 / aspect_ratio * 100;
+//   } else {
+//     itemImagesHtml += 100;
+//   }
+//   itemImagesHtml += '%;">';
   itemImagesHtml += '<img ' +
     'class="grid-view-item__image lazyload" ' +
     'src="' + this.getFeaturedImage(images, '300x300') + '" ' +
@@ -97,8 +97,8 @@ BCSfFilter.prototype.buildProductGridItem = function(data) {
     'data-aspectratio="' + aspect_ratio + '" ' +
     'data-sizes="auto" ' +
     'alt="{{itemTitle}}">';
-  itemImagesHtml += '</div>';
-  itemImagesHtml += '</div>';
+//   itemImagesHtml += '</div>';
+//   itemImagesHtml += '</div>';
 
   var image_size = bcSfFilterConfig.custom.max_height + 'x' + bcSfFilterConfig.custom.max_height;
   var max_width = images.length > 0 ? bcSfFilterConfig.custom.max_height * aspect_ratio : 0;
@@ -116,9 +116,40 @@ BCSfFilter.prototype.buildProductGridItem = function(data) {
   // Add data json
   itemHtml = itemHtml.replace(/{{itemJson}}/g, JSON.stringify(data.json));
   
+  // Add Wish List
   var itemWishlistHtml = "<!-- include 'wishlist-button-collection' with '" + data.id + "' -->";
   itemHtml = itemHtml.replace(/{{itemWishlist}}/g, itemWishlistHtml);
+  
+  // Add item Tag Label
+  var itemTagsHtml = '';
+  if (data.tags) {
+    if (data.tags.indexOf('limited') > -1) {
+      itemTagsHtml += '<li class="limtedAdd">Limited Edition</li>';
+    }
+    if (data.tags.indexOf('onsale') > -1) {
+      itemTagsHtml += '<li class="gbSale">SALE</li>';
+    }
+    if (data.tags.indexOf('newarrival') > -1) {
+      itemTagsHtml += '<li class="gbNewarrive"><img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-new-arrival.svg" alt="img" title="img">New Arrival</li>';
+    }
+    if (data.tags.indexOf('trending') > -1) {
+      itemTagsHtml += '<li class="gbtrmding">Trending</li>';
+    }
+    if (data.tags.indexOf('featuredartist') > -1) {
+      itemTagsHtml += '<li class="gbFA"><img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-featured-artist.svg" alt="img" title="img">Featured Artist</li>';
+    }
+    if (data.tags.indexOf('bestseller') > -1) {
+      itemTagsHtml += '<li class="gbBS"><img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-best-seller.svg" alt="img" title="img">Best Seller</li>';
+    }
+  }
+  itemHtml = itemHtml.replace(/{{itemTags}}/g, itemTagsHtml);
 
+  // Add Loox rating
+  var avg_rating = this.getProductMetafield(data, 'loox', 'avg_rating');
+  var num_reviews = this.getProductMetafield(data, 'loox', 'num_reviews');
+  var itemRating = '<div class="loox-rating" data-id="{{itemId}}" data-rating="'+avg_rating+'" data-raters="'+num_reviews+'"></div>';
+  itemHtml = itemHtml.replace(/{{itemRating}}/g, itemRating);
+  
   // Add main attribute
   itemHtml = itemHtml.replace(/{{itemId}}/g, data.id);
   itemHtml = itemHtml.replace(/{{itemFirstVariantId}}/g, firstVariant.id);
@@ -429,6 +460,19 @@ BCSfFilter.prototype.buildAdditionalElements = function(data, eventType) {
     totalProduct = bcSfFilterConfig.label.items_with_count_other.replace(/{{ count }}/g, data.total_product);
   }
   jQ('#bc-sf-filter-total-product').html(totalProduct);
+  
+  jQ(".GridCartBtn").click(function(){
+    var GetId = $(this).attr("data-id");
+    $.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: 'quantity=1&id=' + GetId,
+      dataType: 'json',
+      success: function(line_item) {
+        window.location.href = "/cart";
+      }
+    })
+  });
 };
 
 // Build Default layout

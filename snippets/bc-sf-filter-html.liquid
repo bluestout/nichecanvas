@@ -2,16 +2,35 @@
 {%- case layout -%}
 
 {%- when 'productGridItemHtml' -%}
-<div class="grid__item [[itemGridWidthClass]]"> 
+<div class="grid__item [[itemGridWidthClass]]">
   <script class="bc-sf-filter-product-script" data-id="bc-product-json-[[itemId]]" type="application/json">[[itemJson]]</script> 
-  <div class="grid-view-item [[itemSoldOutClass]] product-card"> 
+  <div class="MainGridProducts grid-view-item [[itemSoldOutClass]] product-card">
+  	[[itemWishlist]]
     <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="[[itemUrl]]"> 
         <span class="visually-hidden">[[itemTitle]]</span> 
     </a> 
     [[imageStyle]] 
-    [[itemImages]] 
-    <div class="h4 grid-view-item__title">[[itemTitle]]</div> 
-    [[itemPrice]] 
+    <div class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
+      <div class="CustomJs">
+        <div class="cstGridImg">
+          [[itemImages]]
+          <div class="GridCartBtn" data-id="[[itemFirstVariantId]]">Add to Cart</div>
+          <ul class="GridBadge">
+            [[itemTags]]
+          </ul>
+        </div>
+      </div>
+      <div class="placeholder-background placeholder-background--animation" data-image-placeholder></div>
+    </div>
+     
+    <div class="cstPriceTitl">
+      <div>
+        <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">[[itemTitle]]</div>
+        [[itemRating]]
+      </div>
+      [[itemPrice]]
+    </div> 
+    <div class="GridCartBtnmob" data-id="[[itemFirstVariantId]]">Add to Cart</div>
   </div> 
 </div>
 

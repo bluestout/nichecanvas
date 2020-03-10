@@ -1,0 +1,43 @@
+{% comment %} Please don’t update this content {% endcomment %}
+
+{% layout none %}
+{% paginate collection.products by 50 %}
+  {
+    "products":
+      [
+        {% for product in collection.products %}
+          {
+            "id":{{ product.id }},
+            "position":{{ forloop.index }},
+            "metafields":[
+              
+              {% comment %}
+                Single Metafield
+              {% endcomment %}
+              {% assign v_avg_rating = product.metafields.loox["avg_rating"] %}
+              {% if v_avg_rating != blank %}
+                {
+                  "namespace": "loox",
+                  "key": "avg_rating",
+                  "value": {{ v_avg_rating | json }}
+                },
+              {% endif %}
+        
+              {% comment %}
+                Single Metafield
+              {% endcomment %}
+              {% assign v_num_reviews = product.metafields.loox["num_reviews"] %}
+              {% if v_num_reviews != blank %}
+                {
+                  "namespace": "loox",
+                  "key": "num_reviews",
+                  "value": {{ v_num_reviews | json }}
+                },
+              {% endif %}
+        
+            ]
+          },
+        {% endfor %}
+      ]
+  }
+{% endpaginate %}
