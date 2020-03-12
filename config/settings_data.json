@@ -588,8 +588,28 @@
           "only_photos": false,
           "hide_thumbnails": true,
           "product_handle": "",
-          "data-limit": 6,
+          "data-limit": 5,
           "maxwidth": 1920
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 4,
+          "show_collection_image": true,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": 3
         }
       }
     },

@@ -1247,6 +1247,9 @@ background: #eff1f3;
   display: block;
   padding: 0;
 }
+#mobile_menu li ul.mobile-menuChild li:first-child a.mblHding {
+    margin: 24px 0 10px;
+}
 .mobile-menu-parent span.icndwn {
   background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/downArrow.svg);
   display: block;
@@ -2441,11 +2444,9 @@ ul.cstFaqMob {
   font-size: 14px;
 }
 .cst_ots.wk-select {
-    display: none;
+  display: none;
 }
-.cstNon {
- display:none; 
-}
+
 
 /* .CustomWishlist .wk-product-title {
 float: left;
@@ -2476,6 +2477,37 @@ select.FixedBoxCart {
   border: none;
   padding: 0 23px 0 0;
   line-height: 14px;
+}
+.cst_MAinColl {
+  padding: 0 0 60px;
+}
+.cst_MAinColl .shopNwPayltr {
+  text-align: right;
+  padding: 0 60px;
+  margin: -35px 0 0;
+}
+.cst_MAinColl .section-header {
+  margin: 0;
+  padding: 30px 0 45px;
+}
+.cst_MAinColl .section-icontext {
+  padding: 0 0 60px;
+}
+.cst_MAinColl .section-header h1 {
+  margin: 0;
+}
+.cst_MAinColl .MainGridProducts:hover .GridCartBtn {
+  max-width: 320px;
+}
+.cst_MAinColl .bc-sf-widget-slider-wrapper {
+  display: none;
+}
+.cst_MAinColl #bc-sf-filter-load-more .bc-sf-filter-load-more-button {
+  text-transform: unset;
+  font-weight: 600;
+  font-size: 13px;
+  border: 2px solid #000;
+  color: #000;
 }
 
 
@@ -2660,6 +2692,20 @@ select.FixedBoxCart {
 
 @media (max-width: 749px) {
 
+  .cst_MAinColl .section-header h1 {
+    font-size: 28px;
+  }
+  .cst_MAinColl .shopNwPayltr {
+    display: none;
+  }
+  .cst_MAinColl .section-header {
+    padding: 10px 0 45px;
+  }
+  .cst_MAinColl .section-icontext {
+    float: left;
+    width: 100%;
+    padding: 0 0 35px;
+  }
   .mainImageContainer {
     line-height: 0;
   }
@@ -2782,7 +2828,7 @@ select.FixedBoxCart {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 9;
+    z-index: 99;
   }
   .CustHeader .site-header__logo  {
     margin: unset;
@@ -2848,26 +2894,24 @@ select.FixedBoxCart {
     top: 15px;
     font-size: 12px;
   }
-
   .search-bar .predictive-search-wrapper {
     top: 50px !important;
   }
-
 
 }
 
 
 
 @media (max-width: 749px) {
-
+  .cst_MAinColl {
+    padding: 0;
+  }
   .cartImgDec ul.product-details li {
     display: flex;
   }
-
   select.FixedBoxCart {
     width: calc(100% - 40px);
   }
-
   .CstProImg button.wk-button-product {
     right: 12px;
   }
@@ -3280,7 +3324,6 @@ select.FixedBoxCart {
   .pageBestsel .section-header h2 {
     font-size: 22px;
   }
-
 
 }
 
