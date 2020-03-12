@@ -29,8 +29,8 @@
 {%- endcomment -%}
 {% capture image_size %}{{ height }}x{{ height }}{% endcapture %}
 
-<div
-    class="product-single__media-wrapper{% unless featured_media == media %} hide{% endunless %}"
+<div data-imge="{{media.id}}"
+    class="{%if forloop.last%} LastMainIndex {%endif%} {%if forloop.first%} FirstMainIndex {%endif%}product-single__media-wrapper{% unless featured_media == media %} hide{% endunless %}"
     {% if media.media_type == 'video' or media.media_type == 'external_video' %} data-product-media-type-video data-enable-video-looping="{{ section.settings.enable_video_looping }}"{% endif %}
     {% if media.media_type == 'model' %} data-product-media-type-model{% endif %}
     {% if media.media_type == 'external_video' %} data-video-id="{{ media.external_id }}"{% endif %}

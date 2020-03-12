@@ -6,7 +6,9 @@ var bcSfFilterSettings = {
         loadProductFirst: true,
         styleScrollToTop: 'style2',
         defaultDisplay: bcSfFilterConfig.custom.layout,
-        showPlaceholderProductList: false
+        showPlaceholderProductList: false,
+        swatchStyle: 'square-list',
+        requestInstantly: true,
     },
 };
 
@@ -380,23 +382,69 @@ BCSfFilter.prototype.buildPagination = function(totalProduct) {
 
 // Build Sorting
 BCSfFilter.prototype.buildFilterSorting = function() {
-  if (bcSfFilterTemplate.hasOwnProperty('sortingHtml')) {
-    jQ(this.selector.topSorting).html('');
-
-    var sortingArr = this.getSortingList();
-    if (sortingArr) {
-      // Build content
-      var sortingItemsHtml = '';
-      for (var k in sortingArr) {
-        sortingItemsHtml += '<option value="' + k + '">' + sortingArr[k] + '</option>';
+  jQ(this.selector.topSorting).html('');
+  var sortingArr = this.getSortingList();
+  if (sortingArr) {
+    var paramSort = this.queryParams.sort || '';
+    // Build content
+    var sortingItemsHtml = '';
+    for (var k in sortingArr) {
+      activeClass = '';
+      if(paramSort == k) {
+        activeClass = 'active';
       }
-      var html = bcSfFilterTemplate.sortingHtml.replace(/{{sortingItems}}/g, sortingItemsHtml);
-      jQ(this.selector.topSorting).html(html);
-
-      // Set current value
-      jQ(this.selector.topSorting + ' select').val(this.queryParams.sort);
+      sortingItemsHtml += '<li><a href="#" data-sort="' + k + '" class="' + activeClass+ '">' + sortingArr[k] + '</a></li>';
     }
+    var html = bcSfFilterTemplate.sortingHtml.replace(/{{sortingItems}}/g, sortingItemsHtml);
+    jQ('.bc-sf-filter-custom-sorting').html(html);
+    if(jQ('.bc-sf-filter-custom-sorting').hasClass("bc-sf-filter-sort-active")) {
+      jQ('.bc-sf-filter-custom-sorting').toggleClass('bc-sf-filter-sort-active');
+    }
+
+    var labelSort = '';
+    if(paramSort.length > 0) {
+      var labelHandle = 'sorting_' + paramSort.replace(/\-/g, '_');
+      labelSort = bcSfFilterConfig.label[labelHandle];
+    } else {
+      labelSort = bcSfFilterConfig.label.sorting;
+    }
+
+    jQ('.bc-sf-filter-custom-sorting label span span').text(labelSort);
   }
+};
+
+BCSfFilter.prototype.buildSortingEvent = function() {
+  var _this = this;
+  jQ('.bc-sf-filter-filter-dropdown a').click(function(e){
+    e.preventDefault();
+    onInteractWithToolbar(e, 'sort', _this.queryParams.sort, jQ(this).data('sort'));
+  });
+
+  jQ(".bc-sf-filter-custom-sorting > label").click(function(){
+    if (!jQ('.bc-sf-filter-filter-dropdown').is(':animated')) {
+      jQ('.bc-sf-filter-filter-dropdown').toggle().parent().toggleClass('bc-sf-filter-sort-active');
+      jQ('#bc-sf-filter-tree').hide();
+    }
+  });
+  
+  jQ('body').click(function(e){
+    var contentContainer = jQ('.bc-sf-filter-custom-sorting');
+    if (!contentContainer.is(e.target) && contentContainer.has(e.target).length === 0) {
+      jQ('.bc-sf-filter-filter-dropdown').hide().parent().removeClass('bc-sf-filter-sort-active');
+    }
+  });  
+
+  jQ(this.getSelector('filterTreeMobileButton')).click(function(){
+    jQ('#bc-sf-filter-top-sorting-mobile .bc-sf-filter-filter-dropdown').hide();
+  });
+  
+  jQ('#bc-sf-filter-tree-h .bc-sf-filter-block-title a').click(function(){
+    jQ('.bc-sf-filter-filter-dropdown').hide().parent().removeClass('bc-sf-filter-sort-active');
+  });  
+  
+  jQ(window).on('scroll', function(){
+    jQ('.bc-sf-filter-filter-dropdown').hide().parent().removeClass('bc-sf-filter-sort-active');
+  });
 };
 
 // Build Display type
@@ -473,6 +521,7 @@ BCSfFilter.prototype.buildAdditionalElements = function(data, eventType) {
       }
     })
   });
+  
 };
 
 // Build Default layout
@@ -480,3 +529,230 @@ BCSfFilter.prototype.buildDefaultElements=function(){var isiOS=/iPad|iPhone|iPod
 
 function customizeJsonProductData(data) {for (var i = 0; i < data.variants.length; i++) {var variant = data.variants[i];var featureImage = data.images.filter(function(e) {return e.src == variant.image;});if (featureImage.length > 0) {variant.featured_image = {"id": featureImage[0]['id'],"product_id": data.id,"position": featureImage[0]['position'],"created_at": "","updated_at": "","alt": null,"width": featureImage[0]['width'], "height": featureImage[0]['height'], "src": featureImage[0]['src'], "variant_ids": [variant.id]}} else {variant.featured_image = '';};};var self = bcsffilter;var itemJson = {"id": data.id,"title": data.title,"handle": data.handle,"vendor": data.vendor,"variants": data.variants,"url": self.buildProductItemUrl(data),"options_with_values": data.options_with_values,"images": data.images,"images_info": data.images_info,"available": data.available,"price_min": data.price_min,"price_max": data.price_max,"compare_at_price_min": data.compare_at_price_min,"compare_at_price_max": data.compare_at_price_max};return itemJson;};
 BCSfFilter.prototype.prepareProductData = function(data) {var countData = data.length;for (var k = 0; k < countData; k++) {data[k]['images'] = data[k]['images_info'];if (data[k]['images'].length > 0) {data[k]['featured_image'] = data[k]['images'][0]} else {data[k]['featured_image'] = {src: bcSfFilterConfig.general.no_image_url,width: '',height: '',aspect_ratio: 0}}data[k]['url'] = '/products/' + data[k].handle;var optionsArr = [];var countOptionsWithValues = data[k]['options_with_values'].length;for (var i = 0; i < countOptionsWithValues; i++) {optionsArr.push(data[k]['options_with_values'][i]['name'])}data[k]['options'] = optionsArr;if (typeof bcSfFilterConfig.general.currencies != 'undefined' && bcSfFilterConfig.general.currencies.length > 1) {var currentCurrency = bcSfFilterConfig.general.current_currency.toLowerCase().trim();function updateMultiCurrencyPrice(oldPrice, newPrice) {if (typeof newPrice != 'undefined') {return newPrice;}return oldPrice;}data[k].price_min = updateMultiCurrencyPrice(data[k].price_min, data[k]['price_min_' + currentCurrency]);data[k].price_max = updateMultiCurrencyPrice(data[k].price_max, data[k]['price_max_' + currentCurrency]);data[k].compare_at_price_min = updateMultiCurrencyPrice(data[k].compare_at_price_min, data[k]['compare_at_price_min_' + currentCurrency]);data[k].compare_at_price_max = updateMultiCurrencyPrice(data[k].compare_at_price_max, data[k]['compare_at_price_max_' + currentCurrency]);}data[k]['price_min'] *= 100, data[k]['price_max'] *= 100, data[k]['compare_at_price_min'] *= 100, data[k]['compare_at_price_max'] *= 100;data[k]['price'] = data[k]['price_min'];data[k]['compare_at_price'] = data[k]['compare_at_price_min'];data[k]['price_varies'] = data[k]['price_min'] != data[k]['price_max'];var firstVariant = data[k]['variants'][0];if (getParam('variant') !== null && getParam('variant') != '') {var paramVariant = data[k]['variants'].filter(function(e) {return e.id == getParam('variant')});if (typeof paramVariant[0] !== 'undefined') firstVariant = paramVariant[0]} else {var countVariants = data[k]['variants'].length;for (var i = 0; i < countVariants; i++) {if (data[k]['variants'][i].available) {firstVariant = data[k]['variants'][i];break}}}data[k]['selected_or_first_available_variant'] = firstVariant;var countVariants = data[k]['variants'].length;for (var i = 0; i < countVariants; i++) {var variantOptionArr = [];var count = 1;var variant = data[k]['variants'][i];var variantOptions = variant['merged_options'];if (Array.isArray(variantOptions)) {var countVariantOptions = variantOptions.length;for (var j = 0; j < countVariantOptions; j++) {var temp = variantOptions[j].split(':');data[k]['variants'][i]['option' + (parseInt(j) + 1)] = temp[1];data[k]['variants'][i]['option_' + temp[0]] = temp[1];variantOptionArr.push(temp[1])}data[k]['variants'][i]['options'] = variantOptionArr}data[k]['variants'][i]['compare_at_price'] = parseFloat(data[k]['variants'][i]['compare_at_price']) * 100;data[k]['variants'][i]['price'] = parseFloat(data[k]['variants'][i]['price']) * 100}data[k]['description'] = data[k]['content'] = data[k]['body_html'];if (data[k].hasOwnProperty('original_tags') && data[k]['original_tags'].length > 0) {data[k]['tags'] = data[k]['original_tags'].slice(0);}data[k]['json'] = customizeJsonProductData(data[k]);}return data;};
+
+
+/**** Start - Boost - 32722 ****/
+BCSfFilter.prototype.afterBuildFilterTree = function(data) {
+    // Wrap all filter option blocks for styling
+    jQ(this.selector.filterTree).children().wrapAll('<div id="bc-sf-filter-options-wrapper"></div>');
+    // Box Style
+    this.buildFilterOptionBoxStyle();
+    // Open again filter options after submitting on PC
+    this.triggerOpenHorizontalFilterEvent();
+    // Add scroll bar for block has long content, except the filter option which is range
+    this.buildFilterShowMore();
+    // Collapse all filter options by default
+    if (!this.checkIsFullWidthMobile()) this.collapseFilterOption();
+  
+  	var htmlTemplate = '<li><ul class="horizontal"><li>Horizontal</li></ul></li><li><ul class="vertical"><li>Vertical</li></ul></li>'
+  	jQ('[data-id="pf_t_format"] .bc-sf-filter-block-content ul').append(htmlTemplate);
+  
+  	jQ('#bc-sf-filter-tree-h [data-id="pf_t_format"] .bc-sf-filter-block-content ul a[data-id="pf_t_format"]').each(function(){
+      	var $this = jQ(this);
+      	var value = $this.data('value');
+      	var $parent = $this.parent('li');
+      	var html = '<li>' + $parent.html() + '</li>';
+      
+      	if (value.indexOf('vertical') > -1) {
+          	jQ('#bc-sf-filter-tree-h [data-id="pf_t_format"] .bc-sf-filter-block-content ul.vertical').append(html);
+          	
+        } else {
+          	jQ('#bc-sf-filter-tree-h [data-id="pf_t_format"] .bc-sf-filter-block-content ul.horizontal').append(html);
+        }
+      
+      	$parent.remove();
+    });
+  
+  	jQ('#bc-sf-filter-tree [data-id="pf_t_format"] .bc-sf-filter-block-content ul a[data-id="pf_t_format"]').each(function(){
+      	var $this = jQ(this);
+      	var value = $this.data('value');
+      	var $parent = $this.parent('li');
+      	var html = '<li>' + $parent.html() + '</li>';
+      
+      	if (value.indexOf('vertical') > -1) {
+          	jQ('#bc-sf-filter-tree [data-id="pf_t_format"] .bc-sf-filter-block-content ul.vertical').append(html);
+          	
+        } else {
+          	jQ('#bc-sf-filter-tree [data-id="pf_t_format"] .bc-sf-filter-block-content ul.horizontal').append(html);
+        }
+      
+      	$parent.remove();
+    });
+};
+
+
+BCSfFilter.prototype.buildFilterOptionLabel = function(label, productNumber, fOData) {
+    // Customize label
+    label = this.customizeFilterOptionLabel(label, fOData.prefix, fOData.filterType, fOData.displayAllValuesInUppercaseForm);
+  	switch (label) {
+      case 'Acmehorizontal': label = 'One piece'; break;
+      case 'Acme3horizontal': label = '3 pieces'; break;
+      case 'Acme5p': label = '5 pieces'; break;
+      case 'Acmevertical': label = 'One piece'; break;
+      case 'Acme3vertical': label = '3 pieces'; break;
+      default: label = label;
+    }
+  
+    // Build Labels
+    var itemLabelHtml = this.getTemplate('filterOptionLabel').replace(/{{itemValue}}/g, label);
+    if (this.getSettingValue('general.showFilterOptionCount') && fOData.displayType != 'box') {
+        if (fOData.keepValuesStatic !== true && productNumber !== null && ((productNumber > 0 && this.getSettingValue('general.showOutOfStockOption') == false) || this.getSettingValue('general.showOutOfStockOption') == true)) {
+            return itemLabelHtml.replace(/{{itemAmount}}/g, '(' + productNumber + ')');
+        }
+    }
+    return itemLabelHtml.replace(/{{itemAmount}}/g, '');
+};
+
+BCSfFilter.prototype.buildFilterOptionSwatchData = function(fOType, fOId, fOLabel, fODisplayType, fOSelectType, fOItemValue, fOData, fTreeType) {
+    if (this.checkShowFilterOptionItem(fOItemValue, fOData)) {
+        var iValue = fOItemValue.key, iLabel = fOItemValue.key;
+        var swatchName = iValue;
+        if (fOType == 'collection') {
+            iLabel = fOItemValue.label, iValue = fOItemValue.handle;
+            swatchName = iLabel;
+        }
+
+        var colorOptionsArr = this.getSettingValue('general.colorOptionsArr');
+        // Get prefix of swatch from filter option id
+        // Ex: By option: pf_opt_color -> color, pf_opt_size -> size
+        //     By tag: pf_t_color -> color, pf_t_dimension -> dimension
+        var prefixSwatch = fOId.replace('pf_t_', '').replace('pf_opt_', '');
+        // Deprecated
+        if (colorOptionsArr != '') {
+            var isColor = colorOptionsArr.filter(function(item) {
+                return fOId.indexOf(item) > -1;
+            });
+            if (typeof isColor[0] !== 'undefined') {
+                prefixSwatch = 'color';
+            }
+        }
+        // Get Swatch name
+        swatchName = this.customizeSwatchFileName(swatchName, fOItemValue, fOData);
+        // Get item HTML Template & Build data
+        var html = this.getTemplate('filterOptionSwatchItem');
+        html = this.buildFilterOptionItem(html, iLabel, iValue, fOType, fOId, fOLabel, fODisplayType, fOSelectType, fOItemValue, fOData, fTreeType);
+        // Add Image
+        var filePath = getFilePath(prefixSwatch + '-' + swatchName, this.swatchExtension, this.getSettingValue('general.swatchImageVersion'));
+      	if (fOId == 'pf_t_format') {
+          	filePath = bcSfFilterMainConfig.general.asset_url.replace('bc-sf-filter.js', prefixSwatch + '-' + swatchName + '.svg');
+        }
+        html = html.replace(/{{itemImageValue}}/g, filePath);
+        // Add Border
+        var border = fOData.hasOwnProperty('borderSwatch') && fOData.borderSwatch != '' ? fOData.borderSwatch : 'none';
+        html = html.replace(/{{itemBorder}}/g, border);
+        return html;
+    }
+    return '';
+};
+
+BCSfFilter.prototype.buildFilterSelectionData = function(data) {
+    function buildItem(template, title, label, clearLink) {
+        switch (label) {
+          case 'Acmehorizontal': label = 'Horizontal: One piece'; break;
+          case 'Acme3horizontal': label = 'Horizontal: 3 pieces'; break;
+          case 'Acme5p': label = 'Horizontal: 5 pieces'; break;
+          case 'Acmevertical': label = 'Vertical: One piece'; break;
+          case 'Acme3vertical': label = 'Vertical: 3 pieces'; break;
+          default: label = label;
+        }
+        template = template.replace(/{{itemType}}/g, title);
+        template = template.replace(/{{itemLabel}}/g, label);
+        template = template.replace(/{{itemLink}}/g, clearLink);
+        return template;
+    }
+
+    var _this = this;
+    var verticalContent = horizontalContent = '';
+    var itemVerticalHtml = this.getTemplate('filterRefineItem');
+    var itemHorizontalHtml = this.getTemplate('filterRefineHorizontalItem');
+    var options = data.filter.options;
+
+    // Get all params that have on URL
+    var paramKeys = Object.keys(_this.queryParams);
+    paramKeys = paramKeys.filter(function(key) {
+        return key.indexOf('pf_') == 0
+    });
+
+    jQ.each(paramKeys, function(i, key) {
+        var selectedOption = options.filter(function(e) { return e.filterOptionId == key })[0];
+        if (typeof selectedOption !== 'undefined' && _this.queryParams.hasOwnProperty(key) && _this.queryParams[key] && _this.queryParams[key].length) {
+            var values = _this.queryParams[key],
+                fOId = selectedOption.filterOptionId,
+                prefix = selectedOption.prefix,
+                title = selectedOption.label,
+                fType = selectedOption.filterType,
+                fODisplayType = selectedOption.displayType;
+            prefix = typeof prefix !== 'undefined' && prefix !== null && prefix !== false ? prefix.replace(/\\/g, '') : '';
+            if (!Array.isArray(values)) values = [values];
+            // Fix email campaign issue
+            values = values.map(function(value) {
+                return value.toString().replace(/\+/g, '%20');
+            });
+
+            if (fODisplayType == 'range') {
+                /* RANGE SLIDER
+                *  - Is advanced range slider: Get first value and last value for min-max
+                *  - Is general range slider:  Split value by ":" to get min-max
+                **/
+                var label = '';
+                if (fType.indexOf('price') == -1 && fType !== 'weight' && fType.indexOf('range_slider') == -1) {
+                    // Return an Array of values
+                    var rangeValues = []
+                    if (selectedOption && selectedOption.hasOwnProperty('values')) {
+                        rangeValues = selectedOption['values'].map(function(value) {
+                            return value.key;
+                        });
+                    }
+                    // Get min/max label from URL
+                    var currentLabels = rangeValues.length ? _this.getAdvancedRangeSelectedValues(values, rangeValues) : [values[0], values[values.length - 1]];
+                    label = currentLabels[0].toString().replace(prefix, '');
+                    if (values.length > 1) {
+                        label += ' - ' + currentLabels[1].toString().replace(prefix, '');
+                    }
+                } else {
+                    var value = values[0], elements = value.split(':');
+                    if (fType == 'price') {
+                        var minPrice = _this.formatMoney(elements[0] * 100),
+                            maxPrice = _this.formatMoney(elements[1] * 100);
+                        if (_this.getSettingValue('general.removePriceDecimal')) {
+                            minPrice = _this.removeDecimal(minPrice), maxPrice = _this.removeDecimal(maxPrice);
+                        }
+                        label = minPrice + ' - ' + maxPrice;
+                    } else {
+                        label = elements[0] + ' - ' + elements[1];
+                    }
+                }
+                var clearLink = _this.buildClearFilterOptionLink(fOId, title, values);
+                verticalContent += buildItem(itemVerticalHtml, title, label, clearLink);
+                horizontalContent += buildItem(itemHorizontalHtml, title, label, clearLink);
+            } else {
+                for (var i = 0; i < values.length; i++) {
+                    var value = values[i], label = value;
+                    // Customize label
+                    label = _this.customizeFilterOptionLabel(label, prefix, fType);
+                    var clearLink = _this.buildClearFilterOptionLink(fOId, title, value);
+                    // Remove the prefix in label
+                    if (typeof prefix !== 'undefined' && prefix !== null && prefix !== false) {
+                        prefix = prefix.replace(/\\/g, '');
+                        value = value.replace(prefix, '').trim();
+                    }
+                    switch(fType) {
+                        case 'price': label = _this.getPriceLabel(value); break;
+                        case 'percent_sale': label = _this.getPercentSaleLabel(value); break;
+                        case 'stock': label = (value === 'true') ? selectedOption.values[0].label : selectedOption.values[1].label; break;
+                        case 'review_ratings':
+                            var showExactRating = selectedOption.hasOwnProperty('showExactRating')? selectedOption.showExactRating: false;
+                            label = _this.getReviewRatingsLabel(value, showExactRating);
+                            break;
+                    }
+                    verticalContent += buildItem(itemVerticalHtml, title, label, clearLink);
+                    horizontalContent += buildItem(itemHorizontalHtml, title, label, clearLink);
+                }
+            }
+        }
+    });
+
+    return [verticalContent, horizontalContent];
+};
+
+/**** End - Boost - 32722 ****/

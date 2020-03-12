@@ -102,7 +102,13 @@
         <h4>Your Cart</h4>
         <table>
           <tbody data-cart-line-items>
+            
             {%- for item in cart.items -%}
+           
+            {%capture allvariants%}{% for variant in item.product.variants%}{{variant.title | split: "/" | last | strip}}{%unless forloop.last%},{%endunless%}{%endfor%}{%endcapture%}
+    {% assign newval = allvariants | split: ',' | uniq %}
+            
+            
             <tr class="cart__row" data-cart-item data-cart-item-key="{{ item.key }}" data-cart-item-url="{{ item.url }}" data-cart-item-title="{{ item.title }}" data-cart-item-index="{{ forloop.index }}" data-cart-item-quantity="{{ item.quantity }}">
               <td class="cart__meta small--text-left" data-cart-table-cell>
                 <div class="cart__product-information">
@@ -147,12 +153,24 @@
                     {%- assign variant_options = item.options_with_values -%}
                     {%- endif -%}
                     {%- assign property_size = item.properties | size -%}
-
-                    <ul class="product-details{% if item.product.has_only_default_variant and property_size == 0 %} hide{% endif %}" data-cart-item-details aria-label="{{ 'cart.label.product_details' | t }}">
+                    {% for variant in item.product.variants%}
+                    <div class="GetVariantDetail" data-iddd="{{variant.id}}" data-name="{{variant.title}}"></div>
+                    {%endfor%}
+                    <ul data-already="{{ item.url | split: "=" | last | strip}}" data-line="{{forloop.index}}" data-quat="{{ item.quantity }}" class="product-details{% if item.product.has_only_default_variant and property_size == 0 %} hide{% endif %}" data-cart-item-details aria-label="{{ 'cart.label.product_details' | t }}">
                       {%- for option in variant_options -%}
-                      <li class="product-details__item product-details__item--variant-option{% if item.product.has_only_default_variant %} hide{% endif %}" data-cart-item-option>
+                      <li {% if option.name contains "Type"%} data-type="{{ option.value }}"{%endif%} class="product-details__item product-details__item--variant-option{% if item.product.has_only_default_variant %} hide{% endif %}" data-cart-item-option>
 
-                        <span> {{ option.name }}: </span> {{ option.value }}
+                        <span> {{ option.name }}: </span> 
+                        {% if option.name contains "Size"%}
+                        
+                        <select  class="FixedBoxCart">
+          {% for variantName in newval%}
+          <option value="{{variantName}}" {%if option.value == variantName %} selected{%endif%}>{{variantName}}</option>
+          {% endfor %}
+        </select>
+                        {%else%}
+                        {{ option.value }}
+                        {%endif%}
 
                       </li>
 

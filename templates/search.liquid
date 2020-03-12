@@ -32,7 +32,7 @@
   <div class="page-width">
     <div class="filters-toolbar">
       <div class="filters-toolbar__item-wrapper">
-        <div class="filters-toolbar__item-child" id="bc-sf-filter-top-sorting">
+        <div class="filters-toolbar__item-child bc-sf-filter-custom-sorting" id="bc-sf-filter-top-sorting">
           {% include 'bc-sf-filter-skeleton', width: 2 %}
         </div>
       </div>
@@ -81,12 +81,13 @@
       sorting: {% assign temp = 'collections.sorting.title' | t  %} {% unless temp contains 'translation missing'  %} {{ temp | json }} {% else %} "Sorting" {% endunless %},
       sorting_best_selling: "Best Selling" ,
       sorting_featured: "Featured",
+      sorting_manual: "Featured",
       sorting_title_ascending: "Alphabetically, A-Z",
       sorting_title_descending: "Alphabetically, Z-A",
       sorting_price_ascending:"Lowest Price",
       sorting_price_descending:"Highest Price",
-      sorting_date_ascending:"Date, Old to New",
-      sorting_date_descending:"Date, New to Old",
+      sorting_created_ascending:"Date, Old to New",
+      sorting_created_descending:"Date, New to Old",
       sorting_relevance:"Relevance",
       search_general_title: {{ 'general.search.title' | t | json }},
       search_result_empty: {{ 'general.search.no_results_html' | t | json }},

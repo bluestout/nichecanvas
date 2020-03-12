@@ -1,5 +1,84 @@
 $(document).ready(function(){
-   console.log("testingnewone"); 
+   /*************************** MAIN IMAGE SLIDER *************************/
+$('.MainImageSlider').slick({
+   slidesToShow: 1,
+   slidesToScroll: 1,
+   arrows: true,
+   asNavFor: '.product-single__thumbnails'
+ });
+ // $('.MainImageSlider').slick();
+//   $(".CustomThumList").click(function(){
+//   var thumbid = $(this).attr("data-idd");
+//     $("").each(function(){
+//     var MainIdd = $(this).attr();
+//       if(MainIdd ==thumbid ){
+//       $(this)
+//       }
+//     })
+//   })
+  $(".arrownext").click(function(){
+  if($(".arrowPrev").hasClass("disablearrow")){
+     $(".arrowPrev").removeClass("disablearrow");
+     }
+    $(".product-single__media-wrapper").each(function(index){
+      if($(this).hasClass("hide")){}
+      else{
+      var Homeget = $(this).next(".product-single__media-wrapper").attr("data-imge");
+        if($(this).next(".product-single__media-wrapper").hasClass("LastMainIndex")){
+        $(".CustomThumList.slick-slide").each(function(index){
+        var Iddget = $(this).attr("data-idd");
+          if(Iddget==Homeget){
+          $(this).children("a").trigger( "click" );
+            
+          }
+        })
+        $(".arrownext").addClass("disablearrow");
+        }
+        else{
+        $(".CustomThumList.slick-slide").each(function(index){
+        var Iddget = $(this).attr("data-idd");
+          if(Iddget==Homeget){
+          $(this).children("a").trigger( "click" );
+            
+          }
+        })
+       
+        }
+        return false;
+      }
+    })
+  })
+   $(".arrowPrev").click(function(){
+     if($(".arrownext").hasClass("disablearrow")){
+     $(".arrownext").removeClass("disablearrow");
+     }
+    $(".product-single__media-wrapper").each(function(index){
+      if($(this).hasClass("hide")){}
+      else{
+      var Homeget = $(this).prev(".product-single__media-wrapper").attr("data-imge");
+        if($(this).prev(".product-single__media-wrapper").hasClass("FirstMainIndex")){
+           $(".CustomThumList.slick-slide").each(function(index){
+        var Iddget = $(this).attr("data-idd");
+          if(Iddget==Homeget){
+          $(this).children("a").trigger( "click" );
+            
+          }
+        })
+           $(".arrowPrev").addClass("disablearrow");
+        }
+        else{
+        $(".CustomThumList.slick-slide").each(function(index){
+        var Iddget = $(this).attr("data-idd");
+          if(Iddget==Homeget){
+          $(this).children("a").trigger( "click" );
+            
+          }
+        })
+        }
+        return false;
+      }
+    })
+  })
   /***********************SHIPPING CHANGE ON BASES OF IP ************************/
   $.getJSON('https://ipapi.co/json/', function(data) {
   var codeget = (JSON.stringify(data.country_code));
@@ -76,16 +155,20 @@ var height =  $(".cstAddCartBuy").offset();
   })
   if ($(window).width() > 750) {
   $('.product-single__thumbnails').slick({
-  infinite: true,
-  slidesToShow: 9,
-  slidesToScroll: 1
+  infinite: false,
+  slidesToShow: 12,
+  asNavFor: '.MainImageSlider',
+  focusOnSelect: true,
+  slidesToScroll: 12
 });
   }
   else{
    $('.product-single__thumbnails').slick({
-  infinite: true,
-  slidesToShow: 7,
-  slidesToScroll: 1
+  infinite: false,
+  slidesToShow: 10,
+  asNavFor: '.MainImageSlider',
+  focusOnSelect: true,
+  slidesToScroll:10
 });
   }
   jQuery(function() {

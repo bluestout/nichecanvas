@@ -5,6 +5,7 @@
      data-enable-history-state="true"
      data-ajax-enabled="{{ settings.enable_ajax }}"
      >
+
   {% comment %}
   Get first variant, or deep linked one
   {% endcomment %}
@@ -47,9 +48,11 @@
         <div class="thumImgConter">
         
         <div class="mainImageContainer">
-          {%- for media in product.media -%}
-          {% include 'media', media: media, featured_media: featured_media, height: height, enable_image_zoom: enable_image_zoom, image_zoom_size: product_image_zoom_size, image_scale: product_image_scale %}
-          {%- endfor -%}
+          <ul class="MainImageSlider">
+          {% for media in product.media %}
+            <li data-imgid="{{ media.id }}"><img src="{{media | img_url: "900x900"}}" /></li>
+          {% endfor %}
+          </ul>
         </div>
         
         <div class="thumnailCont">
@@ -62,7 +65,7 @@
           {% endif %}
           <ul class="product-single__thumbnails">
             {% for media in product.media %}
-            <li class="">
+            <li class="CustomThumList" data-idd="{{media.id}}">
               <a href="{{ media.preview_image | img_url: product_image_zoom_size, scale: product_image_scale }}"
                  class="text-link product-single__thumbnail product-single__thumbnail--{{ section.id }}"
                  data-thumbnail-id="{{ section.id }}-{{ media.id }}"

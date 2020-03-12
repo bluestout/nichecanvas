@@ -581,26 +581,15 @@
           "rows": 1
         }
       },
-      "1583878246892": {
-        "type": "loox-carousel-reviews",
+      "1583884418316": {
+        "type": "loox-all-reviews",
         "settings": {
-          "max_width": 1920,
-          "arrows_color": "",
-          "dots_color": "",
-          "button_color": "",
-          "show_more": true,
+          "title": "Our customers love it",
           "only_photos": false,
-          "use_widget_font": false,
-          "product_handle": ""
-        }
-      },
-      "1583878279014": {
-        "type": "rich-text",
-        "settings": {
-          "full_width": false,
-          "section_title": "Our customers love it",
-          "text": "",
-          "text_size": "medium"
+          "hide_thumbnails": true,
+          "product_handle": "",
+          "data-limit": 6,
+          "maxwidth": 1920
         }
       }
     },
@@ -613,8 +602,7 @@
       "1582012825143",
       "1582016831892",
       "featured-collections",
-      "1583878279014",
-      "1583878246892"
+      "1583884418316"
     ]
   },
   "presets": {

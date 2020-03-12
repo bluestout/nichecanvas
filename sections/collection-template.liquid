@@ -61,29 +61,21 @@
 
     <div class="filters-toolbar-wrapper">
       <div class="page-width">
-        <div class="filters-toolbar">
-          <div class="filters-toolbar__item-wrapper">
-            {% if section.settings.sort_enable %}
-              <div class="filters-toolbar__item-child" id="bc-sf-filter-top-sorting">
-                {% include 'bc-sf-filter-skeleton', width: 2 %}
-              </div>
-            {% endif %}
+        <div class="bc-sf-filter-tree-wrapper">
+          <h3 class="bc-sf-filter-tree-heading">Filter by:</h3>
+          <div id="bc-sf-filter-tree-h">
+            {% include 'bc-sf-filter-tree-placeholder-h' %}
           </div>
-          <div class="filters-toolbar__item filters-toolbar__item--count">
-            <span class="filters-toolbar__product-count" id="bc-sf-filter-total-product">
-              {% include 'bc-sf-filter-skeleton', width: 2 %}
-            </span>
-          </div>
-
+        </div>
+        <div class="filters-toolbar__item-child bc-sf-filter-custom-sorting" id="bc-sf-filter-top-sorting">
+          {% include 'bc-sf-filter-skeleton', width: 2 %}
         </div>
       </div>
     </div>
   </header>
 
   <div class="page-width" id="Collection">
-    <div id="bc-sf-filter-tree-h">
-      {% include 'bc-sf-filter-tree-placeholder-h' %}
-    </div>
+    
     <div id="bc-sf-filter-tree-mobile">
       {% include 'bc-sf-filter-skeleton', type: 'button' %}
     </div>
@@ -154,12 +146,13 @@
       sorting: {% assign temp = 'collections.sorting.title' | t  %} {% unless temp contains 'translation missing'  %} {{ temp | json }} {% else %} "Sorting" {% endunless %},
       sorting_best_selling: {% assign temp = collection.sort_options[1].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Best Selling" {% endunless %},
       sorting_featured: {% assign temp = collection.sort_options[0].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Featured" {% endunless %},
+      sorting_manual: {% assign temp = collection.sort_options[0].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Featured" {% endunless %},
       sorting_title_ascending: {% assign temp = collection.sort_options[2].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Alphabetically, A-Z" {% endunless %},
       sorting_title_descending: {% assign temp = collection.sort_options[3].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Alphabetically, Z-A" {% endunless %},
       sorting_price_ascending: {% assign temp = collection.sort_options[4].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Lowest Price" {% endunless %},
       sorting_price_descending: {% assign temp = collection.sort_options[5].name %} {% unless temp == nil %} {{ temp | json }} {% else %} "Highest Price" {% endunless %},
-      sorting_date_ascending: {% assign temp = collection.sort_options[6].name %} {% unless temp == nil  %} {{ temp | json }} {% else %} "Date, Old to New" {% endunless %},
-      sorting_date_descending: {% assign temp = collection.sort_options[7].name %} {% unless temp == nil  %} {{ temp | json }} {% else %} "Date, New to Old" {% endunless %},
+      sorting_created_ascending: {% assign temp = collection.sort_options[6].name %} {% unless temp == nil  %} {{ temp | json }} {% else %} "Date, Old to New" {% endunless %},
+      sorting_created_descending: {% assign temp = collection.sort_options[7].name %} {% unless temp == nil  %} {{ temp | json }} {% else %} "Date, New to Old" {% endunless %},
       sorting_relevance: {% assign temp = 'collections.sorting.relevance' | t %} {% unless temp contains 'translation missing'  %} {{ temp | json }} {% else %} "Relevance" {% endunless %},
 
       sale: {{ 'products.product.on_sale' | t | json }},

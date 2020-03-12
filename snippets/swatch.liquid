@@ -25,7 +25,8 @@
       #product-select-option-{{ option_index }} { display: none; }
       #product-select-option-{{ option_index }} + .custom-style-select-box { display: none !important; }
     </style>
-    <script>$(window).load(function() { $('.selector-wrapper:eq({{ option_index }})').hide(); });</script>
+<script src="{{ 'swatch_1.js' | asset_url }}" defer="defer"></script>
+    
     {% assign downcased_option = swatch | downcase %}
     {% if downcased_option contains 'color' or downcased_option contains 'colour' %}
       {% assign is_color = true %}
@@ -117,9 +118,8 @@
       </div>
     {% endunless %}
     {% if variant.available %}
-    <script>
-      jQuery('.swatch[data-option-index="{{ option_index }}"] .{{ value | handle }}').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-    </script>
+   <script src="{{ 'swatch_2.js' | asset_url }}" defer="defer"></script>
+
     {% endif %}
   {% endfor %}
 </div>
