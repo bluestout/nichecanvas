@@ -22,6 +22,8 @@
 body, input, textarea, button, select, .btn, .disclosure__toggle,
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: 'Neutrif Pro';
+  text-transform: none;
+  letter-spacing: 0;
 }
 .btn {
   text-transform: unset;
@@ -1248,7 +1250,7 @@ background: #eff1f3;
   padding: 0;
 }
 #mobile_menu li ul.mobile-menuChild li:first-child a.mblHding {
-    margin: 24px 0 10px;
+  margin: 24px 0 10px;
 }
 .mobile-menu-parent span.icndwn {
   background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/downArrow.svg);
@@ -1439,7 +1441,7 @@ background: #eff1f3;
 .cstProDec .swatch label {
   min-width: 100% !important;
   height: unset !important;
-  padding: 12px 0;
+  padding: 6px 0;
   border: transparent 1px solid;
   background-color: transparent;
   line-height: normal;
@@ -1860,6 +1862,7 @@ select.FixedBox {
 }
 .Cst3Box {
   display: flex;
+  justify-content: center;
 }
 .CstBox {
   flex-basis: 33.3%;
@@ -2464,6 +2467,7 @@ padding: 5px 0 0;
 .MainGridProducts button.wk-button-collection {
   right: 6px;
   top: 10px;
+  z-index: 9;
 }
 .MainGridProducts button.wk-button-collection .wk-icon,
 .MainGridProducts button.wk-button-collection svg {
@@ -2571,6 +2575,10 @@ select.FixedBoxCart {
   } 
   .CustomSearch .search-bar__form {
     max-width: 350px;
+  }
+  .CstBox {
+    flex-basis: 100%;;
+    max-width: 100%;
   }
 
 }

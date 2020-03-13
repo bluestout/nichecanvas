@@ -12,7 +12,13 @@ $(document).ready(function(){
     var ListingVar ;
     var valueLast=$(this).val();
     var valueFirst=$(this).parents("li").prev("li").attr("data-type");
+    if(valueFirst==undefined ){
+      var fullName = valueLast;
+    }
+    else{
     var fullName = valueFirst+" / "+ valueLast;
+    }
+    console.log(fullName);
     $(".GetVariantDetail").each(function(){
     var ListingName = $(this).attr("data-name");
       if(ListingName==fullName){

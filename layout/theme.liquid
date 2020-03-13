@@ -39,9 +39,14 @@
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
     {{ 'jquery-ui.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
+    
+   
+    {% if template contains "product" %}
+    {{ 'jquery.fancybox.css' | asset_url | stylesheet_tag }}
     {{ 'swatch.css' | asset_url | stylesheet_tag }}
-    {{ 'slick.css' | asset_url | stylesheet_tag }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.6/jquery.fancybox.css">
+     {{ 'slick.css' | asset_url | stylesheet_tag }}
+    {%endif%}
+    
     <script>
       var theme = {
         breakpoints: {
@@ -108,19 +113,19 @@
     <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'jquery-ui.js' | asset_url }}" defer="defer"></script>
-    <script defer="defer" src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
     <script src="{{ 'custom.js' | asset_url }}" defer="defer"></script>
     
     {%if template contains "product" %}
     <script src="{{ 'product-custom.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'jquery.fancybox.min.js' | asset_url }}" defer="defer"></script>
     {%endif%}
-     {% if settings.app_wk_enabled %}
-    {% include 'appmate-wishlist-king' %}
-    {% endif %}
+     
     {{ content_for_header }}
 
     {{ shop.metafields.loox["global_html_head"] }}
-  
+  {% if settings.app_wk_enabled %}
+    {% include 'appmate-wishlist-king' %}
+    {% endif %}
 <!--begin-bc-sf-filter-css-->
   {% include 'bc-sf-filter-style' %}
 <!--end-bc-sf-filter-css-->
