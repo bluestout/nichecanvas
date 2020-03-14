@@ -29,27 +29,20 @@
 </div>
 
 <div class="filters-toolbar-wrapper">
-  <div class="page-width">
-    <div class="filters-toolbar">
-      <div class="filters-toolbar__item-wrapper">
+      <div class="page-width">
+        <div class="bc-sf-filter-tree-wrapper">
+          <h3 class="bc-sf-filter-tree-heading">Filter by:</h3>
+          <div id="bc-sf-filter-tree-h">
+            {% include 'bc-sf-filter-tree-placeholder-h' %}
+          </div>
+        </div>
         <div class="filters-toolbar__item-child bc-sf-filter-custom-sorting" id="bc-sf-filter-top-sorting">
           {% include 'bc-sf-filter-skeleton', width: 2 %}
         </div>
       </div>
-      <div class="filters-toolbar__item filters-toolbar__item--count">
-        <span class="filters-toolbar__product-count" id="bc-sf-filter-total-product">
-          {% include 'bc-sf-filter-skeleton', width: 2 %}
-        </span>
-      </div>
-
     </div>
-  </div>
-</div>
 
 <div class="page-width">
-  <div id="bc-sf-filter-tree-h">
-    {% include 'bc-sf-filter-tree-placeholder-h' %}
-  </div>
   <div id="bc-sf-filter-tree-mobile">
     {% include 'bc-sf-filter-skeleton', type: 'button' %}
   </div>
