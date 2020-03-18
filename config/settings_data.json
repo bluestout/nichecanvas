@@ -18,7 +18,7 @@
     "type_header_base_size": 26,
     "type_base_font": "lato_n4",
     "type_base_size": 16,
-    "predictive_search_enabled": true,
+    "predictive_search_enabled": false,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
     "number": "1-833-2CANVAS",

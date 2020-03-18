@@ -1591,6 +1591,9 @@ a.needhelp {
 
 
 /*******************/
+.CustomCartTemp .empty-page-content h1 {
+    text-transform: capitalize;
+}
 .Cartryt {
   width: 70%;
   float: left;
@@ -1611,6 +1614,7 @@ a.needhelp {
 .cart-header__title {
   font-size: 28px;
   margin: 0 0 45px;
+  text-transform: capitalize;
 }
 .Cartryt .cart__row td {
   vertical-align: top;
@@ -1658,12 +1662,14 @@ a.needhelp {
   display: inline-block;
   padding: 0 30px 0 0;
   font-weight: 600;
+  text-transform: capitalize;
 }
 .cartImgDec ul.product-details li span {
   display: block;
   color: #828990;
   font-weight: normal;
 }
+
 
 .csTquantrmv {
   display: inline-flex;
@@ -2424,12 +2430,6 @@ ul.cstFaqMob {
 .CustomWishlist .section-icontext {
   margin: 0 0 45px;
 }
-.CustomWishlist .wk-add-item-form input.wk-add-to-cart {
-  background: #fff;
-  color: #000;
-  font-size: 13px;
-  font-weight: 600;
-}
 .CustomWishlist .wk-item .wk-icon svg {
   width: 21px;
   height: 21px;
@@ -2448,6 +2448,30 @@ ul.cstFaqMob {
 }
 .cst_ots.wk-select {
   display: none;
+}
+.CustomWishlist .wk-item:hover .wk-add-item-form {
+  opacity: 1;
+  bottom: 20%;
+  width: 80%;
+  padding: 0;
+  background: none;
+}
+.CustomWishlist .wk-add-item-form input.wk-add-to-cart {
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  font-weight: 600;
+  width: 80%;
+}
+.CustomWishlist .wk-item .wk-purchase-section {
+  margin-top: 0;
+}
+.CustomWishlist .wk-add-item-form input.wk-add-to-cart:hover {
+  background: #fff;
+  color: #000;
+}
+.CustomWishlist .wk-item:hover img.wk-variant-image {
+  filter: brightness(0.75);
 }
 
 
@@ -2481,6 +2505,7 @@ select.FixedBoxCart {
   border: none;
   padding: 0 23px 0 0;
   line-height: 14px;
+  text-transform: capitalize;
 }
 .cst_MAinColl {
   padding: 0 0 60px;
@@ -2513,7 +2538,11 @@ select.FixedBoxCart {
   border: 2px solid #000;
   color: #000;
 }
-
+/******************/
+.CustomTrustPilot.page-width {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
 
 
 /**************************************/
@@ -2529,9 +2558,7 @@ select.FixedBoxCart {
   a.needhelp {
     pointer-events: none;
   }
-
 }
-
 
 
 @media (max-width: 1200px) {
@@ -2585,6 +2612,10 @@ select.FixedBoxCart {
 
 @media (max-width: 1023px) {
 
+  .CustomWishlist .wk-item:hover .wk-add-item-form {
+    bottom: 30%;
+  }
+
   .CustomWishlist .wk-item .wk-product-options {
     padding: 0 10px;
     bottom: 20px;
@@ -2595,7 +2626,7 @@ select.FixedBoxCart {
   .CustomWishlist .wk-add-item-form input.wk-add-to-cart {   
     font-size: 12px; 
     line-height: normal;
-    padding: 8px 0;
+    padding: 8px;
   }
 
   .CustHeader #AccessibleNav span.site-nav__label {
@@ -2699,7 +2730,10 @@ select.FixedBoxCart {
 
 
 @media (max-width: 749px) {
-
+  .CustomTrustPilot.page-width {
+    padding-top: 70px;
+    padding-bottom: 10px;
+  }
   .cst_MAinColl .section-header h1 {
     font-size: 28px;
   }
@@ -3338,6 +3372,10 @@ select.FixedBoxCart {
 
 
 @media (max-width: 480px) {
+
+  .CustomWishlist .wk-add-item-form input.wk-add-to-cart {
+    display: none;
+  }
 
   .ui-icon-triangle-1-e, .ui-icon-triangle-1-e:hover,
   .ui-state-active .ui-icon, .ui-button:active .ui-icon{

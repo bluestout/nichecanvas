@@ -20,7 +20,7 @@ $searchBoxMobileHeight: 50px;
 #bc-sf-filter-products .has-bc-quickview {overflow: hidden;}
 .product-card--list .list-view-item__link {display: table; table-layout: fixed; width: 100%;}
 #bc-sf-filter-products .grid-view-item { position: relative; }
-#bc-sf-filter-products .full-width-link { position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 9; }
+#bc-sf-filter-products .full-width-link { position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 7; }
 #bc-sf-filter-products .price--on-sale .price__sale { display: block; }
 #bc-sf-filter-products .price__sale { display: none; color: #557b97; }
 #bc-sf-filter-products .price__regular { color: #69727b; }
@@ -407,6 +407,13 @@ $searchBoxMobileHeight: 50px;
 		display: block;
 	}
 
+    .cstPriceTitl>div:first-child {
+        min-height: 70px;
+    }
+  
+  	.GridCartBtnmob {
+        z-index: 9;
+    }
 }
 
 

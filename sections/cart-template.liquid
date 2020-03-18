@@ -46,7 +46,7 @@
 {%endif%}
           <div class="csTotal">
             <span>Total</span>
-            <span>{{ cart.total_price | money_with_currency }}</span>
+            <span class="TotalValue">{{ cart.total_price | money_with_currency }}</span>
           </div>
           <div class="csCrtDtlz">
             <a href="#">Cart Details <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/downArrow.svg" alt="arrow"></a>
@@ -274,7 +274,7 @@
          {%endif%}
           <div class="csTotal">
             <span>Total</span>
-            <span>{{ cart.total_price | money_with_currency }}</span>
+            <span class="TotalValue">{{ cart.total_price | money_with_currency }}</span>
           </div>
 
           {%- capture taxes_shipping_checkout -%}
