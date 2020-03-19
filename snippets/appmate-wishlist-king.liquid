@@ -756,15 +756,7 @@
       {% endif %}
     </span>
   </div>
-</script>
-
-<script
-  id="wishlist-collection-product-form"
-  data="wishlist"
-  type="text/x-template"
-  app="wishlist-king"
->
-  <form id="wk-add-item-form-{{ product.wishlist_item_id }}" action="/cart/add" method="post" class="wk-add-item-form">
+      <form id="wk-add-item-form-{{ product.wishlist_item_id }}" action="/cart/add" method="post" class="wk-add-item-form MobileWislist">
 
     <!-- Begin product options -->
     <div class="wk-product-options {% if hide_default_title %}wk-no-options{% endif %}">
@@ -799,7 +791,57 @@
             {% assign cart_action = 'wk-add-to-cart' %}
           {% endif %}
           <input type="submit" class="wk-add-to-cart" data-{{ cart_action }}="{{ product.wishlist_item_id }}" name="add" value="Add to Cart" />
-        {% endunless %}
+          <div class="WishInstant" data-wish="{{ product | variant_url }}">Instant Buy</div>
+            {% endunless %}
+      </div>
+    </div>
+    <!-- End product options -->
+  </form>
+</script>
+
+<script
+  id="wishlist-collection-product-form"
+  data="wishlist"
+  type="text/x-template"
+  app="wishlist-king"
+>
+  <form id="wk-add-item-form-{{ product.wishlist_item_id }}" action="/cart/add" method="post" class="wk-add-item-form DesktopWislist">
+
+    <!-- Begin product options -->
+    <div class="wk-product-options {% if hide_default_title %}wk-no-options{% endif %}">
+
+      <div class="cst_ots wk-select" {% if hide_default_title %} style="display:none"{% endif %}>
+        <select id="wk-option-select-{{ product.wishlist_item_id }}" class="wk-option-select" name="id">
+
+          {% for variant in product.variants %}
+          <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}>
+            {{ variant.title }} - {{ variant.price | money }}
+          </option>
+          {% endfor %}
+
+        </select>
+      </div>
+
+      {% comment %}
+        {% if settings.display_quantity_dropdown and product.available %}
+        <div class="wk-selector-wrapper">
+          <label>Quantity</label>
+          <input class="wk-quantity" type="number" name="quantity" value="1" class="wk-item-quantity" />
+        </div>
+        {% endif %}
+      {% endcomment %}
+
+      <div class="wk-purchase-section{% if product.variants.length > 1 %} wk-multiple{% endif %}">
+        {% unless product.available %}
+        <input type="submit" class="wk-add-to-cart disabled" disabled="disabled" value="Sold Out" />
+        {% else %}
+          {% assign cart_action = 'wk-move-to-cart' %}
+          {% if wishlist.read_only %}
+            {% assign cart_action = 'wk-add-to-cart' %}
+          {% endif %}
+          <input type="submit" class="wk-add-to-cart" data-{{ cart_action }}="{{ product.wishlist_item_id }}" name="add" value="Add to Cart" />
+          <div class="WishInstant" data-wish="{{ product | variant_url }}">Instant Buy</div>
+            {% endunless %}
       </div>
     </div>
     <!-- End product options -->

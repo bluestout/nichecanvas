@@ -1,4 +1,20 @@
 $(document).ready(function(){
+  /***************** Instant Button Click on Wishlist *********************/
+   $('body').on('click', '.WishInstant', function() {
+     var varintId = $(this).attr("data-wish");
+     varintId = varintId.split("=");
+     varintId = varintId[1];
+     varintId = parseInt(varintId);
+     $.ajax({
+type: 'POST',
+    url: '/cart/add.js',
+    data: 'quantity=1&id=' + varintId,
+    dataType: 'json',
+    success: function(line_item) { 
+      window.location.href = "/checkout";
+    }
+     })
+   })
 /***************************** MOBILE CART SCROLL************/
   $(".csCrtDtlz a").click(function(){
   var GetClass = $(this).attr("class");
@@ -9,6 +25,7 @@ $(document).ready(function(){
  
   /******************************* CART PAGE UPDATE VARIANT **********************/
   $('body').on('change', '.FixedBoxCart', function() {
+    $("body").addClass("loaderprocess");
     var ListingVar ;
     var valueLast=$(this).val();
     var valueFirst=$(this).parents("li").prev("li").attr("data-type");
@@ -30,7 +47,7 @@ $(document).ready(function(){
     
       var getquantity = $(this).parents("li").parents(".product-details").attr("data-quat");
   var getline = $(this).parents("li").parents(".product-details").attr("data-line");
-  $("body").addClass("loaderCart");
+
      $.ajax({
       type: 'POST',
       url: '/cart/change.js',
@@ -47,14 +64,11 @@ type: 'POST',
           type: "GET",
           url: "/cart",
           dataType: 'html',
-
-          success: function(data) 
+    success: function(data) 
           {
-            
-            // console.log(data);
             var minicartdata=$(data).find('.CustomCartTemp').html();
-            
             $('.CustomCartTemp').html(minicartdata);
+             $("body").removeClass("loaderprocess");
           }
         })
       }
@@ -91,7 +105,9 @@ type: 'POST',
   })
   /********************** Accordion Page **************************/
   $( ".hCRyt" ).accordion({ header: "h3", collapsible: true, active: false });
-  $('body').on('click', '.FixedCartBtn', function() {
+  
+  $('.FixedCartBtn').click(function(){
+    
     $(".product-form__cart-submit").trigger("click");
     })
  
@@ -191,8 +207,9 @@ $('body').on('click', '.qtyplus', function() {
       }
     })
     });
-  $(".icndwn").click(function(){
-  $(this).parents(".parentHding").parents(".mobile-menu-parent").toggleClass("ChildOpen");
+  $(".parentHding").click(function(e){
+    e.preventDefault();
+  $(this).parents(".mobile-menu-parent").toggleClass("ChildOpen");
   })
   $(".tliconX").click(function(){
   $("body").removeClass("MenuOppned");
@@ -201,7 +218,7 @@ $('body').on('click', '.qtyplus', function() {
   $("body").toggleClass("MenuOppned");
   })
 
-  $( "#Customaccordion" ).accordion({ header: "h3", collapsible: true, active: false });
+  $( "#Customaccordion" ).accordion({ header: "h3", collapsible: false, active: false });
   $( "#accordionFooter" ).accordion({ header: "h3", collapsible: true, active: false });
   $('.Customsingle').slick(
     {dots: true}
@@ -218,7 +235,7 @@ getValue = (getValue.top-50);
     }
 });
    }
-    $('body').on('click', '.GridCartBtn', function() {
+    $('body').on('click', '.GridCartBtn, .GridCartBtnmob', function() {
     console.log("click");
   var GetId = $(this).attr("data-id");
     $.ajax({
@@ -232,7 +249,7 @@ type: 'POST',
     })
   })
   
-   $('body').on('click', '.GridCartBtnmob', function() {
+   $('body').on('click', '.InstantCartBtnmob, .InstantCartBtnDesk', function() {
     console.log("click");
   var GetId = $(this).attr("data-id");
     $.ajax({
@@ -241,7 +258,7 @@ type: 'POST',
     data: 'quantity=1&id=' + GetId,
     dataType: 'json',
     success: function(line_item) {
-      window.location.href = "/cart";
+      window.location.href = "/checkout";
     }
     })
   })

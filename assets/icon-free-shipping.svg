@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="28px" viewBox="0 0 48 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 63.1 (101010) - https://sketch.com -->
+    <title>47118A5B-5F0C-4F55-8AFB-DF653B493300</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home-v2" transform="translate(-403.000000, -1091.000000)" stroke="#000000">
+            <g id="icon-free-shipping" transform="translate(403.554846, 1091.000000)">
+                <g id="Group-4" transform="translate(0.000000, 1.000000)">
+                    <circle id="Oval" cx="20.4451543" cy="22.1613725" r="3.5"></circle>
+                    <circle id="Oval-Copy" cx="38.5296096" cy="22.1613725" r="3.5"></circle>
+                    <polyline id="Path-10" stroke-linecap="round" stroke-linejoin="round" points="5.00265199 16.8343741 11.5756282 16.8343741 11.5756282 22.6557967 16.9250106 22.6557967"></polyline>
+                    <polyline id="Path-11" stroke-linecap="round" stroke-linejoin="round" points="23.9800639 22.6557967 31.9155447 22.6557967 31.9155447 0 10.9638313 0 10.9638313 5.75055576 4.476517 5.75055576"></polyline>
+                    <polyline id="Path-13" stroke-linecap="round" stroke-linejoin="round" points="21.9042431 7.99730857 25.5683071 11.6613725 22.4451543 14.7845253"></polyline>
+                    <path d="M32,3.82407244 L37.1778421,3.82407244 C43.0313018,3.92052567 45.9580317,6.69962571 45.9580317,12.1613725 C45.9616815,12.2017548 45.9616815,15.6998962 45.9580317,22.6557967 L42.0816455,22.6557967" id="Path-14" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <line x1="-1.43884904e-13" y1="11.6613725" x2="25.048889" y2="11.6613725" id="Path-12" stroke-linecap="round" stroke-linejoin="round"></line>
+                    <line x1="34.9754952" y1="22.6557967" x2="32" y2="22.6557967" id="Path-15" stroke-linecap="round" stroke-linejoin="round"></line>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

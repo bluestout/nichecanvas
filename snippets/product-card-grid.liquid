@@ -19,7 +19,7 @@ Usage:
     <span class="visually-hidden">{{ product.title }}</span>
   </a>
 
-  <!-- include 'wishlist-button-collection' with '{{ product.id }}' -->
+  
 
   {% capture img_id %}ProductCardImage-{{ section.id }}-{{ product.id }}{% endcapture %}
   {% capture wrapper_id %}ProductCardImageWrapper-{{ section.id }}-{{ product.id }}{% endcapture %}
@@ -41,8 +41,10 @@ Usage:
              data-aspectratio="{{ preview_image.aspect_ratio }}"
              data-sizes="auto"
              data-image>
+        <div class="AjaxBtns">
         <div class="GridCartBtn" data-id="{{product.variants.first.id}}">Add to Cart</div>
-
+        <div class="InstantCartBtnDesk" data-id="{{product.variants.first.id}}">Instant Buy</div>
+        </div>
         <ul class="GridBadge">
           
 
@@ -93,7 +95,8 @@ Usage:
   </noscript>
 
   <div class="cstPriceTitl">
-    <div>
+    <!-- include 'wishlist-button-collection' with '{{ product.id }}' -->
+    <div class="TitleCustom">
     <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
     <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}"></div>
     </div>
@@ -101,5 +104,5 @@ Usage:
   </div>
 
   <div class="GridCartBtnmob" data-id="{{product.variants.first.id}}">Add to Cart</div>
-
+<div class="InstantCartBtnmob" data-id="{{product.variants.first.id}}">Instant Buy</div>
 </div>

@@ -5,7 +5,7 @@
 <div class="grid__item [[itemGridWidthClass]]">
   <script class="bc-sf-filter-product-script" data-id="bc-product-json-[[itemId]]" type="application/json">[[itemJson]]</script> 
   <div class="MainGridProducts grid-view-item [[itemSoldOutClass]] product-card">
-  	[[itemWishlist]]
+  	
     <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="[[itemUrl]]"> 
         <span class="visually-hidden">[[itemTitle]]</span> 
     </a> 
@@ -14,7 +14,11 @@
       <div class="CustomJs">
         <div class="cstGridImg">
           [[itemImages]]
-          <div class="GridCartBtn" data-id="[[itemFirstVariantId]]">Add to Cart</div>
+          <div class="AjaxBtns">
+            <div class="GridCartBtn" data-id="[[itemFirstVariantId]]">Add to Cart</div>
+            <div class="InstantCartBtnDesk" data-id="[[itemFirstVariantId]]">Instant Buy</div>
+          </div>
+          
           <ul class="GridBadge">
             [[itemTags]]
           </ul>
@@ -24,13 +28,15 @@
     </div>
      
     <div class="cstPriceTitl">
-      <div>
+      [[itemWishlist]]
+      <div class="TitleCustom">
         <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">[[itemTitle]]</div>
         [[itemRating]]
       </div>
       [[itemPrice]]
     </div> 
     <div class="GridCartBtnmob" data-id="[[itemFirstVariantId]]">Add to Cart</div>
+    <div class="InstantCartBtnmob" data-id="[[itemFirstVariantId]]">Instant Buy</div>
   </div> 
 </div>
 

@@ -8,11 +8,12 @@
 
     <div class="page-width">
       <div class="right-section">
+        {%comment%}
         <div class="title-forst">
           <h2>{{section.settings.title_2}}</h2>
           <p>{{section.settings.content_2}}</p>	
         </div>
-
+{%endcomment%}
         {% include "section-accordion" %}
 
       </div>
@@ -88,7 +89,7 @@
 "label": {
 "da": "Overskrift",
 "de": "Titel",
-"en": "Heading 2"
+"en": "Title"
 },
 "default": {
 "da": "Billede med tekst",
@@ -102,12 +103,12 @@
 "label": {
 "da": "Overskrift",
 "de": "Titel",
-"en": "Content"
+"en": "Description"
 },
 "default": {
 "da": "Billede med tekst",
 "de": "Foto mit Text",
-"en": "Image with text"
+"en": "Description"
 }
 },
 {

@@ -19,6 +19,10 @@
 *:focus, *:hover {
   outline: none;
 }
+a, .btn, button {
+  transition: .2s all;
+}
+
 body, input, textarea, button, select, .btn, .disclosure__toggle,
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   font-family: 'Neutrif Pro';
@@ -44,7 +48,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   display: none;
 }
 .HeaderIcon ul li {
-  display: inline-block;
+  display: inline-flex;
   vertical-align: middle;
 }
 .cstSrchMob .site-header__search-toggle, .site-header__search-toggle {
@@ -63,7 +67,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   line-height: 16px;
 }
 .CustHeader #AccessibleNav .site-nav {
-  margin: 5px 0 10px;
+  margin: 10px 0;
 }
 .CustHeader.FixedHeader #AccessibleNav .site-nav li {
   padding: 0 2px;
@@ -220,7 +224,7 @@ span.site-header__cnvs {
   justify-content: space-between;
 }
 .FixedHeader .FixedHeaderWrapper .site-header__account {
-  padding: 0 0 0 15px;
+  padding: 0 0 0 10px;
 }
 .FixedLogo {
   display: none;
@@ -231,6 +235,7 @@ span.site-header__cnvs {
 .HeaderIcon li.site-header__icon {
   padding: 0 14px 0 0;
   font-size: 13px;
+  margin-top: 2px;
 }
 
 
@@ -343,6 +348,10 @@ span.site-header__cnvs {
   color: #000;
   font-size: 13px;
 }
+.unique-title a:hover {
+  transition: .25s ease-out;
+  transform: translateX(4px);
+}
 .unique-title a i {
   padding: 0 0 0 10px;
 }
@@ -429,24 +438,24 @@ span.site-header__cnvs {
   border: 1px solid #fff;
   padding: 10px 0;
   line-height: 17px;
-  transition: all 0.5s ease;
 }
 .unique-contact .uChvrBtn a:hover {
   color: #fff;
 }
 .uChvrBtn {
   opacity: 0;
+  width: 100%;
+  padding: 0 20px !important;
+  left: 0;
+  transition: .2s all;
+  bottom: -5px;
 }
 .unique-left-sec div:hover .uChvrBtn,
 .unique-center-sec div:hover .uChvrBtn,
 .unique-right-sec div:hover .uChvrBtn,
-.unique-bottom-sec div:hover .uChvrBtn
-{
+.unique-bottom-sec div:hover .uChvrBtn {
   opacity: 1;
-  width: 100%;
-  padding: 0 20px !important;
-  left: 0;
-  transition: all .3s;
+  bottom: 30px;
 }
 .unique-left-sec div:hover p.muCtxT,
 .unique-center-sec div:hover p.muCtxT,
@@ -515,6 +524,8 @@ span.site-header__cnvs {
 .cst_sldrText a.btn.slideshow__btn:hover {
   background: #fff;
   color: #000;
+  transition: .25s ease-out;
+  transform: translateX(4px);
 }
 /*************/
 .main-collection {
@@ -596,6 +607,8 @@ span.site-header__cnvs {
 .mCbutton a:hover {
   background: #000;
   color: #fff;
+  transition: .25s ease-out;
+  transform: translateX(4px);
 }
 img.mobImg {
   display: none;
@@ -613,7 +626,21 @@ img.mobImg {
 }
 #Customaccordion .ui-state-active {
   background: #fff;
-  border-color: #c5c5c5;
+  border-color: #fff;
+  opacity: 1;
+  padding: 40px 10px 30px;
+}
+#Customaccordion .ui-accordion-content-active {
+  border: 1px solid #fff;
+  margin: 0 0 25px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 30px;
+  padding: 0 10% 40px;
+  height: auto !important;
+}
+#Customaccordion .ui-state-active .ui-icon, #Customaccordion .ui-button:active .ui-icon {
+  display: none;
 }
 .ui-icon-triangle-1-e, .ui-icon-triangle-1-e:hover {
   background-position: center;
@@ -686,6 +713,8 @@ img.mobImg {
 .cstSinglBtn a:hover {
   background: #fff;
   color: #000;
+  transition: .25s ease-out;
+  transform: translateX(4px);
 }
 
 .Customsingle .slick-dots {
@@ -784,6 +813,10 @@ img.mobImg {
   font-weight: 100;
   letter-spacing: normal;
 }
+.cstNwsltr.form-single-field .input-group button#Subscribe:hover {
+  transition: .25s ease-out;
+  transform: translateX(4px);
+}
 ul.csTnsLtrudrTxt {
   margin: 10px auto 60px;
   max-width: 35rem;
@@ -832,13 +865,15 @@ footer.site-footer.cstmainftr {
   width: 24%;
   display: inline-block;
   text-align: right;
+  vertical-align: text-top;
 }
 .site-footer__logocontent img {
   max-width: 200px; width: 100%;
 }
 .site-footer__rte p {
   font-size: 14px;
-  line-height: 26px;
+  line-height: 35px;
+  margin: 54px 0 0;
 }
 .MobileFoot {
   display: none;
@@ -869,32 +904,43 @@ span.CstmTag {
 .product-card__title {
   border-bottom: none;
 }
-.GridCartBtn {
-  display: none;
-}
+
 .MainGridProducts button.wk-button-collection .wk-icon svg path {
   stroke: #fff;
   fill: #fff;
 }
-
 .MainGridProducts:hover .cstGridImg img {
   filter: brightness(0.75);
 }
-.MainGridProducts:hover .GridCartBtn {
+
+.MainGridProducts .AjaxBtns {
+  position: relative;
+  bottom: -20px;
+  opacity: 0;
+}
+.MainGridProducts:hover .AjaxBtns {
+  opacity: 1;
+  transition: .25s ease-out;
+  bottom: 0;
+}
+.GridCartBtn, .InstantCartBtnDesk {
   position: absolute;
   bottom: 15px;
-  left: 50%;
-  transform: translate(-50%, 0);
   border: 2px solid #fff;
   color: #fff;
-  width: 90%;
+  width: 46%;
   text-align: center;
   padding: 8px;
   font-size: 13px;
   font-weight: 600;
   z-index: 9;
-  display: block;
   cursor: pointer;
+}
+.GridCartBtn {
+  left: 3%;
+}
+.InstantCartBtnDesk {
+  right: 3%;
 }
 .cstPriceTitl {
   display: flex;
@@ -919,15 +965,11 @@ span.CstmTag {
   display: none;
 }
 
-.MainGridProducts:hover .GridBadge {
-  display: block;
+.GridBadge {
   position: absolute;
   top: 6px;
   left: -6px;
   width: 80px;
-}
-.GridBadge {
-  display: none;
 }
 .GridBadge li {
   background: #151515;
@@ -978,6 +1020,10 @@ span.CstmTag {
   right: 0;
   font-size: 12px;
 }
+.subcontent a:hover {
+  transition: .25s ease-out;
+  transform: translateX(4px);
+}
 .subcontent a svg {
   margin: 0 0 0 6px;
 }
@@ -1012,7 +1058,7 @@ span.CstmTag {
 .MobFtrLogoCnt img {
   max-width: 140px;
 }
-.GridCartBtnmob {
+.GridCartBtnmob, .InstantCartBtnmob {
   display: none;
 }
 
@@ -1138,6 +1184,8 @@ span.CstmTag {
   background: #fff;
   border: 2px solid #fff;
   color: #000;
+  transition: .25s ease-out;
+  transform: translateX(4px);
 }
 
 
@@ -1393,7 +1441,7 @@ background: #eff1f3;
   position: relative;
 }
 .cstProtemplate .grid__item.cstProDec {
-  padding-left: 12%;
+  padding-left: 10.7%;
 }
 .hoverWrapper {
   position: absolute;
@@ -1408,7 +1456,7 @@ background: #eff1f3;
   color: #6F7F84;
 }
 .hoverWrapper.SecondPosition {
-  top: 142px;
+  top: 130px;
 }
 .hoverWrapper p {
   padding: 10px 0;
@@ -1546,7 +1594,9 @@ a.needhelp {
   line-height: normal;
 }
 .shipIcnz li img {
-  max-width: 28px;
+    max-width: 28px;
+    height: 20px;
+    object-fit: contain;
 }
 .shipIcnz li:last-child img {
   max-width: 20px;
@@ -1572,6 +1622,10 @@ a.needhelp {
   border-right: 1px solid #fff;
   border-radius: 0;
 }
+.cstAddCartBuy .product-form__cart-submit:hover {
+  transition: .25s ease-out;
+  transform: translateX(4px);
+}
 .cstAddCartBuy .shopify-payment-button  {
   width: 50%;  
 }
@@ -1580,6 +1634,10 @@ a.needhelp {
   font-size: 13px;
   letter-spacing: normal;
   border-radius: 0;
+}
+.cstAddCartBuy .shopify-payment-button button:hover {
+  transition: .25s ease-out;
+  transform: translateX(4px);
 }
 .cstRcmnd .section-header h2 {
   font-size: 28px;
@@ -1592,7 +1650,7 @@ a.needhelp {
 
 /*******************/
 .CustomCartTemp .empty-page-content h1 {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
 .Cartryt {
   width: 70%;
@@ -1694,6 +1752,11 @@ a.needhelp {
   font-size: 22px;
   color: #979797;
   cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+
 }
 .csTquantrmv .cart__remove {
   margin: 0;
@@ -1743,6 +1806,10 @@ a.needhelp {
   font-size: 13px;
   letter-spacing: normal;
   padding: 14px 0;
+}
+.cart__submit-controlsC input:hover {
+  transition: .25s ease-out;
+  transform: translateX(4px);
 }
 .cart__submit-controlsC p {
   font-size: 12px;
@@ -1841,6 +1908,7 @@ select.FixedBox {
   padding: 14px 0;
   font-size: 13px;
   line-height: normal;
+  cursor: pointer;
 }
 .product__price.ScrollPrice {
   float: right;
@@ -1967,6 +2035,10 @@ h2#RecoverHeading {
   font-size: 13px;
   color: #fff;
 }
+#RecoverPasswordForm input.btn:hover {
+  transition: .25s ease-out;
+  transform: translateX(4px);
+}
 #RecoverPasswordForm .form-vertical {
   padding: 30px 0 0;
 }
@@ -2045,6 +2117,7 @@ a#HideRecoverPasswordLink {
   font-size: 14px;
   color: #828990;
   text-decoration: underline;
+  z-index: 1;
 }
 .pswFld {
   position: relative;
@@ -2070,6 +2143,10 @@ a#HideRecoverPasswordLink {
   letter-spacing: normal;
   font-size: 13px;
   color: #fff;
+}
+#customer_login .text-center input.btn:hover, #RegisterForm .text-center input.btn:hover {
+  transition: .25s ease-out;
+  transform: translateX(4px);
 }
 #LoginHeading, .hdingLogin  {
   font-size: 28px;
@@ -2315,6 +2392,10 @@ ul.cstFaqMob {
   right: 6px;
   font-size: 12px;
 }
+.loxhdr a:hover {
+  transition: .25s ease-out;
+  transform: translateX(4px);
+}
 .loxhdr a svg {
   margin: 0 0 0 6px;
 }
@@ -2452,16 +2533,24 @@ ul.cstFaqMob {
 .CustomWishlist .wk-item:hover .wk-add-item-form {
   opacity: 1;
   bottom: 20%;
-  width: 80%;
+  width: 90%;
   padding: 0;
   background: none;
 }
-.CustomWishlist .wk-add-item-form input.wk-add-to-cart {
+.CustomWishlist .wk-add-item-form input.wk-add-to-cart, .WishInstant {
   background: #fff;
   color: #000;
   font-size: 13px;
   font-weight: 600;
-  width: 80%;
+  display: inline-flex;
+  border-radius: 0;
+  padding: 12px 24px;
+  height: auto;
+  min-height: 0;
+  margin: 0 0 8px;
+  cursor: pointer;
+  line-height: normal;
+  -webkit-appearance: none
 }
 .CustomWishlist .wk-item .wk-purchase-section {
   margin-top: 0;
@@ -2475,23 +2564,14 @@ ul.cstFaqMob {
 }
 
 
-/* .CustomWishlist .wk-product-title {
-float: left;
-width: 50%;
-text-align: left;
+.MainGridProducts:hover button.wk-button-collection {
+  opacity: 1 !important;
 }
-.CustomWishlist .wk-purchase {
-float: right;
-width: 50%;
-text-align: right;
-padding: 5px 0 0;
-}
-
-*/
 .MainGridProducts button.wk-button-collection {
   right: 6px;
   top: 10px;
   z-index: 9;
+  opacity: 0;
 }
 .MainGridProducts button.wk-button-collection .wk-icon,
 .MainGridProducts button.wk-button-collection svg {
@@ -2501,7 +2581,6 @@ padding: 5px 0 0;
 
 select.FixedBoxCart {
   font-size: 13px;
-  font-weight: 600;
   border: none;
   padding: 0 23px 0 0;
   line-height: 14px;
@@ -2537,17 +2616,77 @@ select.FixedBoxCart {
   font-size: 13px;
   border: 2px solid #000;
   color: #000;
+  transition: .2s all;
 }
+.cst_MAinColl #bc-sf-filter-load-more .bc-sf-filter-load-more-button:hover {
+  transition: .25s ease-out;
+  transform: translateX(4px);
+}
+
+
 /******************/
 .CustomTrustPilot.page-width {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+.MObyrorz .additional-checkout-buttons {
+  display: none;
+}
+.negotio-container {
+  display: none;
+}
 
+.loaderprocess {
+  overflow: hidden;
+}
+.loaderprocess .overlayprocess {
+  display: block; 
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.8);
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.overlayprocess {
+  display: none; 
+}
+.overlayprocess p {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cart-popup__dismiss-button, .cart-popup__dismiss-button {
+  cursor: pointer;
+}
 
 /**************************************/
 /****************@media****************/
 /**************************************/
+
+
+
+
+@-moz-document url-prefix() {
+  select.FixedBoxCart {
+    text-indent: -1.9px;
+    line-height: normal;
+
+  }
+
+
+}
+
+
+
 
 @media (min-width: 1601px) {
   .back-bg {    
@@ -2558,6 +2697,71 @@ select.FixedBoxCart {
   a.needhelp {
     pointer-events: none;
   }
+}
+
+
+/*******IPAD-Start*********/
+@media only screen and (min-device-width: 750px) and (max-device-width: 1024px) {
+
+
+  .CustHeader #AccessibleNav .site-nav li, .CustHeader.FixedHeader #AccessibleNav .site-nav li {
+    padding: 0;
+  }
+  .CustomProductsListing .medium-up--one-quarter, .cstRcmnd.page-width .medium-up--one-quarter {
+    width: 50%;
+  }
+  .cstProDec .swatch .swatch-element {
+    width: 50%;
+  }
+}
+
+
+@media only screen and (device-width: 768px) {
+  .CustHeader #AccessibleNav .site-nav li:nth-child(6) {
+    display: none; 
+  }
+  .CustHeader #AccessibleNav span.site-nav__label {
+    border: none;
+    font-size: 12px;
+  }
+  .HeaderIcon li.site-header__icon {
+    font-size: 12px;
+  }
+  .MainGridProducts .price-item {
+    width: 65px;
+    text-align: right;
+  }
+  .GridCartBtn, .InstantCartBtnDesk {
+    padding: 6px;
+    font-size: 12px;
+  }
+  .cstmainftr ul.site-footer__linklist li {
+    line-height: 18px;
+  }
+}
+@media only screen and (device-width: 1024px) {
+  .FixedHeader .HeaderIcon {
+    max-width: 260px;
+    width: 100%;
+  }
+
+  .CustHeader #AccessibleNav .site-nav li:nth-child(6) {
+    display: none;
+  }
+
+}
+/*******IPAD-Start*********/
+
+
+
+@media (max-width: 1280px) {
+  .site-header__account, .site-header__cart, .site-header__wishlist {
+    padding: 10px;
+  } 
+  .HeaderIcon li.site-header__icon {
+    padding: 0 10px 0 0;
+  }
+
 }
 
 
@@ -2610,11 +2814,8 @@ select.FixedBoxCart {
 
 }
 
-@media (max-width: 1023px) {
 
-  .CustomWishlist .wk-item:hover .wk-add-item-form {
-    bottom: 30%;
-  }
+@media (max-width: 1023px) {
 
   .CustomWishlist .wk-item .wk-product-options {
     padding: 0 10px;
@@ -2623,10 +2824,9 @@ select.FixedBoxCart {
   .CustomWishlist .wk-item .wk-add-item-form {
     padding: 0;
   }
-  .CustomWishlist .wk-add-item-form input.wk-add-to-cart {   
+  .CustomWishlist .wk-add-item-form input.wk-add-to-cart, .WishInstant {   
     font-size: 12px; 
     line-height: normal;
-    padding: 8px;
   }
 
   .CustHeader #AccessibleNav span.site-nav__label {
@@ -2684,7 +2884,14 @@ select.FixedBoxCart {
   }
   .right-section {
     width: 100%;
+    margin: -10px 0 0;
   }  
+  #Customaccordion .ui-accordion-content-active {
+    margin: 0;
+    font-size: 15px;
+    line-height: 22px;
+    padding: 0 10% 30px;
+  }
   img.mobImg {
     display: block;
     width: 100%;
@@ -2874,6 +3081,7 @@ select.FixedBoxCart {
   }
   .CustHeader .site-header__logo  {
     margin: unset;
+    padding: 0 10px;
   }
   .CustHeader .site-header__logo  .site-header__logo-image {
     margin: 0 auto;
@@ -2894,9 +3102,9 @@ select.FixedBoxCart {
     font-size: 12px;
     margin: 30px 0 0;
   }
-  .GridCartBtnmob {
+  .GridCartBtnmob, .InstantCartBtnmob {
     display: block;
-    border: 2px solid #000;
+    border: 1px solid #000;
     text-align: center;
     font-size: 13px;
     font-weight: bold;
@@ -2906,9 +3114,17 @@ select.FixedBoxCart {
     z-index: 3;
     position: relative;
   }
-  .MainGridProducts:hover .GridCartBtn {
+  .MainGridProducts:hover .AjaxBtns {
     display: none; 
   }  
+  .MainGridProducts .GridBadge {
+    display: block;
+    position: absolute;
+    bottom: 6px;
+    top: unset;
+    left: -6px;
+    width: 80px;
+  }
   .GridBadge li {
     font-size: 11px;
     padding: 3px;
@@ -2924,6 +3140,21 @@ select.FixedBoxCart {
   }
   .cstPriceTitl {
     display: block;
+    position: relative;
+    padding: 0 20px 0 0;
+
+  }
+  .MainGridProducts button.wk-button-collection {
+    right: 0;
+    top: 5px;
+    opacity: 1 !important;
+  }
+  .MainGridProducts button.wk-button-collection .wk-icon svg path {
+    stroke: #000;
+    fill: #000;
+  }
+  .MainGridProducts button.wk-button-collection .wk-icon, .MainGridProducts button.wk-button-collection svg {
+    margin: 0 0 0 7px !important;
   }
   .PortClcn {
     padding: 55px 25px 0;
@@ -2945,6 +3176,19 @@ select.FixedBoxCart {
 
 
 @media (max-width: 749px) {
+  .MainGridProducts:hover .cstGridImg img {
+    filter: unset;
+  }
+  a.grid-view-item__link.grid-view-item__image-container.full-width-link {
+    height: 60%;
+  }
+  .CustomMMenu {
+    display: flex;
+    align-items: center;
+  }
+  .CustomMMenu img {
+    max-width: 52px;
+  }
   .cst_MAinColl {
     padding: 0;
   }
@@ -3277,9 +3521,8 @@ select.FixedBoxCart {
     font-size: 22px;
     margin: 0 0 10px;
   }
-
   .section-icontext li img {
-    height: 30px;
+    height: 28px;
   }
   span.CstmTag {
     padding: 25px 10px 4px;
@@ -3302,7 +3545,6 @@ select.FixedBoxCart {
   .unique-contact p, .uChvrBtn {
     font-size: 17px;
     bottom: 15px;
-    left: 20px;
   }  
   .unique-left-sec div:hover .uChvrBtn, .unique-center-sec div:hover .uChvrBtn, .unique-right-sec div:hover .uChvrBtn, .unique-bottom-sec div:hover .uChvrBtn {
     padding: 0 15px;
@@ -3373,10 +3615,36 @@ select.FixedBoxCart {
 
 @media (max-width: 480px) {
 
-  .CustomWishlist .wk-add-item-form input.wk-add-to-cart {
-    display: none;
+  .CustomWishlist .wk-item .wk-add-item-form.MobileWislist {
+    position: unset;
+    width: 100%;
+  }
+  .CustomWishlist .wk-item .wk-add-item-form.MobileWislist .wk-product-options {
+    display: block;
+  }
+  .CustomWishlist .wk-item .wk-add-item-form.MobileWislist  {
+    opacity: 1 !important;
+  }
+  .CustomWishlist .wk-item .wk-purchase-section {
+    margin-top: 12px;
+  }
+  .CustomWishlist .wk-item .wk-add-item-form.MobileWislist input.wk-add-to-cart, .CustomWishlist .wk-item .wk-add-item-form.MobileWislist .WishInstant {
+    border: 1px solid #000;
+    width: 100%;
+    display: block;
+    box-sizing: border-box;
   }
 
+  .loox-rating span {
+    font-size: 11px;
+  }
+  .CustomWishlist .wk-item .wk-product-options {
+    display: none;
+  }
+  .MainGridProducts .TitleCustom {
+    height: 48px;
+    overflow: hidden;
+  }
   .ui-icon-triangle-1-e, .ui-icon-triangle-1-e:hover,
   .ui-state-active .ui-icon, .ui-button:active .ui-icon{
     top: 30px;    
@@ -3414,8 +3682,10 @@ select.FixedBoxCart {
 
   #Customaccordion .ui-accordion-header {
     font-size: 17px;   
-    padding: 20px 33px;
     line-height: 22px;
+  }
+  #Customaccordion .ui-state-active {    
+    padding: 30px 33px 20px;
   }
   .Customsingle .slick-slide img {
     height: 440px;
@@ -3454,6 +3724,9 @@ select.FixedBoxCart {
 @media (max-width: 414px) {
   #mobile_menu {
     height: 380px;
+  }
+  .cstProDec .swatch .swatch-element {
+    padding: 3px;
   }
 
 }
