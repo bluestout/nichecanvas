@@ -758,20 +758,50 @@ img.mobImg {
   content: "";
   opacity: 0.5;
 }
-.Customsingle .slick-dots li:nth-child(1) button:before {
-  background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/hor-5-piece.svg);
+.Customsingle .slick-dots li:nth-child(1) button {
+    background-image: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/hor-5-piece.svg);
+    background-size: 35px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: #fff;
 }
-.Customsingle .slick-dots li:nth-child(2) button:before {
+.Customsingle .slick-dots li:nth-child(2) button {
   background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/hor-3piece.svg);
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fff;
 }
-.Customsingle .slick-dots li:nth-child(3) button:before {
+.Customsingle .slick-dots li:nth-child(3) button {
   background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/hor-1-piece.svg);
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fff;
 }
-.Customsingle .slick-dots li:nth-child(4) button:before {
+.Customsingle .slick-dots li:nth-child(4) button {
   background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/ver-3-piece.svg);
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fff;
 }
-.Customsingle .slick-dots li:nth-child(5) button:before {
-  background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/ver-1-piece.svg);
+.Customsingle .slick-dots li:nth-child(5) button {
+ background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/ver-1-piece.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fff;
+  
+}
+.Customsingle .slick-dots li.slick-active button{
+ opacity:1;
+ transition: inherit;
+}
+.Customsingle .slick-dots li button{
+ opacity:0.5;
+ transition: inherit;
+  
 }
 
 /*******************************/
@@ -1281,7 +1311,7 @@ body.MenuOppned {
 
 #mobile_menu li ul.mobile-menuChild a {
   font-weight: normal;
-  padding: 8px 0;
+  display: block;
 }
 #mobile_menu li ul.mobile-submenuChild li {
   font-weight: normal;
@@ -1595,14 +1625,8 @@ a.needhelp {
 }
 .shipIcnz li img {
     max-width: 28px;
-    height: 20px;
+    height: 22px;
     object-fit: contain;
-}
-.shipIcnz li:last-child img {
-  max-width: 20px;
-}
-.shipIcnz li:last-child img {
-  max-width: 20px;
 }
 
 .shopify-payment-button .shopify-payment-button__more-options {
@@ -2530,11 +2554,16 @@ ul.cstFaqMob {
 .cst_ots.wk-select {
   display: none;
 }
+.CustomWishlist .wk-add-item-form {
+    bottom: 20%;
+    display: none;
+}
 .CustomWishlist .wk-item:hover .wk-add-item-form {
   opacity: 1;
   bottom: 20%;
   width: 90%;
   padding: 0;
+  display: block;
   background: none;
 }
 .CustomWishlist .wk-add-item-form input.wk-add-to-cart, .WishInstant {
@@ -3235,6 +3264,8 @@ select.FixedBoxCart {
   .CustomWishlist .wk-product-title a {
     font-size: 14px;
     padding: 0;
+    height: 38px;
+    overflow: hidden;
   }
   .CstProImg .thumbnails-slider--active .product-single__thumbnails.slick-initialized {
     margin: unset;
