@@ -4,8 +4,8 @@
     <div class="cstSlideVOF">
       <div class="page-width">
         <div class="cstHingVo">
-          <h2>{{block.settings.slide_title}}</h2>
-          <p>{{block.settings.subheading}}</p>         
+          <h2 style="color:{{block.settings.color_text}};">{{block.settings.slide_title}}</h2>
+          <p style="color:{{block.settings.color_text}};">{{block.settings.subheading}}</p>         
         </div>
         <div class="cstSinglBtn">
           <a href="{{block.settings.button_link}}">{{block.settings.button_label}}</a>
@@ -83,6 +83,16 @@
           "en": "1400 x 950px .png recommended"
         }
 },
+  {
+        "type": "color",
+        "id": "color_text",
+        "label": {
+          "da": "Text Color",
+          "de": "Text Color",
+          "en": "Text Color"
+        },
+        "default": "#000"
+      },
 {
 "type": "text",
 "id": "slide_title",

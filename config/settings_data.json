@@ -88,25 +88,12 @@
               "slide_title": "Female Portraits<br> Collection",
               "subheading": "Modern, artistic designs which bring a sense of <br>modern to any space",
               "button_label": "Explore Collection",
-              "button_link": "#"
-            }
-          },
-          "slideshow-1": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/slider-formats1_ec3c4e61-5588-4f76-ac43-0732bf8f2459.jpg",
-              "Mob_image": "shopify:\/\/shop_images\/mobSlide3.jpg",
-              "alignment": "center center",
-              "slide_title": "Image slide",
-              "subheading": "Tell your brand's story through images",
-              "button_label": "",
-              "button_link": ""
+              "button_link": "shopify:\/\/collections\/female-portraits"
             }
           }
         },
         "block_order": [
-          "slideshow-0",
-          "slideshow-1"
+          "slideshow-0"
         ],
         "settings": {
           "slideshow_height": "adapt",
@@ -254,73 +241,19 @@
           "1582001208957": {
             "type": "Image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-cars_1024x1024_9cf129b3-4257-47c5-a938-2727fcdcbb6d.jpg",
-              "Title": "Cars",
-              "btntext": "Shop Cars",
-              "link": "#"
+              "image": "shopify:\/\/shop_images\/bw-banner_2048x2048_-_Edited.png",
+              "Title": "Black & White",
+              "btntext": "Shop Black & White",
+              "link": "shopify:\/\/collections\/black-white"
             }
           },
           "1582001326531": {
             "type": "Image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-flowers_1024x1024_fceb36fc-768d-414e-890e-a80dcf2a7f65.jpg",
-              "Title": "Flowers",
-              "btntext": "Shop Flowers",
-              "link": "#"
-            }
-          },
-          "1582001345081": {
-            "type": "Image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-landscape_1024x1024_a958bcc9-35c4-4eec-91d4-210debb92ea4.jpg",
-              "Title": "Landscape",
-              "btntext": "Love",
-              "link": "#"
-            }
-          },
-          "1582005698187": {
-            "type": "Image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-insp-thumb_1024x1024_f2918540-2f2f-4cdc-ba7a-173a37d495fa.jpg",
-              "Title": "Love",
-              "btntext": "Button Text",
-              "link": ""
-            }
-          },
-          "1582005699463": {
-            "type": "Image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-insp-thumb-1_1024x1024_e51490c0-f5be-4a8f-9d77-a11fd8d7636e.jpg",
-              "Title": "Citios",
-              "btntext": "Button Text",
-              "link": ""
-            }
-          },
-          "1582005700823": {
-            "type": "Image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-kitchen_1024x1024_7b4d95a7-6f8d-45e5-90a4-6d6beb12d8dc.jpg",
-              "Title": "Kitchen & Dining",
-              "btntext": "Kitchen & Dining",
-              "link": ""
-            }
-          },
-          "1582005702184": {
-            "type": "Image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-space_1024x1024_2c3999ec-0571-4bcf-9328-62e47f357053.jpg",
-              "Title": "Space",
-              "btntext": "Button Text",
-              "link": ""
-            }
-          },
-          "1582005706584": {
-            "type": "Image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-animals_1024x1024_b5ffef64-36c4-476c-99b2-e8a2511fa784.jpg",
-              "Title": "Animals",
-              "btntext": "Button Text",
-              "link": ""
+              "image": "shopify:\/\/shop_images\/17c8ddd9-ab69-4c8a-916b-ff62c4c90d25_-_Edited.jpg",
+              "Title": "Psychedelic Art",
+              "btntext": "Shop Psychedelic Art",
+              "link": "shopify:\/\/collections\/psychedelic-art"
             }
           },
           "1582005693105": {
@@ -328,75 +261,79 @@
             "settings": {
               "image": "shopify:\/\/shop_images\/inspiration-hindu_1024x1024_60bff7f9-4cae-461d-9b84-a1c8df9181c8.jpg",
               "Title": "Hindu Gods",
-              "btntext": "Button Text",
-              "link": ""
+              "btntext": "Shop Hindu Gods",
+              "link": "shopify:\/\/collections\/shop-hindu-gods"
             }
           },
-          "1582005695703": {
+          "1582005700823": {
             "type": "Image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-space_1024x1024_2c3999ec-0571-4bcf-9328-62e47f357053.jpg",
-              "Title": "Title",
-              "btntext": "Button Text",
-              "link": ""
+              "image": "shopify:\/\/shop_images\/8233373f-d68b-434a-832a-e40c6d435d8f.jpg",
+              "Title": "Fractal",
+              "btntext": "Shop Fractal",
+              "link": "shopify:\/\/collections\/shop-fractal"
             }
           },
-          "1582005697103": {
+          "1582001345081": {
             "type": "Image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-kitchen_1024x1024_7b4d95a7-6f8d-45e5-90a4-6d6beb12d8dc.jpg",
-              "Title": "Title",
-              "btntext": "Button Text",
-              "link": ""
+              "image": "shopify:\/\/shop_images\/inspiration-landscape_1024x1024_a958bcc9-35c4-4eec-91d4-210debb92ea4.jpg",
+              "Title": "Landscape",
+              "btntext": "Shop Landscape",
+              "link": "shopify:\/\/collections\/landscape"
             }
           },
-          "1582005709488": {
+          "1582005698187": {
             "type": "Image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/inspiration-insp-thumb_1024x1024_f2918540-2f2f-4cdc-ba7a-173a37d495fa.jpg",
-              "Title": "Title",
-              "btntext": "Button Text",
-              "link": ""
+              "image": "shopify:\/\/shop_images\/896ab7b8-6902-4209-8896-8c85765983f0.jpg",
+              "Title": "Buddha",
+              "btntext": "Shop Buddha",
+              "link": "shopify:\/\/collections\/shop-buddha"
             }
           },
-          "1582005710931": {
+          "1582005702184": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/83f72352-a866-4098-a64e-272f109a519a.jpg",
+              "Title": "Female Portraits",
+              "btntext": "Shop Female Portraits",
+              "link": "shopify:\/\/collections\/female-portraits"
+            }
+          },
+          "1582005706584": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/6e609956-3de7-4933-9b7e-e6917cc3d488.jpg",
+              "Title": "Coffee",
+              "btntext": "Shop Coffee",
+              "link": "shopify:\/\/collections\/coffee"
+            }
+          },
+          "1582005699463": {
             "type": "Image",
             "settings": {
               "image": "shopify:\/\/shop_images\/inspiration-insp-thumb-1_1024x1024_e51490c0-f5be-4a8f-9d77-a11fd8d7636e.jpg",
-              "Title": "Title",
-              "btntext": "Button Text",
-              "link": ""
-            }
-          },
-          "1582005712174": {
-            "type": "Image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/link-allimg.jpg",
-              "Title": "Explore 30+ collections",
-              "btntext": "Explore 30+ collections",
-              "link": "shopify:\/\/pages\/test"
+              "Title": "Cities",
+              "btntext": "Shop Cities",
+              "link": "shopify:\/\/collections\/cities"
             }
           }
         },
         "block_order": [
           "1582001208957",
           "1582001326531",
+          "1582005693105",
+          "1582005700823",
           "1582001345081",
           "1582005698187",
-          "1582005699463",
-          "1582005700823",
           "1582005702184",
           "1582005706584",
-          "1582005693105",
-          "1582005695703",
-          "1582005697103",
-          "1582005709488",
-          "1582005710931",
-          "1582005712174"
+          "1582005699463"
         ],
         "settings": {
           "section_title": "Unique, enlightening Prints",
-          "section_subtitle": "Browse hundreds of designs in our collection",
+          "section_subtitle": "Browse hundreds of designs in our collections",
           "collection_link": ""
         }
       },
@@ -422,9 +359,9 @@
           "title_2": "High Quality Frame",
           "content_2": "Stretched on a thick wooden frame and then inspected by our trusted employees to meet our quality standards.",
           "Accheading_1": "Professional Grade Print",
-          "Acccontent_1": "Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer\n    ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit\n    amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut\n    odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.",
+          "Acccontent_1": "Stretched on a thick wooden frame and then inspected by our trusted employees to meet our quality standards.",
           "Accheading_2": "Large and Diverse Collection",
-          "Acccontent_2": "Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet\n    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor\n    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In\n    suscipit faucibus urna.",
+          "Acccontent_2": "Stretched on a thick wooden frame and then inspected by our trusted employees to meet our quality standards.",
           "btn_text": "explore collection",
           "button_link": ""
         }
@@ -435,51 +372,56 @@
           "1582096802941": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/slider-formats33.jpg",
+              "image": "shopify:\/\/shop_images\/5panels_637eb4ea-fdca-4510-b1e6-a364295938d0.jpg",
+              "color_text": "#000",
               "slide_title": "Variety of formats",
               "subheading": "Choose design that fits the best to your interior.",
-              "button_label": "Shop Formats",
-              "button_link": "#"
+              "button_label": "Shop 5 Panels",
+              "button_link": "shopify:\/\/collections\/five-panels"
             }
           },
           "1582096811991": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/slider-formats33_a79ec2c3-1b36-45f8-a165-215b67787132.jpg",
+              "image": "shopify:\/\/shop_images\/3panelhorizontal_03708489-0d44-43ac-8ed8-99897b38b544.jpg",
+              "color_text": "#000",
               "slide_title": "Variety of formats",
               "subheading": "Choose design that fits the best to your interior.",
-              "button_label": "Shop Formats",
-              "button_link": "#"
+              "button_label": "Shop 3 Panel Horizontal",
+              "button_link": "https:\/\/nichecanvas.com\/collections\/shop-3pc?_=pf&pf_t_format=acme3horizontal"
             }
           },
           "1582096819476": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/slider-formats33_a79ec2c3-1b36-45f8-a165-215b67787132.jpg",
+              "image": "shopify:\/\/shop_images\/1panelhorizontal_4d38ceb4-1733-40e6-b927-d79aff49c57c.jpg",
+              "color_text": "#000",
               "slide_title": "Variety of formats",
               "subheading": "Choose design that fits the best to your interior.",
-              "button_label": "Shop Formats",
-              "button_link": "#"
+              "button_label": "Shop Single Panel Horizontal",
+              "button_link": "https:\/\/nichecanvas.com\/collections\/single-panel?_=pf&pf_t_format=acmehorizontal"
             }
           },
           "1582096827989": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/slider-formats33_a79ec2c3-1b36-45f8-a165-215b67787132.jpg",
+              "image": "shopify:\/\/shop_images\/3panelvertical_1ae10fd0-e93e-47ed-84fe-dccb7dfb713d.jpg",
+              "color_text": "#000",
               "slide_title": "Variety of formats",
               "subheading": "Choose design that fits the best to your interior.",
-              "button_label": "Shop Formats",
-              "button_link": "#"
+              "button_label": "Shop 3 Panels Vertical",
+              "button_link": "https:\/\/nichecanvas.com\/collections\/shop-3pc?_=pf&pf_t_format=acme3vertical"
             }
           },
           "1582096833438": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/slider-formats33_a79ec2c3-1b36-45f8-a165-215b67787132.jpg",
+              "image": "shopify:\/\/shop_images\/1panelvertical_c9a27f32-e8cf-4e29-a50e-a41263f5476a.jpg",
+              "color_text": "#ffffff",
               "slide_title": "Variety of formats",
               "subheading": "Choose design that fits the best to your interior.",
-              "button_label": "Shop Formats",
-              "button_link": "#"
+              "button_label": "Shop Single Panel Vertical",
+              "button_link": "https:\/\/nichecanvas.com\/collections\/single-panel?_=pf&pf_t_format=acmevertical"
             }
           }
         },
@@ -505,13 +447,13 @@
           "image_canvas": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
           "content_floating": "Testing Floating Frame is an additional space between print and frame edges.",
           "image_floating": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
-          "content_small": "Testing Floating Frame is an additional space between print and frame edges.",
+          "content_small": "1 * 1 cm<br>\n1 * 1 inch",
           "image_small": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
-          "content_medium": "Testing Floating Frame is an additional space between print and frame edges.",
+          "content_medium": "1 * 1 cm<br>\n1 * 1 inch",
           "image_medium": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
-          "content_large": "Testing Floating Frame is an additional space between print and frame edges.",
+          "content_large": "1 * 1 cm<br>\n1 * 1 inch",
           "image_large": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
-          "content_huge": "Testing Floating Frame is an additional space between print and frame edges.",
+          "content_huge": "1 * 1 cm<br>\n1 * 1 inch",
           "image_huge": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
           "static_main_head": "Quality, Lasting Production",
           "static_main_content": "Every product is made of soft cotton \/ polyester canvas stretched on a wooden frame. The frames are finger-jointed and reinforced to make sure they last long. The arrive with metal saw tooth hangers at the back.",
