@@ -1,4 +1,4 @@
-  <div class="main-collection">
+  <div class="main-collection" style="background-color:{{section.settings.color_text}};">
     <div class="back-bg" style="background-image:url({{section.settings.image | img_url: '650x600'}});"></div>
     <div class="litle">
       <h3>{{section.settings.title}}</h3>
@@ -41,6 +41,16 @@
           "en": "650 x 600px .png recommended"
         }
 },
+{
+        "type": "color",
+        "id": "color_text",
+        "label": {
+          "da": "Background Color",
+          "de": "Background Color",
+          "en": "Background Color"
+        },
+        "default": "#f9ebd9"
+      },
 {
 "type": "image_picker",
 "id": "image_mob",

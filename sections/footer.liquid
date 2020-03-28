@@ -202,7 +202,11 @@ or request.page_type == 'blog'
 
     <div class="cstCpyryt">
       <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-      <small class="site-footer__copyright-content site-footer__copyright-content-powered-by">{{ powered_by_link }}</small>
+      <div class="payment_icons">
+      {% if show_payment_icons %}
+{{ payment_icon_markup }}
+{%endif%}
+      </div>
     </div>
 
   </div>
@@ -381,52 +385,6 @@ or request.page_type == 'blog'
 "en": "Text"
 },
 "default": "#3d4246"
-},
-{
-"type": "header",
-"content": {
-"da": "Sprogvælger",
-"de": "Sprachauswahl",
-"en": "Language Selector"
-},
-"info": {
-"da": "Du kan tilføje et sprog ved at gå til dine [sprogindstillinger.](/admin/settings/languages)",
-"de": "Gehen Sie zu Ihren [Spracheinstellungen](/admin/settings/languages), um eine Sprache hinzuzufügen.",
-"en": "To add a language, go to your [language settings.](/admin/settings/languages)"
-}
-},
-{
-"type": "checkbox",
-"id": "show_locale_selector",
-"label": {
-"da": "Vis sprogvælger",
-"de": "Sprachauswahl anzeigen",
-"en": "Show language selector"
-},
-"default": true
-},
-{
-"type": "header",
-"content": {
-"da": "Valutavælger",
-"de": "Währungsauswahl",
-"en": "Currency Selector"
-},
-"info": {
-"da": "Du kan tilføje en valuta ved at gå til dine [valutaindstillinger.](/admin/settings/payments)",
-"de": "Gehen Sie zu Ihren [Währungseinstellungen](/admin/settings/payments), um eine Währung hinzuzufügen.",
-"en": "To add a currency, go to your [currency settings.](/admin/settings/payments)"
-}
-},
-{
-"type": "checkbox",
-"id": "show_currency_selector",
-"label": {
-"da": "Vis valutavælger",
-"de": "Währungsauswahl anzeigen",
-"en": "Show currency selector"
-},
-"default": true
 }
 ],
 "blocks": [

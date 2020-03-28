@@ -81,7 +81,7 @@
                 {%- endif -%}
                 {%- endcapture -%}
 
-                <img class="" src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
+                <img class="" src="{{ media.preview_image | img_url: '49x49', scale: 2 }}" alt="{{ thumbnailAlt }}">
                 {%- if media.media_type == 'video' or media.media_type =='external_video' -%}
                 <div class="product-single__thumbnail-badge">
                   {% include 'icon-video-badge-full-color' %}
@@ -141,7 +141,7 @@
         </a>
         <div class="product__price">
           {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
-          <p>or 4 interest-free payments of 39.80 with  <img alt="Sezzel Logo" title="“Sezzel" logo”="" src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/logo-sezzle.png"></p>
+          <p>or 4 interest-free payments of 39.80 with  <img alt="Sezzel Logo" title="sezzle" src="https://cdn.shopify.com/s/files/1/2012/8501/files/sezzle_logo.svg"></p>
 
         </div>
 
@@ -835,6 +835,70 @@
 "da": "Content",
 "de": "Content",
 "en": "Content"
+}
+},
+{
+"type": "header",
+"content": {
+"da": "Shipping Information",
+"de": "Shipping Information",
+"en": "Shipping Information"
+}
+},
+{
+"type": "text",
+"id": "US_content",
+"label": {
+"da": "US Info",
+"de": "US Info",
+"en": "US Info"
+},
+"default": {
+"da": "US",
+"de": "US",
+"en": "US"
+}
+},
+{
+"type": "text",
+"id": "EU_content",
+"label": {
+"da": "EU Info",
+"de": "EU Info",
+"en": "EU Info"
+},
+"default": {
+"da": "EU",
+"de": "EU",
+"en": "EU"
+}
+},
+{
+"type": "text",
+"id": "Rest_content",
+"label": {
+"da": "Rest World Info",
+"de": "Rest World Info",
+"en": "Rest World Info"
+},
+"default": {
+"da": "Rest World",
+"de": "Rest World",
+"en": "Rest World"
+}
+},
+{
+"type": "textarea",
+"id": "shipping_content",
+"label": {
+"da": "Shipping Content",
+"de": "Shipping Content",
+"en": "Shipping Content"
+},
+"default": {
+"da": "Shipping",
+"de": "Shipping",
+"en": "Shipping"
 }
 },
 {

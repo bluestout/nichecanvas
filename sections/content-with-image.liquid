@@ -5,7 +5,8 @@
       <a href="{{section.settings.button_link}}" class="cstPcln">{{section.settings.btn_text}}</a>
   </div>
   <div class="pcRight">
-    <span class="hndmade"><img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-us-flag.svg"> {{section.settings.content}}</span>
+    {% comment %} <span class="hndmade"><img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-us-flag.svg"> {{section.settings.content}}</span> {% endcomment %}
+    <span class="hndmade"><img src=" {{section.settings.handmade_image | img_url}}" > {{section.settings.content}}</span>
     <img src="{{section.settings.image | img_url: "900x400"}}" alt="Img" title="Img">
   </div>
 </div>
@@ -41,6 +42,20 @@
 "de": "Personalisierter Content",
 "en": "Custom content"
 }
+},
+{
+"type": "image_picker",
+"id": "handmade_image",
+"label": {
+"da": "Billede",
+"de": "Foto",
+"en": "Handmade Image"
+},
+ "info": {
+          "da": "23 x 16px .png recommended",
+          "de": "23 x 16px .png recommended",
+          "en": "23 x 16px .png recommended"
+        }
 },
 {
 "type": "textarea",

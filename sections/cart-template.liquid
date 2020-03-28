@@ -104,10 +104,10 @@
           <tbody data-cart-line-items>
             
             {%- for item in cart.items -%}
-           
+           {%capture allvariantsfirst%}{% for variant in item.product.variants%}{{variant.title | split: "/" | first | strip}}{%unless forloop.last%},{%endunless%}{%endfor%}{%endcapture%}
             {%capture allvariants%}{% for variant in item.product.variants%}{{variant.title | split: "/" | last | strip}}{%unless forloop.last%},{%endunless%}{%endfor%}{%endcapture%}
     {% assign newval = allvariants | split: ',' | uniq %}
-            
+       {% assign newvalfirst = allvariantsfirst | split: ',' | uniq %}     
             
             <tr class="cart__row" data-cart-item data-cart-item-key="{{ item.key }}" data-cart-item-url="{{ item.url }}" data-cart-item-title="{{ item.title }}" data-cart-item-index="{{ forloop.index }}" data-cart-item-quantity="{{ item.quantity }}">
               <td class="cart__meta small--text-left" data-cart-table-cell>
@@ -163,13 +163,17 @@
                         <span> {{ option.name }}: </span> 
                         {% if option.name contains "Size"%}
                         
-                        <select  class="FixedBoxCart">
+                        <select  class="FixedBoxCart FixedSize">
           {% for variantName in newval%}
           <option value="{{variantName}}" {%if option.value == variantName %} selected{%endif%}>{{variantName}}</option>
           {% endfor %}
         </select>
                         {%else%}
-                        {{ option.value }}
+                        <select  class="FixedBoxCart FixedType">
+          {% for variantName in newvalfirst%}
+          <option value="{{variantName}}" {%if option.value == variantName %} selected{%endif%}>{{variantName}}</option>
+          {% endfor %}
+        </select>
                         {%endif%}
 
                       </li>
@@ -213,7 +217,7 @@
                     <div class="csTquantrmv">
                       <div class="quant">
                         <div class="cart__qty" data-line="{{forloop.index}}">
-                          <input type='button' value='-' class='qtyminus' field='quantity' min="1" />
+                          <input type='button' value='-' class='qtyminus' field='quantity' min="0" />
                           <input readonly="readonly" id="updates_large_{{ item.key }}" class="cart__qty-input" type="text"
                                  name="updates[]" value="{{ item.quantity }}" min="0" pattern="[0-9]*"
                                  data-quantity-input data-quantity-item="{{ forloop.index }}" data-quantity-input-desktop>

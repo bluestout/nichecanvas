@@ -24,8 +24,7 @@ $(document).ready(function(){
   })
 
   /******************************* CART PAGE UPDATE VARIANT **********************/
-  $('body').on('change', '.FixedBoxCart', function() {
-    console.log("testiging");
+  $('body').on('change', '.FixedSize', function() {
     $("body").addClass("loaderprocess");
     var ListingVar ;
     var valueLast=$(this).val();
@@ -166,7 +165,7 @@ $(document).ready(function(){
 
     var val_qty = parseInt($(this).next(".cart__qty-input").val());
 
-    if(val_qty > 1)
+    if(val_qty > 0)
     {
       val_qty = val_qty - 1 ;
     }

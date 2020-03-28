@@ -151,19 +151,28 @@ span.ShopText {
   font-size: 13px;
   line-height: 16px;
 }
-.shopNwPayltr p {
-
-}
 .shopNwPayltr p img {
   vertical-align: middle;
   max-width: 56px;
   margin: 0 6px;
 }
+.shopNwPayltr p img.cstRoutlogo {
+  max-width: 70px;
+  vertical-align: baseline;
+}
 .shopNwPayltr p span {
   margin: 0 6px;
 }
 .CustTxtImg.index-section {
-  padding-top: 0;
+  padding: 0;
+}
+.CustTxtImg.index-section .shopNwPayltr {
+  padding: 0 0 40px;
+}
+.CustomizationSect {
+  padding: 40px 0;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .CustTxtImg .section-header h2 {
   text-transform: initial;
@@ -752,56 +761,51 @@ img.mobImg {
   width: 55px;
   height: 55px;
 }
-.Customsingle .slick-dots li button:before {
+.Customsingle .slick-dots li button {
   background-repeat: no-repeat !important;
   background-position: center center !important;
   content: "";
   opacity: 0.5;
 }
 .Customsingle .slick-dots li:nth-child(1) button {
-    background-image: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/hor-5-piece.svg);
-    background-size: 35px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-color: #fff;
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fff;
 }
 .Customsingle .slick-dots li:nth-child(2) button {
-  background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/hor-3piece.svg);
   background-size: 35px;
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #fff;
 }
 .Customsingle .slick-dots li:nth-child(3) button {
-  background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/hor-1-piece.svg);
-  background-size: 35px;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-color: #fff;
-}
-.Customsingle .slick-dots li:nth-child(4) button {
-  background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/ver-3-piece.svg);
   background-size: 18px;
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #fff;
 }
+.Customsingle .slick-dots li:nth-child(4) button {
+  background-size: 35px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fff;
+}
 .Customsingle .slick-dots li:nth-child(5) button {
- background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/ver-1-piece.svg);
   background-size: 20px;
   background-repeat: no-repeat;
   background-position: center center;
   background-color: #fff;
-  
+
 }
 .Customsingle .slick-dots li.slick-active button{
- opacity:1;
- transition: inherit;
+  opacity:1;
+  transition: inherit;
 }
 .Customsingle .slick-dots li button{
- opacity:0.5;
- transition: inherit;
-  
+  opacity:0.5;
+  transition: inherit;
+
 }
 
 /*******************************/
@@ -935,10 +939,6 @@ span.CstmTag {
   border-bottom: none;
 }
 
-.MainGridProducts button.wk-button-collection .wk-icon svg path {
-  stroke: #fff;
-  fill: #fff;
-}
 .MainGridProducts:hover .cstGridImg img {
   filter: brightness(0.75);
 }
@@ -1193,6 +1193,8 @@ span.CstmTag {
 }
 .hndmade img {
   padding: 0 10px 0 0;
+  height: 16px;
+  margin-top: 3px;
 }
 .cstPcln {
   font-size: 13px;
@@ -1431,17 +1433,27 @@ background: #eff1f3;
   position: relative;
 }
 .thumnailCont {
-  position: absolute;
-  z-index: 2;
-  left: 0;
-  width: 100%;
-  top: 0;
+  margin: 10px 0 0;
+}
+/* .thumnailCont {
+position: absolute;
+z-index: 2;
+left: 0;
+width: 100%;
+top: 0;
 }
 .thumnailCont .thumbnails-wrapper {
-  position: relative;
-  top: 15px;
-  left: 15px;
-  margin: 0;
+position: relative;
+top: 15px;
+left: 15px;
+margin: 0;
+} */
+
+li.CustomThumList.slick-slide {
+  opacity: 0.6;
+}
+li.CustomThumList.slick-slide.slick-current.slick-active {
+  opacity: 1;
 }
 .thumnailContainer .product-single__thumbnails {
   margin: 0;
@@ -1515,6 +1527,9 @@ background: #eff1f3;
   padding: 5px;
   border: 1px solid #ccc;
   width: 33.3%;
+}
+.cstProDec .CustomIndexing_2 .swatch-element {
+  width: 25%;
 }
 .cstProDec .swatch label {
   min-width: 100% !important;
@@ -1624,9 +1639,9 @@ a.needhelp {
   line-height: normal;
 }
 .shipIcnz li img {
-    max-width: 28px;
-    height: 22px;
-    object-fit: contain;
+  max-width: 28px;
+  height: 22px;
+  object-fit: contain;
 }
 
 .shopify-payment-button .shopify-payment-button__more-options {
@@ -2555,8 +2570,8 @@ ul.cstFaqMob {
   display: none;
 }
 .CustomWishlist .wk-add-item-form {
-    bottom: 20%;
-    display: none;
+  bottom: 20%;
+  display: none;
 }
 .CustomWishlist .wk-item:hover .wk-add-item-form {
   opacity: 1;
@@ -2592,8 +2607,10 @@ ul.cstFaqMob {
   filter: brightness(0.75);
 }
 
-
 .MainGridProducts:hover button.wk-button-collection {
+  opacity: 1 !important;
+}
+button.wk-button-collection.wk-remove-product {
   opacity: 1 !important;
 }
 .MainGridProducts button.wk-button-collection {
@@ -2607,7 +2624,10 @@ ul.cstFaqMob {
   width: 18px;
   height: 18px;
 }
-
+.MainGridProducts button.wk-button-collection .wk-icon svg path {
+  stroke: #fff;
+  fill: #fff;
+}
 select.FixedBoxCart {
   font-size: 13px;
   border: none;
@@ -2697,11 +2717,22 @@ select.FixedBoxCart {
   cursor: pointer;
 }
 
+/*************/
+.cstCpyryt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.payment_icons .site-footer__icon-list {
+  padding: 0;
+}
+.payment_icons .site-footer__icon-list li.payment-icon {
+  margin-bottom: 0;
+}
+
 /**************************************/
 /****************@media****************/
 /**************************************/
-
-
 
 
 @-moz-document url-prefix() {
@@ -2711,10 +2742,7 @@ select.FixedBoxCart {
 
   }
 
-
 }
-
-
 
 
 @media (min-width: 1601px) {
@@ -2741,6 +2769,9 @@ select.FixedBoxCart {
   }
   .cstProDec .swatch .swatch-element {
     width: 50%;
+  }
+  .cstProDec .CustomIndexing_2 .swatch-element {
+    width: 25%;
   }
 }
 
@@ -2966,6 +2997,15 @@ select.FixedBoxCart {
 
 
 @media (max-width: 749px) {
+  .cstCpyryt {
+    display: block;
+  }
+  .payment_icons .grid__item {
+    padding: 0;
+  }
+  .payment_icons .payment-icons .icon {
+    width: 30px;
+  }
   .CustomTrustPilot.page-width {
     padding-top: 70px;
     padding-bottom: 10px;

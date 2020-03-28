@@ -63,7 +63,7 @@
         {% for childlink in link.links %}
         {% if childlink.links != blank %}
         <li>  
-          {%unless numberget == "1"%}
+          {%unless numberget == "1" or numberget == "3" or numberget == "4" %}
           <a class="mblHding" href="{{childlink.url}}">{{childlink.title}}</a>
           {%endunless%}
           <ul class="mobile-submenuChild">
