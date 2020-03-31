@@ -143,7 +143,7 @@
       <div class="grid__item {% if section.settings.align_logo == 'left' %}medium-up--one-quarter{% else %}medium-up--one-third medium-up--push-one-third{% endif %} text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
         <div class="site-header__icons-wrapper">
 
-          <span class="site-header__cnvs">1-833-CANVAS</span>
+          <span class="site-header__cnvs"><a href="tel:{{settings.number}}">{{settings.number}}</a></span>
 
           <div class="cstSrchMob">
             <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top">
@@ -214,7 +214,7 @@
     </div>
     <div class="HeaderIcon">
       <ul>
-        <li class="site-header__icon">1-833-CANVAS</li>
+        <li class="site-header__icon"><a href="tel:{{settings.number}}">{{settings.number}}</a></li>
         <li>
           <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top">
             {% include 'icon-search' %}
@@ -307,6 +307,14 @@
     }
 </script>
 {% endif %}
+
+
+
+
+
+
+
+
 
 {% schema %}
 {

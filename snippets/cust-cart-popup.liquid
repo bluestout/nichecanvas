@@ -1,0 +1,50 @@
+  <div class="cart-popup-wrapper cart-popup-wrapper--hidden" role="dialog" aria-modal="true" aria-labelledby="CartPopupHeading" data-cart-popup-wrapper>
+
+<div id="minicart-inner">
+              {% for item in cart.items %}
+              <div id="minicart-items" class="custm_prdt_list">
+                <div class="cstm-thumb">
+                  <div class="prodimage">
+                    <a href="{{ item.url | within: collections.all }}">
+                      <img class="cus_cart_image" src="{{ item | img_url: '60x60', scale: 2 }}" alt="{{ item.title | escape }}">
+                    </a>
+                  </div>
+                </div>
+                
+                <div class="cstm-details">
+                  <p><a href="{{ item.url }}">
+                    {{ item.product.title }}</a></p>
+                  <p><span class="itm_price">{{ item.line_price | money }}</span></p>
+                  {% unless item.variant.title contains 'Default' %}
+                  <div class="cart__meta-text">
+                    {% for option in item.product.options %}
+                      {{ option }}: {{ item.variant.options[forloop.index0] }}<br/>
+                    {% endfor %}
+                  </div>
+                {% endunless %}
+                  {%- assign property_size = item.properties | size -%}
+                {% if property_size > 0 %}
+                  <div class="cart__meta-text">
+                    {% for p in item.properties %}
+				{%- if p.first.first == '_' -%}{%- continue -%}{%- endif -%}
+                      {% unless p.last == blank %}
+                        {{ p.first }}:
+                        {% if p.last contains '/uploads/' %}
+                          <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                        {% else %}
+                          {{ p.last }}
+                        {% endif %}
+                      {% endunless %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                  <p><span class="itm_quant">Quantity: {{ item.quantity }}</span></p>
+                  <span>
+                    <a href="#" class="btn-remove test" onclick="remove(1,0)" rel="{{ item.id }}">x</a> 
+                  </span>  
+                </div>
+              </div>
+              {% endfor %}
+              <br style="clear:both;" />
+              </div>
+</div>

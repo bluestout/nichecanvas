@@ -214,6 +214,7 @@ span.site-header__cnvs {
   padding: 10px 15px;
   font-size: 13px;
   white-space: nowrap;
+  pointer-events: none;
 }
 
 .FixedHeaderWrapper {
@@ -909,6 +910,15 @@ footer.site-footer.cstmainftr {
   line-height: 35px;
   margin: 54px 0 0;
 }
+.cst_site_footer__content.DesktopFoot .site-footer__rte a {
+  border-bottom: none;
+  font-size: 14px;
+  line-height: 35px;
+  margin: 54px 0 0;
+}
+.cst_site_footer__content.DesktopFoot .site-footer__rte a:first-child {
+  pointer-events: none;
+}
 .MobileFoot {
   display: none;
 }
@@ -953,6 +963,9 @@ span.CstmTag {
   transition: .25s ease-out;
   bottom: 0;
 }
+.cstGridImg {
+  line-height: 0;
+}
 .GridCartBtn, .InstantCartBtnDesk {
   position: absolute;
   bottom: 15px;
@@ -965,6 +978,7 @@ span.CstmTag {
   font-weight: 600;
   z-index: 9;
   cursor: pointer;
+  line-height: normal;
 }
 .GridCartBtn {
   left: 3%;
@@ -975,6 +989,11 @@ span.CstmTag {
 .cstPriceTitl {
   display: flex;
   justify-content: space-between;
+}
+.cstPriceTitl .price {
+  align-items: flex-end;
+  width: 140px;
+  padding: 0 0 0 10px;
 }
 .MainGridProducts .product-card__title, .MainGridProducts .price-item {
   font-size: 15px;
@@ -992,7 +1011,7 @@ span.CstmTag {
   margin-right: 0;
 }
 .MainGridProducts .loox-rating span {
-  display: none;
+  /*   display: none; */
 }
 
 .GridBadge {
@@ -1283,6 +1302,10 @@ body.MenuOppned {
   font-weight: 600;
   position: relative;
 }
+#mobile_menu li a {
+  display: block;
+
+}
 #mobile_menu li.shopBy span {
   font-size: 13px;
   font-weight: normal;
@@ -1290,6 +1313,8 @@ body.MenuOppned {
 }
 #mobile_menu a.cartcunt {
   display: inline-block;
+  width: calc(100% - 28px);
+
 }
 #mobile_menu a.cartcunt svg {
   opacity: 0.4;
@@ -1335,11 +1360,12 @@ background: #eff1f3;
 .mobile-menu-parent span.icndwn {
   background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/downArrow.svg);
   display: block;
-  height: 8px;
-  width: 14px;
+  height: 20px;
+  width: 25px;
   background-repeat: no-repeat;
+  background-position: center;
   opacity: 0.5;
-  background-size: 12px;
+  background-size: 15px;
   cursor: pointer;
 }
 .mobile-menu-parent.ChildOpen span.icndwn {
@@ -1381,16 +1407,21 @@ background: #eff1f3;
 .CartMenuSTatic .tlicon-caret-right {
   background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/downArrow.svg);
   display: block;
-  height: 10px;
-  width: 14px;
-  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  background-repeat: no-repeat;  
+  background-position: center;
   opacity: 0.5;
-  background-size: 12px;
+  background-size: 15px;
   transform: rotate(270deg);
   position: absolute;
-  top: 16px;
+  top: 12px;
   right: 0;
 }
+.CartMenuSTatic .tlicon-caret-right:active {
+  background-color: #d5eff9;
+}
+
 .mobile-mega-menu {
   display: none;
 }
@@ -1645,7 +1676,7 @@ a.needhelp {
 }
 
 .shopify-payment-button .shopify-payment-button__more-options {
-  display: none;
+  
 }
 .cstAddCartBuy {
   display: flex;
@@ -1660,6 +1691,7 @@ a.needhelp {
   letter-spacing: normal;
   border-right: 1px solid #fff;
   border-radius: 0;
+      height: 40px;
 }
 .cstAddCartBuy .product-form__cart-submit:hover {
   transition: .25s ease-out;
@@ -1676,7 +1708,7 @@ a.needhelp {
 }
 .cstAddCartBuy .shopify-payment-button button:hover {
   transition: .25s ease-out;
-  transform: translateX(4px);
+  transform: translateX(2px);
 }
 .cstRcmnd .section-header h2 {
   font-size: 28px;
@@ -1685,7 +1717,12 @@ a.needhelp {
   margin: 0;
   line-height: 30px;
 }
-
+.shopify-payment-button .shopify-payment-button__more-options {
+    visibility: visible;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
 
 /*******************/
 .CustomCartTemp .empty-page-content h1 {
@@ -2788,7 +2825,7 @@ select.FixedBoxCart {
     font-size: 12px;
   }
   .MainGridProducts .price-item {
-    width: 65px;
+    width: 95px;
     text-align: right;
   }
   .GridCartBtn, .InstantCartBtnDesk {
@@ -2999,6 +3036,10 @@ select.FixedBoxCart {
 @media (max-width: 749px) {
   .cstCpyryt {
     display: block;
+  }
+  .cstPriceTitl .price {
+    align-items: flex-start;
+    width: 100%; padding: 0;
   }
   .payment_icons .grid__item {
     padding: 0;

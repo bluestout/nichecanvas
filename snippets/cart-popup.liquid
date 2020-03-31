@@ -31,7 +31,59 @@
         </div>
       </div>
     </div>
-
+  {% comment %}
+   
+              {% for item in cart.items %}
+       <div class="cart-popup-item">
+          <div class="cart-popup-item__image-wrapper hide" data-cart-popup-image-wrapper>
+            <div class="cart-popup-item__image cart-popup-item__image--placeholder" data-cart-popup-image-placeholder>
+              <div data-placeholder-size></div>
+              <div class="placeholder-background placeholder-background--animation">
+              
+              </div>
+               <img class="cus_cart_image" src="{{ item | img_url: '60x60', scale: 2 }}" alt="{{ item.title | escape }}">
+            </div>
+          </div>
+          <div class="cart-popup-item__description">
+            <div>
+              <div class="cart-popup-item__title" data-cart-popup-title>{{ item.product.title }}</div>
+              <ul class="product-details" aria-label="{{ 'cart.popup.product_details' | t }}" data-cart-popup-product-details>
+                 {% unless item.variant.title contains 'Default' %}
+                  <div class="cart__meta-text">
+                    {% for option in item.product.options %}
+                      {{ option }}: {{ item.variant.options[forloop.index0] }}<br/>
+                    {% endfor %}
+                  </div>
+                {% endunless %}
+                  {%- assign property_size = item.properties | size -%}
+                {% if property_size > 0 %}
+                  <div class="cart__meta-text">
+                    {% for p in item.properties %}
+				     {%- if p.first.first == '_' -%}{%- continue -%}{%- endif -%}
+                      {% unless p.last == blank %}
+                        {{ p.first }}:
+                        {% if p.last contains '/uploads/' %}
+                          <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                        {% else %}
+                          {{ p.last }}
+                        {% endif %}
+                      {% endunless %}
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              
+              </ul>
+            </div>
+            <div class="cart-popup-item__quantity">
+              <span class="visually-hidden" data-cart-popup-quantity-label></span>
+              <span aria-hidden="true">{{ 'cart.popup.quantity' | t }}:</span>
+              <span aria-hidden="true" data-cart-popup-quantity></span>
+            </div>
+          </div>
+        </div>
+      {% endfor%}
+     {% endcomment %}
+    
     <a href="{{ routes.cart_url }}" class="cart-popup__cta-link btn btn--secondary-accent">
       {{ 'products.product.view_cart' | t }} (<span data-cart-popup-cart-quantity></span>)
     </a>
@@ -42,4 +94,5 @@
       </button>
     </div>
   </div>
+
 </div>

@@ -49,7 +49,7 @@
                         <ul>
                         {% for grandchildlink in childlink.links %}
                           <li>
-                            <a href="{{ grandchildlink.url }}"
+                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections['shop-airplanes'].image | img_url: '300x300' }}"{%endif%}
                             class="site-nav__link site-nav__child-link"
                             {% if grandchildlink.current %} aria-current="page"{% endif %}
                           >

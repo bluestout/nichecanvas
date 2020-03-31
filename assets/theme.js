@@ -5895,7 +5895,7 @@ theme.Cart = (function() {
           type: "GET",
           url: "/cart",
           dataType: 'html',
-    success: function(data) 
+           success: function(data) 
           {
             var minicartdata=$(data).find('.CustomCartTemp').html();
             $('.CustomCartTemp').html(minicartdata);
@@ -7517,7 +7517,11 @@ theme.FooterSection = (function() {
 
 $(document).ready(function() {
   var sections = new theme.Sections();
-
+  
+  function customminicart (item) {
+    console.log(item);
+  }
+ 
   sections.register('cart-template', theme.Cart);
   sections.register('product', theme.Product);
   sections.register('collection-template', theme.Filters);
