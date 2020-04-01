@@ -1384,6 +1384,12 @@ background: #eff1f3;
   justify-content: space-between;
   padding: 0 0 40px;
 }
+.logoclose a {
+  line-height: 0;
+}
+.logoclose a img {
+  max-width: 190px;
+}
 .mobLogo {
   background: url(https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/NICHE-SPRITE.png);
   height: 30px;
@@ -1676,7 +1682,7 @@ a.needhelp {
 }
 
 .shopify-payment-button .shopify-payment-button__more-options {
-  
+
 }
 .cstAddCartBuy {
   display: flex;
@@ -1691,7 +1697,7 @@ a.needhelp {
   letter-spacing: normal;
   border-right: 1px solid #fff;
   border-radius: 0;
-      height: 40px;
+  height: 40px;
 }
 .cstAddCartBuy .product-form__cart-submit:hover {
   transition: .25s ease-out;
@@ -1718,10 +1724,10 @@ a.needhelp {
   line-height: 30px;
 }
 .shopify-payment-button .shopify-payment-button__more-options {
-    visibility: visible;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+  visibility: visible;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 /*******************/
@@ -2767,6 +2773,20 @@ select.FixedBoxCart {
   margin-bottom: 0;
 }
 
+.mini_cart  {
+  height: 0;
+}
+.mini_cart .cart-popup-wrapper {
+  transform: translateY(-120%);  
+  display: block !important;
+}
+.mini_cart.cust_minicart_popup .cart-popup-wrapper {
+  transform: translateY(0%); 
+}
+ 
+
+
+
 /**************************************/
 /****************@media****************/
 /**************************************/
@@ -2938,11 +2958,13 @@ select.FixedBoxCart {
   .csCrtDtlz {
     display: block;
     text-align: right;
-    margin: 0 0 20px;
+    margin: 0 0 10px;
   }
   .csCrtDtlz a {
     font-size: 13px;
     text-decoration: underline;
+    padding: 10px 0;
+    display: block;
   }
   .cartImgDec a.cart__product-title {
     font-size: 16px;
@@ -3034,6 +3056,10 @@ select.FixedBoxCart {
 
 
 @media (max-width: 749px) {
+
+  .mini_cart.cust_minicart_popup .cart-popup-wrapper {
+    top: 92px; 
+  }
   .cstCpyryt {
     display: block;
   }
@@ -3127,12 +3153,12 @@ select.FixedBoxCart {
   }
   .cartImgDec ul.product-details {
     font-size: 12px;
-    padding: 10px 0;
+    padding: 6px 0;
   }
   .cartImgDec ul.product-details li {
     font-weight: normal;
-    display: block;
-    padding: 0;
+    display: flex;
+    padding: 6px 0;
   }
   .cartImgDec ul.product-details li span {
     width: 40px;
@@ -3213,7 +3239,7 @@ select.FixedBoxCart {
     margin: 30px 0 0;
   }
   .GridCartBtnmob, .InstantCartBtnmob {
-    display: block;
+    display: none;
     border: 1px solid #000;
     text-align: center;
     font-size: 13px;
@@ -3223,6 +3249,8 @@ select.FixedBoxCart {
     cursor: pointer;
     z-index: 3;
     position: relative;
+    min-height: auto;
+    line-height: normal;
   }
   .MainGridProducts:hover .AjaxBtns {
     display: none; 
@@ -3302,9 +3330,7 @@ select.FixedBoxCart {
   .cst_MAinColl {
     padding: 0;
   }
-  .cartImgDec ul.product-details li {
-    display: flex;
-  }
+
   select.FixedBoxCart {
     width: calc(100% - 40px);
   }
@@ -3728,14 +3754,17 @@ select.FixedBoxCart {
 @media (max-width: 480px) {
 
   .CustomWishlist .wk-item .wk-add-item-form.MobileWislist {
+    opacity: 1 !important;
     position: unset;
     width: 100%;
+    display: block;
   }
   .CustomWishlist .wk-item .wk-add-item-form.MobileWislist .wk-product-options {
     display: block;
+    padding: 0;
   }
-  .CustomWishlist .wk-item .wk-add-item-form.MobileWislist  {
-    opacity: 1 !important;
+  .CustomWishlist button.wk-button-wishlist-page.wk-with-hover {
+    opacity: 1;
   }
   .CustomWishlist .wk-item .wk-purchase-section {
     margin-top: 12px;
@@ -3743,8 +3772,9 @@ select.FixedBoxCart {
   .CustomWishlist .wk-item .wk-add-item-form.MobileWislist input.wk-add-to-cart, .CustomWishlist .wk-item .wk-add-item-form.MobileWislist .WishInstant {
     border: 1px solid #000;
     width: 100%;
-    display: block;
+    display: none;//display: block;
     box-sizing: border-box;
+    padding: 10px;
   }
 
   .loox-rating span {
@@ -3835,10 +3865,14 @@ select.FixedBoxCart {
 
 @media (max-width: 414px) {
   #mobile_menu {
-    height: 380px;
+    height: calc(100% - 72px);
   }
   .cstProDec .swatch .swatch-element {
     padding: 3px;
   }
+
+}
+
+@media (max-width: 360px) {
 
 }

@@ -1,5 +1,18 @@
 $(document).ready(function(){
-  /*******************************HOVER FUNCTIONALITY ***********************/
+  /****************MENU CLOSE FOR MOBILE ON OVERLAY*******************/
+  $(".mobileOverlay").click(function(){
+    $("body").removeClass("MenuOppned");
+  })
+  /*******************************HOVER FUNCTIONALITY ON MENU **********************/
+  $(".hoverworking").mouseenter(function(){
+  var getImagepath = $(this).attr("data-images");
+    $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("src",getImagepath);
+  })
+  $(".hoverworking").mouseleave(function(){
+  var getImagepath = $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("data-srcing");
+    $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("src",getImagepath);
+  })
+  /*******************************HOVER FUNCTIONALITY ON PRODUCTS***********************/
   $(".MainGridProducts").mouseenter(function(){
   $(this).children(".product-card__image-with-placeholder-wrapper").children(".CustomJs").children(".cstGridImg").children(".FirstImage").hide();
     $(this).children(".product-card__image-with-placeholder-wrapper").children(".CustomJs").children(".cstGridImg").children(".secImage").show();

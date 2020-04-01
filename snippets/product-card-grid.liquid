@@ -50,7 +50,8 @@ Usage:
         </div>
        
         <div class="AjaxBtns">
-        <div class="GridCartBtn" data-id="{{product.variants.first.id}}">Add to Cart</div>
+         
+        <div class="{% if settings.enable_ajax == blank %}Cust_GridCardBtn GridCartBtn {% else %} GridCartBtn{% endif %}" data-id="{{product.variants.first.id}}">Add to Cart</div>
         <div class="InstantCartBtnDesk" data-id="{{product.variants.first.id}}">Instant Buy</div>
         </div>
         <ul class="GridBadge">
@@ -106,6 +107,6 @@ Usage:
     {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
   </div>
 
-  <div class="GridCartBtnmob product-form__cart-submit" data-id="{{product.variants.first.id}}">Add to Cart</div>
+  <div class="{% if settings.enable_ajax == blank %}Cust_GridMobileBtn GridCartBtnmob {% else %} GridCartBtnmob product-form__cart-submit{% endif %}  " data-id="{{product.variants.first.id}}">Add to Cart</div>
 <div class="InstantCartBtnmob" data-id="{{product.variants.first.id}}">Instant Buy</div>
 </div>

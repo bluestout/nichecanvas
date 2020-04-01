@@ -47,7 +47,7 @@
     </div>
 
     {% if collection.description != blank %}
-    <div id="bc-sf-filter-collection-description" class="rte collection-description page-width">
+    <div id="bc-sf-filter-collection-description" class="rte collection-description page-width" style="display:none">
       {{ collection.description }}
     </div>
     {% endif %}
@@ -56,7 +56,7 @@
       <div class="section-header text-center">
         <h1 id="bc-sf-filter-collection-header">{{ collection.title }}</h1>
         {% if collection.description != blank %}
-        <div id="bc-sf-filter-collection-description" class="rte">
+        <div id="bc-sf-filter-collection-description" class="rte" style="display:none">
           {{ collection.description }}
         </div>
         {% endif %}

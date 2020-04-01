@@ -58,6 +58,81 @@
   {% endif %}
   {% endif %}
 
+  <div id="MiniCart" class="mini_cart">
+    <div id="minicart-inner">
+
+      <div id="minicart-items" class="custm_prdt_list">       
+        <div class=" cart-popup-wrapper" role="dialog" aria-modal="true" aria-labelledby="CartPopupHeading" data-cart-popup-wrapper>
+          <div class="cart-popup" data-cart-popup tabindex="-1">
+            <div class="cart-popup__header">
+              <h2 id="CartPopupHeading" class="cart-popup__heading">{{ 'cart.popup.added_to_cart' | t }}</h2>
+              <button class="cart-popup__close" aria-label="{{ 'general.accessibility.close_modal' | t }}" data-cart-popup-close>{% include 'icon-close' %}</button>
+            </div>
+            {% for item in cart.items limit: 1 %}
+            <div class="cart-popup-item">
+              <div class="cart-popup-item__image-wrapper" data-cart-popup-image-wrapper>
+                <div class="cart-popup-item__image cart-popup-item__image--placeholder" data-cart-popup-image-placeholder>
+                  <div data-placeholder-size></div>
+                </div>
+                <div class="placeholder-background placeholder-background--animation"></div>
+                <img class="cus_cart_image" src="{{ item | img_url: '160x160', scale: 2 }}" alt="{{ item.title | escape }}">
+              </div>
+              <div class="cart-popup-item__description">
+                <div>
+                  <div class="cart-popup-item__title" data-cart-popup-title>{{ item.product.title }} </div>
+                  <ul class="product-details" aria-label="{{ 'cart.popup.product_details' | t }}" data-cart-popup-product-details>
+                    {% unless item.variant.title contains 'Default' %}
+                    <div class="cart__meta-text">
+                      {% for option in item.product.options %}
+                      {{ option }}: {{ item.variant.options[forloop.index0] }}<br/>
+                      {% endfor %}
+                    </div>
+                    {% endunless %}
+                    {%- assign property_size = item.properties | size -%}
+                    {% if property_size > 0 %}
+                    <div class="cart__meta-text">
+                      {% for p in item.properties %}
+                      {%- if p.first.first == '_' -%}{%- continue -%}{%- endif -%}
+                      {% unless p.last == blank %}
+                      {{ p.first }}:
+
+
+                      {% if p.last contains '/uploads/' %}
+                      <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                      {% else %}
+                      {{ p.last }}
+                      {% endif %}
+                      {% endunless %}
+                      {% endfor %}
+                    </div>
+                    {% endif %}
+                  </ul>
+                </div>
+                <div class="cart-popup-item__quantity">
+                  <span class="visually-hidden" data-cart-popup-quantity-label></span>
+                  <span aria-hidden="true">{{ 'cart.popup.quantity' | t }}:1</span>
+                  <span aria-hidden="true" data-cart-popup-quantity></span>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            <a href="{{ routes.cart_url }}" class="cart-popup__cta-link btn btn--secondary-accent">
+              {{ 'products.product.view_cart' | t }} (<span class="cust_home_popupCart" data-cart-popup-cart-quantity></span>)
+            </a>
+
+            <div class="cart-popup__dismiss">
+              <button class="cart-popup__dismiss-button text-link text-link--accent" data-cart-popup-dismiss>
+                {{ 'cart.general.continue_shopping' | t }}
+              </button>
+            </div>
+          </div>
+        </div> 
+      </div>
+      <br style="clear:both;" />
+    </div> 
+  </div>
+
+  
   <header class="site-header{% if section.settings.align_logo == 'left' %} logo--left{% else %} logo--center{% endif %}" role="banner">
 
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
@@ -189,7 +264,7 @@
             {% include 'icon-cart' %}
             <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
             <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
-              <span data-cart-count>{{ cart.item_count }}</span>
+              <span class="cust_CartPOPUP_Count" data-cart-count>{{ cart.item_count }}</span>
               <span class="icon__fallback-text medium-up--hide">{{ 'layout.cart.items_count' | t: count: cart.item_count }}</span>
             </div>
           </a>

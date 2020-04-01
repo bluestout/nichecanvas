@@ -49,8 +49,8 @@
                         <ul>
                         {% for grandchildlink in childlink.links %}
                           <li>
-                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections['shop-airplanes'].image | img_url: '300x300' }}"{%endif%}
-                            class="site-nav__link site-nav__child-link"
+                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
+                            class="{% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link"
                             {% if grandchildlink.current %} aria-current="page"{% endif %}
                           >
                               <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
@@ -84,13 +84,13 @@
           <div class="mRightImg">
             <div class="InnerImage">
               {% if numberget == "1" %}
-		<img src="{{section.settings.mega_img_1| img_url: "480x480"}}"/>
+		<img data-srcing="{{section.settings.mega_img_1| img_url: "480x480"}}" src="{{section.settings.mega_img_1| img_url: "480x480"}}"/>
           {% elsif numberget == "2" %}
-              <img src="{{section.settings.mega_img_2| img_url: "480x480"}}"/>
+              <img data-srcing="{{section.settings.mega_img_2| img_url: "480x480"}}" src="{{section.settings.mega_img_2| img_url: "480x480"}}"/>
               {% elsif numberget == "3" %}
-              <img src="{{section.settings.mega_img_3| img_url: "480x480"}}"/>
+              <img data-srcing="{{section.settings.mega_img_3| img_url: "480x480"}}" src="{{section.settings.mega_img_3| img_url: "480x480"}}"/>
               {% elsif numberget == "4" %}
-              <img src="{{section.settings.mega_img_4| img_url: "480x480"}}"/>
+              <img data-srcing="{{section.settings.mega_img_4| img_url: "480x480"}}" src="{{section.settings.mega_img_4| img_url: "480x480"}}"/>
               {%endif%}
             </div>
             </div>
