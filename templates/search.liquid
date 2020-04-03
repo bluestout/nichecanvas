@@ -100,7 +100,8 @@
       product_grid_class: 'grid__item small--one-half medium-up--one-quarter',
       max_height: 250,
       vendor_enable: false,
-      layout: "grid"
+      layout: "grid",
+      enable_ajax: {% if settings.enable_ajax == blank %} false {% else %} true {% endif %},
     }
   };
 

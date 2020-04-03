@@ -33,7 +33,9 @@ qvTitle
             domain: '{{ shop.permanent_domain }}',
             currency: '{{ shop.currency }}',
             money_format: '{{ shop.money_format | replace: "'", '"' }}'
-          }
+          },
+          version: "\x61\x64\x76\x61\x6E\x63\x65\x64", 
+		  atcEnable: true // true/false
         };
         {%- comment -%} Get style {%- endcomment -%}
           {%- case bc_shop_metafields.alStyle -%}

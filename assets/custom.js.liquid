@@ -157,7 +157,7 @@ $(document).ready(function(){
   });
   
   
-    $('body').on('click', '.Cust_GridCardBtn', function() {
+    $(document).on('click', '.Cust_GridCardBtn', function() {
     console.log("click");
     var GetId = $(this).attr("data-id");
     $.ajax({
@@ -172,7 +172,7 @@ $(document).ready(function(){
   })
   
   /*Home page minicart */
- $('.GridCartBtn').click(function(){
+ $(document).on('click', '.GridCartBtn', function(){
    console.log("CLICK");
    var GetId = $(this).attr("data-id");
     
@@ -197,7 +197,7 @@ $(document).ready(function(){
               var minicart =  $(data).find(".mini_cart").html();
               console.log("mimicart"+minicart);
               $(".mini_cart").html(minicart);
-              $(".cust_home_popupCart").html(countvalue);
+              $("#CartCount span[data-cart-count]").html(countvalue);
               
               $(".mini_cart").addClass("cust_minicart_popup");
             }

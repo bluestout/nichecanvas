@@ -45,8 +45,7 @@ function buildImageStyle(e) {
     return r
 }
 
-function buildPrice(data, onSale, priceVaries) {
-  console.log(data)
+function buildPrice(data, onSale, priceVaries) {  
   var priceHtml = '',
     onSaleClass = onSale ? ' price--on-sale' : '';
 
@@ -193,6 +192,7 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
 		 m += '<img style="display:none;" class="secImage" src="'+ this.optimizeImage(t[1].src , 'large') +'">'
     }
   	c = c.replace(/{{itemImages}}/g, m);
+  c = c.replace(/{{AddToCartClass}}/g, bcSfFilterConfig.custom.enable_ajax ? '' : 'Cust_GridCardBtn ');
     var h = bcSfFilterConfig.custom.vendor_enable ? bcSfFilterTemplate.vendorGridHtml : "";
     c = c.replace(/{{itemVendor}}/g, h);
     var v = buildPrice(e, a, r);
@@ -295,7 +295,7 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
     "list" == this.queryParams.display ? (0 == a.children(".list-view-items").length && a.children().wrapAll('<ul class="list-view-items"></ul>'), a.removeClass("grid grid--uniform grid--view-items")) : (a.children(".list-view-items").length > 0 && a.children(".list-view-items").children().unwrap(), a.addClass("grid grid--uniform grid--view-items"))
 }, BCSfFilter.prototype.buildAdditionalElements = function(e, t) {
     var i = "";
-    i = 1 == e.total_product ? bcSfFilterConfig.label.items_with_count_one.replace(/{{ count }}/g, e.total_product) : bcSfFilterConfig.label.items_with_count_other.replace(/{{ count }}/g, e.total_product), jQ("#bc-sf-filter-total-product").html(i), jQ(".GridCartBtn").click(function() {
+    i = 1 == e.total_product ? bcSfFilterConfig.label.items_with_count_one.replace(/{{ count }}/g, e.total_product) : bcSfFilterConfig.label.items_with_count_other.replace(/{{ count }}/g, e.total_product), jQ("#bc-sf-filter-total-product").html(i), /*jQ(".GridCartBtn").click(function() {
         var e = $(this).attr("data-id");
         $.ajax({
             type: "POST",
@@ -306,7 +306,7 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
                 window.location.href = "/cart"
             }
         })
-    }), $("body").on("click", ".GridCartBtnmob", function() {
+    }),*/ $("body").on("click", ".GridCartBtnmob", function() {
         var a = $(this).attr("data-id");
         $.ajax({
             type: "POST",

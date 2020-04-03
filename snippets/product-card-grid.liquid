@@ -106,7 +106,9 @@ Usage:
     </div>
     {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
   </div>
-
+{% if settings.enable_btns%}
+{%else%}
   <div class="{% if settings.enable_ajax == blank %}Cust_GridMobileBtn GridCartBtnmob {% else %} GridCartBtnmob product-form__cart-submit{% endif %}  " data-id="{{product.variants.first.id}}">Add to Cart</div>
 <div class="InstantCartBtnmob" data-id="{{product.variants.first.id}}">Instant Buy</div>
+{%endif%}
 </div>

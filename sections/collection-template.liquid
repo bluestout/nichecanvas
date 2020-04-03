@@ -191,7 +191,8 @@
       product_grid_class: {% if grid_item_width %} 'grid__item {{ grid_item_width }}' {% else %} 'grid__item small--one-half medium-up--one-quarter' {% endif %},
       max_height: {% if max_height %} {{ max_height | json }} {% else %} 250 {% endif %},
       vendor_enable: {% if section.settings.show_vendor %} {{ section.settings.show_vendor | json }} {% else %} false {% endif %},
-      layout: {% if section.settings.layout %} {{ section.settings.layout | json }} {% else %} "grid" {% endif %}
+      layout: {% if section.settings.layout %} {{ section.settings.layout | json }} {% else %} "grid" {% endif %},
+      enable_ajax: {% if settings.enable_ajax == blank %} false {% else %} true {% endif %},
     }
   };
 

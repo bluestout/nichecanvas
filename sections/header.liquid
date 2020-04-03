@@ -117,7 +117,7 @@
             </div>
             {% endfor %}
             <a href="{{ routes.cart_url }}" class="cart-popup__cta-link btn btn--secondary-accent">
-              {{ 'products.product.view_cart' | t }} (<span class="cust_home_popupCart" data-cart-popup-cart-quantity></span>)
+              {{ 'products.product.view_cart' | t }} {% comment %}(<span class="cust_home_popupCart" data-cart-popup-cart-quantity></span>) {% endcomment %}
             </a>
 
             <div class="cart-popup__dismiss">

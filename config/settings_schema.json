@@ -1524,6 +1524,16 @@
           "zh-TW": "新增商品至購物車時顯示通知"
         },
         "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_btns",
+        "label": {
+          "da": "Hide Cart Button On Mobile",
+          "de": "Hide Cart Button On Mobile",
+          "en": "Hide Cart Button On Mobile"
+        },
+        "default": true
       }
     ]
   },

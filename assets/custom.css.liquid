@@ -1090,6 +1090,8 @@ span.CstmTag {
 .MobileFoot .ui-accordion .ui-accordion-content {
   padding: 20px 37px;
   border: none;
+  height: auto !important;
+
 }
 .MobileFoot .ui-icon-triangle-1-e, .MobileFoot .ui-icon-triangle-1-e:hover,
 .MobileFoot .ui-state-active .ui-icon, .MobileFoot .ui-button:active .ui-icon {
@@ -1292,7 +1294,7 @@ body.MenuOppned {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.15); 
 }
 #mobile_menu {
-  height: 580px;
+   height: calc(100% - 72px);
   overflow-y: auto;
   padding: 0 0 55px;
 }
@@ -1438,7 +1440,7 @@ background: #eff1f3;
   width: 100%;
   left: 0;
   background: #fff;
-  padding: 25px 50px 25px 40px;
+  padding: 25px 35px 25px 30px;
   box-shadow: #d2d2d2 0 0 8px;  
   display: flex;
   justify-content: space-between;
@@ -2777,7 +2779,7 @@ select.FixedBoxCart {
   height: 0;
 }
 .mini_cart .cart-popup-wrapper {
-  transform: translateY(-120%);  
+  transform: translateY(-150%);  
   display: block !important;
 }
 .mini_cart.cust_minicart_popup .cart-popup-wrapper {
@@ -3239,7 +3241,7 @@ select.FixedBoxCart {
     margin: 30px 0 0;
   }
   .GridCartBtnmob, .InstantCartBtnmob {
-    display: none;
+    display: none;//display: block;
     border: 1px solid #000;
     text-align: center;
     font-size: 13px;

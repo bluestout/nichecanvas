@@ -95,7 +95,11 @@
   </ul>
   <div class="menuLogin">    
     <a href="tel:{{settings.number}}">{{settings.number}}</a>
-    <a href="/account/login" class="cst_login">Login 
+   {% if customer %}
+    <a href="/account" class="cst_login">Login
+      {%else%}
+      <a href="/account/login" class="cst_login">Login
+      {%endif%}
       <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-login;">
         <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
           <g id="home-v1" transform="translate(-1430.000000, -68.000000)" fill="#cccccc">
