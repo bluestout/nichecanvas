@@ -91,7 +91,13 @@ span.ShopText {
   margin: 0 0 0 10px;
 }
 .CustHeader #AccessibleNav .site-nav .MainMegaMenu li:nth-child(6) {
-  display: none;
+  padding: 0 2px;
+  margin: 0;
+  line-height: inherit;
+  border: none;
+}
+.CustHeader #AccessibleNav .site-nav .MainMegaMenu li.site-nav__childlist-item:nth-child(6) {
+  margin: 21px 0;
 }
 .CustHeader #AccessibleNav span.site-nav__label {
   font-size: 14px;
@@ -270,11 +276,13 @@ span.site-header__cnvs {
 }
 .CustHeader #AccessibleNav .site-nav li.site-nav--has-dropdown:hover .site-nav__dropdown {
   display: block;
+  left:0;
 }
 .FixedHeaderWrapper .site-nav--active-dropdown .site-nav__dropdown{
   margin-top: 0;
   max-height: 550px;
   overflow-y: auto;
+  left:0;
 }
 .FixedHeaderWrapper .MainMegaMenu:after{
   clear: both;
@@ -1294,7 +1302,7 @@ body.MenuOppned {
   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.15); 
 }
 #mobile_menu {
-   height: calc(100% - 72px);
+  height: calc(100% - 72px);
   overflow-y: auto;
   padding: 0 0 55px;
 }
@@ -2785,7 +2793,7 @@ select.FixedBoxCart {
 .mini_cart.cust_minicart_popup .cart-popup-wrapper {
   transform: translateY(0%); 
 }
- 
+
 
 
 
