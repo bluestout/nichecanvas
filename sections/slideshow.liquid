@@ -45,7 +45,7 @@ unless it is blank, in that case a ratio of 2:1 will be used.
         </div>
         {% else %}
         {% if forloop.first%}
-        <span class="CstmTag">New</span>
+        <span class="CstmTag" style="background: {{settings.slider_left_top_mark_color}}">{{ settings.slider_left_top_mark_txt }}</span>
         {%endif%}
         <div
              {% unless block_image.alt == blank %}

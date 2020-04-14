@@ -281,10 +281,12 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
     var e = "<span>View As </span>";
     e += '<a href="' + this.buildToolbarLink("display", "list", "grid") + '" title="Grid view" class="bc-sf-filter-display-item bc-sf-filter-display-grid" data-view="grid"><span class="icon-fallback-text"><span class="fallback-text">Grid view</span></span></a>', e += '<a href="' + this.buildToolbarLink("display", "grid", "list") + '" title="List view" class="bc-sf-filter-display-item bc-sf-filter-display-list" data-view="list"><span class="icon-fallback-text"><span class="fallback-text">List view</span></span></a>', jQ(this.selector.topDisplayType).html(e), jQ(this.selector.topDisplayType).find(".bc-sf-filter-display-list").removeClass("active"), jQ(this.selector.topDisplayType).find(".bc-sf-filter-display-grid").removeClass("active"), "list" == this.queryParams.display ? jQ(this.selector.topDisplayType).find(".bc-sf-filter-display-list").addClass("active") : "grid" == this.queryParams.display && jQ(this.selector.topDisplayType).find(".bc-sf-filter-display-grid").addClass("active")
 }, BCSfFilter.prototype.buildExtrasProductList = function(e, t) {
-  jQ(".MainGridProducts").mouseenter(function(){
-    jQ(this).children(".product-card__image-with-placeholder-wrapper").children(".CustomJs").children(".cstGridImg").children(".FirstImage").hide();
-    jQ(this).children(".product-card__image-with-placeholder-wrapper").children(".CustomJs").children(".cstGridImg").children(".secImage").show();
-  })
+    if (jQ(window).width() > 749) {/*FS added */
+        jQ(".MainGridProducts").mouseenter(function(){
+            jQ(this).children(".product-card__image-with-placeholder-wrapper").children(".CustomJs").children(".cstGridImg").children(".FirstImage").hide();
+            jQ(this).children(".product-card__image-with-placeholder-wrapper").children(".CustomJs").children(".cstGridImg").children(".secImage").show();
+        })
+    }
   jQ(".MainGridProducts").mouseleave(function(){
     jQ(this).children(".product-card__image-with-placeholder-wrapper").children(".CustomJs").children(".cstGridImg").children(".FirstImage").show();
     jQ(this).children(".product-card__image-with-placeholder-wrapper").children(".CustomJs").children(".cstGridImg").children(".secImage").hide();

@@ -1647,5 +1647,30 @@
         "default": "4"
       }
     ]
+  },
+  {
+    "name": "General Detail",
+    "settings": [
+      {
+        "type": "header",
+        "content": "General Details"
+      },
+      {
+        "type": "text",
+        "id": "slider_left_top_mark_txt",
+        "label": {
+          "en": "Slider Left Top Mark Text"
+        },
+        "default": "New"
+      },
+      {
+        "type": "color",
+        "id": "slider_left_top_mark_color",
+        "label": {
+          "en": "Slider Left Top Mark Color"
+        },
+        "default": "#FFFFFF"
+      }
+    ]
   }
 ]

@@ -6,19 +6,20 @@
 <div id="accordionFooter">
   {%- for block in section.blocks -%}
   {% unless forloop.index == 2 or forloop.index == 3 %}
-  {%- if block.settings.title -%}
-  <h3>{{block.settings.title}}</h3>
+  
+ {%- if block.settings.Mob_title or block.settings.mob_title -%}
+ <h3>{{block.settings.Mob_title}}{{block.settings.mob_title}}</h3>
   {%endif%}
   {%- case block.type -%}
   {%- when 'text' -%}
   <div>
-    {{ block.settings.text }}
+    {{ block.settings.mobile_text }}
   </div>
 
   {%- when 'link_list' -%}
   <div>
     {%- when 'link_list' -%}
-    {%- assign footer_linklist = block.settings.menu -%}
+    {%- assign footer_linklist = block.settings.mobilemenu -%}
     <ul class="site-footer__linklist
                {% if inline_list %}list--inline{% endif %}">
       {%- for link in linklists[footer_linklist].links -%}

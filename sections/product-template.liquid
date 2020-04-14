@@ -135,16 +135,18 @@
       <div class="product-single__meta">
 
         <h1 class="product-single__title">{{ product.title }}</h1>
-        <a href="#looxReviews">
-          <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}">
+        <div>
+          <div class="loox-rating-container">
+            <a href="#looxReviews">
+              <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}">
+              </div>
+            </a>
           </div>
-        </a>
-        <div class="product__price">
-          {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
-          <p>or 4 interest-free payments of 39.80 with  <img alt="Sezzel Logo" title="sezzle" src="https://cdn.shopify.com/s/files/1/2012/8501/files/sezzle_logo.svg"></p>
-
+          <div class="product__price">
+            {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
+            <p>or 4 interest-free payments of 39.80 with  <img alt="Sezzel Logo" title="sezzle" src="https://cdn.shopify.com/s/files/1/2012/8501/files/sezzle_logo.svg"></p>
+          </div>
         </div>
-
         {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
         <div class="product__policies rte" data-product-policies>
           {%- if shop.taxes_included -%}

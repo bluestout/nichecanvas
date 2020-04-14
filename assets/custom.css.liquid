@@ -256,7 +256,7 @@ span.site-header__cnvs {
 
 
 /*******mobilemenu*******/
-.mobile_nav-fixed {
+.mobile_nav-fixed, .MobCustomSearch {
   display: none;
 }
 .MenuOppned .mobile_nav-fixed {
@@ -455,7 +455,7 @@ span.site-header__cnvs {
   display: block;
   border: 1px solid #fff;
   padding: 10px 0;
-  line-height: 17px;
+  line-height: normal;
 }
 .unique-contact .uChvrBtn a:hover {
   color: #fff;
@@ -1556,7 +1556,7 @@ li.CustomThumList.slick-slide.slick-current.slick-active {
 .cstProDec .swatch .header {
   color: #6F7F84;
   font-size: 13px;
-  margin: 0 0 10px;
+  margin: 0 0 5px;/*FS changed margin: 0 0 10px;*/
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -3067,6 +3067,38 @@ select.FixedBoxCart {
 
 @media (max-width: 749px) {
 
+  .main-content {
+    padding-top: 82px;
+  }
+  .cstSrchMob {
+    display: none;
+  }
+  .MobCustomSearch {
+    display: block;
+    padding: 0 10px 10px;
+  }
+  .MobCustomSearch .search-bar__input {
+    font-size: 13px;
+    min-height: auto;
+    padding: 10px;
+    border-radius: 3px;
+  }
+  .MobCustomSearch .search-bar__submit .icon {
+    position: relative;
+    top: -2px;
+    width: 16px;
+    height: auto;
+  }
+  .cstProtemplate .grid__item {
+    margin-bottom: 0;
+  }
+  .shipIcnz li {
+    text-align: center;
+  }
+  .shipIcnz li p {
+    max-width: 80px;
+    margin: 0 auto;
+  }
   .mini_cart.cust_minicart_popup .cart-popup-wrapper {
     top: 92px; 
   }
@@ -3143,7 +3175,7 @@ select.FixedBoxCart {
     margin: 12px 0 0;
   }
   .Custmasonry {
-    margin: 35px 0 0;
+    margin: 25px 0 0;
   }
   .pageBestsel {
     margin: 80px 0 20px;
@@ -3188,7 +3220,7 @@ select.FixedBoxCart {
     order: 1;
   }
   .sin-pro-qa-ls-sec {
-    padding-top: 60px;
+    padding-top: 42px;
     padding-bottom: 60px;
   }
   .sin-pro-qa-ls-bot-text p {
@@ -3324,11 +3356,32 @@ select.FixedBoxCart {
 
 
 @media (max-width: 749px) {
+
+  p.muCtxT {
+    display: none;
+  }
+  .unique-contact .uChvrBtn a {
+    font-size: 12px;
+    padding: 8px 4px;
+  }
+  .uChvrBtn {
+    opacity: 1;
+  }
+  .CustomizationSect {
+    padding: 20px 0;
+  }
+  .unique-left-sec div:hover .uChvrBtn, .unique-center-sec div:hover .uChvrBtn, .unique-right-sec div:hover .uChvrBtn, .unique-bottom-sec div:hover .uChvrBtn {
+    opacity: 1;
+    bottom: 15px;
+  }
+  .CustTxtImg.index-section .shopNwPayltr {
+    padding: 0;
+  }
   .MainGridProducts:hover .cstGridImg img {
     filter: unset;
   }
   a.grid-view-item__link.grid-view-item__image-container.full-width-link {
-    height: 60%;
+    height: 62%;
   }
   .CustomMMenu {
     display: flex;
@@ -3398,7 +3451,7 @@ select.FixedBoxCart {
     height: auto;
   }
   .proPageRew {
-    margin: 24px 0 10px;
+    margin: 5px 0 10px;/*FS changed margin: 24px 0 10px;*/
     padding: 60px 0 30px !important;
   }
   .proPageRew h2 {
@@ -3448,7 +3501,7 @@ select.FixedBoxCart {
     margin: 15px 0 0;
   }
   .CustTxtImg .section-header {
-    margin-bottom: 45px;
+    margin-bottom: 30px;
   }
   .main-unique-sec .page-width {
     padding: 0 5px;
@@ -3558,6 +3611,7 @@ select.FixedBoxCart {
   }
   .cstProtemplate .grid__item.cstProDec {
     padding: 0 15px;
+    margin-top: -20px;/*FS add*/
   }
 
   .site-header__mobile-nav {
@@ -3699,6 +3753,7 @@ select.FixedBoxCart {
   }
   .unique-contact .uChvrBtn p {
     bottom: 30px;
+    line-height: normal;
   }
   .unique-left-sec-first:last-child {
     display: none;
@@ -3786,26 +3841,28 @@ select.FixedBoxCart {
     box-sizing: border-box;
     padding: 10px;
   }
-
+  .loox-rating-container{/*FS add*/
+      float: right;
+  }
   .loox-rating span {
     font-size: 11px;
   }
   .CustomWishlist .wk-item .wk-product-options {
     display: none;
   }
-  .MainGridProducts .TitleCustom {
-    height: 47px;
-    overflow: hidden;
-  }
+  /*   .MainGridProducts .TitleCustom {
+  height: 47px;
+  overflow: hidden;
+} */
   .ui-icon-triangle-1-e, .ui-icon-triangle-1-e:hover,
   .ui-state-active .ui-icon, .ui-button:active .ui-icon{
     top: 30px;    
   }
   .cstProDec .product__price {
-    margin: 12px 0 0;
+    margin: 5px 0 0; /*FS changed margin: 12px 0 0;*/
   }
   .cstProDec .swatch {
-    margin: 16px 0;
+    margin: 5px 0; /* FS change  margin: 16px 0;*/
   }
 
   .csTquantrmv {
