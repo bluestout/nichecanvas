@@ -1,4 +1,11 @@
 $(document).ready(function(){
+  /************************MOBILE SEARCH ICON CLICK *****************/
+  $(".cstSrchMob").click(function(){
+  $("body").addClass("MobileSearch");
+  })
+  $(".MobCustomSearch .search-bar__submit").click(function(){
+  $("body").removeClass("MobileSearch");
+  })
   /***************** Instant Button Click on Wishlist *********************/
   $('body').on('click', '.WishInstant', function() {
     var varintId = $(this).attr("data-wish");

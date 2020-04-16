@@ -256,7 +256,7 @@ span.site-header__cnvs {
 
 
 /*******mobilemenu*******/
-.mobile_nav-fixed, .MobCustomSearch {
+.mobile_nav-fixed {
   display: none;
 }
 .MenuOppned .mobile_nav-fixed {
@@ -2821,6 +2821,9 @@ select.FixedBoxCart {
   a.needhelp {
     pointer-events: none;
   }
+  .MobCustomSearch {
+    display: none;
+  }
 }
 
 
@@ -3066,28 +3069,47 @@ select.FixedBoxCart {
 
 
 @media (max-width: 749px) {
-
-  .main-content {
-    padding-top: 82px;
-  }
-  .cstSrchMob {
-    display: none;
-  }
   .MobCustomSearch {
-    display: block;
-    padding: 0 10px 10px;
+    margin: -46px 0 0;
+    transform: translateY(-80%);
+    transition: all 400ms cubic-bezier(0.29, 0.63, 0.44, 1);
   }
-  .MobCustomSearch .search-bar__input {
+  .MobileSearch .MobCustomSearch {
+    opacity: 1;
+    padding: 0 10px 6px;
+    margin: 0;
+    transform: translateY(0%);
+  }
+  .MobileSearch .MobCustomSearch .search-bar__input {
     font-size: 13px;
     min-height: auto;
     padding: 10px;
     border-radius: 3px;
   }
-  .MobCustomSearch .search-bar__submit .icon {
+  .MobileSearch .MobCustomSearch .search-bar__submit .icon {
     position: relative;
     top: -2px;
     width: 16px;
     height: auto;
+  }
+  .MobileSearch .cstSrchMob .site-header__search-toggle {
+    border: 1px solid #949494;
+    border-bottom: 0 #fff;
+    border-radius: 4px 4px 0 0;
+    position: relative;
+    background: #fff;
+    bottom: -2px;
+  }
+  .MobileSearch .cstSrchMob .site-header__search-toggle svg.icon.icon-search {
+    position: relative;
+    top: -2px;
+  }
+  .cstSrchMob .site-header__search-toggle {
+    border: 1px solid transparent;
+    display: block;
+  }
+  .MobileSearch .site-header__mobile-nav {
+    padding: 5px 0 0;
   }
   .cstProtemplate .grid__item {
     margin-bottom: 0;
@@ -3135,6 +3157,12 @@ select.FixedBoxCart {
   }
   .mainImageContainer {
     line-height: 0;
+  }
+  .mainImageContainer .MainImageSlider .slick-slide {
+    padding: 10px 70px 0;
+  }
+  .thumnailCont {
+    margin: 2px 0 0;
   }
   .arrowPrev {
     left: 5px;
@@ -3246,9 +3274,14 @@ select.FixedBoxCart {
   .site-header__icons {
     padding: 0 10px 0 0;
   }
-
   body {
     padding: 92px 0 0;
+  }
+  body.MobileSearch {
+    padding: 138px 0 0;
+  }
+  .template-product .main-content {
+    padding-top: 0;
   }
   .CustHeader {
     margin: 37px 0 0;
@@ -3402,14 +3435,18 @@ select.FixedBoxCart {
   }
   .MainImageSlider .slick-next:before {
     right: 5px;   
-    top: calc(50% - 25px);
+    top: calc(50% - 2px);
   }
   .MainImageSlider .slick-prev:before {
     left: 5px;
-    top: calc(50% - 25px);
+    top: calc(50% - 2px);
   }
   .CustomWishlist .wk-item-column {
     width: 50% !important;
+  }
+  .CstProImg button.wk-button-product .wk-icon svg path {
+    fill: #999;
+    stroke: #999;
   }
   .wishlistPageHdr h3 {
     padding: 30px 0;
@@ -3467,9 +3504,6 @@ select.FixedBoxCart {
   }
   .thumnailCont {
     position: unset;
-  }
-  .template-product .main-content {
-    padding-top: 0;
   }
   .SlideIcons {
     margin: -2px 0 0;
@@ -3590,7 +3624,6 @@ select.FixedBoxCart {
   .hCRyt .ui-accordion-content p {
     line-height: 24px;
   }
-
   #CstLoginForm {
     display: block;
     margin: 40px 0 0;
@@ -3599,9 +3632,6 @@ select.FixedBoxCart {
     width: 100%;
     padding: 0;
     border: none;
-  }
-  .cstSrchMob .site-header__search-toggle {
-    display: block;
   }
   .cstProtemplate, .CstProImg {
     padding: 0;
@@ -3842,7 +3872,7 @@ select.FixedBoxCart {
     padding: 10px;
   }
   .loox-rating-container{/*FS add*/
-      float: right;
+    float: right;
   }
   .loox-rating span {
     font-size: 11px;
