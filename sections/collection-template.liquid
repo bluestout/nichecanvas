@@ -24,11 +24,9 @@
 {% paginate collection.products by limit %}
 
 <div data-section-id="{{ section.id }}" data-section-type="collection-template" class="cst_MAinColl">
-
   <div class="shopNwPayltr">
     <p>Shop now, pay later with <img alt="Sezzel Logo" title="Sezzel" src="https://cdn.shopify.com/s/files/1/2012/8501/files/sezzle_logo.svg"> <span>·</span> 4 payments / 0% interest</p>
   </div>
-
   <header class="collection-header">
 
     {% if section.settings.show_collection_image and collection.image %}

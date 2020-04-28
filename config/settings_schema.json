@@ -1670,6 +1670,16 @@
           "en": "Slider Left Top Mark Color"
         },
         "default": "#FFFFFF"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_sezzle_route",
+        "label": {
+          "da": "Enable Sezzle\/Route Block",
+          "de": "Enable Sezzle\/Route Block",
+          "en": "Enable Sezzle\/Route Block"
+        },
+        "default": true
       }
     ]
   }

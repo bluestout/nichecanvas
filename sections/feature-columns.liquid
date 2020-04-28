@@ -1,9 +1,10 @@
+{% if settings.enable_sezzle_route == true %}
 <div class="page-width">
   <div class="shopNwPayltr">
     <p>Shop now, pay later with <img alt="Sezzel Logo" title="Sezzel" src="https://cdn.shopify.com/s/files/1/2012/8501/files/sezzle_logo.svg"> <span>·</span> 4 payments / 0% interest</p>
     <p> <img src="https://cdn.shopify.com/s/files/1/2012/8501/files/route-logo-dark.png" alt="logo" class="cstRoutlogo"> Your shipment is protected from damage, loss & theft</p>  </div>
 </div>
-
+{% endif %}
 <div class="CustomizationSect" {%if section.settings.image_bg %}style="background-image:url({{section.settings.image_bg |img_url: '1920x330'}});"{%endif%}>
   <div class="page-width">
 

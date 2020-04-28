@@ -6,6 +6,14 @@ $(document).ready(function(){
   $(".MobCustomSearch .search-bar__submit").click(function(){
   $("body").removeClass("MobileSearch");
   })
+  $(window).scroll(function() {
+    if ($(this).scrollTop() > 1) { 
+  $("body").removeClass("MobileSearch");
+    }
+    else{
+    $("body").addClass("MobileSearch");
+    }
+  })
   /***************** Instant Button Click on Wishlist *********************/
   $('body').on('click', '.WishInstant', function() {
     var varintId = $(this).attr("data-wish");

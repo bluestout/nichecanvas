@@ -3,15 +3,19 @@ $(document).ready(function(){
   $(".mobileOverlay").click(function(){
     $("body").removeClass("MenuOppned");
   })
+   /****************ANNOUCEMENT BAR HIDE ON CROSS CLIECK*******************/
+  $("span.CrossAnnouc").click(function(){
+    $("body").addClass("closeBar");
+  })
   /*******************************HOVER FUNCTIONALITY ON MENU **********************/
   $(".hoverworking").mouseenter(function(){
   var getImagepath = $(this).attr("data-images");
     $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("src",getImagepath);
   })
-  $(".hoverworking").mouseleave(function(){
-  var getImagepath = $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("data-srcing");
-    $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("src",getImagepath);
-  })
+//   $(".hoverworking").mouseleave(function(){
+//   var getImagepath = $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("data-srcing");
+//     $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("src",getImagepath);
+//   })
   /*******************************HOVER FUNCTIONALITY ON PRODUCTS***********************/
   if ($(window).width() > 749) {
   $(".MainGridProducts").mouseenter(function(){
