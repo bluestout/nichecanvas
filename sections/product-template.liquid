@@ -50,7 +50,11 @@
         <div class="mainImageContainer">
           <ul class="MainImageSlider">
           {% for media in product.media %}
-            <li data-imgid="{{ media.id }}"><img src="{{media | img_url: "900x900"}}" /></li>
+            <li data-imgid="{{ media.id }}">
+              <a href="{{media | img_url: "900x900"}}" data-fancybox="images">
+                <img src="{{media | img_url: "900x900"}}" />
+              </a>
+            </li>
           {% endfor %}
           </ul>
         </div>
@@ -146,6 +150,7 @@
             {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
             
           </div>
+          <div id="renderhere"></div>
 
         </div>
         {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -289,8 +294,8 @@
 </div>
 
 {% include "static-content" %}
-
 {% include "trustpilot" %}
+{% include "loox-reviews" %}
 {% unless product == empty %}
 <script type="application/json" id="ProductJson-{{ section.id }}">
     {{ product | json }}
@@ -1130,23 +1135,3 @@
 {% endschema %}
 
 
-<script type="text/javascript">
-  document.sezzleConfig =
-  {
-    targetXPath: '.price-item/.money',
-    widgetType: 'product-page',
-    renderToPath: '..',
-    theme: 'light',
-    alignment: 'auto',
-    fontFamily: 'inherit',
-    color: 'inherit',
-    fontSize: 12,
-    fontWeight: 300,
-    logoSize: 1.00,
-    maxWidth: 400,
-    marginTop: 0,
-    marginLeft: 0,
-    marginRight: 0
-  }
-</script>
-<script src="https://widget.sezzle.com/v1/javascript/price-widget?uuid=b35eb578-c541-44b5-a163-e0f4e93052d1"></script>

@@ -39,11 +39,11 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 .page-width {
   max-width: 1600px;
 }
-.announcement-bar {
-  position: fixed;
-  z-index: 99;
-  top: 0;
-  width: 100%;
+.FixedHeader .announcement-bar {
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    width: 100%;
 }
 .HeaderIcon {
   display: none;
@@ -57,9 +57,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 }
 .HeaderIcon ul li .site-header__search-toggle  {
   display: block;
-}
-.CustHeader {
-  margin: 38px 0 0;
 }
 .CustHeader p.announcement-bar__message {
   font-size: 12px;
@@ -2756,6 +2753,7 @@ select.FixedBoxCart {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+
 .MObyrorz .additional-checkout-buttons {
   display: none;
 }
@@ -2812,7 +2810,7 @@ select.FixedBoxCart {
   height: 0;
 }
 .mini_cart .cart-popup-wrapper {
-  transform: translateY(-150%);  
+  transform: translateY(-250%);  
   display: block !important;
 }
 .mini_cart.cust_minicart_popup .cart-popup-wrapper {
@@ -3334,6 +3332,14 @@ select.FixedBoxCart {
   body {
     padding: 92px 0 0;
   }
+  body.closeBar {
+    padding: 60px 0 0;
+}
+.FixedHeader .announcement-bar {
+    position: relative;
+}
+  
+  
   body.MobileSearch {
     padding: 138px 0 0;
   }
@@ -3343,10 +3349,13 @@ select.FixedBoxCart {
   .template-product .main-content {
     padding-top: 0;
   }
+  .template-product[data-mobile-search="false"] .main-content {
+    padding-top: 22px;
+  }
   .CustHeader {
-    margin: 37px 0 0;
+    margin: 0;
     position: fixed;
-    top: 0;
+    top: -1px;
     width: 100%;
     z-index: 99;
   }
@@ -3912,18 +3921,24 @@ select.FixedBoxCart {
 }
 
 
+@media (max-width: 549px) {
+.CustomTrustPilot.page-width iframe {
+    height: 290px !important;
+}
+}
+
+
 @media (max-width: 600px) {
   .CustHeader p.announcement-bar__message {
-    padding: 10px 20px 10px 10px;
+    padding: 10px 30px 10px 10px;
   } 
   span.CrossAnnouc {
     top: 50%;
-    right: 9px;
+    right: 2px;
     transform: translate(0, -50%);
+    padding: 6px 10px;
   }
-  .CustHeader {
-    margin: 50px 0 0;
-  }
+
 }
 
 

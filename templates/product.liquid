@@ -52,6 +52,7 @@
   "@context": "http://schema.org/",
   "@type": "Product",
 "@id": {{ canonical_url | json }},
+"@id": {{ canonical_url | json }},
   "name": {{ product.title | json }},
   "url": {{ shop.url | append: product.url | json }},
   {%- if product.featured_media -%}
@@ -84,3 +85,23 @@
   ]
 }
 </script>
+
+<script type="text/javascript">
+  document.sezzleConfig =
+  {
+    targetXPath: '.price-item',
+    widgetType: 'product-page',
+    theme: 'light',
+    alignment: 'auto',
+    fontFamily: 'inherit',
+    color: 'inherit',
+    fontSize: 12,
+    fontWeight: 300,
+    logoSize: 1.00,
+    maxWidth: 400,
+    marginTop: 0,
+    marginLeft: 0,
+    marginRight: 0
+  }
+</script>
+<script src="https://widget.sezzle.com/v1/javascript/price-widget?uuid=b35eb578-c541-44b5-a163-e0f4e93052d1"></script>
