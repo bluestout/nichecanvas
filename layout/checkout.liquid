@@ -46,6 +46,9 @@
           <div class="main__header">
             {{ content_for_logo }}
             {{ breadcrumb }}
+{% comment %} The Vaan Group - Order Bump (1/2) {% endcomment %}
+<div id="orderbump"></div>
+{% comment %} END OF The Vaan Group - Order Bump (1/2) {% endcomment %}
             {{ alternative_payment_methods }}
           </div>
           <div class="main__content">
@@ -68,6 +71,9 @@
     </div>
 
     {{ tracking_code }}
+{% comment %} The Vaan Group - Order Bump (2/2) {% endcomment %}
+<script src="https://tvg-order-bump.herokuapp.com/storefront/assets/order-bump.js"></script>
+{% comment %} END OF The Vaan Group - Order Bump (2/2) {% endcomment %}
   {{ 'booster-page-speed-optimizer.js' | asset_url | script_tag }}
 
 </body>

@@ -139,7 +139,7 @@
       <div class="product-single__meta">
 
         <h1 class="product-single__title">{{ product.title }}</h1>
-        <div>
+        <div class="CustomPrice">
           <div class="loox-rating-container">
             <a href="#looxReviews">
               <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}">
@@ -233,7 +233,19 @@
           <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
         </div>
 
-
+        <div class="MobCustomPrice">
+          <div class="loox-rating-container">
+            <a href="#looxReviews">
+              <div class="loox-rating" data-id="{{ product.id }}" data-rating="{{ product.metafields.loox.avg_rating }}" data-raters="{{ product.metafields.loox.num_reviews }}">
+              </div>
+            </a>
+          </div>
+          <div class="product__price">
+            {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
+            
+          </div>
+          <div id="renderhere"></div>
+        </div>
         <div class="cstAddCartBuy"               >
           <button type="submit" name="add"
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}

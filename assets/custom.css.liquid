@@ -2816,6 +2816,13 @@ select.FixedBoxCart {
 .mini_cart.cust_minicart_popup .cart-popup-wrapper {
   transform: translateY(0%); 
 }
+/*********FS*********/
+.CustomPrice{
+  display: block;
+}
+.MobCustomPrice{
+  display: none;
+}
 
 
 
@@ -3112,6 +3119,12 @@ select.FixedBoxCart {
 }
 
 @media (max-width: 749px) {
+  .CustomPrice{
+    display: none;
+  }
+  .MobCustomPrice{
+    display: block;
+  }
   .MobCustomSearch {
     margin: -46px 0 0;
     transform: translateY(-80%);
@@ -3214,10 +3227,10 @@ select.FixedBoxCart {
     line-height: 0;
   }
   .mainImageContainer .MainImageSlider .slick-slide {
-    padding: 10px 70px 0;
+    padding: 10px 0px 0;/*FS padding: 10px 70px 0;*/
   }
   .thumnailCont {
-    margin: 2px 0 0;
+    margin: -45px 0 0; /*FS margin: 2px 0 0;*/
   }
   .arrowPrev {
     left: 5px;
