@@ -7,7 +7,9 @@
   <div class="pcRight">
     {% comment %} <span class="hndmade"><img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-us-flag.svg"> {{section.settings.content}}</span> {% endcomment %}
     <span class="hndmade"><img src=" {{section.settings.handmade_image | img_url}}" > {{section.settings.content}}</span>
-    <img src="{{section.settings.image | img_url: "900x400"}}" alt="Img" title="Img">
+    <!--FS-->
+    {% comment %} <img src="{{section.settings.image | img_url: "900x400"}}" alt="Img" title="Img"> {% endcomment %}
+    <img class="lazyload" src="{{ section.settings.image | img_url: '110x'}}" data-src="{{ section.settings.image | img_url: '900x400'}}" alt="Img" title="Img">
   </div>
 </div>
 {% schema %}

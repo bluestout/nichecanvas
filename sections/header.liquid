@@ -47,7 +47,8 @@
     <a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
       {% endif %}
 
-      <p class="announcement-bar__message">{{ section.settings.message_text | escape }}</p>
+      <p class="announcement-bar__message fs_announcement-bar">{{ section.settings.message_text}}</p>
+      <p class="announcement-bar__message fs_mobile_announcement-bar">{{ section.settings.message_mobile_text}}</p>
       <span class="CrossAnnouc">X</span>
       {% if section.settings.message_link == blank %}
       </div>
@@ -736,50 +737,16 @@
 "default": true
 },
 {
-"type": "text",
+"type": "html",
 "id": "message_text",
-"label": {
-"da": "Tekst",
-"de": "Text",
-"en": "Text",
-"es": "Texto",
-"fi": "Teksti",
-"fr": "Texte",
-"hi": "टेक्स्ट",
-"it": "Testo",
-"ja": "テキスト",
-"ko": "텍스트",
-"ms": "Teks",
-"nb": "Tekst",
-"nl": "Tekst",
-"pt-BR": "Texto",
-"pt-PT": "Texto",
-"sv": "Text",
-"th": "ข้อความ",
-"zh-CN": "文本",
-"zh-TW": "文字"
+"label": "Desktop Text",
+"default": "<div><p>Some HTML content</p></div>"
 },
-"default": {
-"da": "Meddel noget her",
-"de": "Hier etwas ankündigen",
-"en": "Announce something here",
-"es": "Anuncia algo aquí",
-"fi": "Ilmoita jotakin tässä",
-"fr": "Annoncez quelque chose ici",
-"hi": "यहां कुछ घोषित करें",
-"it": "Annuncia qualcosa qui",
-"ja": "ここで告知してください",
-"ko": "여기에 공지하십시오",
-"ms": "Mengumumkan sesuatu di sini",
-"nb": "Kunngjør noe her",
-"nl": "Kondig hier iets aan",
-"pt-BR": "Anuncie algo aqui",
-"pt-PT": "Anunciar algo aqui",
-"sv": "Meddela något här",
-"th": "ประกาศข้อความที่นี่",
-"zh-CN": "在此处进行公告",
-"zh-TW": "在此公告資訊"
-}
+{
+"type": "html",
+"id": "message_mobile_text",
+"label": "Mobile Text",
+"default": "<div><p>Some HTML content</p></div>"
 },
 {
 "type": "url",

@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <!-- <meta name="viewport" content="width=device-width,initial-scale=1"> -->
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
     <meta name="theme-color" content="{{ settings.color_button }}">
     <link rel="canonical" href="{{ canonical_url }}">
 
@@ -42,6 +41,7 @@
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
     {{ 'jquery-ui.css' | asset_url | stylesheet_tag }}
     {{ 'custom.css' | asset_url | stylesheet_tag }}
+    {{ 'nichecanvas.css' | asset_url | stylesheet_tag }}
     
    
     {% if template contains "product" %}
@@ -216,7 +216,7 @@
       window.zESettings = {
         webWidget: {
           chat: {
-            connectOnPageLoad: false
+            connectOnPageLoad: true
           }
         }
       };
@@ -262,6 +262,7 @@
   }
 </script>
  -->
+
 
 
 {{ '//cdn.shopify.com/s/files/1/0194/1736/6592/t/1/assets/booster-page-speed-optimizer.js?23' | script_tag }}

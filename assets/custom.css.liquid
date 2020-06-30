@@ -1583,6 +1583,12 @@ li.CustomThumList.slick-slide.slick-current.slick-active {
   align-items: center;
   justify-content: space-between;
 }
+.view_size_chart {
+	margin-left: 5px;
+}
+.cstProDec .swatch.CustomSize .header {
+  justify-content: start;	
+}
 .cstProDec .swatch .header span a {
   display: flex;
   align-items: center;
@@ -1609,6 +1615,9 @@ li.CustomThumList.slick-slide.slick-current.slick-active {
   line-height: normal;
   text-transform: unset;
   white-space: normal;
+}
+.cstProDec .swatch label .capitalize {
+	text-transform: capitalize;
 }
 .cstProDec .swatch label:hover {
   background: #eaeced;
@@ -2981,6 +2990,9 @@ select.FixedBoxCart {
     max-width: 100%;
   }
 
+  .cstProDec .swatch.CustomSize label span {
+  	display:block;
+  }
 }
 
 
@@ -4081,4 +4093,23 @@ select.FixedBoxCart {
 
 @media (max-width: 360px) {
 
+}
+
+
+//----FS Add  announcement Responsive   ----------
+.fs_announcement-bar{
+  display: block;
+}
+.fs_mobile_announcement-bar
+{
+  display: none;
+}
+@media (max-width: 749px) {
+  .fs_announcement-bar{
+    display: none;
+  }
+  .fs_mobile_announcement-bar
+  {
+    display: block;
+  }
 }

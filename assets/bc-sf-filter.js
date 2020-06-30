@@ -539,3 +539,4 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
         }
     }), [a, horizontalContent]
 };
+

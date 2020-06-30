@@ -13,20 +13,14 @@
     {{ checkout_stylesheets }}
     {{ checkout_scripts }}
   	{% include 'shogun-head' %}
+    <!-- ADDRESS VALIDATOR -->
+<script async src="https://d3ox8tdk614ykk.cloudfront.net/pobox_checker.js"></script>
     <style>
       .section__intro {
         margin-top: 1em;
       }
     </style>
-    
-	<!-- Route Code Edited 03/17/2020 -->
-    <script type="text/javascript" src="https://cdn.routeapp.io/route-full-coverage-widget/stable/full-coverage-widget-stable.min.js"></script>
-    <style>
-         .route-widget {
-         justify-content: flex-end !important;
-          }
-    </style>
-	<!-- Route Code End -->
+    <script type="application/javascript" async src="https://sdk.postscript.io/integrations/sdk-min.js"></script>
     
 </head>
   <body>
@@ -46,9 +40,6 @@
           <div class="main__header">
             {{ content_for_logo }}
             {{ breadcrumb }}
-{% comment %} The Vaan Group - Order Bump (1/2) {% endcomment %}
-<div id="orderbump"></div>
-{% comment %} END OF The Vaan Group - Order Bump (1/2) {% endcomment %}
             {{ alternative_payment_methods }}
           </div>
           <div class="main__content">
@@ -71,10 +62,8 @@
     </div>
 
     {{ tracking_code }}
-{% comment %} The Vaan Group - Order Bump (2/2) {% endcomment %}
-<script src="https://tvg-order-bump.herokuapp.com/storefront/assets/order-bump.js"></script>
-{% comment %} END OF The Vaan Group - Order Bump (2/2) {% endcomment %}
-  {{ 'booster-page-speed-optimizer.js' | asset_url | script_tag }}
+
+    {{ 'booster-page-speed-optimizer.js' | asset_url | script_tag }}
 
 </body>
 </html>

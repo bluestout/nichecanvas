@@ -21,7 +21,17 @@
           {%if forloop.first %}
           <div class="unique-left-sec-first-left">
             <a href="{{ block.settings.link}}" class="fs_uChvrBtn"></a>
-            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Cars">
+            <!--FS-->
+            {% comment %} <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Cars"> {% endcomment %}
+            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <img
+                class="lazyload"
+                src="{{ block.settings.image | img_url: '110x' }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="">
             <div class="uChvrBtn" >
               <p>{{ block.settings.Title}}</p>
               <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
@@ -32,7 +42,18 @@
           {%if forloop.index == 2 %}
           <div class="unique-left-sec-first-right">
             <a href="{{ block.settings.link}}" class="fs_uChvrBtn"></a>
-            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Flowers">
+            <!--FS-->
+            {% comment %} <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Flowers"> {% endcomment %}
+            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <img
+                class="lazyload"
+                src="{{ block.settings.image | img_url: '110x' }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="">
+                        
             <div class="uChvrBtn" >
               <p>{{ block.settings.Title}}</p>
               <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
@@ -43,7 +64,17 @@
           {%if forloop.index == 3 %}
           <div class="unique-left-sec-over-main">
             <a href="{{ block.settings.link}}" class="fs_uChvrBtn"></a>
-            <img src="{{ block.settings.image | img_url: "large"}}" alt="Image" title="Landscape">
+            <!--FS-->
+            {% comment %} <img src="{{ block.settings.image | img_url: "large"}}" alt="Image" title="Landscape"> {% endcomment %}
+            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <img
+                class="lazyload"
+                src="{{ block.settings.image | img_url: '110x' }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="" >
             <div class="uChvrBtn" >
               <p>{{ block.settings.Title}}</p>
               <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
@@ -58,7 +89,17 @@
           {%if forloop.index == 4 or forloop.index == 5 or forloop.index == 6  %}
           <div class="unique-left-sec-first">
             <a href="{{ block.settings.link}}" class="fs_uChvrBtn"></a>
-            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Love">
+            <!--FS-->
+            {% comment %} <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Love"> {% endcomment %}
+            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <img
+                class="lazyload"
+                src="{{ block.settings.image | img_url: '110x' }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="" >
             <div class="uChvrBtn" >
               <p>{{ block.settings.Title}}</p>
               <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
@@ -73,7 +114,17 @@
           {%if forloop.index == 7 %}
           <div class="unique-left-sec-over-main">
             <a href="{{ block.settings.link}}" class="fs_uChvrBtn"></a>
-            <img src="{{ block.settings.image | img_url: "large"}}" alt="Image" title="Space">
+            <!--FS-->
+            {% comment %} <img src="{{ block.settings.image | img_url: "large"}}" alt="Image" title="Space"> {% endcomment %}
+            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <img
+                class="lazyload"
+                src="{{ block.settings.image | img_url: '110x' }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="" >
             <div class="uChvrBtn" >
               <p>{{ block.settings.Title}}</p>
               <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
@@ -84,7 +135,20 @@
           {%if forloop.index == 8 %}
           <div class="unique-left-sec-first-left">
             <a href="{{ block.settings.link}}" class="fs_uChvrBtn"></a>
-            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Animal">
+            <!--FS-->
+            {% comment %} <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Animal"> {% endcomment %}
+            {% comment %} <img class="lazyload" src="{{ block.settings.image | img_url: '80x'}}" data-src="{{ block.settings.image | img_url: 'medium'}}" alt="Image" title="Animal"> {% endcomment %}
+            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <img
+                class="lazyload"
+                src="{{ block.settings.image | img_url: '110x' }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="" >
+            
+            
             <div class="uChvrBtn" >
               <p>{{ block.settings.Title}}</p>
               <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>
@@ -95,7 +159,17 @@
           {%if forloop.index == 9 %}
           <div class="unique-left-sec-first-right">
             <a href="{{ block.settings.link}}" class="fs_uChvrBtn"></a>
-            <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Hindu Gods">
+            <!--FS-->
+            {% comment %} <img src="{{ block.settings.image | img_url: "medium"}}" alt="Image" title="Hindu Gods"> {% endcomment %}
+            {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+            <img
+                class="lazyload"
+                src="{{ block.settings.image | img_url: '110x' }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+                data-aspectratio="{{ block.settings.image.aspect_ratio }}"
+                data-sizes="auto"
+                alt="" >
             <div class="uChvrBtn" >
               <p>{{ block.settings.Title}}</p>
               <a href="{{ block.settings.link}}">{{ block.settings.btntext}}</a>

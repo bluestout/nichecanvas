@@ -44,11 +44,11 @@
 {% else %}
 <div class="swatch clearfix CustomIndexing_{{forloop.index}} {% if swatch == "Size" %}CustomSize{%endif%}" data-option-index="{{ option_index }}">
   <div class="header"> 
-    <span>{{ swatch }}</span> 
+    <span>{{ swatch }}{% if swatch == "Size" %} (inches){% endif %}</span> 
     {% if swatch == "Size" %}
     <span>
     <div class="view_size_chart"><a id="size_chart" class="action_button" data-fancybox data-caption="Size Chart" data-options="{ mobile: { clickContent : 'close' } }" href="//cdn.shopify.com/s/files/1/2012/8501/t/100/assets/size-chart-portrait.jpg?24795">
-  <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-helper.svg" alt="img" img="img"> Size guide
+  <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-helper.svg" alt="img" img="img"> Guide
   
   </a></div>
 
@@ -77,7 +77,11 @@
         </label>
         {% else %}
         <label for="swatch-{{ option_index }}-{{ value | handle }}">
-          <span>{{ value }}</span>
+          <span class="capitalize">{{ value }}</span>
+          {% if swatch == "Size" and variant.metafields.amazon.size != blank %}
+          {% assign size_bits = variant.metafields.amazon.size | split: " " %}
+          <span>{{ size_bits.last | replace:'x','" x ' | append: '"' }}</span>
+          {% endif %}
           <img class="crossed-out" src="{{ 'soldout.png' | asset_url }}" />
         </label>
         {% endif %}

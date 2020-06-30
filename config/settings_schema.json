@@ -1673,6 +1673,14 @@
       },
       {
         "type": "checkbox",
+        "id": "slider_left_top_mark_enabled",
+        "label": {
+          "en": "Slider Left Top Mark Enabled"
+        },
+        "default": true
+      },
+      {
+        "type": "checkbox",
         "id": "enable_sezzle_route",
         "label": {
           "da": "Enable Sezzle\/Route Block",

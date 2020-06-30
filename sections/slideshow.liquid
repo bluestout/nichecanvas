@@ -44,7 +44,7 @@ unless it is blank, in that case a ratio of 2:1 will be used.
           {% if section.settings.show_overlay %}<div class="slideshow__overlay"></div>{% endif %}
         </div>
         {% else %}
-        {% if forloop.first%}
+        {% if forloop.first and settings.slider_left_top_mark_enabled %}
         <span class="CstmTag" style="background: {{settings.slider_left_top_mark_color}}">{{ settings.slider_left_top_mark_txt }}</span>
         {%endif%}
         <div
