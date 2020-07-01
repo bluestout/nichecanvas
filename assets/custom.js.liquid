@@ -341,9 +341,18 @@ $(document).ready(function(){
     $(window).scroll(function() {
       if ($(this).scrollTop() >= getValue) { // this refers to window
         $("#shopify-section-header").addClass("FixedHeader");
+
+        //FS add for responsive bar
+        var height_str = $(".announcement-bar").height();
+        height_str = height_str + "px";
+        $(".FixedHeaderWrapper").css( "top", height_str);
+        if($(".announcement-bar").css("display")=="none")
+          $(".FixedHeaderWrapper").css( "top", 0);
       }
       else{
         $("#shopify-section-header").removeClass("FixedHeader");
+
+        $(".FixedHeaderWrapper").css( "top", "auto" );//FS add for responsive bar
       }
     });
   }
