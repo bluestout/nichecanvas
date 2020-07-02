@@ -139,7 +139,7 @@
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
       {% unless linklists[section.settings.main_linklist] == blank %}
       <button type="button" class="btn--link site-header__icon site-header__menu CustomMMenu" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
-        {% comment %}{% include 'icon-hamburger' %}{% endcomment %} <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-mobile-menu2.png" alt="Menu">
+        {% comment %}{% include 'icon-hamburger' %}{% endcomment %} <img src="{{ 'icon-mobile-menu2.png' | asset_url }}" alt="Menu">
       </button>
       {% endunless %}
       {% if section.settings.align_logo == 'center' %}

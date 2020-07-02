@@ -25,7 +25,7 @@
 
 <div data-section-id="{{ section.id }}" data-section-type="collection-template" class="cst_MAinColl">
   <div class="shopNwPayltr">
-    <p>Shop now, pay later with <img alt="Sezzel Logo" title="Sezzel" src="https://cdn.shopify.com/s/files/1/2012/8501/files/sezzle_logo.svg"> <span>·</span> 4 payments / 0% interest</p>
+    <p>Shop now, pay later with <img alt="Sezzel Logo" title="Sezzel" src="{{ 'sezzle_logo.svg' | asset_url }}"> <span>·</span> 4 payments / 0% interest</p>
   </div>
   <header class="collection-header">
 
@@ -65,13 +65,13 @@
     <div class="page-width">
       <div class="section-icontext">
         <ul>
-          <li> <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-free-shipping.svg" alt="Image" title="Free Shiping">
+          <li> <img src="{{ 'icon-free-shipping.svg' | asset_url }}" alt="Image" title="Free Shiping">
             <p>Free Shipping in the USA</p>
           </li>
-          <li> <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-ready-to-hang.svg" alt="Image" title="Ready to mount">
+          <li> <img src="{{ 'icon-ready-to-hang.svg' | asset_url }}" alt="Image" title="Ready to mount">
             <p>Ready to mount</p>
           </li>
-          <li> <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-best-price-guarantee.svg" alt="Image" title="Best Price Guarantee">
+          <li> <img src="{{ 'icon-best-price-guarantee.svg' | asset_url }}" alt="Image" title="Best Price Guarantee">
             <p>Best Price Guarantee</p>
           </li>
         </ul>

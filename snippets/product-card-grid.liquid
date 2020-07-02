@@ -66,7 +66,7 @@ Usage:
           {%endif %}
            {% if tag contains "newarrival" %}
           <li class="gbNewarrive"> 
-            <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-new-arrival.svg" alt="img" title="img">
+            <img src="{{ 'icon-new-arrival.svg' | asset_url }}" alt="img" title="img">
             New Arrival
           </li>
           {%endif %}
@@ -75,13 +75,13 @@ Usage:
           {%endif %}
            {% if tag contains "featuredartist" %}
           <li class="gbFA">
-            <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-featured-artist.svg" alt="img" title="img"> 
+            <img src="{{ 'icon-featured-artist.svg' | asset_url }}" alt="img" title="img"> 
             Featured Artist
           </li>
          {%endif %}
            {% if tag contains "bestseller" %}
           <li class="gbBS">
-            <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-best-seller.svg" alt="img" title="img">
+            <img src="{{ 'icon-best-seller.svg' | asset_url }}" alt="img" title="img">
             Best Seller
           </li>
           {%endif %}

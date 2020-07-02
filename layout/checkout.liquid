@@ -12,9 +12,11 @@
 
     {{ checkout_stylesheets }}
     {{ checkout_scripts }}
+
   	{% include 'shogun-head' %}
+    
     <!-- ADDRESS VALIDATOR -->
-<script async src="https://d3ox8tdk614ykk.cloudfront.net/pobox_checker.js"></script>
+	<script async src="https://d3ox8tdk614ykk.cloudfront.net/pobox_checker.js"></script>
     <style>
       .section__intro {
         margin-top: 1em;
@@ -62,9 +64,6 @@
     </div>
 
     {{ tracking_code }}
-
-    {{ 'booster-page-speed-optimizer.js' | asset_url | script_tag }}
-
 </body>
 </html>
 
