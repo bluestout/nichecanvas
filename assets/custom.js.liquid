@@ -1,5 +1,54 @@
+
+$(".nc-has-drop-list .site-nav__link").click(function(e){
+  e.preventDefault();
+//alert("abc");
+  $(this).parent(".nc-has-drop-list").toggleClass("nc-has-drop-list-open");
+})
+$("#mobile_menu li ul.mobile-menuChild li a.mblHding").click(function(){
+$(this).parent("li").toggleClass("SubChilopen");
+})
+$(".lastparent a").click(function(){
+$(this).parent("li").toggleClass("SubChilopen");
+})
+// $(function(){
+//   // Bind the swipeleftHandler callback function to the swipe event on div.box
+//   $( ".mobile_nav-fixed" ).on( "swipeleft", swipeleftHandler );
+ 
+//   // Callback function references the event target and adds the 'swipeleft' class to it
+//   function swipeleftHandler( event ){
+//     $("body").removeClass("MenuOppned");
+//   }
+// });
+$(function() {
+  $(".mobile_nav-fixed").swipe( {
+    //Generic swipe handler for all directions
+    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+      console.log("You swiped " + direction );  
+      if(direction=="left"){
+      $("body").removeClass("MenuOppned");
+      }
+    }
+  });
+
+  //Set some options later
+  //$(".mobile_nav-fixed").swipe( {fingers:2} );
+});
 $(document).ready(function(){
+  
   /************************MOBILE SEARCH ICON CLICK *****************/
+    
+//   $('.mobile_nav-fixed').swipe({
+    
+//         swipe: function(event, direction, distance, duration, fingerCount) {
+//             if (direction=='left') {
+//                 alert("left");
+//             } 
+//         }  
+// })  
+//   $('.mobile_nav-fixed').touchwipe({
+//  wipeLeft: function() {alert("TEST1");},
+//  wipeRight: function() { alert("TEST2");}        
+// });
   $(".cstSrchMob").click(function(){
   $("body").addClass("MobileSearch");
   })
