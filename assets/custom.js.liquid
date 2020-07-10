@@ -20,15 +20,21 @@ $(this).parent("li").toggleClass("SubChilopen");
 //   }
 // });
 $(function() {
-  $(".mobile_nav-fixed").swipe( {
-    //Generic swipe handler for all directions
-    swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-      console.log("You swiped " + direction );  
-      if(direction=="left"){
-      $("body").removeClass("MenuOppned");
-      }
-    }
-  });
+//   $(".mobile_nav-fixed").swipe( {
+//     //Generic swipe handler for all directions
+//     swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+//       console.log("You swiped " + direction );  
+//       if(direction=="left"){
+//       $("body").removeClass("MenuOppned");
+//       }
+//     }
+//   });
+  
+  function swipe1(){
+    $("body").removeClass("MenuOppned");
+  }
+        $(".mobile_nav-fixed").swipe( { swipeLeft:swipe1, allowPageScroll:"auto"} );
+
 
   //Set some options later
   //$(".mobile_nav-fixed").swipe( {fingers:2} );

@@ -2844,8 +2844,9 @@ select.FixedBoxCart {
 	position: relative;
 }
 .nc-single-blk-dropdown .site-nav__dropdown{
-	width: 300px;
-  padding: 45px 25px;
+	width: 276px;
+  -max-width: 276px;
+  padding: 40px 27px;
   top: calc(100% + 10px) !important;
   left: -25px !important;
 }
@@ -2853,15 +2854,28 @@ select.FixedBoxCart {
 	padding: 0;
   display: block;
 }
+.site-nav .ColorMenuMob{
+	margin-bottom: 0 !important;
+}
+.site-nav .ColorMenuMob:after{
+	clear: both;
+  display: table;
+  content:"";
+}
 .site-nav .ColorMenuMob li {
-    display: inline-block;
-    margin: 0 0px 6px;
+    float: left;
+    display: block;
+    margin: 0;
     border: none;
+  padding: 0 !important;
 }
 .site-nav .ColorMenuMob li a{
 	padding: 4px;
   border: 1px solid rgba(0,0,0,0);
   display: block;
+}
+.site-nav .ColorMenuMob li a img{
+	width: 34px;
 }
 .site-nav .ColorMenuMob li a:hover{
 	border: 1px solid rgba(0,0,0,0.1);
@@ -3167,7 +3181,7 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
 	transform: rotate(-135deg);
 }
 .nc-has-drop-list > ul ul{
-	margin-left: 10px;
+	margin-left: 14px;
 }
 .Expand_all{
 	text-align: right;
@@ -3175,6 +3189,7 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
     width: 100%;
     border-top: 1px solid #e8e9eb;
       padding: 5px 0px;
+    clear: both;
 }
 .Expand_all a{
 	color: #e0851f;
@@ -3195,6 +3210,81 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
   transform: rotate(45deg);
 }
 /*desktop inner dropdown menu ends*/
+/*collection templeate starts*/
+.nc-can-collection-main{
+	padding: 60px 0px;
+}
+.nc-can-collection-box{
+	position: relative;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  overflow: hidden;
+  line-height: 10px;
+}
+.nc-can-collection-box-hover h3{
+	font-size: 22px;
+  color: #fff;
+  line-height: 28px;
+  font-weight: 700;
+  margin: 0 0 15px 0
+}
+.nc-can-collection-box-btn{
+	max-height: 0px;
+}
+.nc-can-collection-box:hover .nc-can-collection-box-btn{
+	max-height: 100px;
+}
+.nc-can-collection-box:hover{
+	background-color: #000;
+}
+.nc-can-collection-box:hover img{
+	opacity: .45;
+  display: block;
+}
+.nc-can-collection-box img{
+  display: block;
+  width: 100%;
+}
+.nc-can-collection-box, .nc-can-collection-box *{
+	transition: all 400ms cubic-bezier(0.29, 0.63, 0.44, 1);
+  -moz-transition: all 400ms cubic-bezier(0.29, 0.63, 0.44, 1);
+  -webkit-transition: all 400ms cubic-bezier(0.29, 0.63, 0.44, 1);
+}
+.nc-can-white-lined-btn{
+	font-size: 13px;
+  line-height: 17px;
+  display: block;
+  text-align: center;
+  padding: 13px 5px;
+    border: 2px solid #fff;
+    color: #fff !important;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.nc-can-collection-box-hover{
+	position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 0px;
+  z-index: 5;
+}
+.nc-can-collection-row{
+	display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.nc-can-collection-row .nc-can-collection-block{
+	-ms-flex: 0 0 20%;
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+/*collection templeate ends*/
 
 
 
@@ -3307,6 +3397,11 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
 
 
 @media (max-width: 1200px) {
+  .nc-can-collection-row .nc-can-collection-block{
+	-ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+  }
   .mLeftMenu .site-nav__childlist-grid .site-nav__childlist-item{
     -ms-flex: 0 0 25%;
     flex: 0 0 25%;
@@ -3360,7 +3455,11 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
 
 
 @media (max-width: 1023px) {
-
+  .nc-can-collection-row .nc-can-collection-block{
+	-ms-flex: 0 0 33.33%;
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+  }
   .CustomWishlist .wk-item .wk-product-options {
     padding: 0 10px;
     bottom: 20px;
@@ -3494,6 +3593,11 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
 }
 
 @media (max-width: 749px) {
+  .nc-can-collection-row .nc-can-collection-block{
+	-ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
   .CustomPrice{
     display: none;
   }

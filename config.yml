@@ -3,3 +3,4 @@ development:
   theme_id: "82649743432"
   store: jestershop.myshopify.com
   ignore_files:
+    - config/settings_data.json
