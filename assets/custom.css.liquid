@@ -2876,12 +2876,14 @@ select.FixedBoxCart {
 }
 .site-nav .ColorMenuMob li a img{
 	width: 34px;
+  
 }
 .site-nav .ColorMenuMob li a:hover{
 	border: 1px solid rgba(0,0,0,0.1);
 }
 .site-nav .ColorMenuMob li a img{
 	display: block;
+  border: 1px solid rgba(0,0,0,0.1);/*FS added*/
 }
 /*single block dropdown ends*/
 /*mobile category gallery starts*/
@@ -3123,6 +3125,7 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
 }
 #mobile_menu li ul.mobile-menuChild.ColorMenuMob li a img{
 	display: block;
+  border: 1px solid rgba(0,0,0,0.1);/*FS added*/
 }
 #mobile_menu li ul.mobile-menuChild.ColorMenuMob li a:hover{
 	border: 1px solid rgba(0,0,0,0.1);
@@ -4581,3 +4584,10 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
   }
 }
 
+/*----FS Add  show One product on Collection page  ----------*/
+@media (max-width: 749px) {
+  .fs-small--one-whole
+  {
+    width: 100%;
+  }
+}

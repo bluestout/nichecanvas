@@ -25,7 +25,7 @@
 
 <div data-section-id="{{ section.id }}" data-section-type="collection-template" class="cst_MAinColl">
   <div class="shopNwPayltr">
-    <p>Shop now, pay later with <img alt="Sezzel Logo" title="Sezzel" src="{{ 'sezzle_logo.svg' | asset_url }}"> <span>·</span> 4 payments / 0% interest</p>
+    <p>Shop now, pay later with <img alt="Sezzel Logo" title="Sezzel" src="{{ 'sezzle_logo.svg' | file_url }}"> <span>·</span> 4 payments / 0% interest</p>
   </div>
  <header class="collection-header">
 
@@ -76,7 +76,8 @@
 				<img src="{{collections[listname].image | img_url: "original" }}" />
 				<div class="nc-can-collection-box-hover">
 					<h3>{{collections[listname].title}}</h3>
-					<div class="nc-can-collection-box-btn"><a href="{{collections[listname].url}}" class="nc-can-white-lined-btn">{{collections[listname].title}}</a></div>
+					{% comment %} <div class="nc-can-collection-box-btn"><a href="{{collections[listname].url}}" class="nc-can-white-lined-btn">{{collections[listname].title}}</a></div> {% endcomment %}
+          <div class="nc-can-collection-box-btn"><a href="{{collections[listname].url}}" class="nc-can-white-lined-btn">Shop</a></div>
 				</div>
 			</div>
 		</div>

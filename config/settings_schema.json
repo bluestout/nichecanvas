@@ -1681,6 +1681,12 @@
       },
       {
         "type": "checkbox",
+        "id": "mobile_one_product_show",
+        "label": "Mobile Show 1 Products per row (grid only)",
+        "default": false
+      },
+      {
+        "type": "checkbox",
         "id": "enable_sezzle_route",
         "label": {
           "da": "Enable Sezzle\/Route Block",
