@@ -80,64 +80,62 @@
         </ul>
       </div>
     </div>
-
-    <div class="filters-toolbar-wrapper">
-      <div class="page-width">
-        <div class="bc-sf-filter-tree-wrapper">
-          <h3 class="bc-sf-filter-tree-heading">Filter by:</h3>
-          <div id="bc-sf-filter-tree-h">
-            {% include 'bc-sf-filter-tree-placeholder-h' %}
-          </div>
-        </div>
-        <div class="filters-toolbar__item-child bc-sf-filter-custom-sorting" id="bc-sf-filter-top-sorting">
-          {% include 'bc-sf-filter-skeleton', width: 2 %}
-        </div>
-      </div>
-    </div>
   </header>
 
 
 
-  <div class="page-width" id="Collection">
+  <div class="page-width bc-sf-filter-wrapper" id="Collection">
 
     <div id="bc-sf-filter-tree-mobile">
       {% include 'bc-sf-filter-skeleton', type: 'button' %}
     </div>
-    <div id="bc-sf-filter-tree">
-      {% include 'bc-sf-filter-tree-placeholder' %}
-    </div>
-
-    {% if section.settings.layout == 'grid' %}
-
-    <div id="bc-sf-filter-products" class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}" data-bc-sort="{{ collection.default_sort_by }}">
-      {% for product in collection.products %}
-      <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-        {% include 'product-card-grid', max_height: max_height %}
+    <div class="bc-custom-drawer-overlay"></div>
+    <div class="bc-custom-filter-sidebar-wrapper">
+      <div class="bc-custom-filter-mobile-header">
+        <h3>
+          <span>Refine By</span>
+        </h3>
+        <div class="bc-custom-drawer-close">Done</div>
+        <a href="javascript:;" class="bc-sf-filter-clear-all" onclick="clearAllFilterOptions(event)">Reset</a>
       </div>
-      {% endfor %}
+      <div id="bc-sf-filter-tree">
+        {% include 'bc-sf-filter-tree-placeholder' %}
+      </div>
     </div>
 
-    {% else %}
+    <div id="bc-sf-filter-right">
+      {% if section.settings.layout == 'grid' %}
 
-    <div id="bc-sf-filter-products" data-bc-sort="{{ collection.default_sort_by }}">
-      <ul class="list-view-items">
-        {% if collection.default_sort_by != 'best-selling' %}
+      <div id="bc-sf-filter-products" class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}" data-bc-sort="{{ collection.default_sort_by }}">
         {% for product in collection.products %}
-        <li href="{{ product.url | within: collection }}" class="list-view-item">
-          {% include 'product-card-list', product: product %}
-        </li>
+        <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+          {% include 'product-card-grid', max_height: max_height %}
+        </div>
         {% endfor %}
-        {% endif %}
-      </ul>
-    </div>
+      </div>
 
-    {% endif %}
+      {% else %}
 
-    {% if is_empty_collection %}
-    <div class="grid__item small--text-center">
-      <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+      <div id="bc-sf-filter-products" data-bc-sort="{{ collection.default_sort_by }}">
+        <ul class="list-view-items">
+          {% if collection.default_sort_by != 'best-selling' %}
+          {% for product in collection.products %}
+          <li href="{{ product.url | within: collection }}" class="list-view-item">
+            {% include 'product-card-list', product: product %}
+          </li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+
+      {% endif %}
+
+      {% if is_empty_collection %}
+      <div class="grid__item small--text-center">
+        <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
 
     <div id="bc-sf-filter-bottom-pagination">
       {% if paginate.pages > 1 %}

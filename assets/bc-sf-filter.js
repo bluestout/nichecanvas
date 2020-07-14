@@ -6,7 +6,6 @@ var bcSfFilterSettings = {
         defaultDisplay: bcSfFilterConfig.custom.layout,
         showPlaceholderProductList: !1,
         swatchStyle: "square-list",
-        requestInstantly: !0
     }
 };
 
@@ -397,21 +396,6 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
         e[i].description = e[i].content = e[i].body_html, e[i].hasOwnProperty("original_tags") && e[i].original_tags.length > 0 && (e[i].tags = e[i].original_tags.slice(0)), e[i].json = customizeJsonProductData(e[i])
     }
     return e
-}, BCSfFilter.prototype.afterBuildFilterTree = function(e) {
-    jQ(this.selector.filterTree).children().wrapAll('<div id="bc-sf-filter-options-wrapper"></div>'), this.buildFilterOptionBoxStyle(), this.triggerOpenHorizontalFilterEvent(), this.buildFilterShowMore(), this.checkIsFullWidthMobile() || this.collapseFilterOption();
-    jQ('[data-id="pf_t_format"] .bc-sf-filter-block-content ul').append('<li><ul class="horizontal"><li>Horizontal</li></ul></li><li><ul class="vertical"><li>Vertical</li></ul></li>'), jQ('#bc-sf-filter-tree-h [data-id="pf_t_format"] .bc-sf-filter-block-content ul a[data-id="pf_t_format"]').each(function() {
-        var e = jQ(this),
-            t = e.data("value"),
-            i = e.parent("li"),
-            a = "<li>" + i.html() + "</li>";
-        t.indexOf("vertical") > -1 ? jQ('#bc-sf-filter-tree-h [data-id="pf_t_format"] .bc-sf-filter-block-content ul.vertical').append(a) : jQ('#bc-sf-filter-tree-h [data-id="pf_t_format"] .bc-sf-filter-block-content ul.horizontal').append(a), i.remove()
-    }), jQ('#bc-sf-filter-tree [data-id="pf_t_format"] .bc-sf-filter-block-content ul a[data-id="pf_t_format"]').each(function() {
-        var e = jQ(this),
-            t = e.data("value"),
-            i = e.parent("li"),
-            a = "<li>" + i.html() + "</li>";
-        t.indexOf("vertical") > -1 ? jQ('#bc-sf-filter-tree [data-id="pf_t_format"] .bc-sf-filter-block-content ul.vertical').append(a) : jQ('#bc-sf-filter-tree [data-id="pf_t_format"] .bc-sf-filter-block-content ul.horizontal').append(a), i.remove()
-    })
 }, BCSfFilter.prototype.buildFilterOptionLabel = function(e, t, i) {
     switch (e = this.customizeFilterOptionLabel(e, i.prefix, i.filterType, i.displayAllValuesInUppercaseForm)) {
         case "Acmehorizontal":
@@ -457,95 +441,52 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
         return m = m.replace(/{{itemBorder}}/g, u)
     }
     return ""
-}, BCSfFilter.prototype.buildFilterSelectionData = function(e) {
-    function t(e, t, i, a) {
-        switch (i) {
-            case "Acmehorizontal":
-                i = "Horizontal: One piece";
-                break;
-            case "Acme3horizontal":
-                i = "Horizontal: 3 pieces";
-                break;
-            case "Acme5p":
-                i = "Horizontal: 5 pieces";
-                break;
-            case "Acmevertical":
-                i = "Vertical: One piece";
-                break;
-            case "Acme3vertical":
-                i = "Vertical: 3 pieces";
-                break;
-            case "Canvas":
-                i = "Gallery Wrap";
-                break;
-            default:
-                i = i
-        }
-        return e = (e = (e = e.replace(/{{itemType}}/g, t)).replace(/{{itemLabel}}/g, i)).replace(/{{itemLink}}/g, a)
-    }
-    var i = this,
-        a = horizontalContent = "",
-        r = this.getTemplate("filterRefineItem"),
-        l = this.getTemplate("filterRefineHorizontalItem"),
-        s = e.filter.options,
-        n = Object.keys(i.queryParams);
-    return n = n.filter(function(e) {
-        return 0 == e.indexOf("pf_")
-    }), jQ.each(n, function(e, n) {
-        var c = s.filter(function(e) {
-            return e.filterOptionId == n
-        })[0];
-        if (void 0 !== c && i.queryParams.hasOwnProperty(n) && i.queryParams[n] && i.queryParams[n].length) {
-            var o = i.queryParams[n],
-                p = c.filterOptionId,
-                f = c.prefix,
-                d = c.label,
-                m = c.filterType,
-                g = c.displayType;
-            if (f = null != f && !1 !== f ? f.replace(/\\/g, "") : "", Array.isArray(o) || (o = [o]), o = o.map(function(e) {
-                    return e.toString().replace(/\+/g, "%20")
-                }), "range" == g) {
-                var u = "";
-                if (-1 == m.indexOf("price") && "weight" !== m && -1 == m.indexOf("range_slider")) {
-                    var h = [];
-                    c && c.hasOwnProperty("values") && (h = c.values.map(function(e) {
-                        return e.key
-                    }));
-                    var v = h.length ? i.getAdvancedRangeSelectedValues(o, h) : [o[0], o[o.length - 1]];
-                    u = v[0].toString().replace(f, ""), o.length > 1 && (u += " - " + v[1].toString().replace(f, ""))
-                } else {
-                    var b = (w = o[0]).split(":");
-                    if ("price" == m) {
-                        var _ = i.formatMoney(100 * b[0]),
-                            y = i.formatMoney(100 * b[1]);
-                        i.getSettingValue("general.removePriceDecimal") && (_ = i.removeDecimal(_), y = i.removeDecimal(y)), u = _ + " - " + y
-                    } else u = b[0] + " - " + b[1]
-                }
-                var S = i.buildClearFilterOptionLink(p, d, o);
-                a += t(r, d, u, S), horizontalContent += t(l, d, u, S)
-            } else
-                for (e = 0; e < o.length; e++) {
-                    var w;
-                    u = w = o[e];
-                    u = i.customizeFilterOptionLabel(u, f, m);
-                    S = i.buildClearFilterOptionLink(p, d, w);
-                    switch (null != f && !1 !== f && (f = f.replace(/\\/g, ""), w = w.replace(f, "").trim()), m) {
-                        case "price":
-                            u = i.getPriceLabel(w);
-                            break;
-                        case "percent_sale":
-                            u = i.getPercentSaleLabel(w);
-                            break;
-                        case "stock":
-                            u = "true" === w ? c.values[0].label : c.values[1].label;
-                            break;
-                        case "review_ratings":
-                            var F = !!c.hasOwnProperty("showExactRating") && c.showExactRating;
-                            u = i.getReviewRatingsLabel(w, F)
-                    }
-                    a += t(r, d, u, S), horizontalContent += t(l, d, u, S)
-                }
-        }
-    }), [a, horizontalContent]
 };
 
+BCSfFilter.prototype.buildFilterTreeMobileButtonEvent = function() {
+  var _this = this;
+  var filterSelector = this.getSelector('filterTree');
+  var mobileBtnSelector = this.getSelector('filterTreeMobileButton');
+  jQ(mobileBtnSelector).unbind('click');
+  jQ(mobileBtnSelector).on('click', function() {    
+    jQ('body').toggleClass('bc-custom-drawer-open');
+    
+    var style = _this.mobileStyle;
+    // Full Width style
+    if (style == 'style2' || style == 'style3') {
+      jQ(filterSelector).toggleClass('bc-sf-filter-tree-mobile-open');
+      // Build mobile content
+      _this.buildFilterTreeMobile();
+      // Remove scrollbar
+      _this.removeScrollbar(jQ('.' + _this.class.filterBlockContent));
+    }
+    // Default style
+    else {
+      // Change button text when clicking
+      if (_this.getSettingValue('general.changeMobileButtonLabel')) {
+        var openClass = _this.class.mobileButtonOpen;
+        jQ(this).toggleClass(openClass);
+        var label = jQ(this).hasClass(openClass) ? _this.getSettingValue('label.refineMobileCollapse') : _this.getSettingValue('label.refineMobile');
+        jQ(this).text(label);
+      }
+      jQ(filterSelector).slideToggle(function () {
+        jQ(filterSelector).toggleClass('bc-sf-filter-tree-mobile-open');
+        _this.buildFilterOptionBoxStyle(jQ(this));                
+        // Re-initialize jscrollpane
+        _this.buildFilterScrollbar();
+      });
+    }
+  });
+};
+
+jQ(document).ready(function() {
+  jQ('.bc-custom-filter-button').on('click', function(){
+    jQ('body').toggleClass('bc-custom-drawer-open');
+  });
+  jQ('.bc-custom-drawer-close').click(function(){
+    jQ('body').removeClass('bc-custom-drawer-open');
+  });
+  jQ('.bc-custom-drawer-overlay').click(function(){
+    jQ('body').removeClass('bc-custom-drawer-open');
+  });
+})
