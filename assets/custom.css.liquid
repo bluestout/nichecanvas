@@ -3232,12 +3232,6 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
   font-weight: 700;
   margin: 0 0 15px 0
 }
-.nc-can-collection-box-btn{
-	max-height: 0px;
-}
-.nc-can-collection-box:hover .nc-can-collection-box-btn{
-	max-height: 100px;
-}
 .nc-can-collection-box:hover{
 	background-color: #000;
 }
@@ -3270,7 +3264,7 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
   left: 20px;
   right: 20px;
   bottom: 0px;
-  z-index: 5;
+  z-index: 1;
 }
 .nc-can-collection-row{
 	display: -ms-flexbox;
@@ -3327,6 +3321,12 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
   }
   .MobCustomSearch {
     display: none;
+  }
+  .nc-can-collection-box-btn{
+	max-height: 0px;
+  }
+  .nc-can-collection-box:hover .nc-can-collection-box-btn{
+    max-height: 100px;
   }
 }
 
@@ -3596,6 +3596,30 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
 }
 
 @media (max-width: 749px) {
+  .nc-can-collection-box{
+	background-color: #000;
+  }
+  .nc-can-collection-box img{
+      opacity: .8 !important;
+    display: block;
+  }
+  .nc-can-collection-row .nc-can-collection-block{
+  	padding: 0 5px;
+  }
+  .nc-can-collection-box-hover h3{
+  	font-size: 17px;
+    line-height: normal;
+  }
+  .nc-can-collection-box-hover{
+  	left: 15px;
+    right: 15px;
+  }
+  .nc-can-collection-box-hover .nc-can-white-lined-btn{
+  	margin-bottom: 10px;
+    font-size: 12px;
+    padding: 7px 5px;
+    border: 1px solid #fff;
+  }
   .nc-can-collection-row .nc-can-collection-block{
 	-ms-flex: 0 0 50%;
     flex: 0 0 50%;
