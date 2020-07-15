@@ -371,49 +371,49 @@ $searchBoxMobileHeight: 50px;
 }
 
 @media screen and (max-width: 767px) {
-	.bc-sf-filter-option-block .bc-sf-filter-block-content .bc-sf-filter-option-swatch li a:hover .bc-sf-filter-option-swatch-image {
-		border: none !important;
-	}
-	#bc-sf-filter-top-sorting {
-		width: 100%;
-	}
-	/*#bc-sf-filter-tree-h {
-    display: block; 
-	}
-	#bc-sf-filter-tree-mobile {
-		display: none;
-	}*/
-	.bc-sf-filter-selection-wrapper {
-		.bc-sf-filter-selected-items {
-			.selected-item {
-				//display: inline-block;
-				font-size: 14px;
-				margin-right: 15px;
-			}
-		}
-	}
+  .bc-sf-filter-option-block .bc-sf-filter-block-content .bc-sf-filter-option-swatch li a:hover .bc-sf-filter-option-swatch-image {
+    border: none !important;
+  }
+  #bc-sf-filter-top-sorting {
+    width: 100%;
+  }
+  /*#bc-sf-filter-tree-h {
+  display: block; 
+}
+  #bc-sf-filter-tree-mobile {
+  display: none;
+}*/
+  .bc-sf-filter-selection-wrapper {
+    .bc-sf-filter-selected-items {
+      .selected-item {
+        //display: inline-block;
+        font-size: 14px;
+        margin-right: 15px;
+      }
+    }
+  }
 
-	.bc-sf-filter-option-swatch.square-list li a span.bc-sf-filter-option-value {
+  .bc-sf-filter-option-swatch.square-list li a span.bc-sf-filter-option-value {
     padding-left: 10px;
   }
 
   #bc-sf-filter-tree .bc-sf-filter-selection-wrapper .bc-sf-filter-selected-items .selected-item .bc-sf-filter-clear {
     margin-top: 0;
-	}
-	.bc-sf-filter-option-block .bc-sf-filter-block-content ul li a.selected:before {
-		display: none;
-	}
-	.bc-sf-filter-option-block.bc-sf-filter-option-block-swatch .bc-sf-filter-block-content ul li a.selected:before {
-		display: block;
-	}
+  }
+  .bc-sf-filter-option-block .bc-sf-filter-block-content ul li a.selected:before {
+    display: none;
+  }
+  .bc-sf-filter-option-block.bc-sf-filter-option-block-swatch .bc-sf-filter-block-content ul li a.selected:before {
+    display: block;
+  }
 
-    .cstPriceTitl>div:first-child {
-        min-height: 70px;
-    }
-  
-  	.GridCartBtnmob, .InstantCartBtnmob {
-        z-index: 9;
-    }
+  .cstPriceTitl>div:first-child {
+    min-height: 70px;
+  }
+
+  .GridCartBtnmob, .InstantCartBtnmob {
+    z-index: 9;
+  }
 }
 
 .bc-sf-search-suggestion-group[data-group="collections"] {
@@ -453,6 +453,40 @@ $searchBoxMobileHeight: 50px;
     float: left;
     .bc-custom-filter-mobile-header {
       display: none;
+    }
+    #bc-sf-filter-top-sorting, #bc-sf-filter-tree { 
+      float: left;
+      width: 100%;
+    }
+    #bc-sf-filter-top-sorting {
+      margin-right: 0;
+      padding-bottom: 15px;
+      label {
+        float: left;
+        &:before {
+          top: 35%;
+          margin-top: -5px;
+          right: 3px;
+          left: auto;
+          position: absolute;
+          content: "";
+          width: 5px;
+          height: 5px;
+          border-right: 1px solid #333;
+          border-bottom: 1px solid #333;
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+          -moz-transition: all .1s ease-in-out;
+          -o-transition: all .1s ease-in-out;
+          -webkit-transition: all .1s ease-in-out;
+          transition: all .1s ease-in-out;
+        }
+      }
+      .bc-sf-filter-filter-dropdown {
+        left: 0;
+      }
     }
   }
   #bc-sf-filter-right {
@@ -533,6 +567,24 @@ $searchBoxMobileHeight: 50px;
       overflow-y: scroll;
       overflow-x: hidden;
     }
+    
+    #bc-sf-filter-top-sorting {
+      margin-right: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e3e3e3;
+      label {
+        float: left;
+        &.filters-toolbar__label.select-label {
+          display: block;
+          font-size: 20px;
+          color: #000;
+          margin: 0;
+          &:before {
+            top: 35%;
+          }
+        }
+      }
+    }
   }
   .bc-custom-drawer-overlay {
     height: 100%;
@@ -556,6 +608,38 @@ $searchBoxMobileHeight: 50px;
     }
     .bc-custom-filter-sidebar-wrapper {
       left: 0;
+    }
+  }
+  .bc-sf-filter-mobile {
+    padding: 0 15px;
+    #bc-sf-filter-tree-mobile {
+      display: inline-block;
+      button {
+        background: transparent;
+        color: #000;
+      }
+    }
+    
+  }
+}
+#bc-sf-filter-tree {
+  .bc-sf-filter-option-block {
+    .bc-sf-filter-block-content {
+      ul {
+        &.bc-sf-filter-option-swatch.square-grid {
+          li {
+            width: 25% !important;
+            a {
+              padding-right: 0;
+              &.selected {
+                &:before {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

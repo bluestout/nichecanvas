@@ -15,7 +15,7 @@
 {% endcase %}
 
 {% if settings.mobile_one_product_show == true %}
- {%- assign grid_item_width =  grid_item_width | append: ' fs-small--one-whole '-%}
+ {% comment %} {%- assign grid_item_width =  grid_item_width | append: ' fs-small--one-whole '-%} {% endcomment %}
 {% endif %}
 
 {% if section.settings.layout == 'grid' %}
@@ -64,6 +64,12 @@
       </div>
     </div>
     {% endif %}
+    
+    <div class="bc-sf-filter-mobile">
+      <div id="bc-sf-filter-tree-mobile">
+        {% include 'bc-sf-filter-skeleton', type: 'button' %}
+      </div>
+    </div>
 
     <div class="page-width">
       <div class="section-icontext">
@@ -82,15 +88,12 @@
     </div>
   </header>
 
-
-
   <div class="page-width bc-sf-filter-wrapper" id="Collection">
-
-    <div id="bc-sf-filter-tree-mobile">
-      {% include 'bc-sf-filter-skeleton', type: 'button' %}
-    </div>
     <div class="bc-custom-drawer-overlay"></div>
     <div class="bc-custom-filter-sidebar-wrapper">
+      <div class="filters-toolbar__item-child bc-sf-filter-custom-sorting" id="bc-sf-filter-top-sorting">
+        {% include 'bc-sf-filter-skeleton', width: 2 %}
+      </div>
       <div class="bc-custom-filter-mobile-header">
         <h3>
           <span>Refine By</span>

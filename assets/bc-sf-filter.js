@@ -1,12 +1,12 @@
 var bcSfFilterSettings = {
-    general: {
-        limit: bcSfFilterConfig.custom.products_per_page,
-        loadProductFirst: !0,
-        styleScrollToTop: "style2",
-        defaultDisplay: bcSfFilterConfig.custom.layout,
-        showPlaceholderProductList: !1,
-        swatchStyle: "square-list",
-    }
+  general: {
+    limit: bcSfFilterConfig.custom.products_per_page,
+    loadProductFirst: !0,
+    styleScrollToTop: "style2",
+    defaultDisplay: bcSfFilterConfig.custom.layout,
+    showPlaceholderProductList: !1,
+    swatchStyle: "square-list",
+  },
 };
 
 function buildImageStyle(e) {
@@ -160,23 +160,23 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
     switch (bcSfFilterConfig.custom.products_per_row) {
         case 2:
             o = "medium-up--one-half", "540x600";
-            if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
-                o = "medium-up--one-half fs-small--one-whole", "540x600";
+            //if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
+                //o = "medium-up--one-half fs-small--one-whole", "540x600";
             break;
         case 3:
             o = "small--one-half medium-up--one-third", "345x550";
-            if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
-                o = "small--one-half medium-up--one-third fs-small--one-whole", "345x550";
+           // if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
+             //   o = "small--one-half medium-up--one-third fs-small--one-whole", "345x550";
             break;
         case 4:
             o = "small--one-half medium-up--one-quarter", "250x";
-            if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
-                o = "small--one-half medium-up--one-quarter fs-small--one-whole", "250x";
+           // if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
+             //   o = "small--one-half medium-up--one-quarter fs-small--one-whole", "250x";
             break;
         case 5:
             o = "small--one-half medium-up--one-fifth", "195x"
-            if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
-                o = "small--one-half medium-up--one-fifth fs-small--one-whole", "195x"
+           // if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
+            //    o = "small--one-half medium-up--one-fifth fs-small--one-whole", "195x"
     }
 
     c = c.replace(/{{itemGridWidthClass}}/g, o);
@@ -443,6 +443,41 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
     return ""
 };
 
+/* Start-Boost-42070 */
+BCSfFilter.prototype.buildFilterOptionSwatch = function(data, filterTreeId) {
+    // Sort values
+    if (data.hasOwnProperty('values') && (data.valueType == 'all' || this.getSettingValue('general.sortManualValues') || (data.valueType != 'all' && data.sortManualValues))) data.values = this.sortFilterOptionValue(data);
+    // Build content
+    var itemsContent = '';
+    var fOType = data.filterType,
+        fODisplayType = data.displayType,
+        fOSelectType = data.selectType,
+        fOId = data.filterOptionId,
+        fOLabel = data.label;
+    // Prepare data for scrollbar - limit filter option values if showMoreType is scrollbar
+    data = this.scrollbarPrepareData(data, data.values);
+    for (var k in data.firstBuild) {
+        itemsContent += this.buildFilterOptionSwatchData(fOType, fOId, fOLabel, fODisplayType, fOSelectType, data['firstBuild'][k], data);
+    }
+    // Get Template & Append to Filter Tree
+    if (itemsContent != '') {
+        var html = this.getTemplate('filterOptionSwatch');
+        html = html.replace(/{{swatchStyle}}/g, this.buildSwatchStyle(data));
+        html = html.replace(/{{itemList}}/g, itemsContent);
+        this.buildFilterOption(html, data, filterTreeId);
+    }
+};
+BCSfFilter.prototype.buildSwatchStyle = function(data) {
+  if (this.getSettingValue('general.swatchStyle') != '') {
+    var swatchStyle = data.filterOptionId == 'pf_t_color' ? 'square-grid' : this.getSettingValue('general.swatchStyle');
+    return swatchStyle;
+  }
+  var swatchStyle = 'circle-grid';
+  if (this.checkIsFullWidthMobile()) swatchStyle = 'circle-list';
+  if (data.hasOwnProperty('swatchStyle')) swatchStyle = data['swatchStyle'];
+  return swatchStyle;
+};
+
 BCSfFilter.prototype.buildFilterTreeMobileButtonEvent = function() {
   var _this = this;
   var filterSelector = this.getSelector('filterTree');
@@ -490,3 +525,4 @@ jQ(document).ready(function() {
     jQ('body').removeClass('bc-custom-drawer-open');
   });
 })
+/* End-Boost-42070 */
