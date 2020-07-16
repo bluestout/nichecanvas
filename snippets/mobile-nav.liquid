@@ -173,8 +173,11 @@
     {%endif%}
     {%endif%}
   </ul>
-  <div class="menuLogin">    
-    <a href="tel:{{settings.number}}">{{settings.number}}</a>
+  <div class="menuLogin">
+    <div>
+      <img src="{{'phone.svg' | asset_url}}" style="vertical-align: middle;"/>    
+      <a href="tel:{{settings.number}}">{{settings.number}}</a>
+    </div>
     {% if customer %}
     <a href="/account" class="cst_login">Login
       {%else%}
