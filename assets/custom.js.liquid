@@ -426,8 +426,17 @@ $(document).ready(function(){
     })
   })
 
-  
-
+  /*********FS one two layout on mobile collection page************/
+  $('#fs-cl-two-col_btn').click(function(){
+    $(".fs-small--one-whole").css("width","50%");
+    $("#fs-cl-two-col_btn img").css("opacity","1");
+    $("#fs-cl-one-col_btn img").css("opacity","0.5");
+  });
+  $('#fs-cl-one-col_btn').click(function(){
+    $(".fs-small--one-whole").css("width","100%");
+    $("#fs-cl-two-col_btn img").css("opacity","0.5");
+    $("#fs-cl-one-col_btn img").css("opacity","1");
+  });
   
   
 })

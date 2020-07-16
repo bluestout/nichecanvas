@@ -161,22 +161,22 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
         case 2:
             o = "medium-up--one-half", "540x600";
             //if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
-                //o = "medium-up--one-half fs-small--one-whole", "540x600";
+                o = "medium-up--one-half fs-small--one-whole", "540x600";
             break;
         case 3:
             o = "small--one-half medium-up--one-third", "345x550";
-           // if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
-             //   o = "small--one-half medium-up--one-third fs-small--one-whole", "345x550";
+            //if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
+                o = "small--one-half medium-up--one-third fs-small--one-whole", "345x550";
             break;
         case 4:
             o = "small--one-half medium-up--one-quarter", "250x";
-           // if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
-             //   o = "small--one-half medium-up--one-quarter fs-small--one-whole", "250x";
+            //if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
+                o = "small--one-half medium-up--one-quarter fs-small--one-whole", "250x";
             break;
         case 5:
             o = "small--one-half medium-up--one-fifth", "195x"
-           // if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
-            //    o = "small--one-half medium-up--one-fifth fs-small--one-whole", "195x"
+            //if (bcSfFilterConfig.custom.products_mobile_per_row == 1)
+                o = "small--one-half medium-up--one-fifth fs-small--one-whole", "195x"
     }
 
     c = c.replace(/{{itemGridWidthClass}}/g, o);

@@ -189,7 +189,8 @@ $searchBoxMobileHeight: 50px;
 					    background-position: center;
 					    background-repeat: no-repeat;
 					    box-shadow: none;
-					    border: none !important;
+					    /*border: none !important;*/
+              
 					    margin-right: 16px;
 						}
 
@@ -204,7 +205,26 @@ $searchBoxMobileHeight: 50px;
 		}
 	}
 }
-
+#bc-sf-filter-option-block-color ul li a 
+{
+  .bc-sf-filter-option-swatch-image
+  {
+    border: 1px solid rgba(0,0,0,0.1) !important;
+  }
+  /*
+  .bc-sf-filter-option-swatch-image:before
+  {
+    display: block;
+    content: '';
+    background: rgba(0,0,0,0.0);
+    width: 32px;
+    height: 32px;
+    border: 1px solid rgba(0,0,0,0.1);
+    margin-top: -11px;
+    margin-left: -11px;
+  }
+  */
+}
 #bc-sf-filter-tree-h {
 	.bc-sf-filter-option-block {
 		position: relative;

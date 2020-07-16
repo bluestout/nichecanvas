@@ -2,7 +2,7 @@
 {% case products_per_row %}
 {% when 2 %}
 {%- assign max_height = 530 -%}
-{%- assign grid_item_width = 'medium-up--one-half' -%}
+{%- assign grid_item_width = 'medium-up--one-half ' -%}
 {% when 3 %}
 {%- assign max_height = 345 -%}
 {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
@@ -14,9 +14,8 @@
 {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
 {% endcase %}
 
-{% if settings.mobile_one_product_show == true %}
- {% comment %} {%- assign grid_item_width =  grid_item_width | append: ' fs-small--one-whole '-%} {% endcomment %}
-{% endif %}
+{%- assign grid_item_width =  grid_item_width | append: ' fs-small--one-whole '-%} 
+
 
 {% if section.settings.layout == 'grid' %}
 {%- assign limit = section.settings.grid | times: section.settings.rows -%}
@@ -68,6 +67,15 @@
     <div class="bc-sf-filter-mobile">
       <div id="bc-sf-filter-tree-mobile">
         {% include 'bc-sf-filter-skeleton', type: 'button' %}
+      </div>
+      <div class="fs-cl-laybtn-container">
+        <label>showing&nbsp;&nbsp;&nbsp;</label>
+        <a id="fs-cl-two-col_btn">
+          <img src="{{'thumbs_icon.svg' | asset_url}}">
+        </a>
+        <a id="fs-cl-one-col_btn">
+          <img src="{{'fullwidth_icon.svg' | asset_url}}">
+        </a>
       </div>
     </div>
 
