@@ -46,7 +46,7 @@
           {%else%}
           <div class="mLeftMenu">
             
-            {%if link.title == "Collections" or link.title == "Style" or link.title == "Room"  %}
+            {%if link.title == section.settings.title_1 or link.title == section.settings.title_2 or link.title == section.settings.title_3  %}
             {%include "nav-custom" %}
              
             {%else%}
@@ -84,7 +84,7 @@
                 {% endif %}
               </ul>
             </div>
-
+ 
           {% else %}
             <ul>
               {% for childlink in link.links %}

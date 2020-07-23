@@ -1,9 +1,9 @@
 <div class="site-nav__childlist">
               <ul class="site-nav__childlist-grid {%capture numberget%}{{forloop.index}}{%endcapture%}">
               <li class="site-nav__childlist-item ">
-                {%if link.title == "Collections" %}
+                {%if link.title == section.settings.title_1  %}
                 {% assign listing = section.settings.coll_linklist_1 %}
-                {% elsif link.title == "Style" %}
+                {% elsif link.title == section.settings.title_2  %}
                  {% assign listing = section.settings.style_linklist_1 %}
                 {% else %}
                {% assign listing = section.settings.room_linklist_1 %}
@@ -62,9 +62,9 @@
                   {% endfor %}
                 </li>
                   <li class="site-nav__childlist-item ">
-                     {%if link.title == "Collections" %}
+                     {%if link.title == section.settings.title_1 %}
                 {% assign listing = section.settings.coll_linklist_2 %}
-                {% elsif link.title == "Style" %}
+                {% elsif link.title == section.settings.title_2 %}
                  {% assign listing = section.settings.style_linklist_2 %}
                 {% else %}
                {% assign listing = section.settings.room_linklist_2 %}
@@ -125,9 +125,9 @@
                   {% endfor %}
                 </li>
                 <li class="site-nav__childlist-item ">
-                     {%if link.title == "Collections" %}
+                     {%if link.title == section.settings.title_1 %}
                 {% assign listing = section.settings.coll_linklist_3 %}
-                {% elsif link.title == "Style" %}
+                {% elsif link.title == section.settings.title_2 %}
                  {% assign listing = section.settings.style_linklist_3 %}
                 {% else %}
                {% assign listing = section.settings.room_linklist_3 %}
@@ -188,9 +188,9 @@
                   {% endfor %}
                 </li>
                 <li class="site-nav__childlist-item ">
-                     {%if link.title == "Collections" %}
+                     {%if link.title == section.settings.title_1 %}
                 {% assign listing = section.settings.coll_linklist_4 %}
-                {% elsif link.title == "Style" %}
+                {% elsif link.title == section.settings.title_2 %}
                  {% assign listing = section.settings.style_linklist_4 %}
                 {% else %}
                {% assign listing = section.settings.room_linklist_4 %}
@@ -251,9 +251,9 @@
                   {% endfor %}
                 </li>
                 <li class="site-nav__childlist-item ">
-                     {%if link.title == "Collections" %}
+                     {%if link.title == section.settings.title_1 %}
                 {% assign listing = section.settings.coll_linklist_5 %}
-                {% elsif link.title == "Style" %}
+                {% elsif link.title == section.settings.title_2 %}
                  {% assign listing = section.settings.style_linklist_5 %}
                 {% else %}
                {% assign listing = section.settings.room_linklist_5 %}
