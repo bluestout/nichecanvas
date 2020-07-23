@@ -656,216 +656,6 @@
 "content": {
 "da": "Meddelelseslinje",
 "de": "Ankündigungsbereich",
-"en": "Mega menu 1"
-}
-},
-{
-        "type": "text",
-        "id": "title_1",
-        "label": "Menu Title",
-        "default": "Menu Title"
-      },
-{
-"type": "link_list",
-"id": "coll_linklist_1",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 1"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "coll_linklist_2",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 2"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "coll_linklist_3",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 3"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "coll_linklist_4",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 4"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "coll_linklist_5",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 5"
-},
-"default": "main-menu"
-},
-{
-"type": "header",
-"content": {
-"da": "Meddelelseslinje",
-"de": "Ankündigungsbereich",
-"en": "Mega menu 2"
-}
-},
-{
-        "type": "text",
-        "id": "title_2",
-        "label": "Menu Title",
-        "default": "Menu Title"
-      },
-{
-"type": "link_list",
-"id": "style_linklist_1",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 1"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "style_linklist_2",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 2"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "style_linklist_3",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 3"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "style_linklist_4",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 4"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "style_linklist_5",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 5"
-},
-"default": "main-menu"
-},
-{
-"type": "header",
-"content": {
-"da": "Meddelelseslinje",
-"de": "Ankündigungsbereich",
-"en": "Mega menu 3"
-}
-},
-{
-        "type": "text",
-        "id": "title_3",
-        "label": "Menu Title",
-        "default": "Menu Title"
-      },
-{
-"type": "link_list",
-"id": "room_linklist_1",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 1"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "room_linklist_2",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 2"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "room_linklist_3",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 3"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "room_linklist_4",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 4"
-},
-"default": "main-menu"
-},
-{
-"type": "link_list",
-"id": "room_linklist_5",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 5"
-},
-"default": "main-menu"
-},
-{
-"type": "header",
-"content": {
-"da": "Meddelelseslinje",
-"de": "Ankündigungsbereich",
-"en": "List for color"
-}
-},
-{
-"type": "link_list",
-"id": "colorList",
-"label": {
-"da": "Menu",
-"de": "Menü",
-"en": "Menu 1"
-},
-"default": "main-menu"
-},
-{
-"type": "header",
-"content": {
-"da": "Meddelelseslinje",
-"de": "Ankündigungsbereich",
 "en": "Gallery"
 }
 },
@@ -1221,11 +1011,40 @@
 }
 ],
     "blocks": [
-      {
+       {
         "type": "content",
-        "name": "Content",
+        "name": "Menu",
         "settings": [
-        
+          {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Title"
+      },
+{
+      "type": "link_list",
+      "id": "main_linklist",
+      "label": {
+        "da": "Menu",
+        "de": "Menü",
+        "en": "Menu"
+      },
+      "default": "main-menu"
+    },
+{
+"type": "url",
+"id": "menu_link",
+"label": {
+"da": "Link",
+"de": "Link",
+"en": "Link"
+},
+"info": {
+"da": "Valgfri",
+"de": "Optional",
+"en": "Optional"
+}
+}
         ]
       }
     ]

@@ -1,0 +1,1040 @@
+{
+  "current": {
+    "color_text": "#000000",
+    "color_body_text": "#000000",
+    "color_sale_text": "#000000",
+    "color_button": "#000000",
+    "color_button_text": "#fff",
+    "color_small_button_text_border": "#3d4246",
+    "color_text_field_text": "#000",
+    "color_text_field_border": "#949494",
+    "color_text_field": "#fff",
+    "color_image_overlay_text": "#fff",
+    "color_image_overlay": "#3d4246",
+    "image_overlay_opacity": 40,
+    "color_borders": "#e8e9eb",
+    "color_body_bg": "#fff",
+    "type_header_font": "lato_n6",
+    "type_header_base_size": 26,
+    "type_base_font": "lato_n4",
+    "type_base_size": 16,
+    "predictive_search_enabled": false,
+    "predictive_search_show_vendor": false,
+    "predictive_search_show_price": false,
+    "number": "1-833-CANVAS",
+    "share_image": "shopify:\/\/shop_images\/thumbnail3_600x600_62f5b366-b828-4aca-a7e1-41906112a843.jpg",
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_tumblr_link": "",
+    "social_snapchat_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "favicon": "shopify:\/\/shop_images\/favNiche.png",
+    "enable_ajax": true,
+    "enable_btns": true,
+    "app_wk_enabled": true,
+    "app_wk_login_required": false,
+    "app_wk_icon": "heart",
+    "app_wk_col_bg_shape": "square",
+    "app_wk_share_position": "top",
+    "app_wk_products_per_row": "4",
+    "slider_left_top_mark_txt": "New",
+    "slider_left_top_mark_color": "#ffffff",
+    "slider_left_top_mark_enabled": false,
+    "mobile_one_product_show": true,
+    "enable_sezzle_route": false,
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/LogoNicheCanvas_LcolorCAP_7df0dd79-9036-446a-b5c7-71dc61323ef5.png",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "medium",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "white",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#000000",
+    "checkout_button_color": "#000000",
+    "checkout_error_color": "#e32c2b",
+    "sections": {
+      "header": {
+        "type": "header",
+        "blocks": {
+          "1595410357192": {
+            "type": "content",
+            "settings": {
+              "title": "Collections",
+              "main_linklist": "ad-collects",
+              "menu_link": ""
+            }
+          },
+          "1595410910987": {
+            "type": "content",
+            "settings": {
+              "title": "Style",
+              "main_linklist": "ad-collects",
+              "menu_link": ""
+            }
+          },
+          "1595487636724": {
+            "type": "content",
+            "settings": {
+              "title": "Color",
+              "main_linklist": "ad-color",
+              "menu_link": ""
+            }
+          },
+          "1595487642422": {
+            "type": "content",
+            "settings": {
+              "title": "Room",
+              "main_linklist": "ad-collects",
+              "menu_link": ""
+            }
+          },
+          "1595487653122": {
+            "type": "content",
+            "settings": {
+              "title": "New Arrivals",
+              "main_linklist": "",
+              "menu_link": ""
+            }
+          },
+          "1595487662893": {
+            "type": "content",
+            "settings": {
+              "title": "Contact Us",
+              "main_linklist": "",
+              "menu_link": "shopify:\/\/pages\/contact-us"
+            }
+          },
+          "1595487796875": {
+            "type": "content",
+            "settings": {
+              "title": "Best Seller",
+              "main_linklist": "",
+              "menu_link": ""
+            }
+          },
+          "1595491704536": {
+            "type": "content",
+            "settings": {
+              "title": "Track Your Order",
+              "main_linklist": "",
+              "menu_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1595410357192",
+          "1595410910987",
+          "1595487636724",
+          "1595487642422",
+          "1595487796875",
+          "1595487653122",
+          "1595491704536",
+          "1595487662893"
+        ],
+        "settings": {
+          "align_logo": "left",
+          "logo": "shopify:\/\/shop_images\/LogoNicheCanvas_LcolorCAP.png",
+          "logo_max_width": 250,
+          "main_linklist": "ad-desktop-main-menu",
+          "mega_img_1": "shopify:\/\/shop_images\/default_cat.jpg",
+          "mega_img_2": "shopify:\/\/shop_images\/default_cat.jpg",
+          "mega_img_3": "shopify:\/\/shop_images\/default_cat.jpg",
+          "mega_img_4": "shopify:\/\/shop_images\/default_cat.jpg",
+          "gallery_show": true,
+          "gallery": false,
+          "image_1": "shopify:\/\/shop_images\/thumb-01.jpg",
+          "text_1": "Best Sellers",
+          "link_1": "shopify:\/\/collections\/best-sellers-1",
+          "image_2": "shopify:\/\/shop_images\/thumb-02.jpg",
+          "text_2": "Best Sellers",
+          "link_2": "#",
+          "image_3": "shopify:\/\/shop_images\/thumb-03.jpg",
+          "text_3": "Best Sellers",
+          "link_3": "#",
+          "image_4": "shopify:\/\/shop_images\/thumb-04.jpg",
+          "text_4": "Best Sellers",
+          "link_4": "#",
+          "message": true,
+          "home_page_only": false,
+          "message_text": "<span style=\"font-size:1rem\">EXTENDED CANADA DAY SALE!<\/span><br>\n<span><strong style=\"font-size:.9rem;\">15% DISCOUNT \n | USE CODE: <\/strong> <strong style=\"font-size:.9rem; color: #FF9C32;\">ILOVECANADA<\/strong><\/span>",
+          "message_mobile_text": "<span style=\"font-size:0.8\">EXTENDED CANADA DAY SALE!<\/span><br><span><strong style=\"font-size:.9rem;\">15% DISCOUNT <\/strong> <\/span>\n|\n<span>USE CODE: <strong style=\"font-size:.9rem; color: #FF9C32;\">ILOVECANADA<\/strong><\/span>",
+          "message_link": "",
+          "color_bg": "#000000",
+          "color_text": "#fff"
+        }
+      },
+      "slideshow": {
+        "type": "slideshow",
+        "blocks": {
+          "slideshow-0": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/banner_mince_canada_1.jpg",
+              "Mob_image": "shopify:\/\/shop_images\/mobile_banner_3.jpg",
+              "alignment": "center center",
+              "slide_title": "HAPPY CANADA DAY!",
+              "subheading": "<p>GET 15% OFF | USE CODE: <span style=\"color: #ff9900;\">ILOVECANADA<\/span><\/p>",
+              "button_label": "SHOP BEST SELLERS",
+              "button_link": "shopify:\/\/collections\/best-sellers-1"
+            }
+          }
+        },
+        "block_order": [
+          "slideshow-0"
+        ],
+        "settings": {
+          "slideshow_height": "adapt",
+          "text_size": "large",
+          "text_alignment": "center center",
+          "show_overlay": true,
+          "autorotate": false,
+          "autorotate_speed": 5
+        }
+      },
+      "featured-collections": {
+        "type": "collection",
+        "disabled": true,
+        "settings": {
+          "title": "New Arrivals",
+          "subtitle": "New designs added every week",
+          "collection": "new-arrivals",
+          "grid": 4,
+          "rows": 1,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "link_list": {
+            "type": "link_list",
+            "settings": {
+              "title": "Collections",
+              "menu": "new-collections-footer1",
+              "Mob_title": "Collections",
+              "mobilemenu": "new-mobile-footer"
+            }
+          },
+          "1582011032066": {
+            "type": "link_list",
+            "settings": {
+              "title": "",
+              "menu": "new-collections-footer2",
+              "Mob_title": "Quick links2",
+              "mobilemenu": "new-mobile-footer"
+            }
+          },
+          "1582011071304": {
+            "type": "link_list",
+            "settings": {
+              "title": "",
+              "menu": "new-collections-footer3",
+              "Mob_title": "Quick links3",
+              "mobilemenu": "new-mobile-footer"
+            }
+          },
+          "1582098145100": {
+            "type": "link_list",
+            "settings": {
+              "title": "Customer Info",
+              "menu": "customerinof",
+              "Mob_title": "Customer Info",
+              "mobilemenu": "customerinof"
+            }
+          },
+          "1582098300036": {
+            "type": "text",
+            "settings": {
+              "title": "Get In Touch",
+              "text": "<a href=\"mailto:support@nichecanvas.com\">support@nichecanvas.com<\/a>",
+              "mob_title": "Get In Touch",
+              "mobile_text": "<a href=\"mailto:support@nichecanvas.com\">support@nichecanvas.com<\/a>"
+            }
+          }
+        },
+        "block_order": [
+          "link_list",
+          "1582011032066",
+          "1582011071304",
+          "1582098145100",
+          "1582098300036"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "color_footer_bg": "#ffffff",
+          "color_footer_text": "#000000"
+        }
+      },
+      "1581928465910": {
+        "type": "feature-columns",
+        "blocks": {
+          "1581928465910-0": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/icon-free-shipping.png",
+              "title": "Free Shipping in the USA",
+              "text": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1581928465910-1": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/icon-ready-to-hang.png",
+              "title": "Ready to mount",
+              "text": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          },
+          "1581928465910-2": {
+            "type": "text_block",
+            "settings": {
+              "enable_image": true,
+              "image": "shopify:\/\/shop_images\/icon-best-price-guarantee.png",
+              "title": "Best Price Guarantee",
+              "text": "",
+              "button_label": "",
+              "button_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1581928465910-0",
+          "1581928465910-1",
+          "1581928465910-2"
+        ],
+        "settings": {
+          "image_bg": "",
+          "title": "At Nichecanvas we want you to be able to find the piece that speaks to you and shows who you really are. We carry a wide variety of wall art that you just won't be able to find anywhere else.",
+          "align_text": "center"
+        }
+      },
+      "masonry-grid": {
+        "type": "masonry-grid",
+        "settings": {
+          "section_title": "Talk about your brand",
+          "section_subtitle": "Talk about your brand",
+          "collection_link": ""
+        }
+      },
+      "1581996347570": {
+        "type": "masonry-grid",
+        "blocks": {
+          "1582001326531": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/whiskers-1d.jpg",
+              "Title": "New Arrivals",
+              "btntext": "Shop New Arrivals",
+              "link": "shopify:\/\/collections\/new-arrivals"
+            }
+          },
+          "1582001345081": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/inspiration-landscape_1024x1024_a958bcc9-35c4-4eec-91d4-210debb92ea4.jpg",
+              "Title": "Landscapes",
+              "btntext": "Shop Landscape",
+              "link": "shopify:\/\/collections\/landscape"
+            }
+          },
+          "1582005693105": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/256.jpg",
+              "Title": "Best Sellers",
+              "btntext": "Shop Best Sellers",
+              "link": "shopify:\/\/collections\/best-sellers-1"
+            }
+          },
+          "1582001208957": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/sum.jpg",
+              "Title": "Black & White",
+              "btntext": "Shop Black & White",
+              "link": "shopify:\/\/collections\/black-white"
+            }
+          },
+          "1582005698187": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/4_8ffe11d0-0338-4b69-8e14-d156110e2894.jpg",
+              "Title": "Buddha",
+              "btntext": "Shop Buddha",
+              "link": "shopify:\/\/collections\/shop-buddha"
+            }
+          },
+          "1582005700823": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/Depositphotos_80183618_xl-2015.jpg",
+              "Title": "Fractal",
+              "btntext": "Shop Fractal",
+              "link": "shopify:\/\/collections\/shop-fractal"
+            }
+          },
+          "1582005702184": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/dfr56y.jpg",
+              "Title": "Female Portraits",
+              "btntext": "Shop Female Portraits",
+              "link": "shopify:\/\/collections\/female-portraits"
+            }
+          },
+          "1582005699463": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/f34.jpg",
+              "Title": "Cities",
+              "btntext": "Shop Cities",
+              "link": "shopify:\/\/collections\/cities"
+            }
+          },
+          "1582005706584": {
+            "type": "Image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/original.jpg",
+              "Title": "Trending",
+              "btntext": "Shop Trending",
+              "link": "shopify:\/\/collections\/premium-collection"
+            }
+          }
+        },
+        "block_order": [
+          "1582001326531",
+          "1582001345081",
+          "1582005693105",
+          "1582001208957",
+          "1582005698187",
+          "1582005700823",
+          "1582005702184",
+          "1582005699463",
+          "1582005706584"
+        ],
+        "settings": {
+          "section_title": "Unique, Enlightening Prints",
+          "section_subtitle": "Browse hundreds of designs in our collections",
+          "collection_link": "shopify:\/\/collections"
+        }
+      },
+      "1582010967107": {
+        "type": "collection",
+        "settings": {
+          "title": "Best Sellers",
+          "subtitle": "Our most loved designs",
+          "collection": "best-sellers-1",
+          "grid": 4,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      },
+      "1582012825143": {
+        "type": "image-with-accordion",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/bg.png",
+          "color_text": "#f9ebd9",
+          "image_mob": "shopify:\/\/shop_images\/bg.png",
+          "title": "Quality, Lasting Production",
+          "content": "All our products are carefully handcrafted and inspected for quality. Your canvas will arrive ready to hang with metal sawtooth hangers and rubber bumpers for a smooth fit on your wall.",
+          "title_2": "High Quality Frame",
+          "content_2": "Our Roma Mouldings are made from 100% real pine wood, professionally handcrafted in Italy. Every frame is sanded five times to ensure a perfect finish without chipping. We use 1.25\" thick FSC Certified warp-free, knot-free, kiln-dried wood from sustainable forests. The frames are finger-jointed and reinforced to make sure they last for many years.",
+          "Accheading_1": "Professional Grade Print",
+          "Acccontent_1": "We produce perfect genuine artist quality wall arts.\nPrinted on a soft cotton\/polyester canvas stretched on a wooden frame. We employ the use of UL Certified Greenguard Gold Ink for every print which provides not only a great quality pigment but also makes the canvas; water, fade, scratch and crack resistant.",
+          "Accheading_2": "Large and Diverse Collection",
+          "Acccontent_2": "With thousands of canvas and framed art prints to choose from, you're bound to find the perfect affordable art for your walls.",
+          "btn_text": "Browse our collections",
+          "button_link": "shopify:\/\/collections"
+        }
+      },
+      "1582016831892": {
+        "type": "slider-with-icons",
+        "blocks": {
+          "1582096802941": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/nybeaty2.jpg",
+              "slide_icon": "hor-5-piece.svg",
+              "color_text": "#000000",
+              "slide_title": "Variety Of Formats",
+              "subheading": "Choose design that fits the best to your interior.",
+              "button_label": "Shop 5 Panels",
+              "button_link": "shopify:\/\/collections\/five-panels"
+            }
+          },
+          "1582096811991": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3panelhorizontal_03708489-0d44-43ac-8ed8-99897b38b544.jpg",
+              "slide_icon": "hor-3piece.svg",
+              "color_text": "#000",
+              "slide_title": "Variety Of Formats",
+              "subheading": "Choose design that fits the best to your interior.",
+              "button_label": "Shop 3 Panels Horizontal",
+              "button_link": "https:\/\/nichecanvas.com\/collections\/shop-3pc?_=pf&pf_t_format=acme3horizontal"
+            }
+          },
+          "1582096827989": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/3p3.png",
+              "slide_icon": "ver-3-piece.svg",
+              "color_text": "#000",
+              "slide_title": "Variety Of Formats",
+              "subheading": "Choose a design that fits best to your interior:",
+              "button_label": "Shop 3 Panels Vertical",
+              "button_link": "https:\/\/nichecanvas.com\/collections\/shop-3pc?_=pf&pf_t_format=acme3vertical"
+            }
+          },
+          "1582096819476": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1panelhorizontal_4d38ceb4-1733-40e6-b927-d79aff49c57c.jpg",
+              "slide_icon": "hor-1-piece.svg",
+              "color_text": "#000",
+              "slide_title": "Variety Of Formats",
+              "subheading": "Choose design that fits the best to your interior.",
+              "button_label": "Shop Single Panel Horizontal",
+              "button_link": "https:\/\/nichecanvas.com\/collections\/single-panel?_=pf&pf_t_format=acmehorizontal"
+            }
+          },
+          "1582096833438": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/1panelvertical_c9a27f32-e8cf-4e29-a50e-a41263f5476a.jpg",
+              "slide_icon": "ver-1-piece.svg",
+              "color_text": "#ffffff",
+              "slide_title": "Variety Of Formats",
+              "subheading": "Choose design that fits the best to your interior.",
+              "button_label": "Shop Single Panel Vertical",
+              "button_link": "https:\/\/nichecanvas.com\/collections\/single-panel?_=pf&pf_t_format=acmevertical"
+            }
+          }
+        },
+        "block_order": [
+          "1582096802941",
+          "1582096811991",
+          "1582096827989",
+          "1582096819476",
+          "1582096833438"
+        ],
+        "settings": {}
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+          "show_quantity_selector": false,
+          "show_variant_labels": true,
+          "show_vendor": false,
+          "enable_payment_button": true,
+          "show_share_buttons": false,
+          "content_canvas": "Canvas Text Goes here.",
+          "image_canvas": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
+          "content_floating": "Testing Floating Frame is an additional space between print and frame edges.",
+          "image_floating": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
+          "content_small": "",
+          "image_small": "",
+          "content_medium": "1 * 1 cm<br>\n1 * 1 inch",
+          "image_medium": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
+          "content_large": "1 * 1 cm<br>\n1 * 1 inch",
+          "image_large": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
+          "content_huge": "1 * 1 cm<br>\n1 * 1 inch",
+          "image_huge": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
+          "static_main_head": "Quality, Lasting Production",
+          "static_main_content": "All our products are carefully handcrafted and inspected for quality. Your canvas will arrive ready to hang with metal sawtooth hangers and rubber bumpers for a smooth fit on your wall.",
+          "image_1": "shopify:\/\/shop_images\/product-features1.jpg",
+          "heading_1": "Art Gallery Level of Quality",
+          "content_1": "We produce perfect genuine artist quality wall arts.\nPrinted on a soft cotton\/polyester canvas stretched on a wooden frame. We employ the use of UL Certified Greenguard Gold Ink for every print which provides not only a great quality pigment but also makes the canvas; water, fade, scratch and crack resistant.",
+          "image_2": "shopify:\/\/shop_images\/product-features2.jpg",
+          "heading_2": "Premium Quality Floating Frames",
+          "content_2": "Our Roma Mouldings are made from 100% real pine wood, professionally handcrafted in Italy. Every frame is sanded five times to ensure a perfect finish without chipping.",
+          "image_3": "shopify:\/\/shop_images\/product-features3.jpg",
+          "heading_3": "Best Stretcher Bars in the Industry",
+          "content_3": "Finger-jointed pine provides enhanced structural stability, durability, and strength.<br><br>Made from sustainable wood from renewable forests (FSC certified)<br> \nSpecific size trees are grown to maximize the yield of stretcher bars, which reduces waste during production and result in a workflow and product that is as green as possible.<br><br>We use 1.25\" thick warp-free, knot-free, kiln-dried wood from sustainable forests. The frames are finger-jointed and reinforced to make sure they last for many years.",
+          "US_content": "<span>US, CA, UK, AU: <\/span>7 working days",
+          "EU_content": "<span>Europe:  <\/span>15 working days",
+          "Rest_content": "<span>Rest of the world: <\/span>15-20 working days",
+          "shipping_content": "<li> <img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2012\/8501\/t\/103\/assets\/icon-free-shipping.svg\" alt=\"Image\" title=\"Free Shiping\">\n    <p>Free Shipping in the USA<\/p>\n  <\/li>\n  <li> <img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2012\/8501\/t\/103\/assets\/icon-ready-to-hang.svg\" alt=\"Image\" title=\"Ready to mount\">\n    <p>Ready to mount<\/p>\n  <\/li>\n  <li> <img src=\"https:\/\/cdn.shopify.com\/s\/files\/1\/2012\/8501\/t\/103\/assets\/icon-best-price-guarantee.svg\" alt=\"Image\" title=\"Best Price Guarantee\">\n    <p>Best Price Guarantee<\/p>\n  <\/li>",
+          "media_size": "medium",
+          "enable_image_zoom": false,
+          "enable_video_looping": false
+        }
+      },
+      "product-recommendations": {
+        "type": "product-recommendations",
+        "settings": {
+          "show_product_recommendations": true,
+          "heading": "You'll Love These",
+          "show_vendor": false
+        }
+      },
+      "newsletter": {
+        "type": "newsletter",
+        "settings": {
+          "section_title": "Sign up for offers, giveaways, and flash sales in your inbox every week.",
+          "subheading": "",
+          "show_background": true,
+          "background_color": "#000000",
+          "button_color": "#ffdc08",
+          "text_color": "#ffffff",
+          "bottom_text": "By clicking Subscribe, you agree to our Terms Of Service and Privacy Policy."
+        }
+      },
+      "1582524958442": {
+        "type": "content-with-image",
+        "disabled": true,
+        "settings": {
+          "title": "Musical Collection",
+          "subtitle": "Modern, artistic designs which bring a sense of modern to any space.",
+          "handmade_image": "shopify:\/\/shop_images\/icon-us-flag.png",
+          "content": "Handmade in the USA",
+          "btn_text": "Explore collection",
+          "button_link": "shopify:\/\/collections\/shop-musical-instrument",
+          "image": "shopify:\/\/shop_images\/banner_milieu.png"
+        }
+      },
+      "cart-template": {
+        "type": "cart-template",
+        "settings": {
+          "cart_ajax_enable": true,
+          "shipping_message": true,
+          "shipping_info": "<p>All our products are carefully handcrafted and inspected for quality. Once your order is ready and shipped, we guarantee that it will arrive within these timeframes:<\/p>\n          <ul class=\"csUsdays\">\n            <li>-   US, Canada, UK, Australia: 7 working days<\/li>\n            <li>-   Europe: 15 working days<\/li>\n            <li>-   Rest of the world: 15 to 20 working days<\/li>\n          <\/ul>",
+          "title_1": "Free Shipping in the USA",
+          "image_1": "shopify:\/\/shop_images\/icon-free-shipping.png",
+          "title_2": "Ready to mount",
+          "image_2": "shopify:\/\/shop_images\/icon-ready-to-hang.png",
+          "title_3": "Best Price Guarantee",
+          "image_3": "shopify:\/\/shop_images\/icon-best-price-guarantee.png",
+          "cart_notes_enable": false
+        }
+      },
+      "best-seller": {
+        "type": "best-seller",
+        "settings": {
+          "title": "Best Sellers",
+          "subtitle": "Our most loved  designs",
+          "collection": "best-sellers-1",
+          "grid": 4,
+          "rows": 1
+        }
+      },
+      "1583884418316": {
+        "type": "loox-all-reviews",
+        "settings": {
+          "title": "Our Customers Love Us...",
+          "only_photos": false,
+          "hide_thumbnails": false,
+          "product_handle": "",
+          "data-limit": 8,
+          "maxwidth": 1920
+        }
+      },
+      "collection-template": {
+        "type": "collection-template",
+        "settings": {
+          "layout": "grid",
+          "grid": 3,
+          "rows": 4,
+          "show_collection_image": false,
+          "show_vendor": false,
+          "sort_enable": true,
+          "tags_enable": true
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "settings": {
+          "display_type": "all",
+          "sort": "alphabetical",
+          "grid": 3
+        }
+      },
+      "1588310417095": {
+        "type": "truspilot-widge",
+        "settings": {}
+      },
+      "1590031931364": {
+        "type": "collection",
+        "disabled": true,
+        "settings": {
+          "title": "Memorial Day",
+          "subtitle": "Browse and celebrate our Memorial Day collection.",
+          "collection": "shop-memorial-day",
+          "grid": 4,
+          "rows": 1,
+          "show_vendor": false,
+          "show_view_all": true
+        }
+      }
+    },
+    "content_for_index": [
+      "slideshow",
+      "1581928465910",
+      "1582010967107",
+      "1590031931364",
+      "1581996347570",
+      "1582012825143",
+      "1582016831892",
+      "1582524958442",
+      "featured-collections",
+      "1588310417095",
+      "1583884418316"
+    ]
+  },
+  "presets": {
+    "Default": {
+      "color_text": "#3d4246",
+      "color_body_text": "#69727b",
+      "color_sale_text": "#557B97",
+      "color_borders": "#e8e9eb",
+      "color_button": "#557B97",
+      "color_button_text": "#fff",
+      "color_small_button_text_border": "#3d4246",
+      "color_text_field": "#fff",
+      "color_text_field_text": "#000",
+      "color_text_field_border": "#949494",
+      "color_image_overlay_text": "#fff",
+      "color_image_overlay": "#3d4246",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#fff",
+      "type_header_font": "work_sans_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "work_sans_n4",
+      "type_base_size": 16,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {}
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {}
+            },
+            "slideshow-1": {
+              "type": "image",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "slideshow-1"
+          ],
+          "settings": {}
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage"
+          }
+        },
+        "feature-row": {
+          "type": "feature-row",
+          "settings": {}
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ],
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "feature-row",
+        "slideshow"
+      ]
+    },
+    "Light": {
+      "color_text": "#162950",
+      "color_body_text": "#6d6d6d",
+      "color_sale_text": "#DA2F0C",
+      "color_borders": "#e4e4e4",
+      "color_button": "#DA2F0C",
+      "color_button_text": "#ffffff",
+      "color_small_button_text_border": "#162950",
+      "color_text_field": "#ffffff",
+      "color_text_field_text": "#162950",
+      "color_text_field_border": "#909090",
+      "color_image_overlay_text": "#ffffff",
+      "color_image_overlay": "#3d3d3d",
+      "image_overlay_opacity": 40,
+      "color_body_bg": "#f8f8f8",
+      "type_header_font": "muli_n6",
+      "type_header_base_size": 26,
+      "type_base_font": "muli_n4",
+      "type_base_size": 18,
+      "share_facebook": true,
+      "share_twitter": true,
+      "share_pinterest": true,
+      "social_twitter_link": "",
+      "social_facebook_link": "",
+      "social_pinterest_link": "",
+      "social_instagram_link": "",
+      "social_tumblr_link": "",
+      "social_snapchat_link": "",
+      "social_youtube_link": "",
+      "social_vimeo_link": "",
+      "favicon": "",
+      "checkout_header_image": "",
+      "checkout_logo_image": "",
+      "checkout_logo_position": "left",
+      "checkout_logo_size": "small",
+      "checkout_body_background_image": "",
+      "checkout_body_background_color": "#ffffff",
+      "checkout_input_background_color_mode": "white",
+      "checkout_sidebar_background_image": "",
+      "checkout_sidebar_background_color": "#e8f3f6",
+      "checkout_heading_font": "Roboto",
+      "checkout_body_font": "Source Sans Pro",
+      "checkout_accent_color": "#1990c6",
+      "checkout_button_color": "#23314e",
+      "checkout_error_color": "#ff6d6d",
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "align_logo": "left",
+            "logo": "",
+            "logo_max_width": 135,
+            "main_linklist": "main-menu",
+            "message": true,
+            "color_bg": "#162950",
+            "color_text": "#ffffff"
+          }
+        },
+        "hero": {
+          "type": "hero",
+          "settings": {
+            "alignment": "center",
+            "hero_size": "x-large",
+            "text_size": "large"
+          }
+        },
+        "slideshow": {
+          "type": "slideshow",
+          "blocks": {
+            "slideshow-0": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center center"
+              }
+            },
+            "1492095993817": {
+              "type": "image",
+              "settings": {
+                "image": "",
+                "alignment": "center"
+              }
+            }
+          },
+          "block_order": [
+            "slideshow-0",
+            "1492095993817"
+          ],
+          "settings": {
+            "slideshow_height": "medium",
+            "text_size": "medium",
+            "autorotate": false,
+            "autorotate_speed": 5
+          }
+        },
+        "featured-collections": {
+          "type": "collection",
+          "settings": {
+            "grid": 3,
+            "rows": 1,
+            "show_vendor": true,
+            "show_view_all": true
+          }
+        },
+        "product-template": {
+          "type": "product-template",
+          "settings": {
+            "show_quantity_selector": false,
+            "show_variant_labels": true,
+            "show_vendor": false,
+            "show_share_buttons": true,
+            "media_size": "medium",
+            "enable_image_zoom": true,
+            "enable_video_looping": false
+          }
+        },
+        "collection-template": {
+          "type": "collection-template",
+          "settings": {
+            "layout": "grid",
+            "grid": 2,
+            "rows": 2,
+            "show_collection_image": true,
+            "show_vendor": false,
+            "sort_enable": true,
+            "tags_enable": true
+          }
+        },
+        "1492033809691": {
+          "type": "map",
+          "settings": {}
+        },
+        "1492033877875": {
+          "type": "quotes",
+          "blocks": {
+            "1492033877875-0": {
+              "type": "quote",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492033877875-0"
+          ],
+          "settings": {}
+        },
+        "1492033924902": {
+          "type": "custom-content",
+          "blocks": {
+            "1492033924902-0": {
+              "type": "text",
+              "settings": {
+                "width": "100%",
+                "alignment": "center",
+                "align_text": "center"
+              }
+            }
+          },
+          "block_order": [
+            "1492033924902-0"
+          ],
+          "settings": {
+            "title": ""
+          }
+        },
+        "1492096252560": {
+          "type": "collection-list",
+          "blocks": {
+            "1492096252560-0": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-1": {
+              "type": "featured_collection",
+              "settings": {}
+            },
+            "1492096252560-2": {
+              "type": "featured_collection",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "1492096252560-0",
+            "1492096252560-1",
+            "1492096252560-2"
+          ],
+          "settings": {
+            "grid": 3
+          }
+        },
+        "blog-template": {
+          "type": "blog-template",
+          "settings": {
+            "layout": "grid",
+            "blog_show_author": true,
+            "blog_show_date": false
+          }
+        },
+        "article-template": {
+          "type": "article-template",
+          "settings": {
+            "blog_show_author": true,
+            "blog_show_date": true,
+            "show_share_buttons": true
+          }
+        },
+        "cart-template": {
+          "type": "cart-template",
+          "settings": {
+            "cart_notes_enable": false
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "link_list": {
+              "type": "link_list",
+              "settings": {}
+            },
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "link_list",
+            "text",
+            "newsletter"
+          ],
+          "settings": {}
+        }
+      },
+      "content_for_index": [
+        "hero",
+        "featured-collections",
+        "slideshow",
+        "1492033924902",
+        "1492096252560",
+        "1492033877875",
+        "1492033809691"
+      ]
+    }
+  }
+}

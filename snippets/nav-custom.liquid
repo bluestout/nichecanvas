@@ -1,23 +1,21 @@
 <div class="site-nav__childlist">
               <ul class="site-nav__childlist-grid {%capture numberget%}{{forloop.index}}{%endcapture%}">
-              <li class="site-nav__childlist-item ">
-                {%if link.title == section.settings.title_1  %}
-                {% assign listing = section.settings.coll_linklist_1 %}
-                {% elsif link.title == section.settings.title_2  %}
-                 {% assign listing = section.settings.style_linklist_1 %}
-                {% else %}
-               {% assign listing = section.settings.room_linklist_1 %}
-                {%endif%}
-                  {% for customlink in linklists[listing].links %}
+              {% for customlink in linklists[header_Menu].links %}
+                {% assign number = forloop.index | modulo:5 %}
+                {%if number == 1 or forloop.first%}
+           
+                
+                
+                <li class="site-nav__childlist-item ">
+                  {%endif%}
                 <div class="nc-has-drop-list">
-                 <a 
+                  <a 
                         class="site-nav__link site-nav__child-link site-nav__child-link--parent"
-                        {% if customlink.current %} aria-current="page"{% endif %}
+                        
                       >
                         <span class="site-nav__label">{{ customlink.title | escape }}</span>
                       </a>
-                    
-                      {% if customlink.links != blank %}
+                   {% if customlink.links != blank %}
                         <ul>
                         {% for grandchildlink in customlink.links %}
                           {% if grandchildlink.links != blank %}
@@ -58,260 +56,11 @@
                         </ul>
                       {% endif %}
                 </div>
-                   
-                  {% endfor %}
+                  {%if number == 0 or forloop.last%}
                 </li>
-                  <li class="site-nav__childlist-item ">
-                     {%if link.title == section.settings.title_1 %}
-                {% assign listing = section.settings.coll_linklist_2 %}
-                {% elsif link.title == section.settings.title_2 %}
-                 {% assign listing = section.settings.style_linklist_2 %}
-                {% else %}
-               {% assign listing = section.settings.room_linklist_2 %}
                 {%endif%}
-                  {% for customlink in linklists[listing].links %}
-                
-                    <div class="nc-has-drop-list">
-                  
-                      <a 
-                        class="site-nav__link site-nav__child-link site-nav__child-link--parent"
-                        {% if customlink.current %} aria-current="page"{% endif %}
-                      >
-                        <span class="site-nav__label">{{ customlink.title | escape }}</span>
-                      </a>
-                    
-                      {% if customlink.links != blank %}
-                       <ul>
-                        {% for grandchildlink in customlink.links %}
-                          {% if grandchildlink.links != blank %}
-                          <li class="nc-has-drop-list">
-                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link site-nav__child-link--parent"
-                            {% if grandchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
-                            </a>
-                          
-                        <ul>
-                        {% for grandsunchildlink in grandchildlink.links %}
-                          <li>
-                            <a href="{{ grandsunchildlink.url }}" {% if grandsunchildlink.type contains "collection_link" %} {% assign imagepath = grandsunchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandsunchildlink.type contains "collection_link" %} {% assign imagepath = grandsunchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link"
-                            {% if grandsunchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandsunchildlink.title | escape }}</span>
-                            </a>
-                          </li>
-                        {% endfor %}
-                          
-                        </ul>
-                            </li>
-                      {%else%}
-                          <li>
-                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link"
-                            {% if grandchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
-                            </a>
-                          </li>
-                          {% endif %}
-                        {% endfor %}
-                         
-                        </ul>
-                      {% endif %}
-                    </div>
-                   
-                  {% endfor %}
-                </li>
-                <li class="site-nav__childlist-item ">
-                     {%if link.title == section.settings.title_1 %}
-                {% assign listing = section.settings.coll_linklist_3 %}
-                {% elsif link.title == section.settings.title_2 %}
-                 {% assign listing = section.settings.style_linklist_3 %}
-                {% else %}
-               {% assign listing = section.settings.room_linklist_3 %}
-                {%endif%}
-                  {% for customlink in linklists[listing].links %}
-                
-                    
-                  <div class="nc-has-drop-list">
-                      <a
-                        class="site-nav__link site-nav__child-link site-nav__child-link--parent"
-                        {% if customlink.current %} aria-current="page"{% endif %}
-                      >
-                        <span class="site-nav__label">{{ customlink.title | escape }}</span>
-                      </a>
-                    
-                      {% if customlink.links != blank %}
-                        <ul>
-                        {% for grandchildlink in customlink.links %}
-                          {% if grandchildlink.links != blank %}
-                          <li class="nc-has-drop-list">
-                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link site-nav__child-link--parent"
-                            {% if grandchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
-                            </a>
-                          
-                        <ul>
-                        {% for grandsunchildlink in grandchildlink.links %}
-                          <li>
-                            <a href="{{ grandsunchildlink.url }}" {% if grandsunchildlink.type contains "collection_link" %} {% assign imagepath = grandsunchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandsunchildlink.type contains "collection_link" %} {% assign imagepath = grandsunchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link"
-                            {% if grandsunchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandsunchildlink.title | escape }}</span>
-                            </a>
-                          </li>
-                        {% endfor %}
-                          
-                        </ul>
-                            </li>
-                      {%else%}
-                          <li>
-                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link"
-                            {% if grandchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
-                            </a>
-                          </li>
-                          {% endif %}
-                        {% endfor %}
-                         
-                        </ul>
-                      {% endif %}
-                  </div>
-                   
-                  {% endfor %}
-                </li>
-                <li class="site-nav__childlist-item ">
-                     {%if link.title == section.settings.title_1 %}
-                {% assign listing = section.settings.coll_linklist_4 %}
-                {% elsif link.title == section.settings.title_2 %}
-                 {% assign listing = section.settings.style_linklist_4 %}
-                {% else %}
-               {% assign listing = section.settings.room_linklist_4 %}
-                {%endif%}
-                  {% for customlink in linklists[listing].links %}
-                
-                    
-                  <div class="nc-has-drop-list">
-                      <a 
-                        class="site-nav__link site-nav__child-link site-nav__child-link--parent"
-                        {% if customlink.current %} aria-current="page"{% endif %}
-                      >
-                        <span class="site-nav__label">{{ customlink.title | escape }}</span>
-                      </a>
-                    
-                      {% if customlink.links != blank %}
-                        <ul>
-                        {% for grandchildlink in customlink.links %}
-                          {% if grandchildlink.links != blank %}
-                          <li class="nc-has-drop-list">
-                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link site-nav__child-link--parent"
-                            {% if grandchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
-                            </a>
-                          
-                        <ul>
-                        {% for grandsunchildlink in grandchildlink.links %}
-                          <li>
-                            <a href="{{ grandsunchildlink.url }}" {% if grandsunchildlink.type contains "collection_link" %} {% assign imagepath = grandsunchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandsunchildlink.type contains "collection_link" %} {% assign imagepath = grandsunchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link"
-                            {% if grandsunchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandsunchildlink.title | escape }}</span>
-                            </a>
-                          </li>
-                        {% endfor %}
-                          
-                        </ul>
-                            </li>
-                      {%else%}
-                          <li>
-                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link"
-                            {% if grandchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
-                            </a>
-                          </li>
-                          {% endif %}
-                        {% endfor %}
-                         
-                        </ul>
-                      {% endif %}
-                  </div>
-                   
-                  {% endfor %}
-                </li>
-                <li class="site-nav__childlist-item ">
-                     {%if link.title == section.settings.title_1 %}
-                {% assign listing = section.settings.coll_linklist_5 %}
-                {% elsif link.title == section.settings.title_2 %}
-                 {% assign listing = section.settings.style_linklist_5 %}
-                {% else %}
-               {% assign listing = section.settings.room_linklist_5 %}
-                {%endif%}
-                  {% for customlink in linklists[listing].links %}
-                
-                    
-                  <div class="nc-has-drop-list">
-                      <a 
-                        class="site-nav__link site-nav__child-link site-nav__child-link--parent"
-                        {% if customlink.current %} aria-current="page"{% endif %}
-                      >
-                        <span class="site-nav__label">{{ customlink.title | escape }}</span>
-                      </a>
-                    
-                      {% if customlink.links != blank %}
-                        <ul>
-                        {% for grandchildlink in customlink.links %}
-                          {% if grandchildlink.links != blank %}
-                          <li class="nc-has-drop-list">
-                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link site-nav__child-link--parent"
-                            {% if grandchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
-                            </a>
-                          
-                        <ul>
-                        {% for grandsunchildlink in grandchildlink.links %}
-                          <li>
-                            <a href="{{ grandsunchildlink.url }}" {% if grandsunchildlink.type contains "collection_link" %} {% assign imagepath = grandsunchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandsunchildlink.type contains "collection_link" %} {% assign imagepath = grandsunchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link"
-                            {% if grandsunchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandsunchildlink.title | escape }}</span>
-                            </a>
-                          </li>
-                        {% endfor %}
-                          
-                        </ul>
-                            </li>
-                      {%else%}
-                          <li>
-                            <a href="{{ grandchildlink.url }}" {% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} data-images="{{ collections[imagepath].image | img_url: "480x480" }}"{%endif%}
-                            class="{% if grandchildlink.type contains "collection_link" %} {% assign imagepath = grandchildlink.object.handle %} {%if collections[imagepath].image != blank %}hoverworking {%endif%}{%endif%} site-nav__link site-nav__child-link"
-                            {% if grandchildlink.current %} aria-current="page"{% endif %}
-                          >
-                              <span class="site-nav__label">{{ grandchildlink.title | escape }}</span>
-                            </a>
-                          </li>
-                          {% endif %}
-                        {% endfor %}
-                         
-                        </ul>
-                      {% endif %}
-                  </div>
-                   
-                  {% endfor %}
-                </li>
-              </ul>
-            </div>
+                {%endfor%}
+  </ul>
+</div>
+
+
