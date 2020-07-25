@@ -98,26 +98,18 @@
               "menu_link": ""
             }
           },
-          "1595487653122": {
-            "type": "content",
-            "settings": {
-              "title": "New Arrivals",
-              "main_linklist": "",
-              "menu_link": ""
-            }
-          },
-          "1595487662893": {
-            "type": "content",
-            "settings": {
-              "title": "Contact Us",
-              "main_linklist": "",
-              "menu_link": "shopify:\/\/pages\/contact-us"
-            }
-          },
           "1595487796875": {
             "type": "content",
             "settings": {
               "title": "Best Seller",
+              "main_linklist": "",
+              "menu_link": ""
+            }
+          },
+          "1595487653122": {
+            "type": "content",
+            "settings": {
+              "title": "New Arrivals",
               "main_linklist": "",
               "menu_link": ""
             }
@@ -128,6 +120,14 @@
               "title": "Track Your Order",
               "main_linklist": "",
               "menu_link": ""
+            }
+          },
+          "1595487662893": {
+            "type": "content",
+            "settings": {
+              "title": "Contact Us",
+              "main_linklist": "",
+              "menu_link": "shopify:\/\/pages\/contact-us"
             }
           }
         },
@@ -166,8 +166,8 @@
           "link_4": "#",
           "message": true,
           "home_page_only": false,
-          "message_text": "<span style=\"font-size:1rem\">EXTENDED CANADA DAY SALE!<\/span><br>\n<span><strong style=\"font-size:.9rem;\">15% DISCOUNT \n | USE CODE: <\/strong> <strong style=\"font-size:.9rem; color: #FF9C32;\">ILOVECANADA<\/strong><\/span>",
-          "message_mobile_text": "<span style=\"font-size:0.8\">EXTENDED CANADA DAY SALE!<\/span><br><span><strong style=\"font-size:.9rem;\">15% DISCOUNT <\/strong> <\/span>\n|\n<span>USE CODE: <strong style=\"font-size:.9rem; color: #FF9C32;\">ILOVECANADA<\/strong><\/span>",
+          "message_text": "<span style=\"font-size:1rem\">Free Shipping for all U.S Orders<\/span><br>\n<span>🎨 Made in the USA   💳 Shop Now pay later  🚫 No interest<\/span>",
+          "message_mobile_text": "<span style=\"font-size:1rem\">Free Shipping for all U.S Orders<\/span><br>\n<span>🎨 Made in the USA 💳 Shop Now pay later 🚫 No interest<\/span>",
           "message_link": "",
           "color_bg": "#000000",
           "color_text": "#fff"
@@ -179,12 +179,12 @@
           "slideshow-0": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/banner_mince_canada_1.jpg",
-              "Mob_image": "shopify:\/\/shop_images\/mobile_banner_3.jpg",
+              "image": "shopify:\/\/shop_images\/bannerdesktoptexture_4af1be40-711a-44c9-a9cc-9fe5c240c89d.png",
+              "Mob_image": "shopify:\/\/shop_images\/mobile_texture-min_253fc85f-07c4-458d-9c7e-c22114ae767a.jpg",
               "alignment": "center center",
-              "slide_title": "HAPPY CANADA DAY!",
-              "subheading": "<p>GET 15% OFF | USE CODE: <span style=\"color: #ff9900;\">ILOVECANADA<\/span><\/p>",
-              "button_label": "SHOP BEST SELLERS",
+              "slide_title": "Creativity At Its Finest",
+              "subheading": "\"Helping people share what they love\"",
+              "button_label": "FIND THE PERFECT GIFT 🎁",
               "button_link": "shopify:\/\/collections\/best-sellers-1"
             }
           }
@@ -194,9 +194,9 @@
         ],
         "settings": {
           "slideshow_height": "adapt",
-          "text_size": "large",
-          "text_alignment": "center center",
-          "show_overlay": true,
+          "text_size": "medium",
+          "text_alignment": "left center",
+          "show_overlay": false,
           "autorotate": false,
           "autorotate_speed": 5
         }
@@ -320,7 +320,7 @@
         ],
         "settings": {
           "image_bg": "",
-          "title": "At Nichecanvas we want you to be able to find the piece that speaks to you and shows who you really are. We carry a wide variety of wall art that you just won't be able to find anywhere else.",
+          "title": "",
           "align_text": "center"
         }
       },
@@ -338,7 +338,7 @@
           "1582001326531": {
             "type": "Image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/whiskers-1d.jpg",
+              "image": "shopify:\/\/shop_images\/z.jpg",
               "Title": "New Arrivals",
               "btntext": "Shop New Arrivals",
               "link": "shopify:\/\/collections\/new-arrivals"
@@ -448,6 +448,7 @@
       },
       "1582012825143": {
         "type": "image-with-accordion",
+        "disabled": true,
         "settings": {
           "image": "shopify:\/\/shop_images\/bg.png",
           "color_text": "#f9ebd9",
@@ -466,6 +467,7 @@
       },
       "1582016831892": {
         "type": "slider-with-icons",
+        "disabled": true,
         "blocks": {
           "1582096802941": {
             "type": "image",
@@ -643,7 +645,7 @@
           "hide_thumbnails": false,
           "product_handle": "",
           "data-limit": 8,
-          "maxwidth": 1920
+          "maxwidth": 1440
         }
       },
       "collection-template": {
@@ -651,8 +653,8 @@
         "settings": {
           "layout": "grid",
           "grid": 3,
-          "rows": 4,
-          "show_collection_image": false,
+          "rows": 8,
+          "show_collection_image": true,
           "show_vendor": false,
           "sort_enable": true,
           "tags_enable": true
@@ -668,6 +670,7 @@
       },
       "1588310417095": {
         "type": "truspilot-widge",
+        "disabled": true,
         "settings": {}
       },
       "1590031931364": {
@@ -681,6 +684,22 @@
           "rows": 1,
           "show_vendor": false,
           "show_view_all": true
+        }
+      },
+      "blog-template": {
+        "type": "blog-template",
+        "settings": {
+          "layout": "grid",
+          "blog_show_author": false,
+          "blog_show_date": false
+        }
+      },
+      "article-template": {
+        "type": "article-template",
+        "settings": {
+          "blog_show_author": false,
+          "blog_show_date": true,
+          "show_share_buttons": true
         }
       }
     },
