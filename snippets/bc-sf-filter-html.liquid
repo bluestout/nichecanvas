@@ -125,6 +125,8 @@
 </ul>
 
 {%- when 'sortingHtml' -%}
+<label><span><span> {% assign temp = 'collections.sorting.title' | t  %} {% unless temp contains 'translation missing'  %} {{ temp }} {% else %} Sorting {% endunless %}, </span></span></label><ul class="bc-sf-filter-filter-dropdown">[[sortingItems]]</ul>
+
 <label for="bc-sf-filter-top-sorting-select" class="filters-toolbar__label select-label"> 
   {%- assign temp = 'collections.sorting.title' | t  -%} 
   {%- unless temp contains 'translation missing'  -%} 
@@ -133,7 +135,6 @@
   Sorting 
   {%- endunless -%} 
 </label>
-<label><span><span> {% assign temp = 'collections.sorting.title' | t  %} {% unless temp contains 'translation missing'  %} {{ temp }} {% else %} Sorting {% endunless %}, </span></span></label><ul class="bc-sf-filter-filter-dropdown">[[sortingItems]]</ul>
 {%- endcase -%}
 
 {%-  endcapture -%}

@@ -32,8 +32,7 @@
 </div>
  {%- for block in section.blocks -%}
 <style>
-  .Customsingle .slick-dots li:nth-child({{forloop.index}}) button{background-image: url({{block.settings.slide_icon | asset_url}});}
-  
+  .Customsingle .slick-dots li:nth-child({{forloop.index}}) button{background-image: url({{block.settings.slide_icon}});}
 </style>
 {%endfor%}
 {% schema %}

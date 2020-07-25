@@ -1,5 +1,5 @@
 {% if section.settings.message %}
-<style> 
+<style>
   {% if section.settings.logo != blank %}
   .site-header__logo-image {
     max-width: {{ section.settings.logo_max_width | escape }}px;
@@ -139,7 +139,7 @@
     <div class="grid grid--no-gutters grid--table site-header__mobile-nav">
       {% unless linklists[section.settings.main_linklist] == blank %}
       <button type="button" class="btn--link site-header__icon site-header__menu CustomMMenu" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
-        {% comment %}{% include 'icon-hamburger' %}{% endcomment %} <img src="{{ 'icon-mobile-menu2.png' | asset_url }}" alt="Menu">
+        {% comment %}{% include 'icon-hamburger' %}{% endcomment %} <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-mobile-menu2.png" alt="Menu">
       </button>
       {% endunless %}
       {% if section.settings.align_logo == 'center' %}
@@ -219,10 +219,7 @@
       <div class="grid__item {% if section.settings.align_logo == 'left' %}medium-up--one-quarter{% else %}medium-up--one-third medium-up--push-one-third{% endif %} text-right site-header__icons{% if shop.customer_accounts_enabled %} site-header__icons--plus{% endif %}">
         <div class="site-header__icons-wrapper">
 
-          <span class="site-header__cnvs">
-            <img src="{{ 'phone.svg' | asset_url }}">
-            <a href="tel:{{settings.number}}">{{settings.number}}</a>
-          </span>
+          <span class="site-header__cnvs"><a href="tel:{{settings.number}}">{{settings.number}}</a></span>
 
           <div class="cstSrchMob">
             <button type="button" class="btn--link site-header__icon site-header__search-toggle">
@@ -252,7 +249,7 @@
           {% endif %}
 
 
-          <!--<a href="https://nichecanvas.com/pages/wishlist" class="site-header__icon site-header__wishlist">
+          <a href="https://nichecanvas.com/pages/wishlist" class="site-header__icon site-header__wishlist">
             <svg title='View Wishlist' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="icon">
               <title>View Wishlist</title>
               <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -261,9 +258,7 @@
                 </g>
               </g>
             </svg>
-          </a>-->
-          
-          <!-- include 'wishlist-link' -->
+          </a>
 
 
           <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
@@ -319,7 +314,7 @@
           {% endif %}
         </li>
 
-        <!--<li>
+        <li>
        
           <a href="https://nichecanvas.com/pages/wishlist" class="site-header__icon site-header__wishlist">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="icon">
@@ -331,9 +326,7 @@
               </g>
             </svg>
           </a>
-        </li>-->
-        
-        <!-- include 'wishlist-link-li' -->
+        </li>
 
         <li>
           <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
@@ -405,7 +398,23 @@
 "name": {
 "da": "Overskrift",
 "de": "Titel",
-"en": "Header"
+"en": "Header",
+"es": "Encabezado",
+"fi": "Ylätunniste",
+"fr": "En-tête",
+"hi": "हैडर",
+"it": "Header",
+"ja": "ヘッダー",
+"ko": "머리글",
+"ms": "Pengepala",
+"nb": "Header",
+"nl": "Koptekst",
+"pt-BR": "Cabeçalho",
+"pt-PT": "Cabeçalho",
+"sv": "Rubrik",
+"th": "ส่วนหัว",
+"zh-CN": "标头",
+"zh-TW": "標頭"
 },
 "class":"CustHeader",
 "settings": [
@@ -656,178 +665,6 @@
 "content": {
 "da": "Meddelelseslinje",
 "de": "Ankündigungsbereich",
-"en": "Gallery"
-}
-},
-{
-"type": "checkbox",
-"id": "gallery_show",
-"label": {
-"da": "Vis meddelelse",
-"de": "Ankündigung anzeigen",
-"en": "Show Gallery"
-},
-"default": true
-},
-{
-"type": "checkbox",
-"id": "gallery",
-"label": {
-"da": "Vis meddelelse",
-"de": "Ankündigung anzeigen",
-"en": "Gallery at bottom"
-},
-"default": false
-},
-{
-"type": "image_picker",
-"id": "image_1",
-"label": {
-"da": "Image 1",
-"de": "Image 1",
-"en": "Image 1"
-},
-"info": {
-"da": "180 x 180px .png recommended",
-"de": "180 x 180px .png recommended",
-"en": "180 x 180px .png recommended"
-}
-},
-{
-"type": "text",
-"id": "text_1",
-"label": "Text 2",
-"default": "Some HTML content"
-},
-{
-"type": "url",
-"id": "link_1",
-"label": {
-"da": "Link",
-"de": "Link",
-"en": "Link 1"
-},
-"info": {
-"da": "Valgfri",
-"de": "Optional",
-"en": "Optional"
-}
-},
-{
-"type": "image_picker",
-"id": "image_2",
-"label": {
-"da": "Image 2",
-"de": "Image 2",
-"en": "Image 2"
-},
-"info": {
-"da": "180 x 180px .png recommended",
-"de": "180 x 180px .png recommended",
-"en": "180 x 180px .png recommended"
-}
-},
-{
-"type": "text",
-"id": "text_2",
-"label": "Text 2",
-"default": "Some HTML content"
-},
-{
-"type": "url",
-"id": "link_2",
-"label": {
-"da": "Link",
-"de": "Link",
-"en": "Link 2"
-},
-"info": {
-"da": "Valgfri",
-"de": "Optional",
-"en": "Optional"
-}
-},
-{
-"type": "image_picker",
-"id": "image_3",
-"label": {
-"da": "Image 3",
-"de": "Image 3",
-"en": "Image 3"
-},
-"info": {
-"da": "180 x 180px .png recommended",
-"de": "180 x 180px .png recommended",
-"en": "180 x 180px .png recommended"
-}
-},
-{
-"type": "text",
-"id": "text_3",
-"label": "Text 3",
-"default": "Some HTML content"
-},
-{
-"type": "url",
-"id": "link_3",
-"label": {
-"da": "Link",
-"de": "Link",
-"en": "Link 3"
-},
-"info": {
-"da": "Valgfri",
-"de": "Optional",
-"en": "Optional"
-}
-},
-{
-"type": "image_picker",
-"id": "image_4",
-"label": {
-"da": "Image 4",
-"de": "Image 4",
-"en": "Image 4"
-},
-"info": {
-"da": "180 x 180px .png recommended",
-"de": "180 x 180px .png recommended",
-"en": "180 x 180px .png recommended"
-}
-},
-{
-"type": "text",
-"id": "text_4",
-"label": "Text 4",
-"default": "Some HTML content"
-},
-{
-"type": "url",
-"id": "link_4",
-"label": {
-"da": "Link",
-"de": "Link",
-"en": "Link 4"
-},
-"info": {
-"da": "Valgfri",
-"de": "Optional",
-"en": "Optional"
-}
-},
-{
-"type": "header",
-"content": {
-"da": "Meddelelseslinje",
-"de": "Ankündigungsbereich",
-"en": "Thubnails In Mobile Menu"
-}
-},
-{
-"type": "header",
-"content": {
-"da": "Meddelelseslinje",
-"de": "Ankündigungsbereich",
 "en": "Announcement bar",
 "es": "Barra de anuncios",
 "fi": "Ilmoituspalkki",
@@ -1009,44 +846,6 @@
 },
 "default": "#fff"
 }
-],
-    "blocks": [
-       {
-        "type": "content",
-        "name": "Menu",
-        "settings": [
-          {
-        "type": "text",
-        "id": "title",
-        "label": "Heading",
-        "default": "Title"
-      },
-{
-      "type": "link_list",
-      "id": "main_linklist",
-      "label": {
-        "da": "Menu",
-        "de": "Menü",
-        "en": "Menu"
-      },
-      "default": "main-menu"
-    },
-{
-"type": "url",
-"id": "menu_link",
-"label": {
-"da": "Link",
-"de": "Link",
-"en": "Link"
-},
-"info": {
-"da": "Valgfri",
-"de": "Optional",
-"en": "Optional"
-}
-}
-        ]
-      }
-    ]
+]
 }
 {% endschema %}

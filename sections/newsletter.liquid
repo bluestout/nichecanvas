@@ -1,9 +1,8 @@
-<div class="newsletter-section{% if section.settings.show_background %} index-section--newsletter-background{% endif %}"
-   style="background-color: {{section.settings.background_color}}">
+<div class="newsletter-section{% if section.settings.show_background %} index-section--newsletter-background{% endif %}">
   <div class="page-width">
     <div class="section-header text-center">
       {% if section.settings.section_title != blank %}
-        <h2 class="h2" style="color: {{section.settings.text_color}}">{{ section.settings.section_title  }}</h2>
+        <h2 class="h2">{{ section.settings.section_title  }}</h2>
       {% endif %}
       {% if section.settings.subheading != blank %}
         <div class="rte">{{ section.settings.subheading }}</div>
@@ -11,15 +10,11 @@
     </div>
     {%- assign formId = 'Contact_' | append: section.id -%}
    <div class="klaviyo-form-QryRzV"></div>
-    <style>
-    .kOgRMj.kOgRMj.kOgRMj.kOgRMj.kOgRMj.kOgRMj {
-      background: {{section.settings.button_color}} !important;
-    }
-    </style>
-     <ul class="csTnsLtrudrTxt">
-      {% comment %} <li style="color: {{section.settings.text_color}}"><img src="{{ 'icon-checkmark.svg' | asset_url }}"> We send only interesting emails</li> {% endcomment %}
-      <li style="color: {{section.settings.text_color}}">{{section.settings.bottom_text}}</li>
-    </ul> 
+    
+    <ul class="csTnsLtrudrTxt">
+      <li><img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-checkmark.svg"> We send only interesting emails</li>
+      <li><img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-checkmark.svg"> We will never ever sell your info</li>
+    </ul>
     
   </div>
 </div>
@@ -192,30 +187,6 @@
         "zh-CN": "任何注册用户都将在 Shopify 中拥有一个为他们创建的帐户。[查看客户](/admin/customers?query=&accepts_marketing=1)",
         "zh-TW": "顧客註冊後就可以擁有 Shopify 帳號。[查看顧客](/admin/customers?query=&accepts_marketing=1)"
       }
-    },
-    {
-      "type": "color",
-      "id": "background_color",
-      "label": "Background color",
-      "default": "#000000"
-    },
-    {
-      "type": "color",
-      "id": "button_color",
-      "label": "Button color",
-      "default": "#000000"
-    },
-    { 
-      "type": "color",
-      "id": "text_color",
-      "label": "Text color",
-      "default": "#FFFFFF"
-    },
-    {
-      "type": "text",
-      "id": "bottom_text",
-      "label": "Bottom Text",
-      "default": "By clicking Subscribe, you agree to our Terms Of Service and Privacy Policy."
     }
   ]
 }
