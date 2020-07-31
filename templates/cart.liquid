@@ -4,3 +4,16 @@
 
 {% section 'cart-template' %}
 <script src="https://widget.sezzle.com/v1/javascript/price-widget/initial?uuid=b35eb578-c541-44b5-a163-e0f4e93052d1"></script>
+
+
+<!-- Google Ads Dynamic Remarketing by M6 -->
+<script>
+  gtag('event', 'page_view', {
+    'send_to': 'AW-820782793',
+    'ecomm_pagetype': 'cart',
+    'ecomm_prodid': [{% for item in cart.items %}'shopify_US_{{ item.product_id }}_{{ item.variant_id }}',{% endfor %}],
+    'ecomm_totalvalue': {{ cart.total_price | money_without_currency | remove:',' }}
+  });
+</script>
+<!-- End Google Ads Dynamic Remarketing by M6 -->
+

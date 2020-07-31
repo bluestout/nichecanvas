@@ -11,17 +11,93 @@
     {{ content_for_header }}
 
     {{ checkout_stylesheets }}
+    <style>
+      [data-order-updates="true"] .content-box__row {
+      	background: #FAFAFA;
+      }
+      [data-order-updates="true"] h2 {
+      	font-weight: 600;
+      }
+      .breadcrumb__item {
+      	font-size: 1rem;
+        padding-right: 1rem;
+      }
+      .breadcrumb__item:before {
+      	content: '-';
+        background: #000;
+        color: #fff;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+    	border-radius: 2px;
+        display: inline-block;
+        margin-right: 0.5rem;
+      }
+      .breadcrumb__item .icon-svg {
+      	display: none;
+      }
+      .breadcrumb__item:nth-child(1):before {
+      	content: '1';
+      }
+      .breadcrumb__item:nth-child(2):before {
+      	content: '2';
+      }
+      .breadcrumb__item:nth-child(3):before {
+      	content: '3';
+      }
+      .breadcrumb__item:nth-child(4):before {
+      	content: '4';
+      }
+      .breadcrumb__item.breadcrumb__item--current:before {
+        background: #ff9c32;
+      }
+      .breadcrumb__item.breadcrumb__item--completed a {
+        border-bottom: 1px solid #000;
+      }
+      @media only screen and (max-width: 1000px) {
+        .breadcrumb {
+            display: none;
+        }
+      }
+    </style>
+    
+    {% include 'google-tag' %}
+
+    <!-- Google Ads Dynamic Remarketing -->
+    <script>
+      gtag('event', 'page_view', {
+      'send_to': 'AW-820782793',
+      'ecomm_pagetype': 'purchase',
+      'ecomm_prodid': [{% for item in checkout.line_items %}'shopify_US_{{ item.product_id }}_{{ item.variant_id }}',{% endfor %}],
+      'ecomm_totalvalue': {{ checkout.total_price | money_without_currency | remove:',' }},
+      'ecomm_lifetimevalue': {{ customer.total_spent | default: 0 }},
+      'ecomm_ordercount': {{customer.orders_count | default: 0 }},
+      'ecomm_category': [{% for item in checkout.line_items %}"{{ item.product.type }}" ,{% endfor %}],
+      });
+    </script>
+    <!-- End Google Ads Dynamic Remarketing -->
+    
     {{ checkout_scripts }}
+
   	{% include 'shogun-head' %}
+    
     <!-- ADDRESS VALIDATOR -->
-<script async src="https://d3ox8tdk614ykk.cloudfront.net/pobox_checker.js"></script>
+	<script async src="https://d3ox8tdk614ykk.cloudfront.net/pobox_checker.js"></script>
     <style>
       .section__intro {
         margin-top: 1em;
       }
     </style>
+    <!-- POSTSCRIPT -->
+    <script>
+    window.psConfig = {
+    	checkboxElement: 'div[data-address-field="phone"]',
+    	footerElement: 'div[data-address-field="phone"]',
+    }
+	</script>
     <script type="application/javascript" async src="https://sdk.postscript.io/integrations/sdk-min.js"></script>
-    
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+
 </head>
   <body>
     {{ skip_to_content_link }}
@@ -45,6 +121,13 @@
           <div class="main__content">
             <div class="route-div"></div>
             {{ content_for_layout }}
+            <div style="margin-top: 40px">
+              <!-- TrustBox widget - Slider -->
+              <div class="trustpilot-widget" data-locale="en-US" data-template-id="54ad5defc6454f065c28af8b" data-businessunit-id="5da9754a878d4e0001c00cf0" data-style-height="240px" data-style-width="100%" data-theme="light" data-stars="4,5" data-review-languages="en">
+                <a href="https://www.trustpilot.com/review/nichecanvas.com" target="_blank" rel="noopener">Trustpilot</a>
+              </div>
+              <!-- End TrustBox widget -->
+            </div>
           </div>
           <div class="main__footer">
             {{ content_for_footer }}
@@ -61,23 +144,43 @@
       </div>
     </div>
 
+    {% capture var_tracking_code %}
     {{ tracking_code }}
-
-    {{ 'booster-page-speed-optimizer.js' | asset_url | script_tag }}
+    {% endcapture %}
+    {{ var_tracking_code | replace: 'Google Gtag Pixel', 'Disabled Google Gtag Pixel' }}
 
 </body>
 </html>
 
 <script data-cfasync="false">window.ju_num="CD1E1C69-AA99-4C3B-BE70-0BFC197DBA4F";window.asset_host='//cdn.justuno.com/';(function(i,s,o,g,r,a,m){i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)};a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script',asset_host+'vck.js','juapp');</script>
 <script>
-(function($) {
-  var shippingBlock = document.getElementsByClassName('section--shipping-method');
-  if (shippingBlock && shippingBlock.length) {
-    var shippingBlockElement = shippingBlock[0];
-    var shippingInfos = document.createElement("DIV");
-    shippingInfos.className = 'section__intro';
-    shippingInfos.innerHTML = "<p><strong>NOTE: </strong> Since our products are handcrafted and inspected for quality, delivery times above only apply once your order is ready and has shipped.</p>";
-    shippingBlockElement.appendChild(shippingInfos);
-  }
-})( jQuery );
+  (function($) {
+    var shippingBlock = document.getElementsByClassName('section--shipping-method');
+    if (shippingBlock && shippingBlock.length) {
+      var shippingBlockElement = shippingBlock[0];
+      var shippingInfos = document.createElement("DIV");
+      shippingInfos.className = 'section__intro';
+      shippingInfos.innerHTML = "<p><strong>COVID19: </strong> We ship Monday to Saturday - Tracking and notifications included.</p>";
+      shippingBlockElement.appendChild(shippingInfos);
+    }
+
+    if (Shopify && Shopify.Checkout && Shopify.Checkout.step === "contact_information") {
+      Checkout.$('[data-drawer-toggle="[data-order-summary]"]').click();
+    }
+
+    if (Shopify && Shopify.Checkout && Shopify.Checkout.isOrderStatusPage) {
+      var smsUpdatesButton = Checkout.$('[data-trekkie-id="get_shipping_updates_button"]');
+      if (smsUpdatesButton.length) {
+      	smsUpdatesButton[0].innerText = smsUpdatesButton[0].innerText.replace('text', 'SMS');
+      }
+    }
+    var checkout_email = document.getElementById('checkout_email');
+    if (checkout_email) {
+    	checkout_email.placeholder = 'Email (Required for Order Confirmation)';
+    }
+    var checkout_shipping_address_phone = document.getElementById('checkout_shipping_address_phone');
+    if (checkout_shipping_address_phone) {
+    	checkout_shipping_address_phone.placeholder = 'Phone (Required for Shipping Notifications)';
+    }
+  })( jQuery );
 </script>

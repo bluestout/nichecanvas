@@ -12,10 +12,18 @@ $(document).ready(function(){
   var getImagepath = $(this).attr("data-images");
     $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("src",getImagepath);
   })
+  $(".hoverworking").mouseenter(function(){
+  var getImagepath = $(this).attr("data-images");
+    $(this).parents("div").parents("li").parents("ul").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("src",getImagepath);
+  })
 //   $(".hoverworking").mouseleave(function(){
 //   var getImagepath = $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("data-srcing");
 //     $(this).parents("li").parents("ul").parents(".site-nav__childlist-item").parents(".site-nav__childlist").parents(".mLeftMenu").next(".mRightImg").children(".InnerImage").children("img").attr("src",getImagepath);
 //   })
+  $(".site-nav--has-dropdown").mouseleave(function(){
+  
+  $(".nc-has-drop-list").removeClass("nc-has-drop-list-open");
+  })
   /*******************************HOVER FUNCTIONALITY ON PRODUCTS***********************/
   if ($(window).width() > 749) {
   $(".MainGridProducts").mouseenter(function(){

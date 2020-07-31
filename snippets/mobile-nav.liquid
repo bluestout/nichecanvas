@@ -1,6 +1,6 @@
 <div class="MobCustomSearch">
   <form class="search-form search-bar__form" action="{{ routes.search_url }}" method="get" role="search">
-    <div class="search-form__input-wrapper">
+    <div class="search-form__input-wrapper">     
       <input
              type="text"
              name="q"
@@ -26,10 +26,10 @@
     </button>
   </form>
 </div>
-<div class="mobile_nav-fixed">
+<div class="mobile_nav-fixed mobile_nav_cat_gal" id="mobile_slide">
   <div class="logoclose">
     <a href="/">
-      <img src="https://cdn.shopify.com/s/files/1/2012/8501/files/LogoNicheCanvas_LcolorCAP_320x320.png" alt="logo">
+      <img src="{{ 'LogoNicheCanvas_LcolorCAP_320x320.png' | file_url }}" alt="logo">
     </a>    
     <span class="tliconX"></span> 
   </div>
@@ -80,30 +80,77 @@
         <span class="tlicon-caret-right"></span> 
       </a>
     </li>
-
-
+    {%if section.settings.gallery_show%}
+{%if section.settings.gallery%}
+    {%else%}
+{%include "gallery" %}
+    {%endif%}
+    {%endif%}
     <li class="shopBy"> 
       <span>Shop by: </span> 
     </li>
 
-    {% for link in linklists[section.settings.main_linklist].links %}
+    {% for link in linklists["mobile-new-test"].links %}
     {%capture numberget%}{{forloop.index}}{%endcapture%}
+    {%capture linklisttitle%}{{link.handle}}{%endcapture%}
+    {%capture checklist%}{% for link in linklists[linklisttitle].links %}{{link.title}}{%endfor%}{%endcapture%}
     {% if link.links != blank %}
-
+{%if link.handle contains "color"%}
+    <li class="mobile-menu-parent ColorParent">
+      <div class="parentHding"><b><a href="{{link.url}}">{{link.title}}</a></b><span class="icndwn"></span></div>
+      <ul class="mobile-menuChild ColorMenuMob">
+    {% for childlink in link.links %}
+        <li><a href="{{childlink.url}}">
+          {% assign imagepath = "color-" | append: childlink.handle%}
+          <img src="{{imagepath| append:".png" | file_url }}">
+          {% comment %} <img src="{{imagepath| append:".jpg" | asset_url }}"> {% endcomment %}
+          </a></li>
+      {%endfor%}
+      </ul>
+    </li>
+    
+    {%else %}
     <li class="mobile-menu-parent">
       <div class="parentHding"><b><a href="{{link.url}}">{{link.title}}</a></b><span class="icndwn"></span></div>
+      
       <ul class="mobile-menuChild">
         {% for childlink in link.links %}
         {% if childlink.links != blank %}
         <li>  
-          {%unless numberget == "1" or numberget == "3" or numberget == "4" %}
-          <a class="mblHding" href="{{childlink.url}}">{{childlink.title}}</a>
+          
+         
+         {% unless forloop.first %}
+          <a class="mblHding" href="{{childlink.url}}">{{childlink.title}}<span class="icndwn"></span></a>
           {%endunless%}
+          {% if forloop.first %}
+           {%include "thumbmenu" %}
+          {%else%}
           <ul class="mobile-submenuChild">
             {% for subchildlink in childlink.links %}
-            <li><a href="{{subchildlink.url}}">{{subchildlink.title}}</a></li>
+            
+            {% capture lastChildren%}{{subchildlink.handle}}{%endcapture%}
+            {% capture lastIndex%}{% for link in linklists[lastChildren].links %}{{forloop.last}}{%endfor%}{%endcapture%}
+            {% if lastIndex >= "1" %}
+            <li class="lastparent"><a>{{subchildlink.title}}<span class="icndwn"></span></a>
+              
+            
+            <ul class="Mobile-lastmenu">
+             {% for link in linklists[lastChildren].links %}
+              <li class="MenuLastChidrens"><a href="{{link.url}}">{{link.title}}</a></li>
+              
+              {%endfor%}
+              <li class="MainChidLink">
+              <a href="{{childlink.url}}">Explore All</a>
+              </li>
+              </ul>
+            </li>
+              {%else%}
+               <li class=""><a href="{{subchildlink.url}}">{{subchildlink.title}}</a></li>
+                 {%endif%}
+            
             {%endfor%}
           </ul>
+          {%endif%}
         </li>
         {%else%}
         <li><a class="mblHding" href="{{childlink.url}}">{{childlink.title}}</a></li>
@@ -111,7 +158,7 @@
         {%endfor%}
       </ul>
     </li>
-
+{%endif%}
     {%else%}
 
     <li> 
@@ -120,9 +167,17 @@
 
     {%endif%}
     {%endfor%}
+    {%if section.settings.gallery_show%}
+    {%if section.settings.gallery%}
+    {%include "gallery" %}
+    {%endif%}
+    {%endif%}
   </ul>
-  <div class="menuLogin">    
-    <a href="tel:{{settings.number}}">{{settings.number}}</a>
+  <div class="menuLogin">
+    <div>
+      <img src="{{'phone.svg' | asset_url}}" style="vertical-align: middle;"/>    
+      <a href="tel:{{settings.number}}">{{settings.number}}</a>
+    </div>
     {% if customer %}
     <a href="/account" class="cst_login">Login
       {%else%}

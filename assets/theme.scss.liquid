@@ -511,18 +511,18 @@ $color-slideshow-dots: #fff;
 {% assign header_font = settings.type_header_font %}
 {% assign base_font = settings.type_base_font %}
 
-{{ header_font | font_face }}
-{{ base_font | font_face }}
+{{ header_font | font_face: font_display: 'swap' }}
+{{ base_font | font_face: font_display: 'swap' }}
 
 {%- assign base_font_bolder = base_font | font_modify: 'weight', 'bolder' -%}
 {%- assign base_font_bold = base_font | font_modify: 'weight', 'bold' -%}
 {%- assign base_font_italic = base_font | font_modify: 'style', 'italic' -%}
 {%- assign base_font_bold_italic = base_font_bold | font_modify: 'style', 'italic' -%}
 
-{{ base_font_bold | font_face }}
-{{ base_font_bolder | font_face }}
-{{ base_font_italic | font_face }}
-{{ base_font_bold_italic | font_face }}
+{{ base_font_bold | font_face: font_display: 'swap' }}
+{{ base_font_bolder | font_face: font_display: 'swap' }}
+{{ base_font_italic | font_face: font_display: 'swap' }}
+{{ base_font_bold_italic | font_face: font_display: 'swap' }}
 
 $font-weight-body--bold: {{ base_font_bold.weight | default: 700 }};
 $font-weight-body--bolder: {{ base_font_bolder.weight | default: 700 }};
@@ -1412,6 +1412,7 @@ select {
   font-weight: $font-weight-body;
   color: $color-text;
   line-height: 1.5;
+  font-display: swap;
 }
 
 // Prevent zoom on touch devices in active inputs
@@ -3793,6 +3794,11 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
 .product-single__description {
   margin-top: $grid-gutter;
+  font-size: 0.9375em;
+  text-align: justify;
+  & h2 {
+  	margin-bottom: 10px;
+  }
 }
 
 .product__quantity-error {
@@ -4137,6 +4143,18 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 }
 
+.collection-hero__title-wrapper {
+	height: 100%;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $color-overlay-title-text;
+}
+
 .collection-hero__title-wrapper::before {
   content: '';
   position: absolute;
@@ -4144,23 +4162,30 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: $color-image-overlay;
+  /*background-color: $color-image-overlay;*/
   opacity: $opacity-image-overlay;
 }
 
 .collection-hero__title {
-  position: absolute;
   color: $color-overlay-title-text;
   width: 100%;
   text-align: center;
-  left: 0;
-  right: 0;
-  top: 50%;
-  @include transform(translateY(-50%));
 
   @include media-query($medium-up) {
     font-size: em($font-size-header + 6);
   }
+}
+
+.collection-hero__description {
+  	padding: 20px;
+    text-align: center;
+  	font-size: 1.2rem;
+    max-width: 1200px;
+  	color: $color-overlay-title-text;    
+
+    & p {
+      color: $color-overlay-title-text;
+    }
 }
 
 .template-blog .social-sharing {

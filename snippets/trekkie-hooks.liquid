@@ -1,0 +1,9 @@
+<script>
+  trekkie.ready(function() {
+    window.fbq('dataProcessingOptions', ['LDU'], 0, 0);
+    if (window.fbq.queue) {
+      var last = window.fbq.queue.pop();
+      window.fbq.queue.unshift(last);
+    }
+  });
+</script>

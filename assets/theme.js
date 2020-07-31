@@ -2424,7 +2424,7 @@ theme.Header = (function() {
 
     cache.$parents.on('click.siteNav', function() {
       var $el = $(this);
-      $el.hasClass(config.activeClass) ? hideDropdown($el) : showDropdown($el);
+      //$el.hasClass(config.activeClass) ? hideDropdown($el) : showDropdown($el);
     });
 
     // check when we're leaving a dropdown and close the active dropdown
@@ -2473,7 +2473,7 @@ theme.Header = (function() {
   }
 
   function showDropdown($el) {
-    $el.addClass(config.activeClass);
+   // $el.addClass(config.activeClass);
 
     // close open dropdowns
     if (cache.$activeDropdown.length) {

@@ -251,6 +251,7 @@
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}
                   aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
                   class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
+                  id="btn_add_to_cart"
                   data-add-to-cart>
             <span data-add-to-cart-text>
               {% unless current_variant.available %}
@@ -291,16 +292,20 @@
       <div class="ShipIcon">
         {% include "ship-icon" %}
       </div>
-      {%comment%}
-      <div class="product-single__description rte">
-        {{ product.description }}
-      </div>
-      {%endcomment%}
+
       {% if section.settings.show_share_buttons %}
       {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product.featured_media %}
       {% endif %}
     </div>
-
+    {% if product.description contains "OUR PRINTS" or product.description contains "<img" or product.description == blank %}
+    {% assign isDefaultDesc = true %}
+    {% endif %}
+    <div class="grid__item {{ product_description_width }} cstProDec product-single__description rte" {% if isDefaultDesc == true %} style="display: none"{% endif %}>
+      {% if isDefaultDesc != true %}
+      <h2>The idea behind the {{ product.title }}</h2>
+      {% endif %}
+      {{ product.description }}
+    </div>
   </div>
 
 </div>

@@ -110,16 +110,17 @@ var height =  $(".cstAddCartBuy").offset();
  })
   }
   $(".FixedBox").change(function(){
-  var selectedVal = $(this).val();
-    $('.CustomSize .swatch-element').each(function(){
-     var Valueget =  $(this).attr("data-value");
-     if(Valueget == selectedVal)
-     {
-      $(this).children("input").trigger("click");
-       var PriceHtml = $(".product-single__meta .product__price").html();
-       $(".product__price.ScrollPrice").html(PriceHtml);
-     }
-   })
+    var selectedVal = $(this).val();
+      var option_bits = (selectedVal || '').split(';');
+      $('.swatch-element').each(function() {
+      var Valueget =  $(this).attr("data-value");
+      if(Valueget == option_bits[0] || Valueget == option_bits[1])
+      {
+        $(this).children("input").trigger("click");
+        var PriceHtml = $(".product-single__meta .product__price").html();
+        $(".product__price.ScrollPrice").html(PriceHtml);
+      }
+    })
   })
   /*FS removed*/
   /*

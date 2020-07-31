@@ -403,18 +403,21 @@
   </svg>
 </script>
 
-<script
-  id="wishlist-link"
-  data="wishlist"
-  type="text/x-template"
-  app="wishlist-king"
->
-  {% if wishlist.item_count %}
-    {% assign link_icon = 'wishlist-icon-filled' %}
-  {% else %}
-    {% assign link_icon = 'wishlist-icon-empty' %}
-  {% endif %}
-  <a href="{{ wishlist.url }}" class="wk-link wk-{{ wishlist.state }}" title="View Wishlist"><div class="wk-icon">{% include link_icon %}</div><span class="wk-label">Wishlist</span> <span class="wk-count">({{ wishlist.item_count }})</span></a>
+<script id="wishlist-link" data="wishlist" type="text/x-template" app="wishlist-king">
+  <a href="{{ wishlist.url }}" class="site-header__icon site-header__wishlist wk-link" title="View Wishlist">
+  	<div class="wk-icon">
+      <svg title='View Wishlist' xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" class="icon">
+        <g id="web" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="home-v1" transform="translate(-1487.000000, -69.000000)" stroke="#000000" stroke-width="2">
+          <path d="M1502.17009,70 C1500.92486,70 1499.7474,70.4303309 1498.86117,71.2234482 L1497.50263,72.4448245 L1496.13857,71.2232082 C1495.25272,70.4304385 1494.07547,70 1492.83259,70 C1491.58749,70 1490.41246,70.4304385 1489.52635,71.2234482 C1488.54959,72.0989662 1488,73.2625944 1488,74.5118607 C1488,75.7611269 1488.54959,76.9247552 1489.52694,77.8008016 L1497.50134,84.9379706 L1505.4763,77.8003044 C1506.45309,76.9247552 1507,75.7609904 1507,74.5118607 C1507,73.2627309 1506.45309,72.0989662 1505.47574,71.2229197 C1504.58867,70.4310465 1503.41344,70 1502.17009,70 Z" id="fav"/>
+  		</g>
+  		</g>
+  	  </svg>
+  	</div>
+    {% if wishlist.item_count != 0 %}
+    <span class="wk-count">{{ wishlist.item_count }}</span>
+    {% endif %}
+  </a>
 </script>
 
 <script

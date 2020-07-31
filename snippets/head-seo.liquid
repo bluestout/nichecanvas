@@ -1,0 +1,209 @@
+{%- comment -%}
+<!-- ---------- -->
+<!-- EXCEPTIONS -->
+<!-- ---------- -->
+{%- endcomment -%}
+
+{%- if request.path == '/apps/help-center' -%}
+<meta name="robots" content="noindex">
+{%- endif -%}
+
+{%- comment -%}
+<!-- --------- -->
+<!-- SEO TITLE -->
+<!-- --------- -->
+{%- endcomment -%}
+
+{%- assign seo_title = page_title | strip -%}
+
+{%- if template == "index" -%}
+{%- assign seo_title = "Premium Quality Canvas Art Prints & Wall Art" -%}
+{%- elsif template == 'product' -%}
+{%- assign seo_title = product.title | append: ' Wall Art' -%}
+{%- elsif template == 'collection' or template == 'collection.sub-collection' -%}
+{%- assign seo_title = seo_title | append: ' Wall Art' -%}
+{%- elsif template == 'list-collections' -%}
+{%- assign seo_title = 'Products' -%}
+{%- elsif template == 'article' -%}
+{%- assign seo_title = article.title -%}
+{%- elsif template == 'page' -%}
+{%- assign seo_title = page.title -%}
+{%- elsif template == 'blog' -%}
+{%- assign seo_title = blog.title -%}
+{%- elsif template == 'search' -%}
+{%- assign seo_title = 'Search' -%}
+{%- endif -%}
+
+{%- if current_page != 1 -%}
+{%- assign seo_title = seo_title | append: ' &ndash; Page ' | append: current_page -%}
+{%- endif -%}
+
+{%- if seo_title == blank -%}
+{%- assign seo_title = shop.name -%}
+{%- else -%}
+{%- assign seo_title = seo_title | append: ' &#124; ' | append: shop.name -%}
+{%- endif -%}
+
+<title>{{ seo_title }}</title>
+
+{%- comment -%}
+<!-- --------------- -->
+<!-- SEO DESCRIPTION -->
+<!-- --------------- -->
+{%- endcomment -%}
+
+{%- if template == 'collection' or template == 'collection.sub-collection' -%}
+{%- assign seo_desc_prefix = 'Shop our wide selection of ' | append: collection.title | append: ' canvas prints.' -%}
+{%- if page_description != blank -%}
+{%- assign seo_desc_prefix = seo_desc_prefix | append: ' ' | append: page_description -%}
+{%- endif -%}
+{%- assign seo_description = seo_description | prepend: seo_desc_prefix | append: ' Top Quality | Ready to Mount | Free Shipping | Best Price' -%}
+{%- elsif page_description != blank -%}
+{%- assign seo_description = page_description | escape | strip -%}
+{%- else -%}
+{%- assign seo_description = seo_title | strip -%}
+{%- endif -%}
+{%- if template == 'product' -%}
+{%- assign seo_description = seo_description | append: ' Top Quality | Ready to Mount | Free Shipping | Best Price' -%}
+{%- endif -%}
+
+<meta name="description" content="{{ seo_description }}">
+
+{%- comment -%}
+<!-- ------------ -->
+<!-- SEO KEYWORDS -->
+<!-- ------------ -->
+{%- endcomment -%}
+<meta name="keywords" content="{{ page_title | downcase }}, wall art, canvas art, canvas prints, art prints, home decor" />
+
+{%- comment -%}
+<!-- ------- -->
+<!-- JSON-LD -->
+<!-- ------- -->
+{%- endcomment -%}
+
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+    "@type": "Organization",
+    "name": {{ shop.name | json }},
+    "url": "https://{{ shop.domain }}",
+    "description": {{ shop.description | json }},
+    "logo": "{{ 'nichecanvas_logo.jpg' | file_url }}",
+    "sameAs": ["https://facebook.com/nichecanvas", "https://instagram.com/nichecanvas", "https://pinterest.com/nichecanvas"],
+    "telephone": "{{ shop.phone }}",
+    "address": {
+    	"@type": "PostalAddress",
+      	"streetAddress": "{{ shop.address.street }}",
+      	"addressLocality": "{{ shop.address.city }}",
+      	"addressRegion": "{{ shop.address.province }}",
+      	"postalCode": "{{ shop.address.zip }}",
+      	"addressCountry": "{{ shop.address.country }}"
+	}
+}
+</script>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": {{ shop.name | json }},
+    "url": "{{ shop.secure_url }}",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "query-input": "required name=query",
+      "target": "{{ shop.secure_url }}/search?q={query}"
+    }
+  }
+</script>
+{%- if template == 'product' -%}
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+    "@type": "Product",
+    "@id": {{ canonical_url | json }},
+    "name": {{ product.title | json }},
+    "brand": {"@type": "Brand","name": {{ product.vendor | json }}},
+    "sku": "{{ product.selected_or_first_available_variant.sku }}",
+    "mpn": "{{ product.selected_or_first_available_variant.barcode }}",
+    "description": {{ product.description | strip_html | json }},
+    "url": "{{ shop.secure_url }}{{ product.url }}",
+    {%- if product.featured_image -%}
+    {%- assign image_size = product.featured_image.width | append: 'x' -%}
+    "image": "https:{{ product.featured_image.src | img_url: image_size }}",
+    {%- else -%}
+    "image": "https:{{ product.images[0].src | img_url }}",
+    {%- endif -%}
+    "itemCondition": "https://schema.org/NewCondition",
+    "offers": [
+    	{%- for variant in product.variants -%}
+        {
+          "@type": "Offer",
+          "price": "{{ variant.price | money_without_currency | remove: "," }}",
+          "priceCurrency": "{{ shop.currency }}",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "{{ shop.secure_url }}{{ variant.url }}",
+          "sku": "{{ variant.sku }}",
+          "mpn": "{{ variant.barcode }}",
+          "availability" : "https://schema.org/{%- if product.available -%}InStock{%- else -%}OutOfStock{%- endif -%}",
+          "priceValidUntil": {{ "today" | date: '%s' | plus: 2592000 | date: "%Y-%m-%d" | json }}
+        {%- if variant.barcode.size == 12 -%}
+          ,"gtin12": "{{ variant.barcode }}"
+        {%- elsif variant.barcode.size == 13 -%}
+          ,"gtin13": "{{ variant.barcode }}"
+        {%- endif -%}
+        }
+        {%- if forloop.index < product.variants.size -%},{%- endif -%}
+      {%- endfor -%}
+	]
+    {%- if product.metafields.loox.num_reviews != blank -%}
+    ,"aggregateRating": {
+		"@type": "AggregateRating",
+		"ratingCount": {{ product.metafields.loox.num_reviews | default: 0 }},
+		"ratingValue": {{ product.metafields.loox.avg_rating | default: 0 }}
+	}
+    {%- endif -%}
+}
+</script>
+{%- elsif template == 'blog' -%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "mainEntityOfPage": {"@type": "WebPage","@id": "{{ shop.secure_url }}{{ blog.url }}"},
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ shop.name }}",
+      "description": {{ shop.description | json }}
+    },
+    "url": "{{ shop.secure_url }}{{ blog.url }}",
+    "name": "{{ blog.title }}"
+  }
+</script>
+{%- elsif template == 'article' -%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {{ canonical_url | json }},
+    "url": "{{ shop.secure_url }}{{ article.url }}",
+    "author": "{{ shop.name }}",
+    "name": {{ article.title | json }},
+    "publisher": {
+      "@type": "Organization",
+      "logo": {
+      	"@type": "ImageObject",
+        "url": "{{ 'nichecanvas_logo.jpg' | file_url }}"
+      },
+      "name": {{ shop.name | json }}
+    },
+    "headline": {{ article.title | json }},
+    {%- if article.image -%}
+      "image": {"@type": "ImageObject","width": 1024,"height": 1024,"url": "https:{{ article | img_url: '1024x1024' }}"},
+    {%- endif -%}
+    "datePublished": "{{ article.published_at }}",
+    "dateCreated": "{{ article.created_at }}",
+    "dateModified": "{{ article.published_at }}",
+    {%- if article.excerpt.size > 0 -%}"description": {{ article.excerpt | strip_html | json }} {%- else -%}"description": {{ article.content | strip_html | json }} {%- endif -%},"articleBody": {{ article.content | strip_html | json }}
+  }
+</script>
+{%- endif -%}

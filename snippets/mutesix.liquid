@@ -1,0 +1,40 @@
+<!-- Google Ads Dynamic Remarketing by M6 -->
+{% if template contains 'product' or template contains 'collection' or template contains 'index' or template contains 'search' %}
+<script>
+  gtag('event', 'page_view', {
+    'send_to': 'AW-820782793',
+    'ecomm_pagetype': '{% if template contains 'collection' %}category{% elsif template contains 'product' %}product{% elsif template contains 'search' %}{% elsif template contains 'index' %}home{% endif %}',
+    {% if template contains 'product' %}
+    'ecomm_prodid': 'shopify_US_{{ product.id }}_{{ product.selected_or_first_available_variant.id }}',
+    {% endif %}
+    {% if template contains 'product' %}'ecomm_totalvalue': {{ product.price_min | money_without_currency | remove:',' }},{% endif %}
+    {% if template contains 'product' %}'ecomm_category': "{{ product.type }}" ,{% endif %}
+  });
+</script>
+{% endif %}
+<!-- End Google Ads Dynamic Remarketing by M6 -->
+
+{% if template contains 'product' %}
+<script>
+  var atcButtonID = "btn_add_to_cart";
+  var atcButton = document.getElementById(atcButtonID);
+  if(atcButton){
+    atcButton.addEventListener("click", function(event) {
+      var cartValue = {{ product.selected_or_first_available_variant.price }}/100;
+      var productId = {{ product.selected_or_first_available_variant.id }};
+      var productType = "{{ product.type }}";
+      var currency = "{{ shop.currency }}";
+      var tagId = "AW-820782793/sKanCOWp1tUBEMnNsIcD";
+      var tagSegments = tagId.substr(3).split('/');
+      var conversionId = tagSegments[0];
+      var conversionLabel = tagSegments[1];
+      gtag('config', 'AW-'+conversionId);
+      gtag('event', 'conversion', {
+        'send_to': 'AW-'+conversionId+'/'+conversionLabel,
+        'value': cartValue,
+        'currency': currency
+      });
+    });
+  }
+</script>
+{% endif %}

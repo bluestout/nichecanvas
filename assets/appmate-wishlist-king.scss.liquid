@@ -25,8 +25,8 @@ $wk-button-wishlist-clear-background-hover: #ff9c32;
 $wk-button-wishlist-clear-text-color-hover: #2b2a2a;
 
 /* -- Wishlist link (in header) -- */
-$wk-header-link-icon-color: #62677b;
-$wk-header-link-icon-color-hover: #020f4c;
+$wk-header-link-icon-color: #000;
+$wk-header-link-icon-color-hover: #000;
 $wk-header-link-icon-size: 15px;
 $wk-header-link-icon-padding: 0;
 
@@ -111,11 +111,11 @@ $swiper-button-color: #999;
   }
 
   {% if settings.app_wk_col_bg_shape == "square" %}
-    border-radius: 0;
+  border-radius: 0;
   {% elsif settings.app_wk_col_bg_shape == "circle" %}
-    border-radius: 50%;
+  border-radius: 50%;
   {% elsif settings.app_wk_col_bg_shape == "none" %}
-    background: transparent;
+  background: transparent;
   {% endif %}
 
   padding: 0;
@@ -137,22 +137,22 @@ button.wk-button-collection {
 
   position: absolute;
   z-index: 1;
-  
+
   min-width: 0;
   min-height: 0;
-  
+
   border-radius:0;
 
   {% if settings.app_wk_col_bg_shape == "square" %}
-    top: 0;
-    right: 0;
-    left: auto;
-    bottom: auto;
+  top: 0;
+  right: 0;
+  left: auto;
+  bottom: auto;
   {% else %}
-    top: 5px;
-    right: 5px;
-    left: auto;
-    bottom: auto;
+  top: 5px;
+  right: 5px;
+  left: auto;
+  bottom: auto;
   {% endif %}
 
   line-height: 0;
@@ -220,8 +220,8 @@ button.wk-button-product {
   /* Icon ONLY */
   /* background: #FFFFFF;
   display: inline-block;
-      margin: 0 0 0 8px !important;
-    padding: 8px 13px !important;
+  margin: 0 0 0 8px !important;
+  padding: 8px 13px !important;
   width: auto;
   border: 1px solid #3fbddd;
   border-radius: 3px;
@@ -330,11 +330,8 @@ button.wk-button-wishlist-clear {
 a.wk-link {
   @include wk-icon($wk-header-link-icon-color, $wk-header-link-icon-size, $wk-header-link-icon-padding);
 
-
   display: inline-block;
-  vertical-align: middle;
-  margin: 0 3px 0 0;
-  
+  position: relative;
 
   .wk-icon svg path {
   }
@@ -347,24 +344,104 @@ a.wk-link {
   }
 
   .wk-icon {
-    width: $wk-header-link-icon-size;
-    height: $wk-header-link-icon-size - 1;
-
-    margin: 0 5px 0 0;
+    margin: 0;
     padding: 0;
-    
-    position:relative;
-    top:1px;
+
+    svg {
+      width: 21px;
+      height: 21px;
+
+      path {
+        fill: #fff;
+        stroke: #000;
+      }
+    }
   }
 
   .wk-label {
-    /* display: none; */
-    padding:0;
+    display: none;
   }
 
   .wk-count {
-    /* display: none; */
-    padding:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -1px;
+    top: 0.2rem;
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0;
+    min-width: auto;
+    height: 16px;
+    font-family: 'Neutrif Pro';
+    font-size: 10px;
+    line-height: 1;
+    padding: 0 4px;
+  }
+
+  &.wk-empty {
+    .wk-count {
+      display: none;
+    }
+  }
+}
+
+.FixedHeaderWrapper a.wk-link {
+  @include wk-icon($wk-header-link-icon-color, $wk-header-link-icon-size, $wk-header-link-icon-padding);
+
+  display: inline-block;
+  position: relative;
+
+  margin-right: 12px;
+
+  .wk-icon svg path {
+  }
+
+  &:hover {
+    .wk-icon svg path {
+      fill: $wk-header-link-icon-color-hover;
+      stroke: $wk-header-link-icon-color-hover;
+    }
+  }
+
+  .wk-icon {
+    margin: 0;
+    padding: 0;
+
+    svg {
+      width: 21px;
+      height: 21px;
+
+      path {
+        fill: #fff;
+        stroke: #000;
+      }
+    }
+  }
+
+  .wk-label {
+    display: none;
+  }
+
+  .wk-count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -15px;
+    top: 0.2rem;
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0;
+    min-width: auto;
+    height: 16px;
+    font-family: 'Neutrif Pro';
+    font-size: 10px;
+    line-height: 1;
+    padding: 0 4px;
   }
 
   &.wk-empty {
@@ -418,11 +495,11 @@ a.wk-link {
 /*////////////////////////////////////////////////////////////////////////////*/
 
 h1#wk-page-title {
-    display: block;
-    text-align: center;
-    margin: 0 0 20px 0;
-    padding: 0;
-    border: none;
+  display: block;
+  text-align: center;
+  margin: 0 0 20px 0;
+  padding: 0;
+  border: none;
 }
 
 .wk-wishlist-empty-note {
@@ -462,7 +539,7 @@ p.wk-login-note {
 
   .wk-product-options {
     border-bottom: none;
-    
+
     .selector-wrapper {
       display: block !important;
     }
@@ -766,24 +843,22 @@ ul#wk-share-list {
   h1#wk-page-title {
     margin: 30px 0 20px 0;
   }
-  
+
   /*#header .top_bar a.mobile_logo {
-    width: 34%;
-  }*/
-  
+  width: 34%;
+}*/
+
   .top_bar .top_bar--right .icon-search {
-    padding-right: 9px;
-    position: relative;
-    top: -1px;
+    //padding-right: 9px;
+    //position: relative;
+    //top: -1px;
   }
 
   a.wk-link {
     @include wk-icon($wk-header-link-icon-color, $wk-header-link-icon-size, $wk-header-link-icon-padding);
 
     display: inline-block;
-    margin: 0 7px 0 0;
-    
-    z-index: 999;
+    margin: 0 12px 0 0;
 
     .wk-icon svg path {
     }
@@ -796,22 +871,41 @@ ul#wk-share-list {
     }
 
     .wk-icon {
-      width: 18px;
-      height: 18px - 1;
-
       margin: 0;
       padding: 0;
 
-      position:relative;
-      top:0;
+      svg {
+        width: 21px;
+        height: 21px;
+
+        path {
+          fill: #fff;
+          stroke: #000;
+        }
+      }
     }
 
     .wk-label {
-      display: none !important;
+      display: none;
     }
 
     .wk-count {
-      display: none !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: -10px;
+      top: 7px;
+      font-weight: bold;
+      background-color: #000;
+      color: #fff;
+      border-radius: 0;
+      min-width: auto;
+      height: 16px;
+      font-family: 'Neutrif Pro';
+      font-size: 10px;
+      line-height: 1;
+      padding: 0 4px;
     }
 
     &.wk-empty {
@@ -824,10 +918,10 @@ ul#wk-share-list {
 }
 
 @media (max-width: 340px) {
-  
+
   /*a.wk-link {
-    right: 92px;
-  }*/
+  right: 92px;
+}*/
 
   #header a.mobile_logo img {
     width: auto;

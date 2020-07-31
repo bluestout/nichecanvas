@@ -1,9 +1,8 @@
 {% assign products_per_row = section.settings.grid | times: 1 %}
-
 {% case products_per_row %}
 {% when 2 %}
 {%- assign max_height = 530 -%}
-{%- assign grid_item_width = 'medium-up--one-half' -%}
+{%- assign grid_item_width = 'medium-up--one-half ' -%}
 {% when 3 %}
 {%- assign max_height = 345 -%}
 {%- assign grid_item_width = 'small--one-half medium-up--one-third' -%}
@@ -15,6 +14,9 @@
 {%- assign grid_item_width = 'small--one-half medium-up--one-fifth' -%}
 {% endcase %}
 
+{%- assign grid_item_width =  grid_item_width | append: ' fs-small--one-whole '-%} 
+
+
 {% if section.settings.layout == 'grid' %}
 {%- assign limit = section.settings.grid | times: section.settings.rows -%}
 {% else %}
@@ -25,7 +27,7 @@
 
 <div data-section-id="{{ section.id }}" data-section-type="collection-template" class="cst_MAinColl">
   <div class="shopNwPayltr">
-    <p>Shop now, pay later with <img alt="Sezzel Logo" title="Sezzel" src="https://cdn.shopify.com/s/files/1/2012/8501/files/sezzle_logo.svg"> <span>·</span> 4 payments / 0% interest</p>
+    <p>Shop now, pay later with <img alt="Sezzel Logo" title="Sezzel" src="{{ 'sezzle_logo.svg' | file_url }}"> <span>·</span> 4 payments / 0% interest</p>
   </div>
   <header class="collection-header">
 
@@ -41,14 +43,15 @@
       </noscript>
       <div class="collection-hero__title-wrapper">
         <h1 id="bc-sf-filter-collection-header" class="collection-hero__title page-width">{{ collection.title }}</h1>
+        {% assign product_description = 'Shop our wide selection of ' | append: collection.title | append:' canvas prints' %}
+        {% if collection.description != blank %}
+        {% assign product_description = collection.description %}
+        {% endif %}
+        <div id="bc-sf-filter-collection-description" class="rte collection-hero__description">
+          {{ product_description }}
+        </div>
       </div>
     </div>
-
-    {% if collection.description != blank %}
-    <div id="bc-sf-filter-collection-description" class="rte collection-description page-width" style="display:none">
-      {{ collection.description }}
-    </div>
-    {% endif %}
     {% else %}
     <div class="page-width">
       <div class="section-header text-center">
@@ -61,80 +64,90 @@
       </div>
     </div>
     {% endif %}
+    
+    <div class="bc-sf-filter-mobile">
+      <div id="bc-sf-filter-tree-mobile">
+        {% include 'bc-sf-filter-skeleton', type: 'button' %}
+      </div>
+      <div class="fs-cl-laybtn-container">
+        <label>Showing&nbsp;&nbsp;&nbsp;</label>
+        <a id="fs-cl-two-col_btn">
+          <img src="{{'thumbs_icon.svg' | asset_url}}">
+        </a>
+        <a id="fs-cl-one-col_btn">
+          <img src="{{'fullwidth_icon.svg' | asset_url}}">
+        </a>
+      </div>
+    </div>
 
     <div class="page-width">
       <div class="section-icontext">
         <ul>
-          <li> <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-free-shipping.svg" alt="Image" title="Free Shiping">
+          <li> <img src="{{ 'icon-free-shipping.svg' | asset_url }}" alt="Image" title="Free Shiping">
             <p>Free Shipping in the USA</p>
           </li>
-          <li> <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-ready-to-hang.svg" alt="Image" title="Ready to mount">
+          <li> <img src="{{ 'icon-ready-to-hang.svg' | asset_url }}" alt="Image" title="Ready to mount">
             <p>Ready to mount</p>
           </li>
-          <li> <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/icon-best-price-guarantee.svg" alt="Image" title="Best Price Guarantee">
+          <li> <img src="{{ 'icon-best-price-guarantee.svg' | asset_url }}" alt="Image" title="Best Price Guarantee">
             <p>Best Price Guarantee</p>
           </li>
         </ul>
       </div>
     </div>
-
-    <div class="filters-toolbar-wrapper">
-      <div class="page-width">
-        <div class="bc-sf-filter-tree-wrapper">
-          <h3 class="bc-sf-filter-tree-heading">Filter by:</h3>
-          <div id="bc-sf-filter-tree-h">
-            {% include 'bc-sf-filter-tree-placeholder-h' %}
-          </div>
-        </div>
-        <div class="filters-toolbar__item-child bc-sf-filter-custom-sorting" id="bc-sf-filter-top-sorting">
-          {% include 'bc-sf-filter-skeleton', width: 2 %}
-        </div>
-      </div>
-    </div>
   </header>
 
-
-
-  <div class="page-width" id="Collection">
-
-    <div id="bc-sf-filter-tree-mobile">
-      {% include 'bc-sf-filter-skeleton', type: 'button' %}
-    </div>
-    <div id="bc-sf-filter-tree">
-      {% include 'bc-sf-filter-tree-placeholder' %}
-    </div>
-
-    {% if section.settings.layout == 'grid' %}
-
-    <div id="bc-sf-filter-products" class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}" data-bc-sort="{{ collection.default_sort_by }}">
-      {% for product in collection.products %}
-      <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-        {% include 'product-card-grid', max_height: max_height %}
+  <div class="page-width bc-sf-filter-wrapper" id="Collection">
+    <div class="bc-custom-drawer-overlay"></div>
+    <div class="bc-custom-filter-sidebar-wrapper">
+      <div class="filters-toolbar__item-child bc-sf-filter-custom-sorting" id="bc-sf-filter-top-sorting">
+        {% include 'bc-sf-filter-skeleton', width: 2 %}
       </div>
-      {% endfor %}
+      <div class="bc-custom-filter-mobile-header">
+        <h3>
+          <span>Refine By</span>
+        </h3>
+        <div class="bc-custom-drawer-close">Done</div>
+        <a href="javascript:;" class="bc-sf-filter-clear-all" onclick="clearAllFilterOptions(event)">Reset</a>
+      </div>
+      <div id="bc-sf-filter-tree">
+        {% include 'bc-sf-filter-tree-placeholder' %}
+      </div>
     </div>
 
-    {% else %}
+    <div id="bc-sf-filter-right">
+      {% if section.settings.layout == 'grid' %}
 
-    <div id="bc-sf-filter-products" data-bc-sort="{{ collection.default_sort_by }}">
-      <ul class="list-view-items">
-        {% if collection.default_sort_by != 'best-selling' %}
+      <div id="bc-sf-filter-products" class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}" data-bc-sort="{{ collection.default_sort_by }}">
         {% for product in collection.products %}
-        <li href="{{ product.url | within: collection }}" class="list-view-item">
-          {% include 'product-card-list', product: product %}
-        </li>
+        <div class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
+          {% include 'product-card-grid', max_height: max_height %}
+        </div>
         {% endfor %}
-        {% endif %}
-      </ul>
-    </div>
+      </div>
 
-    {% endif %}
+      {% else %}
 
-    {% if is_empty_collection %}
-    <div class="grid__item small--text-center">
-      <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+      <div id="bc-sf-filter-products" data-bc-sort="{{ collection.default_sort_by }}">
+        <ul class="list-view-items">
+          {% if collection.default_sort_by != 'best-selling' %}
+          {% for product in collection.products %}
+          <li href="{{ product.url | within: collection }}" class="list-view-item">
+            {% include 'product-card-list', product: product %}
+          </li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+      </div>
+
+      {% endif %}
+
+      {% if is_empty_collection %}
+      <div class="grid__item small--text-center">
+        <p class="text-center">{{ 'collections.general.no_matches' | t }}</p>
+      </div>
+      {% endif %}
     </div>
-    {% endif %}
 
     <div id="bc-sf-filter-bottom-pagination">
       {% if paginate.pages > 1 %}
@@ -191,6 +204,7 @@
       vendor_enable: {% if section.settings.show_vendor %} {{ section.settings.show_vendor | json }} {% else %} false {% endif %},
       layout: {% if section.settings.layout %} {{ section.settings.layout | json }} {% else %} "grid" {% endif %},
       enable_ajax: {% if settings.enable_ajax == blank %} false {% else %} true {% endif %},
+      products_mobile_per_row: {% if settings.mobile_one_product_show == true %} 1 {% else %} 2 {% endif %},
     }
   };
 
@@ -375,7 +389,7 @@
 },
 "default": 2,
 "min": 2,
-"max": 8,
+"max": 12,
 "step": 1
 },
 {

@@ -57,7 +57,7 @@
         "other": "{{ count }} results for “{{ terms }}”"
       },
       "title": "Search our site",
-      "placeholder": "Search anything...",
+      "placeholder": "I love... (e.g. Buddha, Lion, Wine, Vintage)",
       "submit": "Submit",
       "close": "Close search",
       "heading": {

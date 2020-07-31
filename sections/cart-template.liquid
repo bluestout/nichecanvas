@@ -41,7 +41,7 @@
           {% if section.settings.shipping_message%}
           <div class="free-shipping">
             <span>Shipping</span>
-            <span>Free</span>
+            <i style="font-weight:400;">Calculated at next step</i>
           </div>
 {%endif%}
           <div class="csTotal">
@@ -49,7 +49,7 @@
             <span class="TotalValue">{{ cart.total_price | money_with_currency }}</span>
           </div>
           <div class="csCrtDtlz">
-            <a href="#">Cart Details <img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/downArrow.svg" alt="arrow"></a>
+            <a href="#">Cart Details <img src="{{ 'downArrow.svg' | asset_url }}" alt="arrow"></a>
           </div>
           {%- capture taxes_shipping_checkout -%}
           {%- if shop.taxes_included and shop.shipping_policy.body != blank -%}
@@ -75,7 +75,7 @@
                      class="cart__submit btn btn--small-wide"
                      value="{{ 'cart.general.checkout' | t }}">
 
-              <p>Secured Payment (SSL encripted)<img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/logo-lock.svg"></p>
+              <p>Secured Payment (SSL encripted)<img src="{{ 'logo-lock.svg' | asset_url }}"></p>
             </div>
 
             <div class="cart__error-message-wrapper hide" role="alert" data-cart-error-message-wrapper>
@@ -304,7 +304,7 @@
               <input type="submit" name="checkout"
                      class="cart__submit btn btn--small-wide"
                      value="{{ 'cart.general.checkout' | t }}">
-              <p>Secured Payment (SSL encripted)<img src="https://cdn.shopify.com/s/files/1/2012/8501/t/103/assets/logo-lock.svg"></p>
+              <p>Secured Payment (SSL encripted)<img src="{{ 'logo-lock.svg' | asset_url }}"></p>
             </div>
 
             <div class="cart__error-message-wrapper hide" role="alert" data-cart-error-message-wrapper>

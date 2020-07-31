@@ -1,5 +1,52 @@
+
+$(".nc-has-drop-list .site-nav__link").click(function(e){
+ // e.preventDefault();
+//alert("abc");
+  $(this).parent(".nc-has-drop-list").toggleClass("nc-has-drop-list-open");
+})
+$("#mobile_menu li ul.mobile-menuChild li a.mblHding").click(function(){
+$(this).parent("li").toggleClass("SubChilopen");
+})
+$(".lastparent a").click(function(){
+$(this).parent("li").toggleClass("SubChilopen");
+})
+// $(function(){
+//   // Bind the swipeleftHandler callback function to the swipe event on div.box
+//   $( ".mobile_nav-fixed" ).on( "swipeleft", swipeleftHandler );
+ 
+//   // Callback function references the event target and adds the 'swipeleft' class to it
+//   function swipeleftHandler( event ){
+//     $("body").removeClass("MenuOppned");
+//   }
+// });
+
 $(document).ready(function(){
+  if ($(window).width() < 749) {
+$(function() {
+
+  
+  function swipe1(){
+    $("body").removeClass("MenuOppned");
+  }
+        $(".mobile_nav-fixed").swipe( { swipeLeft:swipe1, allowPageScroll:"auto"} );
+
+
+});
+}
   /************************MOBILE SEARCH ICON CLICK *****************/
+    
+//   $('.mobile_nav-fixed').swipe({
+    
+//         swipe: function(event, direction, distance, duration, fingerCount) {
+//             if (direction=='left') {
+//                 alert("left");
+//             } 
+//         }  
+// })  
+//   $('.mobile_nav-fixed').touchwipe({
+//  wipeLeft: function() {alert("TEST1");},
+//  wipeRight: function() { alert("TEST2");}        
+// });
   $(".cstSrchMob").click(function(){
   $("body").addClass("MobileSearch");
   })
@@ -371,8 +418,24 @@ $(document).ready(function(){
     })
   })
 
-  
-
-  
-  
-})
+  /*********FS one two layout on mobile collection page************/
+  var cl_layout_interval;
+  $('#fs-cl-two-col_btn').click(function(){
+    $(".fs-small--one-whole").css("width","50%");
+    $("#fs-cl-two-col_btn img").css("opacity","1");
+    $("#fs-cl-one-col_btn img").css("opacity","0.5");
+    clearInterval(cl_layout_interval);
+    cl_layout_interval = setInterval(function(){
+      $(".fs-small--one-whole").css("width","50%");
+    },500);
+  });
+  $('#fs-cl-one-col_btn').click(function(){
+    $(".fs-small--one-whole").css("width","100%");
+    $("#fs-cl-two-col_btn img").css("opacity","0.5");
+    $("#fs-cl-one-col_btn img").css("opacity","1");
+    clearInterval(cl_layout_interval);
+    cl_layout_interval = setInterval(function(){
+      $(".fs-small--one-whole").css("width","100%");
+    },500);
+  });
+}) 
