@@ -7630,6 +7630,27 @@ theme.init = function() {
   $(document).one('touchstart', function() {
     theme.Helpers.setTouch();
   });
+  
+  // coupon copy
+  $('[data-coupon]').each(function(index, element) {
+    var $element = $(element);
+    var value = $element.data('coupon');
+    if (!value) {
+    	return;
+    }
+    $element.addClass('coupon-trigger');
+    $element.prop('title', "Copy coupon '" + value + "' to clipboard");
+    $element.on('click', function() {
+    	navigator.clipboard.writeText(value);
+      	var notyf = new Notyf();
+      	notyf.success({
+          message: 'Coupon copied!',
+          duration: 1500,
+          background: '#000000',
+          position: {x:'center', y:'bottom'}
+        });
+    });
+  });
 };
 
 // Youtube API callback

@@ -2,7 +2,7 @@
     <div class="text-center">
       <h1 class="bc-sf-search-result-header h2">{{ 'general.search.title' | t }}</h1>
       <div class="grid">
-        <div class="grid__item medium-up--two-fifths medium-up--push-three-tenths">
+        <div class="grid__item medium-up--two-fifths medium-up--push-three-tenths" style="display:none;">
           <form action="/search" method="get" role="search" class="search">
             <div class="input-group">
               <input type="search"
@@ -20,36 +20,47 @@
           </form>
         </div>
       </div>
-
-      <hr class="hr--small hr--invisible">
       <p class="bc-sf-search-result-number">
         {% include 'bc-sf-filter-skeleton', width: 2 %}
       </p>
   </div>
 </div>
 
-<div class="filters-toolbar-wrapper">
-      <div class="page-width">
-        <div class="bc-sf-filter-tree-wrapper">
-          <h3 class="bc-sf-filter-tree-heading">Filter by:</h3>
-          <div id="bc-sf-filter-tree-h">
-            {% include 'bc-sf-filter-tree-placeholder-h' %}
-          </div>
-        </div>
-        <div class="filters-toolbar__item-child bc-sf-filter-custom-sorting" id="bc-sf-filter-top-sorting">
-          {% include 'bc-sf-filter-skeleton', width: 2 %}
-        </div>
+
+    
+     <div class="bc-sf-filter-mobile">
+      <div id="bc-sf-filter-tree-mobile">
+        {% include 'bc-sf-filter-skeleton', type: 'button' %}
+      </div>
+      <div class="fs-cl-laybtn-container">
+        <label>Showing&nbsp;&nbsp;&nbsp;</label>
+        <a id="fs-cl-two-col_btn">
+          <img src="{{'thumbs_icon.svg' | asset_url}}">
+        </a>
+        <a id="fs-cl-one-col_btn">
+          <img src="{{'fullwidth_icon.svg' | asset_url}}">
+        </a>
       </div>
     </div>
 
-<div class="page-width">
-  <div id="bc-sf-filter-tree-mobile">
-    {% include 'bc-sf-filter-skeleton', type: 'button' %}
+<div class="page-width bc-sf-filter-wrapper">
+<div class="bc-custom-drawer-overlay"></div>
+  <div class="bc-custom-filter-sidebar-wrapper">
+    <div class="filters-toolbar__item-child bc-sf-filter-custom-sorting" id="bc-sf-filter-top-sorting">
+      {% include 'bc-sf-filter-skeleton', width: 2 %}
+    </div>
+    <div class="bc-custom-filter-mobile-header">
+      <h3>
+        <span>Refine By</span>
+      </h3>
+      <div class="bc-custom-drawer-close">Done</div>
+      <a href="javascript:;" class="bc-sf-filter-clear-all" onclick="clearAllFilterOptions(event)">Reset</a>
+    </div>
+    <div id="bc-sf-filter-tree">
+      {% include 'bc-sf-filter-tree-placeholder' %}
+    </div>
   </div>
-  <div id="bc-sf-filter-tree">
-    {% include 'bc-sf-filter-tree-placeholder' %}
-  </div>
-  
+   <div id="bc-sf-filter-right">
   <div id="bc-sf-filter-products" class="grid grid--uniform grid--view-items">
     {% comment %} Fix Shopify search term report {% endcomment %}
     {% paginate search.results by 2 %}
@@ -65,6 +76,7 @@
     {% include 'bc-sf-filter-skeleton', width: 2 %}
   </div>
   <div id="bc-sf-filter-load-more"></div>
+  </div>
 </div>
     
 <script>
@@ -95,7 +107,7 @@
       current_page: {{ 'general.pagination.current_page' | t | json }},
     },
     custom: {
-      products_per_page: 12,
+      products_per_page: 36,
       products_per_row: 3,
       product_grid_class: 'grid__item small--one-half medium-up--one-quarter',
       max_height: 250,

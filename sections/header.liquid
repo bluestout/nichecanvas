@@ -46,9 +46,8 @@
     {% else %}
     <a href="{{ section.settings.message_link }}" class="announcement-bar announcement-bar--link">
       {% endif %}
-
-      <p class="announcement-bar__message fs_announcement-bar">{{ section.settings.message_text}}</p>
-      <p class="announcement-bar__message fs_mobile_announcement-bar">{{ section.settings.message_mobile_text}}</p>
+      <p class="announcement-bar__message fs_announcement-bar" data-coupon="{{ section.settings.coupon }}">{{ section.settings.message_text}}</p>
+      <p class="announcement-bar__message fs_mobile_announcement-bar" data-coupon="{{ section.settings.coupon }}">{{ section.settings.message_mobile_text}}</p>
       <span class="CrossAnnouc">X</span>
       {% if section.settings.message_link == blank %}
       </div>
@@ -861,6 +860,11 @@
 "id": "message_mobile_text",
 "label": "Mobile Text",
 "default": "<div><p>Some HTML content</p></div>"
+},
+{
+"type": "text",
+"id": "coupon",
+"label": "Coupon"
 },
 {
 "type": "url",

@@ -151,7 +151,11 @@
             
           </div>
           <div id="renderhere"></div>
-
+		  {% if section.settings.special_box != blank %}
+          <div class="special-box" data-coupon="{{ section.settings.special_box_coupon }}">
+            {{ section.settings.special_box }}
+          </div>
+          {% endif %}
         </div>
         {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
         <div class="product__policies rte" data-product-policies>
@@ -245,6 +249,11 @@
             
           </div>
           <div id="renderhere"></div>
+           {% if section.settings.special_box != blank %}
+          <div class="special-box" data-coupon="{{ section.settings.special_box_coupon }}">
+            {{ section.settings.special_box }}
+          </div>
+          {% endif %}
         </div>
         <div class="cstAddCartBuy"               >
           <button type="submit" name="add"
@@ -498,6 +507,20 @@
 "zh-TW": "顯示社群分享按鈕"
 },
 "default": true
+},
+{
+"type": "header",
+"content": "Special Box"
+},
+{
+"type": "textarea",
+"id": "special_box",
+"label": "Content"
+},
+{
+"type": "text",
+"id": "special_box_coupon",
+"label": "Coupon"
 },
 {
 "type": "header",

@@ -20,6 +20,7 @@
 
     {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
     {{ 'jquery-ui.css' | asset_url | stylesheet_tag }}
+    {{ 'notyf.css' | asset_url | stylesheet_tag }}
     
     {{ 'custom.css' | asset_url | stylesheet_tag }}
     {{ 'nichecanvas.css' | asset_url | stylesheet_tag }}
@@ -97,6 +98,7 @@
 
     
     <script src="{{ 'lazysizes.js' | asset_url }}" async="async"></script>
+    <script src="{{ 'notyf.js' | asset_url }}" async="async"></script>
     <script src="{{ 'vendor.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'theme.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'new-custom.js' | asset_url }}" defer="defer"></script>
