@@ -1,3 +1,116 @@
+.collection-banner {
+  padding: 30px 0;
+  margin-top: -55px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e8e9eb;
+  position: relative;
+}
+.collection-banner__wrapper {
+  display: flex;
+  width: 100%;
+}
+.collection-banner__image {
+  width: 20%;
+  margin-right: 30px;
+  flex-shrink: 0;
+}
+.collection-banner__image img {
+  width: 100%;
+  max-width: 256px;
+  height: auto;
+  background: #fff;
+  border: 15px solid #fff;
+  border-top-left-radius: 20%;
+  border-bottom-right-radius: 20%;
+}
+.collection-banner__content {
+	margin-right: 30px;
+  width: 51.333%;
+}
+.collection-banner__title {
+	margin-bottom: 5px;
+}
+.collection-banner__sub {
+  opacity: 0.6;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.collection-banner__description {
+ text-align: justify;
+}
+.collection-banner__usp {
+  width: 25%;
+  padding-top: 15px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.collection-banner__usp li {
+  display: flex;
+  background: #fff;
+  border-radius: 26px;
+  padding: 8px 15px;
+  align-items: center;
+  box-shadow: 1px 1px 5px #ddd;
+}
+.collection-banner__usp li img {
+ margin-right: 15px;
+}
+.collection-banner__sezzle {
+position: absolute;
+  width: 100%;
+  top:5px;
+  right:0;
+  text-align: right;
+  vertical-align: middle;
+  font-size: .9rem;
+}
+.collection-banner__sezzle img {
+  max-width: 56px; 
+  margin: 0 5px;
+}
+.collection-banner__sezzle-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.sin-pro-qa-ls-bot-img .slick-dots {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+}
+.sin-pro-qa-ls-bot-img .slick-dots li button:before, .sin-pro-qa-ls-bot-img .slick-dots li a:before {
+  font-size: 48px;
+  opacity: 0.5;
+  color: #000;
+}
+.sin-pro-qa-ls-bot-img .slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #000;
+}
+.sin-pro-qa-ls-bot-img .slick-dots li button, .sin-pro-qa-ls-bot-img .slick-dots li a {
+	background:#fff;
+  	border-radius: 50%;
+}
+@media (max-width: 1200px) {
+  .collection-banner__wrapper {
+  	flex-wrap: wrap;
+  }
+  .collection-banner__content {
+	margin-right: 0;
+  	width: auto;
+    flex: 1;
+  }
+  .collection-banner__usp {
+  	flex-basis: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .collection-banner__usp li {
+  	margin-left: 15px;
+  }
+}
 @media (max-width: 749px) {
 
   	.index-section--slideshow {
@@ -48,4 +161,80 @@
 		padding: 0 20px 10px 10px;
 		position: relative;
 	}
+  
+  .collection-banner {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 15px 0;     
+    }
+    .collection-banner__wrapper {
+      display: block;
+    }
+    .collection-banner__sezzle{
+      display: none;
+    }
+  	.collection-banner__usp { 
+    	width: 100%; 
+      	justify-content: flex-start;
+    }
+    .collection-banner__description {
+      clear: both;
+      height: 70px;
+      overflow:hidden;
+      position: relative;
+      cursor: pointer;
+      transition: height .2s;
+    }
+    .collection-banner__description--expand {
+      height: auto;
+    }
+  	.collection-banner__description:after {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left:0;
+      background: linear-gradient(180deg, transparent, #eee);
+    }
+  	.collection-banner__description--expand:after {
+    	background: transparent;
+    }
+  
+    .collection-banner__usp li {
+      background: transparent;
+      font-size: .9rem;
+      padding: 0;
+      margin-right: 15px;
+      margin-left: 0;
+      flex-direction: column;
+      text-align: center;
+      line-height: 1rem;
+      box-shadow: none;
+    }
+  	.collection-banner__usp li img {
+    	margin-top: 10px;
+      	margin-bottom: 5px;
+      	margin-right: 0;
+    }
+    .collection-banner__image {
+      float: left;
+      border-radius: 0;
+      margin-right: 15px;
+      width: 77px;
+      height: 90px;
+    }
+    .collection-banner__image img {
+      border: 2px solid #fff;
+      border-top-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-radius: 8px;
+    }
+    .collection-banner__sub {
+      margin-bottom: 0;
+    }
+    .collection-banner__title {
+      line-height: 1.7rem;
+      font-size: 1.8rem;
+    }
 }

@@ -383,6 +383,13 @@ $(function() {
   $('.Customsingle').slick(
     {dots: true}
   );
+  
+  $('.sin-pro-qa-ls-bot-img').slick({ 
+    infinite: true,
+    arrows: false,
+    dots: true
+  });
+  
   if ($(window).width() > 749) {
     var getValue = $( "#AccessibleNav" ).offset();
     getValue = (getValue.top-50);

@@ -7651,6 +7651,12 @@ theme.init = function() {
         });
     });
   });
+  
+  // collection description expand
+  $('.collection-banner__description').on('click', function(e) {
+  	var el = $(e.target);
+    el.toggleClass('collection-banner__description--expand');
+  });
 };
 
 // Youtube API callback

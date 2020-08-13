@@ -26,32 +26,50 @@
 {% paginate collection.products by limit %}
 
 <div data-section-id="{{ section.id }}" data-section-type="collection-template" class="cst_MAinColl">
-  <div class="shopNwPayltr">
-    <p>Shop now, pay later with <img alt="Sezzel Logo" title="Sezzel" src="{{ 'sezzle_logo.svg' | file_url }}"> <span>·</span> 4 payments / 0% interest</p>
-  </div>
   <header class="collection-header">
 
     {% if section.settings.show_collection_image and collection.image %}
-    <div class="collection-hero">
-      <div class="collection-hero__image ratio-container lazyload js"
-           data-bgset="{% include 'bgset', image: collection.image %}"
-           data-sizes="auto"
-           data-parent-fit="cover"
-           style="background-image: url('{{ collection.image | img_url: '300x300' }});"></div>
-      <noscript>
-        <div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"></div>
-      </noscript>
-      <div class="collection-hero__title-wrapper">
-        <h1 id="bc-sf-filter-collection-header" class="collection-hero__title page-width">{{ collection.title }}</h1>
-        {% assign product_description = 'Shop our wide selection of ' | append: collection.title | append:' canvas prints' %}
-        {% if collection.description != blank %}
-        {% assign product_description = collection.description %}
-        {% endif %}
-        <div id="bc-sf-filter-collection-description" class="rte collection-hero__description">
-          {{ product_description }}
+
+    <div class="collection-banner" style="background-color: {{ section.settings.header_bg_color }};">
+      <div class="collection-banner__sezzle">
+        <div class="page-width collection-banner__sezzle-wrapper">
+          <span>Shop now, pay later with</span>
+          <img alt="Sezzle Logo" title="Sezzle" src="{{ 'sezzle_logo.svg' | file_url }}" />
+          <span>· 4 payments / 0% interest</span>
         </div>
       </div>
+      <div class="collection-banner__wrapper page-width">
+        <div class="collection-banner__image">
+          <img data-src="{{ collection.image | img_url: '300x300' }}" class="lazyload" alt="{{ collection.title }}" />
+        </div>
+        <div class="collection-banner__content">
+          <h1 class="collection-banner__title">{{ collection.title }}</h1>
+          <div class="collection-banner__sub">Collection</div>
+          <div class="collection-banner__description">
+            {% assign product_description = 'The ' | append: collection.title | append:' Collection is a hand-picked selection of designs made by top-grade artists and brought to life on premium canvas prints. Discover the perfect color scheme and art style to match your décor.' %}
+            {% if collection.description != blank %}
+            {% assign product_description = collection.description %}
+            {% endif %}
+            {{ product_description }}
+          </div>
+        </div>
+        <ul class="collection-banner__usp">
+          <li>
+            <img src="{{ 'icon-free-shipping.svg' | asset_url }}" alt="Image" title="Free Shiping" />
+            <span>Free Shipping in the USA</span>
+          </li>
+          <li> 
+            <img src="{{ 'icon-ready-to-hang.svg' | asset_url }}" alt="Image" title="Ready to mount" />
+            <span>Ready to mount</span>
+          </li>
+          <li> 
+            <img src="{{ 'icon-best-price-guarantee.svg' | asset_url }}" alt="Image" title="Best Price Guarantee" />
+            <span>Best Price Guarantee</span>
+          </li>
+        </ul>
+      </div>
     </div>
+    
     {% else %}
     <div class="page-width">
       <div class="section-header text-center">
@@ -79,7 +97,7 @@
         </a>
       </div>
     </div>
-
+	{% if section.settings.show_collection_image != true or collection.image == blank %}
     <div class="page-width">
       <div class="section-icontext">
         <ul>
@@ -95,6 +113,7 @@
         </ul>
       </div>
     </div>
+    {% endif %}
   </header>
 
   <div class="page-width bc-sf-filter-wrapper" id="Collection">
@@ -495,6 +514,14 @@
 "zh-TW": "啟用標籤篩選功能"
 },
 "default": true
+},
+{
+	"type": "color",
+	"id": "header_bg_color",
+	"label": {
+		"en": "Header Background Color"
+	},
+	"default": "#eeeeee"
 }
 ]
 }

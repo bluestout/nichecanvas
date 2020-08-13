@@ -340,6 +340,18 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
             }
         })
     });;
+    jQ('a.grid-view-item__link')
+    .on('touchstart', function() {
+      isScrolling = false;
+    })
+    .on('touchmove', function(e) {
+      isScrolling = true;
+    })
+    .on('touchend', function(e) {
+      if (!isScrolling) {
+        window.location = jQ(this).attr('href');
+      }
+    });
 }, BCSfFilter.prototype.buildDefaultElements = function() {
     var e = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream,
         t = /Safari/.test(navigator.userAgent),
