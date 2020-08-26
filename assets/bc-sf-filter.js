@@ -447,6 +447,12 @@ BCSfFilter.prototype.buildProductGridItem = function(e) {
         })[0] && (d = "color");
         p = this.customizeSwatchFileName(p, l, s);
         var m = this.getTemplate("filterOptionSwatchItem");
+      
+      	// nc hook
+      	if (s.label === 'Color') {
+        	m = '<li><a href="{{itemLink}}" onClick="{{itemFunc}}" class="{{class.filterOptionItem}} {{itemSelected}}" title="{{itemTitle}}"><span class="bc-sf-filter-option-swatch-image bc-sf-filter-option-swatch-color" data-color="{{itemValue}}"></span>{{itemLabel}}</a></li>';
+        }
+      
         m = this.buildFilterOptionItem(m, o, c, e, t, i, a, r, l, s, n);
         var g = getFilePath(d + "-" + p, this.swatchExtension, this.getSettingValue("general.swatchImageVersion"));
         "pf_t_format" == t && (g = bcSfFilterMainConfig.general.asset_url.replace("bc-sf-filter.js", d + "-" + p + ".svg")), m = m.replace(/{{itemImageValue}}/g, g);

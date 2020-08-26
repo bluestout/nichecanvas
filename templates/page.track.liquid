@@ -1,0 +1,20 @@
+<style>
+  #order-tracker-iframe {
+    width: 100%;
+    min-height: 821px;
+    border: 0;
+  }
+</style>
+<div class="page-width page-template">
+  <div class="CstHelp">
+    <h1 class="text-center">{{ page.title }}</h1>
+    <iframe src="https://track.nichecanvas.com/" id="order-tracker-iframe"></iframe>
+  </div>
+</div>
+<script type="application/javascript">
+  (function(){
+  	var iframe = document.getElementById("order-tracker-iframe");
+    var iFrameHeight = iframe.contentWindow.document.body.offsetHeight + 100;
+    iframe.style.height = iFrameHeight + 'px';
+  })();
+</script>

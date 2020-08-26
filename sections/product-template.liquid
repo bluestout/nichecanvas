@@ -153,6 +153,12 @@
           <div id="renderhere"></div>
 		  {% if section.settings.special_box != blank %}
           <div class="special-box" data-coupon="{{ section.settings.special_box_coupon }}">
+            {% if section.settings.special_box_coupon != blank %}
+            <svg class="copy-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 469.333 469.333" style="enable-background:new 0 0 469.333 469.333;" xml:space="preserve">
+				<path d="M330.667,0h-256C51.093,0,32,19.093,32,42.667v298.667h42.667V42.667h256V0z"/>
+				<path d="M394.667,85.333H160c-23.573,0-42.667,19.093-42.667,42.667v298.667c0,23.573,19.093,42.667,42.667,42.667h234.667c23.573,0,42.667-19.093,42.667-42.667V128C437.333,104.427,418.24,85.333,394.667,85.333z M394.667,426.667H160V128h234.667V426.667z"/>
+			</svg>
+            {% endif %}
             {{ section.settings.special_box }}
           </div>
           {% endif %}
@@ -251,6 +257,12 @@
           <div id="renderhere"></div>
            {% if section.settings.special_box != blank %}
           <div class="special-box" data-coupon="{{ section.settings.special_box_coupon }}">
+            {% if section.settings.special_box_coupon != blank %}
+            <svg class="copy-icon" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 469.333 469.333" style="enable-background:new 0 0 469.333 469.333;" xml:space="preserve">
+				<path d="M330.667,0h-256C51.093,0,32,19.093,32,42.667v298.667h42.667V42.667h256V0z"/>
+				<path d="M394.667,85.333H160c-23.573,0-42.667,19.093-42.667,42.667v298.667c0,23.573,19.093,42.667,42.667,42.667h234.667c23.573,0,42.667-19.093,42.667-42.667V128C437.333,104.427,418.24,85.333,394.667,85.333z M394.667,426.667H160V128h234.667V426.667z"/>
+			</svg>
+            {% endif %}
             {{ section.settings.special_box }}
           </div>
           {% endif %}
@@ -335,106 +347,106 @@
 
 {% schema %}
 {
-"name": {
-"da": "Produktsider",
-"de": "Produktseiten",
-"en": "Product pages",
-"es": "Páginas de productos",
-"fi": "Tuotesivut",
-"fr": "Pages de produits",
-"hi": "उत्पाद पेज",
-"it": "Pagine di prodotto",
-"ja": "商品ページ",
-"ko": "제품 페이지",
-"ms": "Halaman produk",
-"nb": "Produktsider",
-"nl": "Productpagina's",
-"pt-BR": "Páginas de produtos",
-"pt-PT": "Páginas de produtos",
-"sv": "Produktsidor",
-"th": "หน้าสินค้า",
-"zh-CN": "产品页面",
-"zh-TW": "產品頁面"
-},
-"settings": [
-{
-"type": "checkbox",
-"id": "show_quantity_selector",
-"label": {
-"da": "Vis antalsvælger",
-"de": "Quantitäts-Auswahl anzeigen",
-"en": "Show quantity selector",
-"es": "Mostrar selector de cantidad",
-"fi": "Näytä määrän valitsin",
-"fr": "Afficher le sélecteur de quantité",
-"hi": "मात्रा चयनकर्ता दिखाएं",
-"it": "Mostra selettore quantità",
-"ja": "数量セレクターを表示する",
-"ko": "수량 선택기 표시",
-"ms": "Tunjukkan pemilih kuantiti",
-"nb": "Vis mengdevelger",
-"nl": "Hoeveelheidskiezer weergeven",
-"pt-BR": "Exibir seletor de quantidade",
-"pt-PT": "Mostrar um seletor de quantidade",
-"sv": "Visa kvantitetsväljare",
-"th": "แสดงตัวเลือกจำนวน",
-"zh-CN": "显示数量选择器",
-"zh-TW": "顯示數量選擇器"
-},
-"default": false
-},
-{
-"type": "checkbox",
-"id": "show_variant_labels",
-"label": {
-"da": "Vis variantlabels",
-"de": "Varianten-Etiketten anzeigen",
-"en": "Show variant labels",
-"es": "Mostrar etiquetas de variantes",
-"fi": "Näytä vaihtoehtoiset tarrat",
-"fr": "Afficher le nom des variantes",
-"hi": "वेरिएंट लेबल दिखाएं",
-"it": "Mostra etichette varianti",
-"ja": "バリエーションのラベルを表示する",
-"ko": "이형 상품 레이블 표시",
-"ms": "Tunjukkan label varian",
-"nb": "Vis variantetiketter",
-"nl": "Variantlabels weergeven",
-"pt-BR": "Exibir etiquetas de variantes",
-"pt-PT": "Mostrar etiquetas de variantes",
-"sv": "Visa variantetiketter",
-"th": "แสดงป้ายกำกับตัวเลือกสินค้า",
-"zh-CN": "显示多属性标签",
-"zh-TW": "顯示子類選項標籤"
-},
-"default": true
-},
-{
-"type": "checkbox",
-"id": "show_vendor",
-"label": {
-"da": "Vis leverandør",
-"de": "Lieferanten anzeigen",
-"en": "Show vendor",
-"es": "Mostrar proveedor",
-"fi": "Näytä myyjä",
-"fr": "Afficher les vendeurs",
-"hi": "विक्रेता दिखाएं",
-"it": "Mostra fornitore",
-"ja": "販売元を表示する",
-"ko": "공급업체 표시",
-"ms": "Tunjukkan vendor",
-"nb": "Vis leverandør",
-"nl": "Leverancier weergeven",
-"pt-BR": "Exibir fornecedor",
-"pt-PT": "Mostrar fornecedor",
-"sv": "Visa säljare",
-"th": "แสดงผู้ขาย",
-"zh-CN": "显示厂商",
-"zh-TW": "顯示廠商"
-},
-"default": false
-},
+  "name": {
+    "da": "Produktsider",
+    "de": "Produktseiten",
+    "en": "Product pages",
+    "es": "Páginas de productos",
+    "fi": "Tuotesivut",
+    "fr": "Pages de produits",
+    "hi": "उत्पाद पेज",
+    "it": "Pagine di prodotto",
+    "ja": "商品ページ",
+    "ko": "제품 페이지",
+    "ms": "Halaman produk",
+    "nb": "Produktsider",
+    "nl": "Productpagina's",
+    "pt-BR": "Páginas de produtos",
+    "pt-PT": "Páginas de produtos",
+    "sv": "Produktsidor",
+    "th": "หน้าสินค้า",
+    "zh-CN": "产品页面",
+    "zh-TW": "產品頁面"
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_quantity_selector",
+      "label": {
+        "da": "Vis antalsvælger",
+        "de": "Quantitäts-Auswahl anzeigen",
+        "en": "Show quantity selector",
+        "es": "Mostrar selector de cantidad",
+        "fi": "Näytä määrän valitsin",
+        "fr": "Afficher le sélecteur de quantité",
+        "hi": "मात्रा चयनकर्ता दिखाएं",
+        "it": "Mostra selettore quantità",
+        "ja": "数量セレクターを表示する",
+        "ko": "수량 선택기 표시",
+        "ms": "Tunjukkan pemilih kuantiti",
+        "nb": "Vis mengdevelger",
+        "nl": "Hoeveelheidskiezer weergeven",
+        "pt-BR": "Exibir seletor de quantidade",
+        "pt-PT": "Mostrar um seletor de quantidade",
+        "sv": "Visa kvantitetsväljare",
+        "th": "แสดงตัวเลือกจำนวน",
+        "zh-CN": "显示数量选择器",
+        "zh-TW": "顯示數量選擇器"
+      },
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_variant_labels",
+      "label": {
+        "da": "Vis variantlabels",
+        "de": "Varianten-Etiketten anzeigen",
+        "en": "Show variant labels",
+        "es": "Mostrar etiquetas de variantes",
+        "fi": "Näytä vaihtoehtoiset tarrat",
+        "fr": "Afficher le nom des variantes",
+        "hi": "वेरिएंट लेबल दिखाएं",
+        "it": "Mostra etichette varianti",
+        "ja": "バリエーションのラベルを表示する",
+        "ko": "이형 상품 레이블 표시",
+        "ms": "Tunjukkan label varian",
+        "nb": "Vis variantetiketter",
+        "nl": "Variantlabels weergeven",
+        "pt-BR": "Exibir etiquetas de variantes",
+        "pt-PT": "Mostrar etiquetas de variantes",
+        "sv": "Visa variantetiketter",
+        "th": "แสดงป้ายกำกับตัวเลือกสินค้า",
+        "zh-CN": "显示多属性标签",
+        "zh-TW": "顯示子類選項標籤"
+      },
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "label": {
+        "da": "Vis leverandør",
+        "de": "Lieferanten anzeigen",
+        "en": "Show vendor",
+        "es": "Mostrar proveedor",
+        "fi": "Näytä myyjä",
+        "fr": "Afficher les vendeurs",
+        "hi": "विक्रेता दिखाएं",
+        "it": "Mostra fornitore",
+        "ja": "販売元を表示する",
+        "ko": "공급업체 표시",
+        "ms": "Tunjukkan vendor",
+        "nb": "Vis leverandør",
+        "nl": "Leverancier weergeven",
+        "pt-BR": "Exibir fornecedor",
+        "pt-PT": "Mostrar fornecedor",
+        "sv": "Visa säljare",
+        "th": "แสดงผู้ขาย",
+        "zh-CN": "显示厂商",
+        "zh-TW": "顯示廠商"
+      },
+      "default": false
+    },
 {
 "type": "checkbox",
 "id": "enable_payment_button",
@@ -970,69 +982,70 @@
 }
 },
 {
-"type": "header",
-"content": {
-"da": "Shipping Information",
-"de": "Shipping Information",
-"en": "Shipping Information"
-}
+  "type": "header",
+  "content": {
+  "da": "Shipping Information",
+  "de": "Shipping Information",
+  "en": "Shipping Information"
+  }
 },
 {
-"type": "text",
-"id": "US_content",
-"label": {
-"da": "US Info",
-"de": "US Info",
-"en": "US Info"
-},
-"default": {
-"da": "US",
-"de": "US",
-"en": "US"
-}
-},
-{
-"type": "text",
-"id": "EU_content",
-"label": {
-"da": "EU Info",
-"de": "EU Info",
-"en": "EU Info"
-},
-"default": {
-"da": "EU",
-"de": "EU",
-"en": "EU"
-}
+  "type": "text",
+  "id": "US_content",
+  "label": {
+  "da": "US Info",
+  "de": "US Info",
+  "en": "US Info"
+  },
+  "default": {
+  "da": "US",
+  "de": "US",
+  "en": "US"
+  }
 },
 {
-"type": "text",
-"id": "Rest_content",
-"label": {
-"da": "Rest World Info",
-"de": "Rest World Info",
-"en": "Rest World Info"
-},
-"default": {
-"da": "Rest World",
-"de": "Rest World",
-"en": "Rest World"
-}
+  "type": "text",
+  "id": "EU_content",
+  "label": {
+  "da": "EU Info",
+  "de": "EU Info",
+  "en": "EU Info"
+  },
+  "default": {
+  "da": "EU",
+  "de": "EU",
+  "en": "EU"
+  }
 },
 {
-"type": "textarea",
-"id": "shipping_content",
-"label": {
-"da": "Shipping Content",
-"de": "Shipping Content",
-"en": "Shipping Content"
+  "type": "text",
+  "id": "Rest_content",
+  "label": {
+  "da": "Rest World Info",
+  "de": "Rest World Info",
+  "en": "Rest World Info"
+  },
+  "default": {
+  "da": "Rest World",
+  "de": "Rest World",
+  "en": "Rest World"
+  }
 },
-"default": {
-"da": "Shipping",
-"de": "Shipping",
-"en": "Shipping"
-}
+{
+  "type": "textarea",
+  "id": "shipping_content",
+  "label": {
+  "da": "Shipping Content",
+  "de": "Shipping Content",
+  "en": "Shipping Content"
+  },
+  "default": {
+  "da": "Shipping",
+  "de": "Shipping",
+  "en": "Shipping"
+  }
 },
+
 {
 "type": "header",
 "content": {
@@ -1255,6 +1268,27 @@
 "default": false
 }
 ]
+,
+  "blocks": [
+    {
+      "type": "CountryShipInfo",
+      "name": "Country Ship Info",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title", 
+          "label": "Country Code",
+          "default": "US"
+        },
+        {
+          "type": "text",
+          "id": "country_content",
+          "label": "Country Info",
+          "default": "Ship for 3 days"
+        }
+      ]
+    }
+  ]
 }
 {% endschema %}
 

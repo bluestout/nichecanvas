@@ -1,0 +1,17 @@
+$(document).ready(function(){
+  /***********************SHIPPING CHANGE ON BASES OF IP ************************/
+  $.getJSON('https://ipapi.co/json/', function(data) {
+    var countryget = (JSON.stringify(data.country_code));
+    countryget = countryget.replace('"','');
+    countryget = countryget.replace('"','');
+    var id_str = "#shipid_" + countryget;
+    if($(id_str).length)
+    {
+      $(id_str).show();
+    }
+    else
+    {
+      $("#shipid_RESTWORLD").show();
+    }
+  });
+})

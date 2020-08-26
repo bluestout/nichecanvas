@@ -111,6 +111,9 @@
     <script src="{{ 'product-custom.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'jquery.fancybox.min.js' | asset_url }}" defer="defer"></script>
     {%endif%}
+    {%if template contains "cart" %}
+    <script src="{{ 'cart-custom.js' | asset_url }}" defer="defer"></script>
+    {%endif%}
      
     {% capture var_content_for_header %}
     {{ content_for_header }}

@@ -9065,7 +9065,7 @@ BCSfFilter.prototype.init = function() {
     if (jQ(a).length > 0) {
         var c;
         c = b.isSuggestionStyle2() ? b.getSettingValue("search.suggestionStyle2MainContainerSelector") || "header:first" : "body";
-        var d = this.currentTerm = getParam(this.searchTermKey);
+        var d = this.currentTerm = getParam(this.searchTermKey) || jQ(a).val() || '';      
         jQ(a).val(d), jQ(a).autocomplete({
             appendTo: c,
             minLength: b.getSettingValue("search.suggestionMinLength"),

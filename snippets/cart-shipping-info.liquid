@@ -1,12 +1,17 @@
 {{section.settings.shipping_info}}
+<ul class="csUsdays">
+  {% for block in section.blocks %}
+    <li id="shipid_{{block.settings.title}}" style="display:none;">{{block.settings.country_content}}</li>
+  {% endfor %}
+</ul>
 <ul class="shipIcnz">      
-            <li> <img src="{{section.settings.image_1 | img_url: 'original'}}" alt="Image" title="Free Shiping">
-              <p>{{section.settings.title_1}}</p>
-            </li>    
-            <li> <img src="{{section.settings.image_2 | img_url: 'original'}}" alt="Image" title="Free Shiping">
-              <p>{{section.settings.title_2}}</p>
-            </li>    
-            <li> <img src="{{section.settings.image_3 | img_url: 'original'}}" alt="Image" title="Free Shiping">
-              <p>{{section.settings.title_3}}</p>
-            </li>      
-          </ul>
+  <li> <img src="{{section.settings.image_1 | img_url: 'original'}}" alt="Image" title="Free Shiping">
+    <p>{{section.settings.title_1}}</p>
+  </li>    
+  <li> <img src="{{section.settings.image_2 | img_url: 'original'}}" alt="Image" title="Free Shiping">
+    <p>{{section.settings.title_2}}</p>
+  </li>    
+  <li> <img src="{{section.settings.image_3 | img_url: 'original'}}" alt="Image" title="Free Shiping">
+    <p>{{section.settings.title_3}}</p>
+  </li>      
+</ul>

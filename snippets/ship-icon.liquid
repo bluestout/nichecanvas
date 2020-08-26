@@ -5,9 +5,12 @@
   </div>
   <div class="siRyt">
     <ul>
-      <li class="Unitedworld" style="display:none;">{{section.settings.US_content}}</li>
+      {% for block in section.blocks %}
+        <li id="shipid_{{block.settings.title}}" class="ship_Unitedworld" style="display:none;">{{block.settings.country_content}}</li>
+      {% endfor %}
+      {% comment %} <li class="Unitedworld" style="display:none;">{{section.settings.US_content}}</li>
       <li class="Europeworld" style="display:none;">{{section.settings.EU_content}}</li>
-      <li class="Restworld" style="display:none;">{{section.settings.Rest_content}}</li>
+      <li class="Restworld" style="display:none;">{{section.settings.Rest_content}}</li> {% endcomment %}
     </ul>
   </div>
 </div>

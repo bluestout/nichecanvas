@@ -1,42 +1,54 @@
-
+<style>
+  .mobile-footer-blocks {
+  	display: flex;
+    flex-wrap: wrap;
+    padding-left: 33px;
+  }
+  .mobile-footer-block {
+  	flex-basis: 50%;
+    margin-top: 30px;
+  }
+  .mobile-footer-block h3 {
+  	font-size: 1rem;
+  }
+</style>
 <div class="MobFtrLogoCnt">
   <a href="/"> <img src="{{ 'LogoNicheCanvas_LcolorCAP_320x320.png' | file_url }}" alt="image" title="NicheCanvas"></a>
   <p><a href="tel:{{settings.number}}">{{settings.number}}</a><br>
     <a href="mailto:support@nichecanvas.com">support@nichecanvas.com</a>
   </p>
 </div> 
-<div id="accordionFooter">
+<div class="mobile-footer-blocks">
   {%- for block in section.blocks -%}
-  {% unless forloop.index == 2 or forloop.index == 3 %}
-  
- {%- if block.settings.Mob_title or block.settings.mob_title -%}
- <h3>{{block.settings.Mob_title}}{{block.settings.mob_title}}</h3>
-  {%endif%}
-  {%- case block.type -%}
-  {%- when 'text' -%}
-  <div>
-    {{ block.settings.mobile_text }}
+  {% unless block.settings.mobile_text == blank and block.settings.mobilemenu == blank %}
+  <div class="mobile-footer-block">
+ 	{%- if block.settings.Mob_title or block.settings.mob_title -%}
+ 	<h3>{{block.settings.Mob_title}}{{block.settings.mob_title}}</h3>
+  	{%endif%}
+  	{%- case block.type -%}
+  	{%- when 'text' -%}
+    <div>
+      {{ block.settings.mobile_text }}
+    </div>
+  	{%- when 'link_list' -%}
+  	<div>
+      {%- when 'link_list' -%}
+      {%- assign footer_linklist = block.settings.mobilemenu -%}
+      <ul class="site-footer__linklist
+                 {% if inline_list %}list--inline{% endif %}">
+        {%- for link in linklists[footer_linklist].links -%}
+        <li class="site-footer__linklist-item">
+          <a href="{{ link.url }}"
+             {% if link.current %} aria-current="page"{% endif %}
+             >
+            {{ link.title | escape }}
+          </a>
+        </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+  	{%- endcase -%}
   </div>
-
-  {%- when 'link_list' -%}
-  <div>
-    {%- when 'link_list' -%}
-    {%- assign footer_linklist = block.settings.mobilemenu -%}
-    <ul class="site-footer__linklist
-               {% if inline_list %}list--inline{% endif %}">
-      {%- for link in linklists[footer_linklist].links -%}
-      <li class="site-footer__linklist-item">
-        <a href="{{ link.url }}"
-           {% if link.current %} aria-current="page"{% endif %}
-           >
-          {{ link.title | escape }}
-        </a>
-      </li>
-      {%- endfor -%}
-    </ul>
-    
-  </div>
-  {%- endcase -%}
   {%endunless%}
   {%endfor%}
 </div>

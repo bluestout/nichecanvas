@@ -1974,6 +1974,7 @@ a.needhelp {
 ul.csUsdays {
   margin: 10px 0 0;
   font-size: 13px;
+  text-align: right;
 }
 .cstShoptxt ul.shipIcnz {
   margin: 30px 0 0;
@@ -4139,7 +4140,7 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
     position: unset;
   }
   .SlideIcons {
-    margin: -2px 0 0;
+    margin: 25px 0 0;
   }
   .unique-title h3 {
     margin: 0 0 10px;
@@ -4680,6 +4681,7 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
  cursor: pointer;
 }
 .special-box {
+  	position: relative;
 	border: 1px dashed #000;
     padding: 0.5rem 1rem;
     display: inline-block;
@@ -4689,4 +4691,67 @@ body.MenuOppned .mobile_nav-fixed.mobile_nav_cat_gal{
 }
 @media (max-width: 749px) {
   .special-box { display: block; }
+}
+/* colors */
+.mobile-menu-color {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+  padding: 2px;
+  width: 30px;
+  height: 30px;
+}
+.bc-sf-filter-option-swatch-color {
+  border-radius: 50%;
+  border: 2px solid rgba(227,233,244,1);
+  opacity: .8;
+  transition: opacity .2s;
+}
+.bc-sf-filter-option-swatch-color:hover {
+  opacity: 1;
+  border-color: rgba(19,19,19,1);
+}
+.bc-sf-filter-option-block .bc-sf-filter-block-content ul.bc-sf-filter-option-swatch li a.selected .bc-sf-filter-option-swatch-image.bc-sf-filter-option-swatch-color {
+  border: 2px solid rgba(19,19,19,1) !important;
+  opacity: 1;
+}
+.bc-sf-filter-option-swatch-color[data-color="red"] {
+  background: linear-gradient(rgba(187,49,51,1), rgba(187,49,51,0.8));
+}
+.bc-sf-filter-option-swatch-color[data-color="orange"] {
+  background: linear-gradient(rgba(245,142,86,1), rgba(245,142,86,0.8));  
+}
+.bc-sf-filter-option-swatch-color[data-color="yellow"] {
+  background: linear-gradient(rgba(253,224,11,1), rgba(253,224,11,0.8));
+}
+.bc-sf-filter-option-swatch-color[data-color="green"] {
+  background: linear-gradient(rgba(57,171,100,1), rgba(57,171,100,0.8));
+}
+.bc-sf-filter-option-swatch-color[data-color="blue"] {
+  background: linear-gradient(rgba(66,123,224,1), rgba(66,123,224,0.8));
+}
+.bc-sf-filter-option-swatch-color[data-color="purple"] {
+  background: linear-gradient(rgba(218,102,253,1), rgba(218,102,253,0.8));
+}
+.bc-sf-filter-option-swatch-color[data-color="pink"] {
+  background: linear-gradient(rgba(255,138,174,1), rgba(255,138,174,0.8));
+}
+.bc-sf-filter-option-swatch-color[data-color="brown"] {
+  background: linear-gradient(rgba(109,65,45,1), rgba(109,65,45,0.8));  
+}
+.bc-sf-filter-option-swatch-color[data-color="black"] {
+  background: linear-gradient(rgba(19,19,19,1), rgba(19,19,19,0.8));
+}
+.bc-sf-filter-option-swatch-color[data-color="gray"] {
+  background: linear-gradient(rgba(227,233,244,1), rgba(227,233,244,0.8));
+}
+.bc-sf-filter-option-swatch-color[data-color="turquoise"] {
+  background: linear-gradient(rgba(189,254,252,1), rgba(189,254,252,0.8));
+}
+.bc-sf-filter-option-swatch-color[data-color="black%20and%20white"],
+.bc-sf-filter-option-swatch-color[data-color="black-and-white"]{
+  background: linear-gradient( -45deg, rgba(19,19,19,1), rgba(19,19,19,1) 49%, white 49%, white 51%, white 51% );
+}
+.bc-sf-filter-option-swatch-color[data-color="multicolor"] {
+  background: linear-gradient(to bottom, rgba(187,49,51,1), rgba(245,142,86,1), rgba(253,224,11,1), rgba(57,171,100,1), rgba(66,123,224,1));
 }

@@ -72,8 +72,21 @@ $('.MainImageSlider').slick({
   })
   /***********************SHIPPING CHANGE ON BASES OF IP ************************/
   $.getJSON('https://ipapi.co/json/', function(data) {
-  var codeget = (JSON.stringify(data.country_code));
-
+    var countryget = (JSON.stringify(data.country_code));
+    countryget = countryget.replace('"','');
+    countryget = countryget.replace('"','');
+    var id_str = "#shipid_" + countryget;
+    if($(id_str).length)
+    {
+      $(id_str).show();
+    }
+    else
+    {
+      $("#shipid_RESTWORLD").show();
+    }
+    /*FS removed*/
+    /*
+    var codeget = (JSON.stringify(data.country_code));
     if(codeget == '"US"'){
     $(".Unitedworld").show();
     }
@@ -92,6 +105,7 @@ $('.MainImageSlider').slick({
     else{
     $(".Restworld").show();
     }
+    */
 });
   
   

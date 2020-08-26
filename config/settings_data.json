@@ -103,7 +103,7 @@
             "settings": {
               "title": "Track Your Order",
               "main_linklist": "",
-              "menu_link": "https:\/\/nichecanvas.aftership.com\/"
+              "menu_link": "shopify:\/\/pages\/track-your-order"
             }
           },
           "1595487662893": {
@@ -148,9 +148,9 @@
           "link_4": "shopify:\/\/collections",
           "message": true,
           "home_page_only": false,
-          "message_text": "<span style=\"font-size: 1rem;\"><span style=\"color: #ffffff;\">Anniversary Sale🎈 | Get<\/span> <span style=\"color: #ff9c32;\"><strong>20% OFF<\/strong><\/span> <span style=\"color: #ffffff;\">on all orders over $100 | Use Code:<\/span> <span style=\"color: #ff9c32;\"><strong>SAVE20<\/strong><\/span><\/span><br> <span style=\"color: #ffffff;\"><strong>🎨 Made in the USA 💳 Shop Now Pay Later 🚫 No Interest<\/strong><\/span>",
-          "message_mobile_text": "<span style=\"font-size: 1rem;\"><span style=\"color: #ffffff;\">Anniversary Sale🎈<br><\/span><\/span><span style=\"font-size:0.9rem\">Get<\/span> <span style=\"color: #ff9c32;\"><strong>20% OFF<\/strong><\/span> <span style=\"color: #ffffff;\">on all orders over $100 | Use Code:<\/span> <span style=\"color: #ff9c32;\"><strong>SAVE20<\/strong><\/span><br> <span style=\"color: #ffffff;\"><strong>🎨 Made in the USA 💳 Shop Now Pay Later <\/strong><\/span>",
-          "coupon": "SAVE25",
+          "message_text": "<span style=\"font-size: 1rem;\"><span style=\"color: #ffffff;\">Get<\/span> <span style=\"color: #ff9c32;\"><strong>15% OFF<\/strong><\/span> <span style=\"color: #ffffff;\">on all orders over $100 | Use Code:<\/span> <span style=\"color: #ff9c32;\"><strong>SAVE15<\/strong><\/span><\/span><br> <span style=\"color: #ffffff;\"><strong>🎨 Made in the USA 💳 Shop Now Pay Later 🚫 No Interest<\/strong><\/span>",
+          "message_mobile_text": "<span style=\"font-size: 1rem;\"><span style=\"color: #ffffff;\">Anniversary Sale🎈<br><\/span><\/span><span style=\"font-size:0.9rem\">Get<\/span> <span style=\"color: #ff9c32;\"><strong>15% OFF<\/strong><\/span> <span style=\"color: #ffffff;\">on all orders over $100 | Use Code:<\/span> <span style=\"color: #ff9c32;\"><strong>SAVE15<\/strong><\/span><br> <span style=\"color: #ffffff;\"><strong>🎨 Made in the USA 💳 Shop Now Pay Later <\/strong><\/span>",
+          "coupon": "SAVE15",
           "message_link": "",
           "color_bg": "#000000",
           "color_text": "#fff"
@@ -166,7 +166,7 @@
               "Mob_image": "shopify:\/\/shop_images\/mobile_banner_anniversary_2.jpg",
               "alignment": "center center",
               "slide_title": "Anniversary Sale🎈",
-              "subheading": "<p style=\"text-align: center;\">Get <span style=\"color: #ff9c32;\"><strong>20% OFF<\/strong><\/span> on all orders over <strong>$100<\/strong><\/p> <p style=\"text-align: center;\">Use Code: <strong><span style=\"color: #ff9c32;\">SAVE20<\/span><\/strong><\/p>",
+              "subheading": "<p style=\"text-align: center;\">Get <span style=\"color: #ff9c32;\"><strong>15% OFF<\/strong><\/span> on all orders over <strong>$100<\/strong><\/p> <p style=\"text-align: center;\">Use Code: <strong><span style=\"color: #ff9c32;\">SAVE15<\/span><\/strong><\/p>",
               "button_label": "FIND THE PERFECT GIFT 🎁",
               "button_link": "shopify:\/\/collections\/best-sellers-1"
             }
@@ -200,58 +200,48 @@
       "footer": {
         "type": "footer",
         "blocks": {
-          "link_list": {
-            "type": "link_list",
-            "settings": {
-              "title": "Collections",
-              "menu": "new-collections-footer1",
-              "Mob_title": "Collections",
-              "mobilemenu": "new-mobile-footer"
-            }
-          },
           "1582011032066": {
             "type": "link_list",
             "settings": {
-              "title": "",
-              "menu": "new-collections-footer2",
-              "Mob_title": "Quick links2",
-              "mobilemenu": "new-mobile-footer"
+              "title": "Customer Info",
+              "menu": "footer-desktop-customer-service",
+              "Mob_title": "Customer Info",
+              "mobilemenu": "footer-desktop-customer-service"
             }
           },
           "1582011071304": {
             "type": "link_list",
             "settings": {
-              "title": "",
-              "menu": "new-collections-footer3",
-              "Mob_title": "Quick links3",
-              "mobilemenu": "new-mobile-footer"
+              "title": "Shop By",
+              "menu": "footer-desktop-shop-by",
+              "Mob_title": "Company",
+              "mobilemenu": "desktop-footer-company"
             }
           },
           "1582098145100": {
             "type": "link_list",
             "settings": {
-              "title": "Customer Info",
-              "menu": "customerinof",
-              "Mob_title": "Customer Info",
-              "mobilemenu": "customerinof"
+              "title": "Company",
+              "menu": "desktop-footer-company",
+              "Mob_title": "Company",
+              "mobilemenu": ""
             }
           },
-          "1582098300036": {
-            "type": "text",
+          "1597425772221": {
+            "type": "link_list",
             "settings": {
               "title": "Get In Touch",
-              "text": "<a href=\"mailto:support@nichecanvas.com\">support@nichecanvas.com<\/a>",
-              "mob_title": "Get In Touch",
-              "mobile_text": "<a href=\"mailto:support@nichecanvas.com\">support@nichecanvas.com<\/a>"
+              "menu": "desktop-footer-get-in-touch",
+              "Mob_title": "",
+              "mobilemenu": ""
             }
           }
         },
         "block_order": [
-          "link_list",
           "1582011032066",
           "1582011071304",
           "1582098145100",
-          "1582098300036"
+          "1597425772221"
         ],
         "settings": {
           "show_payment_icons": true,
@@ -523,14 +513,58 @@
       },
       "product-template": {
         "type": "product-template",
+        "blocks": {
+          "1598060240797": {
+            "type": "CountryShipInfo",
+            "settings": {
+              "title": "RESTWORLD",
+              "country_content": "<span>Rest of the world: <\/span>15-20 working days"
+            }
+          },
+          "1598058818240": {
+            "type": "CountryShipInfo",
+            "settings": {
+              "title": "US",
+              "country_content": "<span>United States: <\/span>7 working days"
+            }
+          },
+          "1598058830201": {
+            "type": "CountryShipInfo",
+            "settings": {
+              "title": "CA",
+              "country_content": "<span>Canada: <\/span>7 working days"
+            }
+          },
+          "1598062384940": {
+            "type": "CountryShipInfo",
+            "settings": {
+              "title": "GB",
+              "country_content": "<span>United Kingdom: <\/span>7 working days"
+            }
+          },
+          "1598062407032": {
+            "type": "CountryShipInfo",
+            "settings": {
+              "title": "AU",
+              "country_content": "<span>Australia: <\/span>7 working days"
+            }
+          }
+        },
+        "block_order": [
+          "1598060240797",
+          "1598058818240",
+          "1598058830201",
+          "1598062384940",
+          "1598062407032"
+        ],
         "settings": {
           "show_quantity_selector": false,
           "show_variant_labels": true,
           "show_vendor": false,
           "enable_payment_button": true,
           "show_share_buttons": false,
-          "special_box": "<strong style=\"font-size: 1rem;\">ANNIVERSARY SALE!<\/strong>\n<div>20% OFF Site-Wide | Use Code: <strong style=\"color:#ff9c32\">SAVE20<\/strong>\n<\/div>",
-          "special_box_coupon": "SAVE25",
+          "special_box": "<strong style=\"font-size: 1rem;\">ANNIVERSARY SALE!<\/strong>\n<div>15% OFF Site-Wide | Use Code: <strong style=\"color:#ff9c32\">SAVE15<\/strong>\n<\/div>",
+          "special_box_coupon": "SAVE15",
           "content_canvas": "Canvas Text Goes here.",
           "image_canvas": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
           "content_floating": "Testing Floating Frame is an additional space between print and frame edges.",
@@ -543,23 +577,23 @@
           "image_large": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
           "content_huge": "1 * 1 cm<br>\n1 * 1 inch",
           "image_huge": "shopify:\/\/shop_images\/popup-floating-frame.jpg",
-          "static_main_head": "Quality, Lasting Production",
-          "static_main_content": "All our products are carefully handcrafted and inspected for quality. Your canvas will arrive ready to hang with metal sawtooth hangers and rubber bumpers for a smooth fit on your wall.",
+          "static_main_head": "Smooth, Handcrafted Fit",
+          "static_main_content": "Rest assured: all of our products are inspected for quality & carefully handcrafted. Your canvas piece will arrive ready to install with metal sawtooth hangers and rubber bumpers. Easy, satisfactory, eye-catching.",
           "image_1": "shopify:\/\/shop_images\/3_1.jpg",
           "image_12": "shopify:\/\/shop_images\/3_2.jpg",
           "image_13": "shopify:\/\/shop_images\/3_3.jpg",
-          "heading_1": "Art Gallery Level of Quality",
-          "content_1": "We produce perfect genuine artist quality wall arts.\nPrinted on a soft cotton\/polyester canvas stretched on a wooden frame. We employ the use of UL Certified Greenguard Gold Ink for every print which provides not only a great quality pigment but also makes the canvas; water, fade, scratch and crack resistant.",
+          "heading_1": "Gallery-Style Durability",
+          "content_1": "Your next piece is printed on a made-to-last, durable cotton\/polyester canvas. Our UL Certified Greenguard Gold Ink provides a top-notch pigment while ensuring the canvas is waterproof, fade proof, and stretch and crack resistant.",
           "image_2": "shopify:\/\/shop_images\/floating_1.png",
           "image_22": "shopify:\/\/shop_images\/floating_2.png",
           "image_23": "shopify:\/\/shop_images\/floating_3.png",
-          "heading_2": "Premium Quality Floating Frames",
-          "content_2": "Our Roma Mouldings are made from 100% real pine wood, professionally handcrafted in Italy. Every frame is sanded five times to ensure a perfect finish without chipping.",
+          "heading_2": "100% Pine Italian Frames",
+          "content_2": "Our Roma Mouldings are made from 100% real pine wood, professionally handcrafted in Italy. Each frame is sanded five times to allow for a pristine finish (with no chipping!)",
           "image_3": "shopify:\/\/shop_images\/gallery_1.png",
           "image_32": "shopify:\/\/shop_images\/gallery_2.png",
           "image_33": "",
-          "heading_3": "Best Stretcher Bars in the Industry",
-          "content_3": "Finger-jointed pine provides enhanced structural stability, durability, and strength.<br><br>Made from sustainable wood from renewable forests (FSC certified)<br> \nSpecific size trees are grown to maximize the yield of stretcher bars, which reduces waste during production and result in a workflow and product that is as green as possible.<br><br>We use 1.25\" thick warp-free, knot-free, kiln-dried wood from sustainable forests. The frames are finger-jointed and reinforced to make sure they last for many years.",
+          "heading_3": "Industry’s Best Stretcher Bars",
+          "content_3": "Hailing from renewable, FSC certified sustainable forests, our stretcher bars are 1.25” thick warp-free, knot-free from kiln-dried wood. They are finger-jointed and reinforced to last for decades from trees that are grown to maximize yield & reduce production waste for a product that is as green as possible, and endures for the long haul.",
           "US_content": "<span>US, CA, UK, AU: <\/span>7 working days",
           "EU_content": "<span>Europe:  <\/span>15 working days",
           "Rest_content": "<span>Rest of the world: <\/span>15-20 working days",
@@ -604,10 +638,54 @@
       },
       "cart-template": {
         "type": "cart-template",
+        "blocks": {
+          "1598061172926": {
+            "type": "CountryShipInfo",
+            "settings": {
+              "title": "RESTWORLD",
+              "country_content": "- &nbsp; Rest of the world: 15 to 20 working days"
+            }
+          },
+          "1598061190354": {
+            "type": "CountryShipInfo",
+            "settings": {
+              "title": "US",
+              "country_content": "- &nbsp; United States: 7 working days"
+            }
+          },
+          "1598061144569": {
+            "type": "CountryShipInfo",
+            "settings": {
+              "title": "CA",
+              "country_content": "- &nbsp; Canada: 7 working days"
+            }
+          },
+          "1598062635586": {
+            "type": "CountryShipInfo",
+            "settings": {
+              "title": "UK",
+              "country_content": "- &nbsp; United Kingdom: 7 working days"
+            }
+          },
+          "1598062663282": {
+            "type": "CountryShipInfo",
+            "settings": {
+              "title": "AU",
+              "country_content": "- &nbsp; Australia: 7 working days"
+            }
+          }
+        },
+        "block_order": [
+          "1598061172926",
+          "1598061190354",
+          "1598061144569",
+          "1598062635586",
+          "1598062663282"
+        ],
         "settings": {
           "cart_ajax_enable": true,
           "shipping_message": true,
-          "shipping_info": "<p>All our products are carefully handcrafted and inspected for quality. Once your order is ready and shipped, we guarantee that it will arrive within these timeframes:<\/p>\n          <ul class=\"csUsdays\">\n            <li>-   US, Canada, UK, Australia: 7 working days<\/li>\n            <li>-   Europe: 15 working days<\/li>\n            <li>-   Rest of the world: 15 to 20 working days<\/li>\n          <\/ul>",
+          "shipping_info": "<p>All our products are carefully handcrafted and inspected for quality. Once your order is ready and shipped, we guarantee that it will arrive within these timeframes:<\/p>",
           "title_1": "Free Shipping in the USA",
           "image_1": "shopify:\/\/shop_images\/icon-free-shipping.png",
           "title_2": "Ready to mount",

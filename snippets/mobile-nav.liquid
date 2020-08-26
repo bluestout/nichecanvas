@@ -101,9 +101,7 @@
       <ul class="mobile-menuChild ColorMenuMob">
     {% for childlink in link.links %}
         <li><a href="{{childlink.url}}">
-          {% assign imagepath = "color-" | append: childlink.handle%}
-          <img src="{{imagepath| append:".png" | file_url }}">
-          {% comment %} <img src="{{imagepath| append:".jpg" | asset_url }}"> {% endcomment %}
+          <span class="mobile-menu-color bc-sf-filter-option-swatch-color" data-color="{{ childlink.handle }}"></span>
           </a></li>
       {%endfor%}
       </ul>

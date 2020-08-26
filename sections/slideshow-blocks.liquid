@@ -1,0 +1,334 @@
+<div class="sin-pro-qa-ls-sec">
+  <div class="sin-pro-qa-ls-sec-inn">
+	<div class="sin-pro-qa-ls-top">
+		<div class="sin-pro-qa-ls-top-inn">
+			<h3>{{section.settings.static_main_head}}</h3>
+			<p>{{section.settings.static_main_content}}</p>
+		</div>
+	</div>
+	<div class="sin-pro-qa-ls-bot">
+		<div class="sin-pro-qa-ls-bot-row">
+			<div class="sin-pro-qa-ls-bot-img">
+				<img src="{{section.settings.image_1 | img_url: "595x446" }}" />
+              	{% if section.settings.image_12 != blank %}
+              	<img data-src="{{section.settings.image_12 | img_url: "595x446" }}" class="lazyload" alt="Image 2" />
+              	{% endif %}
+              	{% if section.settings.image_13 != blank %}
+              	<img data-src="{{section.settings.image_13 | img_url: "595x446" }}" class="lazyload" alt="Image 3" />
+              	{% endif %}
+			</div>
+			<div class="sin-pro-qa-ls-bot-text">
+				<h3>{{section.settings.heading_1}}</h3>
+				<p>{{section.settings.content_1}}</p>
+			</div>
+		</div>
+		<div class="sin-pro-qa-ls-bot-row">
+			<div class="sin-pro-qa-ls-bot-img sin-pro-bot-img-rt">
+				<img src="{{section.settings.image_2 | img_url: "595x446" }}" />
+              	{% if section.settings.image_22 != blank %}
+              	<img data-src="{{section.settings.image_22 | img_url: "595x446" }}" class="lazyload" alt="Image 2" />
+              	{% endif %}
+              	{% if section.settings.image_23 != blank %}
+              	<img data-src="{{section.settings.image_23 | img_url: "595x446" }}" class="lazyload" alt="Image 3" />
+              	{% endif %}
+			</div>
+			<div class="sin-pro-qa-ls-bot-text sin-pro-bot-text-lt">
+			<h3>{{section.settings.heading_2}}</h3>
+				<p>{{section.settings.content_2}}</p>
+          </div>
+		</div>
+		<div class="sin-pro-qa-ls-bot-row">
+			<div class="sin-pro-qa-ls-bot-img">
+              <img src="{{section.settings.image_3 | img_url: "595x446" }}" />
+              {% if section.settings.image_32 != blank %}
+              <img data-src="{{section.settings.image_32 | img_url: "595x446" }}" class="lazyload" alt="Image 2" />
+              {% endif %}
+              {% if section.settings.image_33 != blank %}
+              <img data-src="{{section.settings.image_33 | img_url: "595x446" }}" class="lazyload" alt="Image 3" />
+              {% endif %}
+			</div>
+			<div class="sin-pro-qa-ls-bot-text">
+			<h3>{{section.settings.heading_3}}</h3>
+				<p>{{section.settings.content_3}}</p>
+          </div>
+		</div>
+	</div>
+</div>
+</div>
+{% schema %}
+  {
+    "name": "Slideshow Blocks",
+    "settings": [
+
+{
+"type": "text",
+"id": "static_main_head",
+"label": {
+"da": "Main Heading",
+"de": "Main Heading",
+"en": "Main Heading"
+},
+"default": {
+"da": "Main Heading",
+"de": "Main Heading",
+"en": "Main Heading"
+}
+},
+{
+"type": "textarea",
+"id": "static_main_content",
+"label": {
+"da": "Main Content",
+"de": "Main Content",
+"en": "Main Content"
+},
+
+"default": {
+"da": "Main Content",
+"de": "Main Content",
+"en": "Main Content"
+}
+},
+{
+"type": "header",
+"content": {
+"da": "Section 1",
+"de": "Section 1",
+"en": "Section 1"
+}
+},
+{
+"type": "image_picker",
+"id": "image_1",
+"label": {
+"da": "Image",
+"de": "Image",
+"en": "Image"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "image_picker",
+"id": "image_12",
+"label": {
+"da": "Image 2",
+"de": "Image 2",
+"en": "Image 2"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "image_picker",
+"id": "image_13",
+"label": {
+"da": "Image 3",
+"de": "Image 3",
+"en": "Image 3"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "text",
+"id": "heading_1",
+"label": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+},
+"default": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+}
+},
+{
+"type": "textarea",
+"id": "content_1",
+"label": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+},
+"default": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+}
+},
+{
+"type": "header",
+"content": {
+"da": "Section 2",
+"de": "Section 2",
+"en": "Section 2"
+}
+},
+{
+"type": "image_picker",
+"id": "image_2",
+"label": {
+"da": "Image",
+"de": "Image",
+"en": "Image"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "image_picker",
+"id": "image_22",
+"label": {
+"da": "Image 2",
+"de": "Image 2",
+"en": "Image 2"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "image_picker",
+"id": "image_23",
+"label": {
+"da": "Image 3",
+"de": "Image 3",
+"en": "Image 3"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "text",
+"id": "heading_2",
+"label": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+},
+"default": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+}
+},
+{
+"type": "textarea",
+"id": "content_2",
+"label": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+},
+"default": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+}
+},
+{
+"type": "header",
+"content": {
+"da": "Section 3",
+"de": "Section 3",
+"en": "Section 3"
+}
+},
+{
+"type": "image_picker",
+"id": "image_3",
+"label": {
+"da": "Image",
+"de": "Image",
+"en": "Image"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "image_picker",
+"id": "image_32",
+"label": {
+"da": "Image 2",
+"de": "Image 2",
+"en": "Image 2"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "image_picker",
+"id": "image_33",
+"label": {
+"da": "Image 3",
+"de": "Image 3",
+"en": "Image 3"
+},
+ "info": {
+          "da": "595 x 446px .png recommended",
+          "de": "595 x 446px .png recommended",
+          "en": "595 x 446px .png recommended"
+        }
+},
+{
+"type": "text",
+"id": "heading_3",
+"label": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+},
+"default": {
+"da": "Heading",
+"de": "Heading",
+"en": "Heading"
+}
+},
+{
+"type": "textarea",
+"id": "content_3",
+"label": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+},
+"default": {
+"da": "Content",
+"de": "Content",
+"en": "Content"
+}
+}
+]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
